@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE article 
+PUBLIC "-//OASIS//DTD DocBook XML V4.5/zh_cn" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+	<info>
+		<title>文章</title>
+		<author>作者</author>
+		<address>地址</address>
+		<copyright><year>2008</year><holder>所有者</holder></copyright>
+	</info>
+	<sect1>
+		<title>标题</title>
+		<para>
+			内容
+		</para>
+	</sect1>
+</article>

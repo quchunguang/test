@@ -1,0 +1,1 @@
+cmd_/home/qcg/dev/testm/m/testcompletion.ko := ld -r -m elf_i386  --build-id -o /home/qcg/dev/testm/m/testcompletion.ko /home/qcg/dev/testm/m/testcompletion.o /home/qcg/dev/testm/m/testcompletion.mod.o

@@ -1,0 +1,74 @@
+# PSF file for /usr/contrib 1/14/97
+#
+#
+# Useful Commands:
+#
+# swpackage -p -vv -s /depot/psf_files/xxx.psf -d /depot/s700_contrib
+# swmodify -p -d -vv -s /depot/psf_files/xxx.psf xxx @ /depot/s700_contrib
+# swremove -p -v -d xxx,r=yyy @ /depot/s700_contrib
+# swinstall -p -v -s /depot/s700_contrib xxx
+#
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+# This section is optional -- delete it if you don't want it.
+#
+#vendor
+#	tag vvv
+#	title "vvv"
+#	description "vvv"
+#end
+##
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#
+# Describe the product below.  Search and replace the vvv, xxx and yyy. Delete
+# what you don't use.  Either define filesets by file or by whole directory.
+#
+product
+	tag testpkg
+	title "testpkg"
+	description "This is a test package"
+	revision 0
+	#
+	architecture S700/S800_HPUX_10
+	machine_type 9000/[78]*
+	os_name HP-UX
+	os_release ?.10.*
+	os_version *
+	#
+	fileset
+		tag bin
+		title "test executables"
+		revision 0.1
+
+		file -u 222 -g bin -o bin /qcg/testfile /usr/contrib/bin/testfile
+	# or
+		# directory xxx=/usr/contrib/bin
+		# file_permissions -u 222 -g bin -o bin
+		# file *
+	end
+	#
+#	fileset
+#		tag library
+#		title "xxx library"
+#		revision yyy
+#
+#		file -u 222 -g bin -o bin /xxx /usr/contrib/lib/xxx/xxx
+#	# or
+#		# directory xxx=/usr/contrib/lib/xxx
+#		# file_permissions -u 222 -g bin -o bin
+#		# file *
+#	end
+#	#
+#	fileset
+#		tag manpages
+#		title "xxx manpages"
+#		revision yyy
+#
+#		file -u 222 -g bin -o bin /xxx/xxx.man /usr/contrib/man/man1/xxx.1
+#	# or
+#		# directory xxx.1=/usr/contrib/man/man1
+#		# file_permissions -u 222 -g bin -o bin
+#		# file *
+#	end
+end
