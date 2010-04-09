@@ -1,0 +1,26 @@
+# Chinese translations for PACKAGE package.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# qcg <qu-chunguang@necsoft.com.cn>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-08 16:30+0800\n"
+"PO-Revision-Date: 2010-04-08 16:31+0800\n"
+"Last-Translator: qcg <qu-chunguang@necsoft.com.cn>\n"
+"Language-Team: Chinese (simplified)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: testgettext.c:13
+#, c-format
+msgid "My number is %d, My name is %s\n"
+msgstr "我的数字是%d, 我的名字是%s\n"
+
+#: testgettext2.c:13
+#, c-format
+msgid "File 2: My number is %d, My name is %s\n"
+msgstr "文件 2：我的数字是%d，我的名字是%s\n"
