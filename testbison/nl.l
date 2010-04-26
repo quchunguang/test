@@ -1,4 +1,5 @@
 %{
+	#include <stdio.h>
 	int yylineno;
 %}
 %%
@@ -12,4 +13,5 @@ int main (int argc, char *argv[])
 	yyin = fopen(argv[1], "r");
 	yylex();
 	fclose(yyin);
+	return 0;
 }
