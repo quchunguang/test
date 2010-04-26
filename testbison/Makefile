@@ -1,6 +1,6 @@
 # Makefile
 
-programs=nl testflex
+programs=nl testlex
 all: 		$(programs)
 	cd acalc && $(MAKE)
 	cd ccalc && $(MAKE)
@@ -13,9 +13,9 @@ clean:
 	cd rpncalc && $(MAKE) clean
 	cd testflex && $(MAKE) clean
 
-testflex: 	testflex.l
-	flex -o testflex.c testflex.l
-	gcc -Wall -ansi -o testflex testflex.c
+testlex: 	testfle.l
+	flex -o testlex.c testlex.l
+	gcc -Wall -ansi -o testlex testlex.c
 nl: 		nl.l
 	flex -o nl.c nl.l
 	gcc -o nl nl.c
