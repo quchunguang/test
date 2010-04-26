@@ -3,6 +3,9 @@
 #
 OBJS += ccalc.o cmath.o lex.o parse.o
 
+all: 		ccalc
+clean: 
+	rm -f ccalc $(OBJS) parse.c lex.c parse.h *~
 # rules
 %.c: %.y
 	bison -o $(@:%.o=%.d) $<

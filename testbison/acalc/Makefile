@@ -1,6 +1,6 @@
 all: test1 test test2 test3c test3i
 clean:
-	rm test1 test1.c test test.c test2 test2yy.h test2yy.c test2ll.c test3c test3i test3yy.h test3yy.c test3ll.c *.s *~
+	rm -f test1 test1.c test test.c test2 test2yy.h test2yy.c test2ll.c test3c test3i test3yy.h test3yy.c test3ll.c *.s *~
 
 test1: 		test1.l
 	flex -o test1.c test1.l

@@ -1,6 +1,6 @@
 all: 		rpncalc calc itcalc mfcalc
 clean: 		
-	rm rpncalc calc itcalc mfcalc *.tab.c *~
+	rm -f rpncalc calc itcalc mfcalc *.tab.c *~
 rpncalc: 	rpncalc.y
 	bison rpncalc.y
 	gcc -lm -o rpncalc rpncalc.tab.c

@@ -3,9 +3,13 @@
 programs=nl testflex
 all: 		$(programs)
 	cd acalc && $(MAKE)
+	cd ccalc && $(MAKE)
+	cd rpncalc && $(MAKE)
 clean:
-	rm $(programs) *.c *~
+	rm -f $(programs) *.c *~
 	cd acalc && $(MAKE) clean
+	cd ccalc && $(MAKE) clean
+	cd rpncalc && $(MAKE) clean
 
 testflex: 	testflex.l
 	flex -o testflex.c testflex.l
