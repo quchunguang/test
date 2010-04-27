@@ -1,4 +1,4 @@
-PRJS=replace nl pascalscan
+PRJS=replace nl pascalscan replacecommit
 all: 		$(PRJS)
 	
 clean: 		
