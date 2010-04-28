@@ -1,7 +1,14 @@
+%{
+#include <stdio.h>
+int inQuotes = 0;
+%}
 %option noyywrap
 /*%option caseless*/
 %%
 "/*"	{
+	if ( inQuotes ) {
+		REJECT;
+	}
 	register int c;
 
 	for ( ; ; ) {
@@ -19,6 +26,9 @@
 		}
 	}
 }
+\" 	{ ECHO; inQuotes = ! inQuotes; }
+\\\" 	{ ECHO; }
+
 ^[ \t]*\/\/.*\n$ ;
 \/\/.*$ ;
 %%

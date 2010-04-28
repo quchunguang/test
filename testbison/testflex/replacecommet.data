@@ -1,0 +1,15 @@
+/**
+ * Test data file in c/c++ style for replace commet
+ * in replacecommet.l
+ *
+ * muti-line commet
+ */
+int main()
+{
+	/* single line commet */
+	printf("/*NOT a commet!*/");
+	printf("\" is used well /* still not a \
+		commet*/");
+	// c++ style single line commet
+	int i; 	// c++ style single line commit in code line
+}
