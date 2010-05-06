@@ -2,11 +2,11 @@
 #  By Kevin Qu at quchunguang@gmail.com
 #  Copyright under GPL
 
-PRJS=replace nl pascalscan replacecommet
+PRJS=replace nl pascalscan replacecommet logecho
 all: 		$(PRJS)
 	
 clean: 		
-	rm -f $(PRJS) *.tab.c *~
+	rm -f $(PRJS) *.tab.c
 
 $(PRJS): \
 %: 	%.tab.c
@@ -17,11 +17,15 @@ $(PRJS): \
 	flex -o $(@:%.o=%.d) $<
 
 test: 	replace replacecommet
-	@logecho "[INFO] test replace..."
+	@logecho "[INFO] test replace ..."
 	@cat replace.data
 	@echo "---------------------------------------------"
 	@./replace < replace.data
-	@logecho "[INFO] test replace..."
+	@logecho "[INFO] test replacecommet ..."
 	@cat replacecommet.data
 	@echo "---------------------------------------------"
 	@./replacecommet < replacecommet.data
+	@logecho "[INFO] test logecho ..."
+	@cat logecho.data
+	@echo "---------------------------------------------"
+	@./logecho < logecho.data

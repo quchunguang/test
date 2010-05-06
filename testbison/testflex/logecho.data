@@ -1,0 +1,8 @@
+[INFO] information
+[WARN] warning
+[ERROR] error
+others will print out as it be
+   	[INFO] space and '\t' is enabled
+before [INFO] is disabled
+
+test space
