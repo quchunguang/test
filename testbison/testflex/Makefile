@@ -2,7 +2,7 @@
 #  By Kevin Qu at quchunguang@gmail.com
 #  Copyright under GPL
 
-PRJS=replace nl pascalscan replacecommet logecho
+PRJS=replace nl pascalscan replacecommet colorcat
 all: 		$(PRJS)
 	
 clean: 		
@@ -16,7 +16,7 @@ $(PRJS): \
 # -i: ignore case
 	flex -o $(@:%.o=%.d) $<
 
-test: 	replace replacecommet
+test: 	replace replacecommet colorcat
 	@logecho "[INFO] test replace ..."
 	@cat replace.data
 	@echo "---------------------------------------------"
@@ -25,7 +25,7 @@ test: 	replace replacecommet
 	@cat replacecommet.data
 	@echo "---------------------------------------------"
 	@./replacecommet < replacecommet.data
-	@logecho "[INFO] test logecho ..."
-	@cat logecho.data
+	@logecho "[INFO] test colorcat ..."
+	@cat colorcat.data
 	@echo "---------------------------------------------"
-	@./logecho < logecho.data
+	@./colorcat < colorcat.data

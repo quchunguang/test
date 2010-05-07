@@ -20,6 +20,11 @@ int inQuotes = 0;
 	ECHO;
 	printf("\033[0m");
 	}
+^[ \t]*\[DEBUG\].*$	{
+	printf("\033[30;1m");
+	ECHO;
+	printf("\033[0m");
+	}
 %%
 int main(void)
 {
