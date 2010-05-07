@@ -2,7 +2,7 @@
 #  By Kevin Qu at quchunguang@gmail.com
 #  Copyright under GPL
 
-PRJS=replace nl pascalscan replacecommet colorcat
+PRJS=replace nl pascalscan replacecommet colorcat filter
 all: 		$(PRJS)
 	
 clean: 		
