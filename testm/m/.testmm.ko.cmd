@@ -1,1 +1,0 @@
-cmd_/home/qcg/dev/module/m/testmm.ko := ld -r -m elf_i386 -T /usr/src/linux-2.6.32.2/scripts/module-common.lds --build-id -o /home/qcg/dev/module/m/testmm.ko /home/qcg/dev/module/m/testmm.o /home/qcg/dev/module/m/testmm.mod.o

@@ -22,7 +22,7 @@ obj-m += testcompletion.o
 obj-m += testproducer.o
 
 clean:
-	rm -fr *.o *.ko *.mod.c *.c~
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions
 all:
 	make -C /usr/src/linux SUBDIRS=`pwd` modules
 
