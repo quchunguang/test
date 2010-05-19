@@ -1,0 +1,5 @@
+set xdata time  	# The x axis data is time
+set timefmt "%d-%b-%y"  # The dates in the file look like 10-Jun-04
+set format x "%b %d"    # On the x-axis, we want tics like Jun 10
+plot ["31-May-04":"11-Jun-04"] 'ibm.dat' using 1:2 with linespoints
+pause -1

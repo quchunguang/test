@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{graphicx} % for includegraphics
+\usepackage{epsf} % for epsffile and epsfxsize
+
+\begin{document}
+
+This is an example tex file to show how to include a gnuplot generated
+tex figure in your \LaTeX document. The following is the gnuplot
+script used to generate the command. The output is in Fig.~\ref{fig1}:
+
+\begin{verbatim}
+set term latex
+set size 1,1
+set out 'gplt.tex'
+set xlabel '$\theta$'
+set ylabel '$sin(\theta)$'
+plot sin(x) notitle
+\end{verbatim}
+
+\begin{figure}
+\input{gplt.tex}
+\caption{A tex figure}
+\label{fig1}
+\end{figure}
+
+Figs.~\ref{fig2}~and~\ref{fig3} were generated with the following
+script:
+\begin{verbatim}
+set term post enh  		 # enhanced PostScript, essentially PostScript 
+		 		 		 # with bounding boxes
+set out 'gplt.eps'
+
+set xlabel '{/Symbol q_1}
+set ylabel 'sin^2({/Symbol q_1})'
+plot sin(x)**2
+\end{verbatim}
+\begin{figure}
+\epsfxsize=0.9\textwidth
+\epsffile{gplt.eps}
+\caption{An eps figure included using epsf}
+\label{fig2}
+\end{figure}
+
+\begin{figure} 
+ \centering 
+ \includegraphics[width=0.9\textwidth]{gplt.eps}
+\caption{An eps figure included using includegraphicx}  
+\label{fig3}
+\end{figure}
+\end{document}
+
