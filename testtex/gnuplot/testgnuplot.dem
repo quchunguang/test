@@ -1,3 +1,5 @@
+set terminal png          # gnuplot recommends setting terminal before output
+set output "testgnuplot.png" # The output filename; to be set after setting terminal
 set xrange [-pi:pi]
 # Uncomment the following to line up the axes
 # set lmargin 6
