@@ -1,0 +1,6 @@
+set terminal png          # gnuplot recommends setting terminal before output
+set output "plot1006.png" # The output filename; to be set after setting terminal
+set xdata time            # The x axis data is time
+set timefmt "%H:%M:%S"    # The dates in the file look like 10-Jun-04
+set format x "%M:%S"      # On the x-axis, we want tics like Jun 10
+plot 'plot1006.dat' using 1:2 with linespoints
