@@ -1,0 +1,89 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Kevin Q.}
+\title{A test article for lshort}
+\begin{document}
+
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+$c^{2}=a^{2}+b^{2}$
+
+\TeX{} is pronounced as
+$\tau\epsilon\chi$.\\[6pt]
+100~m$^{3}$ of water\\[6pt]
+This comes from my $\heartsuit$`
+
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+\begin{displaymath}
+c^{2}=a^{2}+b^{2}
+\end{displaymath}
+And just one more line.
+
+\begin{equation} \label{eq:eps}
+\epsilon > 0
+\end{equation}
+From (\ref{eq:eps}), we gather
+\ldots
+
+\begin{displaymath}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+
+\begin{displaymath}
+x^{2} \geq 0\qquad
+\textrm{for all }x\in\mathbb{R}
+\end{displaymath}
+
+$\lambda,\xi,\pi,\mu,\Phi,\Omega$
+
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+\int\!\!\!\int_{D} g(x,y)
+\, \ud x\, \ud y
+\end{displaymath}
+instead of
+\begin{displaymath}
+\int\int_{D} g(x,y)\ud x \ud y
+\end{displaymath}
+
+\begin{displaymath}
+\mathbf{X} =
+\left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ddots
+\end{array} \right)
+\end{displaymath}
+
+\begin{displaymath}
+\mathop{\mathrm{corr}}(X,Y)=
+\frac{\displaystyle
+\sum_{i=1}^n(x_i-\overline x)
+(y_i-\overline y)}
+{\displaystyle\biggl[
+\sum_{i=1}^n(x_i-\overline x)^2
+\sum_{i=1}^n(y_i-\overline y)^2
+\biggr]^{1/2}}
+\end{displaymath}
+
+Partl~\cite{pa} has
+proposed that \ldots
+
+\begin{thebibliography}{99}
+\bibitem{pa} H.~Partl:
+\emph{German \TeX},
+TUGboat Volume~9, Issue~1 (1988)
+\bibitem{pa1} H.~Partl:
+\emph{German \TeX},
+TUGboat Volume~9, Issue~1 (1988)
+\end{thebibliography}
+
+\end{document}
