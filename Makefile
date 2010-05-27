@@ -10,6 +10,7 @@ all:
 	cd testcore && $(MAKE)
 	cd bookdbg && $(MAKE)
 	cd testtex && $(MAKE)
+	cd testpy && $(MAKE)
 clean:
 	cd testbison && $(MAKE) clean
 	cd testcore && $(MAKE) clean
@@ -22,3 +23,4 @@ clean:
 	cd testcore && $(MAKE) clean
 	cd bookdbg && $(MAKE) clean
 	cd testtex && $(MAKE) clean
+	cd testpy && $(MAKE) clean
