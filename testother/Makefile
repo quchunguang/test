@@ -15,7 +15,14 @@
 #   run `gcov *.c` one by one and view every *.gcov file
 #   or
 #   run `lcov -d . -c -o testother.info` and `genhtml -o result testother.info` and view result
-#
+# 3 Demonstration of strace:
+#   $ ./testlsof &
+#   [1] 3125
+#   $ strace -o lsof.strace lsof -p 3125
+#   $ grep '/tmp/foo' lsof.strace
+#   readlink("/proc/3125/fd/3", "/tmp/foo", 4096) = 8
+#   $ ls -l /proc/14432/fd | grep foo
+
 CFLAGS 		= -Wall -ansi -g
 ADDFLAGS 	= -fprofile-arcs -ftest-coverage # for Coverage Test
 CFLAGS 	       += $(ADDFLAGS)
@@ -23,13 +30,15 @@ CFLAGS 	       += $(ADDFLAGS)
 sources  	= testuid.c \
 		  amicable-numbers.c \
 		  testio.c \
-		  randomgraph.c
+		  randomgraph.c \
+		  testlsof.c
 objects 	= $(sources:.c=.o)
 modules 	= #myproc.so
 projects 	= testuid \
 		  amicable-numbers \
 		  testio \
-		  randomgraph
+		  randomgraph \
+		  testlsof
 
 .PHONY: 	all clean
 all: 		$(objects) $(modules) $(projects)
@@ -54,18 +63,15 @@ $(modules): \
 
 # projects
 #################Start add######################
-# testuid
 testuid: 		testuid.o
 	$(CC) $(ADDFLAGS) -o $@ $<
-# amicable-numbers
 amicable-numbers: 	amicable-numbers.o
 	$(CC) $(ADDFLAGS) -lm -o $@ $<
-# testio
 testio:  		testio.o
 	$(CC) $(ADDFLAGS) -o $@ $<
-
-# randomgraph
 randomgraph: 		randomgraph.o
+	$(CC) $(ADDFLAGS) -o $@ $<
+testlsof: 		testlsof.o
 	$(CC) $(ADDFLAGS) -o $@ $<
 
 #################End add########################
