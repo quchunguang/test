@@ -1,0 +1,46 @@
+THIS C++ "May 18, 2001" "" "C++ Library"
+NAME
+this - pointer
+DESCRIPTION
+The this pointer is a special pointer that exists for a class
+while a nonstatic member function is executing. It is a pointer
+to an object of the type of the class, and it points to the
+object for which the member function currently is executing.
+.br
+
+11111
+void Date::month_display()
+{
+	// These two statements do the same thing.
+	cout << month;
+	cout << this -> month;
+}
+22222
+
+One use of this pointer allows member functions to return
+the invoking objet (or its address or a reference to it)
+to the caller.
+EXAMPLE
+EXAMPLEMARK
+// Overloaded Date assignment.
+Date& Date::operator=(const Date& dt)
+{
+    if (this != &dt)
+    {
+        mo = dt.mo;
+        da = dt.da;
+        yr = dt.yr;
+        delete [] month;
+        if (dt.month != 0)
+        {
+            month = new char [strlen(dt.month)+1];
+            strcpy(month, dt.month);
+        }
+        else
+            month = 0;
+    }
+    return *this;
+}
+EXAMPLEMARK
+
+AUTHOR
