@@ -1,12 +1,12 @@
 # create ~/.manpath like this,
-#   MANDATORY_MANPATH			/home/qcg/man
-#   MANPATH_MAP	/home/qcg/bin		/home/qcg/man
+#   MANDATORY_MANPATH			/home/qcg/share/man
+#   MANPATH_MAP	/home/qcg/bin		/home/qcg/share/man
 # $ manpath
 # to show if it worked, and then `man this`
 # See
 #   http://anaturb.net/create_man_p.htm
 
-MAN_PATH=/home/qcg/man
+MAN_PATH=${HOME}/share/man
 
 all: 		this
 clean:
