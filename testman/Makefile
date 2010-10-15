@@ -6,16 +6,19 @@
 # See
 #   http://anaturb.net/create_man_p.htm
 
-MAN_PATH=${HOME}/share/man
+NAME=this
+MAN_LEVEL=3
+MAN_FILE=$(NAME).$(MAN_LEVEL)
+MAN_PATH=${HOME}/share/man/man$(MAN_LEVEL)
 
 all: 		this
 clean:
-	rm -f this.tmp $(MAN_PATH)/man3/this.3.bz2
+	rm -f $(NAME).tmp $(MAN_PATH)/$(MAN_FILE).gz
 .PHONY: 	all clean
 
-this: 		this.txt this.sed
-	sed -f this.sed this.txt > this.3
-	nroff -e -mandoc this.3
-	mkdir -p $(MAN_PATH)/man3
-	bzip2 this.3
-	mv this.3.bz2 $(MAN_PATH)/man3/
+$(NAME): 		$(NAME).txt $(NAME).sed
+	sed -f $(NAME).sed $(NAME).txt > $(MAN_FILE)
+	nroff -e -mandoc $(MAN_FILE)
+	mkdir -p $(MAN_PATH)
+	gzip $(MAN_FILE)
+	mv $(MAN_FILE).gz $(MAN_PATH)
