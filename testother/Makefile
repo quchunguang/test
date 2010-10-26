@@ -31,14 +31,16 @@ sources  	= testuid.c \
 		  amicable-numbers.c \
 		  testio.c \
 		  randomgraph.c \
-		  testlsof.c
+		  testlsof.c \
+		  testsyscall.c
 objects 	= $(sources:.c=.o)
 modules 	= #myproc.so
 projects 	= testuid \
 		  amicable-numbers \
 		  testio \
 		  randomgraph \
-		  testlsof
+		  testlsof \
+		  testsyscall
 
 .PHONY: 	all clean
 all: 		$(objects) $(modules) $(projects)
@@ -72,6 +74,8 @@ testio:  		testio.o
 randomgraph: 		randomgraph.o
 	$(CC) $(ADDFLAGS) -o $@ $<
 testlsof: 		testlsof.o
+	$(CC) $(ADDFLAGS) -o $@ $<
+testsyscall: 		testsyscall.o
 	$(CC) $(ADDFLAGS) -o $@ $<
 
 #################End add########################

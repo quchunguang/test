@@ -1,0 +1,3931 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    169224,       3921]
+NotebookOptionsPosition[    167523,       3862]
+NotebookOutlinePosition[    168179,       3887]
+CellTagsIndexPosition[    168136,       3884]
+WindowTitle->Analog-to-Discrete System Conversion Using Impulse Invariance - \
+Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Analog-to-Discrete System Conversion Using Impulse Invariance\
+\>", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"process", "[", 
+    RowBox[{"\[Xi]", ",", "\[CapitalOmega]n", ",", "T"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Labeled", "[", 
+      RowBox[{
+       RowBox[{"Grid", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Text", "[", "\"\<\[Xi]\>\"", "]"}], ",", 
+             RowBox[{"Control", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[Xi]", ",", ".07", ",", "\"\<\>\""}], "}"}], ",", 
+                "0", ",", "1.2", ",", ".1", ",", 
+                RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], " ", 
+                ",", 
+                RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], "]"}]}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+             "Text", "[", 
+              "\"\<\!\(\*SubscriptBox[\(\[CapitalOmega]\), \(n\)]\) (rad/sec)\
+\>\"", "]"}], ",", 
+             RowBox[{"Control", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[CapitalOmega]n", ",", "1", ",", "\"\<\>\""}], 
+                 "}"}], ",", "0.01", ",", "Pi", ",", ".1", ",", 
+                RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], " ", 
+                ",", 
+                RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], "]"}]}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Text", "@", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<T\>\"", ",", "Italic"}], "]"}], ",", " ", 
+                 "\"\< (sec)\>\""}], "}"}], "]"}]}], ",", 
+             RowBox[{"Control", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"T", ",", "1", ",", "\"\<\>\""}], "}"}], ",", "0.01",
+                 ",", 
+                RowBox[{"2", "Pi"}], ",", ".1", ",", 
+                RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], " ", 
+                ",", 
+                RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], "]"}]}], 
+            "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+         RowBox[{"Spacings", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], ",", 
+       RowBox[{"Column", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Text", "@", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<second-order system specification\>\"", ",", "11"}],
+              "]"}]}], ",", 
+           RowBox[{"Text", "@", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "''"}], ",", 
+               "\"\<(\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<) + 2 \[Xi] \>\"", ",", 
+               SubscriptBox["\[CapitalOmega]", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<n\>\"", ",", "Italic"}], "]"}]], ",", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "'"}], ",", 
+               "\"\<(\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", " ", 
+               "\"\<) + \>\"", ",", 
+               SubsuperscriptBox["\[CapitalOmega]", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<n\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], ",", "\"\<(\>\"",
+                ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<) = \[Delta](\>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<)\>\""}], "}"}], "]"}]}]}], "}"}], ",", "Center"}], "]"}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"Top", ",", "Center"}], "}"}], "}"}], ",", 
+       RowBox[{"Spacings", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}]}], "\[IndentingNewLine]", "]"}], 
+     ",", 
+     RowBox[{"FrameMargins", "\[Rule]", "7"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "260"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Grid", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"\[Xi]", ">", "0"}], ",", 
+            RowBox[{"Text", "@", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "''"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) + \>\"", ",", 
+                  RowBox[{"ToString", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"2", " ", "\[Xi]", " ", "\[CapitalOmega]n"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"4", ",", "3"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<\>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}], 
+                   "]"}], ",", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "'"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) + \>\"", ",", 
+                  RowBox[{"ToString", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "^", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"4", ",", "3"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<\>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}], 
+                   "]"}], ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) = \[Delta](\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<)\>\""}], "}"}], "]"}], ",", "11"}], "]"}]}], ",", 
+            RowBox[{"Text", "@", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], "''"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) + \>\"", ",", 
+                  RowBox[{"ToString", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "^", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"4", ",", "3"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<\>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}], 
+                   "]"}], ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) = \[Delta](\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<)\>\""}], "}"}], "]"}], ",", "11"}], "]"}]}]}], "]"}], 
+          "]"}], "}"}], "}"}], ",", 
+       RowBox[{"Spacings", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+       RowBox[{"ItemSize", "\[Rule]", "30"}], ",", 
+       RowBox[{"Frame", "\[Rule]", "None"}]}], "]"}], ",", 
+     RowBox[{"FrameMargins", "\[Rule]", "7"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "260"}]}], "\[IndentingNewLine]", "]"}], 
+   ",", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Grid", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Labeled", "[", 
+            RowBox[{
+             RowBox[{"Control", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"maxy", ",", "1", ",", "\"\<\>\""}], "}"}], ",", 
+                "0.1", ",", "10", ",", ".1", ",", "\[IndentingNewLine]", 
+                RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"ControlType", "\[Rule]", "VerticalSlider"}], ",", 
+                RowBox[{"Enabled", "\[Rule]", 
+                 RowBox[{"Dynamic", "@", 
+                  RowBox[{"TrueQ", "[", 
+                   RowBox[{"fixScale", "\[Equal]", "0"}], "]"}]}]}]}], "}"}], 
+              "]"}], ",", 
+             RowBox[{"Text", "@", 
+              RowBox[{"Column", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Row", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<(\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<)\>\""}], "}"}], "]"}], ",", "\"\< scale\>\""}], 
+                 "}"}], ",", 
+                RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"{", 
+               RowBox[{"Top", ",", "Center"}], "}"}], "}"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Dynamic", "[", 
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"\[Xi]", "\[Equal]", "1"}], ",", 
+                RowBox[{"t", " ", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{
+                   RowBox[{"-", "t"}], " ", "\[CapitalOmega]n"}], "]"}]}], 
+                ",", 
+                RowBox[{"-", 
+                 FractionBox[
+                  RowBox[{
+                   SuperscriptBox["\[ExponentialE]", 
+                    RowBox[{"t", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[Xi]"}], " ", "\[CapitalOmega]n"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}]}], ")"}]}]], "-", 
+                   SuperscriptBox["\[ExponentialE]", 
+                    RowBox[{"t", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[Xi]"}], " ", "\[CapitalOmega]n"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}]}], ")"}]}]]}], 
+                  RowBox[{"2", " ", "\[CapitalOmega]n", 
+                   SqrtBox[
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"], " "}]]}]]}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"t", ",", "0", ",", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"TrueQ", "[", 
+                   RowBox[{"fixScale", "\[Equal]", "1"}], "]"}], ",", "50", 
+                  ",", "maxt"}], "]"}]}], "}"}], ",", 
+              RowBox[{"ImageMargins", "\[Rule]", "0"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "220"}], ",", 
+              RowBox[{"ImagePadding", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"40", ",", "40"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"10", ",", "20"}], "}"}]}], "}"}]}], ",", 
+              RowBox[{"AspectRatio", "\[Rule]", ".6"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"TrueQ", "[", 
+                    RowBox[{"fixScale", "\[Equal]", "1"}], "]"}], ",", 
+                    "Automatic", ",", "maxt"}], "]"}]}], "}"}], ",", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"TrueQ", "[", 
+                    RowBox[{"fixScale", "\[Equal]", "1"}], "]"}], ",", "All", 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "maxy"}], ",", "maxy"}], "}"}]}], "]"}]}], 
+                "}"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Text", "@", 
+                  RowBox[{"Row", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< (sec)\>\""}], "}"}], "]"}]}], ",", 
+                 RowBox[{"Text", "@", 
+                  RowBox[{"Row", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<y\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<(\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<t\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<)\>\""}], "}"}], "]"}]}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Text", "@", 
+                RowBox[{"Row", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<impulse response\>\"", ",", "11"}], "]"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< (underdamped)\>\"", ",", "11"}], "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< (overdamped)\>\"", ",", "11"}], "]"}], ",", 
+                    
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< (critcally damped)\>\"", ",", "11"}], 
+                    "]"}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+                  ",", "\[IndentingNewLine]", 
+                  RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}]}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+              RowBox[{"TicksStyle", " ", "->", " ", 
+               RowBox[{"Directive", "[", "8", "]"}]}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], "]"}]}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Control", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"maxt", ",", "50", ",", 
+                RowBox[{"Text", "[", "\"\<time scale\>\"", "]"}]}], "}"}], 
+              ",", "0.1", ",", "100", ",", ".1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], " ", ",", 
+              
+              RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+              RowBox[{"Enabled", "\[Rule]", 
+               RowBox[{"Dynamic", "@", 
+                RowBox[{"TrueQ", "[", 
+                 RowBox[{"fixScale", "\[Equal]", "0"}], "]"}]}]}]}], "}"}], 
+            "]"}], ",", "SpanFromLeft"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Control", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"fixScale", ",", "1", ",", 
+                RowBox[{"Text", "[", "\"\<use automatic scale\>\"", "]"}]}], 
+               "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1"}], "}"}], " ", ",", 
+              RowBox[{"ControlType", "\[Rule]", "Checkbox"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], "]"}], ",", 
+           "SpanFromLeft"}], "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+       RowBox[{"Spacings", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"Frame", "\[Rule]", "None"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"FrameMargins", "\[Rule]", "5"}]}], "\[IndentingNewLine]", "]"}],
+    ",", "\[IndentingNewLine]", 
+   RowBox[{"Panel", "[", 
+    RowBox[{
+     RowBox[{"Grid", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Column", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Dynamic", "[", 
+               RowBox[{"Plot", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"t", ",", ".5", ",", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", ".5"}], ",", 
+                    RowBox[{"-", "2"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "1"}], ",", 
+                    RowBox[{"-", "2"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "2"}], ",", 
+                    RowBox[{"-", "4.5"}], ",", 
+                    RowBox[{"-", "6"}]}], "]"}]}], "]"}]}], "]"}]}], " ", 
+                  "}"}], ",", 
+                 RowBox[{"ImageSize", "\[Rule]", 
+                  RowBox[{"{", "130", "}"}]}], ",", 
+                 RowBox[{"ImageMargins", "\[Rule]", "0"}], ",", 
+                 RowBox[{"ImagePadding", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"15", ",", "5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "20"}], "}"}]}], "}"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"AspectRatio", "\[Rule]", "1.6"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PlotRange", "\[Rule]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"TrueQ", "[", 
+                    RowBox[{"fixScaleHsPoles", "\[Equal]", "1"}], "]"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.2"}], "\[CapitalOmega]n", " ", "\[Xi]"}], 
+                    ",", 
+                    RowBox[{".2", "\[CapitalOmega]n", " ", "\[Xi]"}]}], "}"}],
+                     ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.2"}], 
+                    RowBox[{"(", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}], ")"}]}], ",", 
+                    RowBox[{"1.2", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "}"}]}], "}"}], 
+                    ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.2"}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ")"}]}], 
+                    ",", ".5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", ".2"}], ",", ".2"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", ".5"}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", ".2"}], ",", ".2"}], "}"}]}], "}"}]}], 
+                    "]"}]}], "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", ".5"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], ",", ".5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3.5"}], ",", "3.5"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], ",", ".5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3.5"}], ",", "3.5"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "4.5"}], ",", ".5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3.5"}], ",", "3.5"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "6"}], ",", ".5"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3.5"}], ",", "3.5"}], "}"}]}], "}"}]}], 
+                    "]"}]}], "]"}]}], "]"}]}], "]"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"AxesOrigin", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Ticks", "\[Rule]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"TrueQ", "[", 
+                    RowBox[{"fixScaleHsPoles", "\[Equal]", "1"}], "]"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.2"}], "\[CapitalOmega]n", " ", "\[Xi]"}], 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"-", ".5"}], "\[CapitalOmega]n", " ", "\[Xi]"}]}],
+                     "}"}], ",", "Automatic"}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1.2"}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ")"}]}], 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"-", ".5"}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], 
+                    ")"}]}]}], "}"}], ",", "Automatic"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", ".5"}], "}"}], 
+                    ",", "Automatic"}], "}"}]}], "]"}]}], "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", ".5"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], ",", 
+                    RowBox[{"-", "1"}]}], "}"}], ",", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "2"}], ",", 
+                    RowBox[{"-", "1"}]}], "}"}], ",", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "<", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "4"}], ",", 
+                    RowBox[{"-", "2"}]}], "}"}], ",", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "6"}], ",", 
+                    RowBox[{"-", "4"}], ",", 
+                    RowBox[{"-", "2"}]}], "}"}], ",", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}]}], "]"}]}],
+                     "]"}]}], "]"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"TicksStyle", " ", "->", " ", 
+                  RowBox[{"Directive", "[", "8", "]"}]}], ",", 
+                 RowBox[{"PlotLabel", "\[Rule]", 
+                  RowBox[{"Text", "@", 
+                   RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"H", "[", "s", "]"}], ",", "11"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< poles\>\"", ",", "11"}], "]"}]}], "}"}], 
+                    "]"}]}]}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"AxesLabel", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{"None", ",", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<\[CapitalOmega]\>\""}], "}"}], "]"}]}]}], "}"}]}], 
+                 ",", 
+                 RowBox[{"Epilog", "\[Rule]", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Thin", ",", "Red", ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", 
+                    "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", "0"}], "}"}]}], 
+                    "]"}]}], "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Thin", ",", "Red", ",", 
+                    RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", 
+                    "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", "0"}], "}"}]}], 
+                    "]"}]}], "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<\[Cross]\>\"", ",", "Bold", ",", "16"}], 
+                    "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", 
+                    "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", "0"}], "}"}]}], 
+                    "]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "]"}], ",", 
+                    RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<\[Cross]\>\"", ",", "Bold", ",", "16"}], 
+                    "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", 
+                    "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], ",", "0"}], "}"}]}], 
+                    "]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "}"}]}]}], 
+                "]"}], "]"}], "\[IndentingNewLine]", ",", 
+              RowBox[{"Control", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"fixScaleHsPoles", ",", "0", ",", 
+                   RowBox[{
+                   "Text", "[", "\"\<use automatic scale\>\"", "]"}]}], "}"}],
+                  ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "1"}], "}"}], " ", ",", 
+                 RowBox[{"ControlType", "\[Rule]", "Checkbox"}], ",", 
+                 RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], "]"}]}], 
+             "}"}], ",", 
+            RowBox[{"Spacings", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"Plot", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", "130", "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"ImageMargins", "\[Rule]", "0"}], ",", 
+             RowBox[{"ImagePadding", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "1"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"5", ",", "10"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+             RowBox[{"AxesOrigin", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"PlotLabel", "\[Rule]", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Text", "@", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"H", "[", "z", "]"}], ",", 
+                    RowBox[{"Style", "[", "\"\< poles\>\"", "]"}]}], "}"}], 
+                  "]"}]}], ",", "11"}], "]"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+             RowBox[{"Epilog", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Circle", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}], ",", "1"}], "]"}], ",", 
+                RowBox[{"Text", "[", 
+                 RowBox[{
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<\[Cross]\>\"", ",", "Bold", ",", "16"}], 
+                   "]"}], ",", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "]"}], 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "]"}], 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"T", " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}]}], "}"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "]"}], ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "T"}], "]"}], ",",
+                     "0"}], "}"}]}], "]"}]}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}]}], "]"}], ",", 
+                RowBox[{"Text", "[", 
+                 RowBox[{
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<\[Cross]\>\"", ",", "Bold", ",", "16"}], 
+                   "]"}], ",", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "]"}], 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "]"}], 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}]}], "}"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "]"}], ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "T"}], "]"}], ",",
+                     "0"}], "}"}]}], "]"}]}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", "0"}], "}"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"{", 
+                 RowBox[{"Thin", ",", "Red", ",", 
+                  RowBox[{"Line", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "]"}], 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"T", " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "]"}], 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"T", " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}]}], "}"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "+", 
+                    RowBox[{"T", " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "]"}], ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n"}], "]"}], ",",
+                     "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], "]"}]}], "}"}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{"Thin", ",", "Red", ",", 
+                  RowBox[{"Line", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "]"}], 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "]"}], 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}]}], "}"}], ",", 
+                    
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "1"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n", " ", 
+                    "\[Xi]"}], "-", 
+                    RowBox[{"T", " ", "\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "+", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}]}], "]"}], ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "T"}], " ", "\[CapitalOmega]n"}], "]"}], ",",
+                     "0"}], "}"}]}], "]"}]}], "]"}]}], "}"}], "]"}]}], 
+                 "}"}]}], "\[IndentingNewLine]", "}"}]}]}], "]"}], "]"}]}], 
+         "}"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Alignment", "\[Rule]", "Center"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Spacings", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"Frame", "\[Rule]", "None"}], ",", 
+       RowBox[{"ItemSize", "\[Rule]", "16"}]}], "]"}], ",", 
+     RowBox[{"FrameMargins", "\[Rule]", "1"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"260", ",", "180"}], "}"}], "}"}]}]}], "\[IndentingNewLine]", 
+    "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"maxy", ",", "1"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"maxt", ",", "50"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"fixScale", ",", "1"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ContinuousAction", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "True"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", " ", "\[IndentingNewLine]", 
+    RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"str", "[", "expr_", "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"expr", ",", 
+             RowBox[{"FormatType", "\[Rule]", "TraditionalForm"}]}], "]"}], 
+           ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"c", ":", "LetterCharacter"}], "~~", "\"\<$\>\"", "~~", 
+             RowBox[{"DigitCharacter", ".."}]}], "\[RuleDelayed]", "c"}]}], 
+          "]"}]}], "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]",
+       "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"numIt", "[", 
+        RowBox[{"v_", ",", "s1_", ",", "s2_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"AccountingForm", "[", 
+           RowBox[{
+            RowBox[{"Chop", "[", "v", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"s1", ",", "s2"}], "}"}], ",", 
+            RowBox[{"NumberPadding", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\< \>\"", ",", "\"\<0\>\""}], "}"}]}], ",", 
+            RowBox[{"NumberSigns", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<-\>\"", ",", "\"\<\>\""}], "}"}]}]}], "]"}], 
+          "]"}]}], "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]",
+       "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"formatHsPoles", "[", 
+        RowBox[{"\[CapitalOmega]n_", ",", " ", "\[Xi]_", ",", "T_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"p1", ",", "p2"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"p1", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{
+                  RowBox[{"T", " ", "\[CapitalOmega]n"}], ",", "6", ",", 
+                  "4"}], "]"}]}], "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], ",", "6", ",", "4"}], "]"}], ",", "\"\< + \>\"", 
+                  ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{"\[CapitalOmega]n", " ", "T", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}], ",", "6", ",", "4"}],
+                    "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", " ", "T", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", "6",
+                    ",", "4"}], "]"}], "}"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"p2", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<- j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{
+                  RowBox[{"\[CapitalOmega]n", " ", "T"}], ",", "6", ",", 
+                  "4"}], "]"}]}], "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], ",", "6", ",", "4"}], "]"}], ",", "\"\< - \>\"", 
+                  ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{"\[CapitalOmega]n", " ", "T", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}], ",", "6", ",", "4"}],
+                    "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", 
+                    "T"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", " ", "T", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", "6",
+                    ",", "4"}], "]"}], "}"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"p1", ",", "p2"}], "}"}]}]}], "\[IndentingNewLine]", 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"formatHsPoles", "[", 
+        RowBox[{"\[CapitalOmega]n_", ",", " ", "\[Xi]_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"p1", ",", "p2"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"p1", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{"\[CapitalOmega]n", ",", "6", ",", "4"}], "]"}]}], 
+               "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    "6", ",", "4"}], "]"}], ",", "\"\< + \>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}], ",", "6", ",", "4"}],
+                    "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "+", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", "6",
+                    ",", "4"}], "]"}], "}"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"p2", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<- j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{"\[CapitalOmega]n", ",", "6", ",", "4"}], "]"}]}], 
+               "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], ",", 
+                    "6", ",", "4"}], "]"}], ",", "\"\< - \>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                  RowBox[{"numIt", "[", 
+                   RowBox[{
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}]}]]}], ",", "6", ",", "4"}],
+                    "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "-", 
+                    RowBox[{"\[CapitalOmega]n", 
+                    SqrtBox[
+                    RowBox[{" ", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}]}]]}]}], ",", "6",
+                    ",", "4"}], "]"}], "}"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"p1", ",", "p2"}], "}"}]}]}], "\[IndentingNewLine]", 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"formatHzPoles", "[", 
+        RowBox[{"\[CapitalOmega]n_", ",", " ", "\[Xi]_", ",", "T_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "p1", ",", "p2", ",", "t1", ",", "tt1", ",", "t2", ",", "tt2", ",", 
+           "t3", ",", "tt3"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{"for", "  ", "zeta"}], " ", "<", " ", "1"}], "*)"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"tt1", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", "T"}], 
+              "]"}], 
+             RowBox[{"Cos", "[", 
+              RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+               SqrtBox[
+                RowBox[{"1", "-", 
+                 SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"tt2", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", "T"}], 
+              "]"}], 
+             RowBox[{"Sin", "[", 
+              RowBox[{"T", " ", "\[CapitalOmega]n", 
+               SqrtBox[
+                RowBox[{"1", "-", 
+                 SuperscriptBox["\[Xi]", "2"]}]]}], "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"for", "  ", "zeta"}], " ", ">", " ", "1"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"t1", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"Exp", "[", 
+             RowBox[{"T", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], " ", "+", 
+                
+                RowBox[{"\[CapitalOmega]n", "  ", 
+                 SqrtBox[
+                  RowBox[{
+                   SuperscriptBox["\[Xi]", "2"], "-", "1"}]]}]}], ")"}]}], 
+             "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"t2", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"Exp", "[", 
+             RowBox[{"T", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], " ", "-", 
+                
+                RowBox[{"\[CapitalOmega]n", "  ", 
+                 SqrtBox[
+                  RowBox[{
+                   SuperscriptBox["\[Xi]", "2"], "-", "1"}]]}]}], ")"}]}], 
+             "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"for", "  ", "zeta"}], " ", "=", " ", "1"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"t3", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"Exp", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", "T"}], 
+              "+", 
+              RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+               SqrtBox[
+                RowBox[{
+                 SuperscriptBox["\[Xi]", "2"], "-", "1"}]]}]}], "]"}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tt3", "=", 
+           RowBox[{"N", "[", 
+            RowBox[{"Exp", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]", " ", "T"}], 
+              "-", 
+              RowBox[{"\[CapitalOmega]n", " ", "T", " ", 
+               SqrtBox[
+                RowBox[{
+                 SuperscriptBox["\[Xi]", "2"], "-", "1"}]]}]}], "]"}], 
+            "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"p1", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "<", "1"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"numIt", "[", 
+                 RowBox[{"tt1", ",", "6", ",", "4"}], "]"}], ",", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Sign", "[", "tt2", "]"}], "\[Equal]", "1"}], ",", 
+                  "\"\< + \>\"", ",", "\"\< - \>\""}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\< j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{
+                  RowBox[{"Abs", "[", "tt2", "]"}], ",", "6", ",", "4"}], 
+                 "]"}]}], "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", ">", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{"t1", ",", "6", ",", "4"}], "]"}], "}"}], "]"}], 
+               ",", 
+               RowBox[{"numIt", "[", 
+                RowBox[{
+                 RowBox[{"N", "[", 
+                  RowBox[{"Exp", "[", 
+                   RowBox[{
+                    RowBox[{"-", " ", "\[CapitalOmega]n"}], " ", "T"}], "]"}],
+                   "]"}], ",", "6", ",", "4"}], "]"}]}], "]"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"p2", "=", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Xi]", "<", "1"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"numIt", "[", 
+                 RowBox[{"tt1", ",", "6", ",", "4"}], "]"}], ",", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Sign", "[", "tt2", "]"}], "\[Equal]", "1"}], ",", 
+                  "\"\< - \>\"", ",", "\"\< + \>\""}], "]"}], ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                RowBox[{"numIt", "[", 
+                 RowBox[{
+                  RowBox[{"Abs", "[", "tt2", "]"}], ",", "6", ",", "4"}], 
+                 "]"}]}], "}"}], "]"}], ",", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", ">", "1"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"numIt", "[", 
+                  RowBox[{"t2", ",", "6", ",", "4"}], "]"}], "}"}], "]"}], 
+               ",", 
+               RowBox[{"numIt", "[", 
+                RowBox[{
+                 RowBox[{"N", "[", 
+                  RowBox[{"Exp", "[", 
+                   RowBox[{
+                    RowBox[{"-", "\[CapitalOmega]n"}], " ", "T"}], "]"}], 
+                  "]"}], ",", "6", ",", "4"}], "]"}]}], "]"}]}], "]"}]}], ";",
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"p1", ",", "p2"}], "}"}]}]}], "\[IndentingNewLine]", 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"process", "[", 
+        RowBox[{"\[Xi]_", ",", "\[CapitalOmega]n_", ",", "Ts_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "s", ",", "\[CapitalOmega]", ",", "plotOptions", ",", "hz", ",", 
+           "z", ",", "dtft", ",", "\[Omega]", ",", "fourierTransformPlot", 
+           ",", "dtftPlot", ",", "tfLaplace", ",", "tfFourier", ",", "ps1", 
+           ",", "ps2", ",", "absMag", ",", "fourierTransformPlotLabel", ",", 
+           "ps1Str", ",", "ps2Str", ",", "f1", ",", "f2", ",", 
+           "dtftPlotLabel", ",", "pz1Str", ",", "pz2Str", ",", "f3", ",", 
+           "f4", ",", "p1Coeff", ",", "p2Coeff"}], "}"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"plotOptions", "=", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", "310", "}"}]}], ",", 
+             RowBox[{"ImageMargins", "\[Rule]", "0"}], ",", 
+             RowBox[{"ImagePadding", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"45", ",", "55"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"20", ",", "30"}], "}"}]}], "}"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"AspectRatio", "\[Rule]", ".45"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Thick", ",", "Red"}], "}"}]}]}], "}"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"ps1", "=", 
+           RowBox[{"Chop", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "-", 
+             RowBox[{"\[CapitalOmega]n", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                SuperscriptBox["\[Xi]", "2"]}]]}]}], "]"}]}], ";", " ", 
+          RowBox[{"ps2", "=", 
+           RowBox[{"Chop", "[", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "\[CapitalOmega]n"}], " ", "\[Xi]"}], "+", 
+             RowBox[{"\[CapitalOmega]n", 
+              SqrtBox[
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                SuperscriptBox["\[Xi]", "2"]}]]}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"ps1Str", ",", "ps2Str"}], "}"}], "=", 
+           RowBox[{"formatHsPoles", "[", 
+            RowBox[{"\[CapitalOmega]n", ",", " ", 
+             RowBox[{"Chop", "[", "\[Xi]", "]"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"pz1Str", ",", "pz2Str"}], "}"}], "=", 
+           RowBox[{"formatHzPoles", "[", 
+            RowBox[{"\[CapitalOmega]n", ",", " ", 
+             RowBox[{"Chop", "[", "\[Xi]", "]"}], ",", "Ts"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"tfLaplace", "=", 
+           FractionBox["1", 
+            RowBox[{
+             SuperscriptBox["s", "2"], "+", 
+             RowBox[{"2", "\[Xi]", " ", "\[CapitalOmega]n", " ", "s"}], "+", 
+             SuperscriptBox["\[CapitalOmega]n", "2"]}]]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"tfFourier", "=", 
+           RowBox[{"tfLaplace", "/.", 
+            RowBox[{"s", "\[Rule]", 
+             RowBox[{"I", " ", "\[CapitalOmega]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"absMag", "=", 
+           RowBox[{"ComplexExpand", "[", 
+            RowBox[{"Abs", "[", "tfFourier", "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"fourierTransformPlotLabel", "=", 
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<H(s)\>\"", ",", "Italic", ",", "12"}], 
+                    "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"35", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "[", 
+                    RowBox[{"\"\<1\>\"", "/", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", ">", "0"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<s\>\"", ",", "Italic"}], "]"}], "2"], ",", 
+                    "\"\< +\>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"2", " ", "\[Xi]", " ", "\[CapitalOmega]n"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"6", ",", "4"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\< \>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}],
+                     "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< s\>\"", ",", "Italic"}], "]"}], ",", " ", 
+                    "\"\< +\>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "^", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"6", ",", "4"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\< \>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}],
+                     "]"}]}], "}"}], ",", 
+                    RowBox[{"ImageMargins", "\[Rule]", "0"}]}], "]"}], ",", 
+                    "12"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    "\"\<\!\(\*SuperscriptBox[\(s\), \(2\)]\)\>\"", ",", 
+                    "Italic"}], "]"}], ",", "\"\< + \>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"\[CapitalOmega]n", "^", "2"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"6", ",", "4"}], "}"}], ",", 
+                    RowBox[{"NumberPadding", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\< \>\"", ",", "\"\<0\>\""}], "}"}]}]}], "]"}],
+                     "]"}]}], "}"}], "]"}], "]"}]}], "]"}]}], "]"}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"280", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 "SpanFromLeft"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "[", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<poles\>\"", ",", "12"}], "]"}], "]"}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"35", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"ps1Str", ",", "12"}], "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"110", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"ps2Str", ",", "12"}], "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"110", ",", "30"}], "}"}]}]}], "]"}]}], "}"}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+             RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"fourierTransformPlot", "=", 
+           RowBox[{"Framed", "@", 
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"20", " ", 
+               RowBox[{"Log", "[", 
+                RowBox[{"10", ",", "absMag"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[CapitalOmega]", ",", "0", ",", 
+                RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+              
+              RowBox[{"Evaluate", "[", "plotOptions", "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", "Pi"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "40"}], ",", "80"}], "}"}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"TraditionalForm", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "\"\<\[CapitalOmega] \>\"", ",", "\"\<(rad/sec)\>\""}], 
+                    "}"}], "]"}]}]}], ",", "10"}], "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"TraditionalForm", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<20 log|\>\"", ",", 
+                    SubscriptBox["H", "a"], ",", "\"\<(\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<j\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< \[CapitalOmega])|\>\"", ",", "\"\< (db)\>\""}], 
+                    "}"}], "]"}]}]}], ",", "10"}], "]"}]}], "}"}]}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{
+                "\"\<continuous\[Hyphen]time Fourier transform magnitude \
+spectrum\>\"", ",", "Bold", ",", "12"}], "]"}]}]}], "]"}]}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"\[Xi]", "==", "1"}], ",", 
+            RowBox[{"hz", "=", 
+             FractionBox[
+              RowBox[{"Ts", " ", "z", "  ", 
+               RowBox[{"Exp", "[", 
+                RowBox[{"ps1", " ", "Ts"}], "]"}]}], 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"ps1", " ", "Ts"}], "]"}], "-", "z"}], ")"}], 
+               "2"]]}], ",", 
+            RowBox[{"hz", "=", 
+             RowBox[{
+              FractionBox[
+               RowBox[{"Ts", " ", "z"}], 
+               RowBox[{"z", "-", 
+                RowBox[{"Exp", "[", 
+                 RowBox[{"ps1", " ", "Ts"}], "]"}]}]], "+", 
+              FractionBox[
+               RowBox[{"Ts", " ", "z"}], 
+               RowBox[{"z", "-", 
+                RowBox[{"Exp", "[", 
+                 RowBox[{"ps2", " ", "Ts"}], "]"}]}]]}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"\[Xi]", "\[NotEqual]", "1"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"f1", "=", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "Ts"}], " ", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"\[Xi]", " ", "\[CapitalOmega]n"}], "]"}]}], 
+                RowBox[{"2", " ", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"\[CapitalOmega]n", " ", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{"1", "-", 
+                    SuperscriptBox["\[Xi]", "2"]}], "]"}]}], "]"}]}]]}], ";", 
+              
+              RowBox[{"f2", "=", 
+               FractionBox[
+                RowBox[{"Ts", " ", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"\[Xi]", " ", "\[CapitalOmega]n"}], "]"}]}], 
+                RowBox[{
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"\[CapitalOmega]n", " ", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}], "]"}]}], "]"}], 
+                 "-", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{
+                   RowBox[{"-", "\[CapitalOmega]n"}], " ", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}], "]"}]}], 
+                  "]"}]}]]}], ";", 
+              RowBox[{"f3", "=", 
+               RowBox[{"-", "f1"}]}], ";", 
+              RowBox[{"f4", "=", 
+               FractionBox[
+                RowBox[{"Ts", " ", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"\[Xi]", " ", "\[CapitalOmega]n"}], "]"}]}], 
+                RowBox[{
+                 RowBox[{"Exp", "[", 
+                  RowBox[{
+                   RowBox[{"-", "\[CapitalOmega]n"}], " ", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}], "]"}]}], "]"}], 
+                 "-", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{"\[CapitalOmega]n", " ", 
+                   RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    SuperscriptBox["\[Xi]", "2"], "-", "1"}], "]"}]}], 
+                  "]"}]}]]}]}], "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"p1Coeff", "=", 
+           RowBox[{"numIt", "[", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Abs", "[", "f1", "]"}], ",", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"\[Xi]", ">", "1"}], ",", 
+                 RowBox[{"Abs", "[", "f2", "]"}], ",", "0"}], "]"}]}], "]"}], 
+             ",", "6", ",", "4"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"p2Coeff", "=", 
+           RowBox[{"numIt", "[", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"\[Xi]", "<", "1"}], ",", 
+               RowBox[{"Abs", "[", "f3", "]"}], ",", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"\[Xi]", ">", "1"}], ",", 
+                 RowBox[{"Abs", "[", "f4", "]"}], ",", "0"}], "]"}]}], "]"}], 
+             ",", "6", ",", "4"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"ps1Str", ",", "ps2Str"}], "}"}], "=", 
+           RowBox[{"formatHsPoles", "[", 
+            RowBox[{"\[CapitalOmega]n", ",", " ", 
+             RowBox[{"Chop", "[", "\[Xi]", "]"}], ",", "Ts"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"dtftPlotLabel", "=", 
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<H(z)\>\"", ",", "Italic", ",", "12"}], 
+                    "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"35", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "\[Equal]", "1"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"numIt", "[", 
+                    RowBox[{"Ts", ",", "6", ",", "4"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< z \>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<exp\>\"", ",", "\"\<(\>\"", ",", "ps1Str", ",", 
+                    "\"\<)\>\""}], "}"}], "]"}], "/", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<(\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<z\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< - \>\"", ",", "\"\<exp\>\"", ",", "\"\<(\>\"", ",", 
+                    "ps1Str", ",", 
+                    "\"\<) \!\(\*SuperscriptBox[\()\), \(2\)]\)\>\""}], "}"}],
+                     "]"}]}], "}"}], "]"}]}], ",", "9"}], "]"}], ",", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"f1", "<", "0"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<j \>\"", ",", "Italic"}], "]"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<- j \>\"", ",", "Italic"}], "]"}]}], "]"}], 
+                    ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"f2", "<", "0"}], ",", "\"\<- \>\""}], "]"}]}], 
+                    "]"}], ",", "p1Coeff", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< z\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                    "]"}], "/", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<z\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< - \>\"", ",", "\"\<exp\>\"", ",", "\"\<(\>\"", ",", 
+                    "ps1Str", ",", "\"\<)\>\""}], "}"}], "]"}], ",", "9"}], 
+                    "]"}]}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"f3", "<", "0"}], ",", "\"\< - \>\"", ",", 
+                    "\"\< + \>\""}], "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"f4", "<", "0"}], ",", "\"\< - \>\"", ",", 
+                    "\"\< + \>\""}], "]"}]}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Xi]", "<", "1"}], ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< j \>\"", ",", "Italic"}], "]"}]}], "]"}], 
+                    ",", "p2Coeff", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< z\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                    "]"}], "/", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<z\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< - \>\"", ",", "\"\<exp\>\"", ",", "\"\<(\>\"", ",", 
+                    "ps2Str", ",", "\"\<)\>\""}], "}"}], "]"}], ",", "9"}], 
+                    "]"}]}]}], "}"}], "]"}]}]}], "]"}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"280", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 "SpanFromLeft"}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<poles\>\"", ",", "12"}], "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"35", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"pz1Str", ",", "12"}], "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"110", ",", "30"}], "}"}]}]}], "]"}], ",", 
+                 RowBox[{"Graphics", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"pz2Str", ",", "12"}], "]"}]}], ",", 
+                   RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"110", ",", "30"}], "}"}]}]}], "]"}]}], "}"}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+             RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"dtft", "=", 
+           RowBox[{"hz", "/.", 
+            RowBox[{"z", "\[Rule]", 
+             RowBox[{"Exp", "[", 
+              RowBox[{"I", " ", "\[Omega]"}], "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"absMag", "=", 
+           RowBox[{"ComplexExpand", "[", 
+            RowBox[{"Abs", "[", "dtft", "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"dtftPlot", "=", 
+           RowBox[{"Framed", "@", 
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"20", " ", 
+               RowBox[{"Log", "[", 
+                RowBox[{"10", ",", "absMag"}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Omega]", ",", "0.001", ",", 
+                RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Evaluate", "[", "plotOptions", "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+              
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"All", ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "75"}], ",", "50"}], "}"}]}], "}"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Grid", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<\[Omega] = \[CapitalOmega] \>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\< T\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                    "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Text", "@", 
+                    RowBox[{"TraditionalForm", "[", "\"\<(rad)\>\"", "]"}]}], 
+                    "}"}]}], "}"}], ",", 
+                    RowBox[{"Spacings", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], ",", "10"}], 
+                  "]"}], ",", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "@", 
+                    RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<20 log|\>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<H\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\<(\!\(\*SuperscriptBox[\(e\), \(j\\\ \
+\[Omega]\)]\))|\>\"", ",", "\"\< (db)\>\""}], "}"}], "]"}]}], ",", "10"}], 
+                  "]"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Ticks", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"Pi", "/", "4"}], ",", 
+                   RowBox[{"Pi", "/", "2"}], ",", 
+                   RowBox[{
+                    RowBox[{"3", "/", "4"}], " ", "Pi"}], ",", "Pi", ",", 
+                   RowBox[{
+                    RowBox[{"5", "/", "4"}], " ", "Pi"}], ",", 
+                   RowBox[{
+                    RowBox[{"6", "/", "4"}], " ", "Pi"}], ",", 
+                   RowBox[{
+                    RowBox[{"7", "/", "4"}], " ", "Pi"}], ",", 
+                   RowBox[{"2", "Pi"}]}], "}"}], ",", "Automatic"}], "}"}]}], 
+              ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"Style", "[", 
+                RowBox[{
+                "\"\<discrete\[Hyphen]time Fourier transform magnitude \
+spectrum\>\"", ",", "Bold", ",", "12"}], "]"}]}]}], "]"}]}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"Grid", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", "fourierTransformPlotLabel", "}"}], ",", 
+              RowBox[{"{", "dtftPlotLabel", "}"}], ",", 
+              RowBox[{"{", "fourierTransformPlot", "}"}], ",", 
+              RowBox[{"{", "dtftPlot", "}"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Alignment", "\[Rule]", "Center"}], ",", 
+            RowBox[{"Spacings", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", ".5"}], "}"}]}], ",", 
+            RowBox[{"Frame", "\[Rule]", "None"}]}], "\[IndentingNewLine]", 
+           "]"}]}]}], "]"}]}]}], "}"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.35332396390388*^9, 3.35332397140384*^9}, {
+   3.35472656070313*^9, 3.35472656964063*^9}, {3.3572255708125*^9, 
+   3.35722557289063*^9}, {3.35844501789063*^9, 3.358445032875*^9}, {
+   3.364345353688*^9, 3.3643453656255*^9}, {3.36434545729738*^9, 
+   3.3643454590005*^9}, {3.3779799565751753`*^9, 3.3779799639658003`*^9}, {
+   3.3779801611064253`*^9, 3.3779801940283003`*^9}, {3.3816801001007266`*^9, 
+   3.3816801002882266`*^9}, 3.4814153625688734`*^9, {3.48194713675*^9, 
+   3.481947193625*^9}, {3.48194743796875*^9, 3.481947447453125*^9}, {
+   3.481947943921875*^9, 3.4819479445*^9}, 3.481948047140625*^9, {
+   3.481948096078125*^9, 3.481948149078125*^9}, 3.481948232640625*^9, {
+   3.481948283390625*^9, 3.481948292390625*^9}, {3.48194834465625*^9, 
+   3.481948364625*^9}, {3.48194842390625*^9, 3.481948442859375*^9}, {
+   3.48194847653125*^9, 3.481948485*^9}, {3.481948520140625*^9, 
+   3.48194867075*^9}, 3.48194873359375*^9, {3.48194877765625*^9, 
+   3.48194880125*^9}, 3.481948840296875*^9, {3.481948906015625*^9, 
+   3.48194892753125*^9}, {3.481949028875*^9, 3.48194910184375*^9}, 
+   3.48194923609375*^9, 3.48194933434375*^9, {3.481949506671875*^9, 
+   3.481949527921875*^9}, {3.481949584609375*^9, 3.481949606296875*^9}, {
+   3.481949661296875*^9, 3.481949676703125*^9}, 3.481994293355518*^9, {
+   3.481994359058643*^9, 3.481994388918018*^9}, {3.481994427699268*^9, 
+   3.481994437058643*^9}, {3.481994665636768*^9, 3.481994677949268*^9}, {
+   3.481994812808643*^9, 3.481994824621143*^9}, {3.481997968433643*^9, 
+   3.481997969011768*^9}, {3.48216252870175*^9, 3.4821625802884574`*^9}, {
+   3.482162677423938*^9, 3.482162800524778*^9}, {3.482162852465269*^9, 
+   3.4821628532153125`*^9}, {3.482162911046768*^9, 3.482162916468956*^9}, {
+   3.4821631216125984`*^9, 3.48216327512955*^9}, {3.482163397020175*^9, 
+   3.482163400051425*^9}, {3.482163437395175*^9, 3.482163517520175*^9}, {
+   3.4821636021608*^9, 3.482163628707675*^9}, {3.482163694457675*^9, 
+   3.4821637039108*^9}, {3.482163807520175*^9, 3.4821638576137176`*^9}, {
+   3.4821639033165503`*^9, 3.4821639274413958`*^9}, {3.482163960316185*^9, 
+   3.4821639957534585`*^9}, {3.4821640262845135`*^9, 
+   3.4821640960496917`*^9}, {3.482164131424465*^9, 3.4821641362213097`*^9}, {
+   3.48216416973672*^9, 3.4821641710179615`*^9}, {3.4821642261426086`*^9, 
+   3.482164258173654*^9}, {3.4822311942777023`*^9, 3.48223119439289*^9}},
+ CellID->1496021318]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`fixScale$$ = 
+    1, $CellContext`fixScaleHsPoles$$ = 0, $CellContext`maxt$$ = 
+    50, $CellContext`maxy$$ = 1, $CellContext`t$$ = 0, $CellContext`T$$ = 
+    1, $CellContext`\[Xi]$$ = 0.07, $CellContext`\[CapitalOmega]n$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Xi]$$], 0.07, ""}, 0, 1.2, 0.1}, {{
+       Hold[$CellContext`\[CapitalOmega]n$$], 1, ""}, 0.01, Pi, 0.1}, {{
+       Hold[$CellContext`T$$], 1, ""}, 0.01, 2 Pi, 0.1}, {
+      Hold[
+       Panel[
+        Labeled[
+         Grid[{{
+            Text["\[Xi]"], 
+            Manipulate`Place[1]}, {
+            Text[
+            "\!\(\*SubscriptBox[\(\[CapitalOmega]\), \(n\)]\) (rad/sec)"], 
+            Manipulate`Place[2]}, {
+            Text[
+             Row[{
+               Style["T", Italic], " (sec)"}]], 
+            Manipulate`Place[3]}}, Spacings -> {0, 0}], 
+         Column[{
+           Text[
+            Style["second-order system specification", 11]], 
+           Text[
+            Row[{
+              Derivative[2][
+               Style["y", Italic]], "(", 
+              Style["t", Italic], ") + 2 \[Xi] ", 
+              Subscript[$CellContext`\[CapitalOmega], 
+               Style["n", Italic]], 
+              Derivative[1][
+               Style["y", Italic]], "(", 
+              Style["t", Italic], ") + ", 
+              Subscript[$CellContext`\[CapitalOmega], 
+                Style["n", Italic]]^2, 
+              Style["y", Italic], "(", 
+              Style["t", Italic], ") = \[Delta](", 
+              Style["t", Italic], ")"}]]}, Center], {{Top, Center}}, 
+         Spacings -> {0, 1}], FrameMargins -> 7, ImageSize -> 260]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Panel[
+        Grid[{{
+           Dynamic[
+            If[$CellContext`\[Xi]$$ > 0, 
+             Text[
+              Style[
+               Row[{
+                 Derivative[2][
+                  Style["y", Italic]], "(", 
+                 Style["t", Italic], ") + ", 
+                 ToString[
+                  NumberForm[
+                  2 $CellContext`\[Xi]$$ $CellContext`\[CapitalOmega]n$$, {4, 
+                   3}, NumberPadding -> {"", "0"}]], 
+                 Derivative[1][
+                  Style["y", Italic]], "(", 
+                 Style["t", Italic], ") + ", 
+                 ToString[
+                  
+                  NumberForm[$CellContext`\[CapitalOmega]n$$^2, {4, 3}, 
+                   NumberPadding -> {"", "0"}]], 
+                 Style["y", Italic], "(", 
+                 Style["t", Italic], ") = \[Delta](", 
+                 Style["t", Italic], ")"}], 11]], 
+             Text[
+              Style[
+               Row[{
+                 Derivative[2][
+                  Style["y", Italic]], "(", 
+                 Style["t", Italic], ") + ", 
+                 ToString[
+                  
+                  NumberForm[$CellContext`\[CapitalOmega]n$$^2, {4, 3}, 
+                   NumberPadding -> {"", "0"}]], 
+                 Style["y", Italic], "(", 
+                 Style["t", Italic], ") = \[Delta](", 
+                 Style["t", Italic], ")"}], 11]]]]}}, Spacings -> {0, 0}, 
+         Alignment -> Center, ItemSize -> 30, Frame -> None], FrameMargins -> 
+        7, ImageSize -> 260]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`maxy$$], 1, ""}, 0.1, 10, 0.1}, {{
+       Hold[$CellContext`maxt$$], 50, 
+       Text["time scale"]}, 0.1, 100, 0.1}, {{
+       Hold[$CellContext`fixScale$$], 1, 
+       Text["use automatic scale"]}, {0, 1}}, {
+      Hold[
+       Panel[
+        Grid[{{
+           Labeled[
+            Manipulate`Place[4], 
+            Text[
+             Column[{
+               Row[{
+                 Style["y", Italic], "(", 
+                 Style["t", Italic], ")"}], " scale"}, Alignment -> 
+              Center]], {{Top, Center}}, Spacings -> {0, 0}], 
+           Dynamic[
+            Plot[
+             
+             If[$CellContext`\[Xi]$$ == 1, $CellContext`t$$ 
+              Exp[(-$CellContext`t$$) $CellContext`\[CapitalOmega]n$$], -((
+                E^($CellContext`t$$ ((-$CellContext`\[Xi]$$) $CellContext`\
+\[CapitalOmega]n$$ - $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2])) - 
+                E^($CellContext`t$$ ((-$CellContext`\[Xi]$$) $CellContext`\
+\[CapitalOmega]n$$ + $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2])))/(
+               2 $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]))], {$CellContext`t$$, 0, 
+              If[
+               TrueQ[$CellContext`fixScale$$ == 1], 50, $CellContext`maxt$$]},
+              ImageMargins -> 0, ImageSize -> 220, 
+             ImagePadding -> {{40, 40}, {10, 20}}, AspectRatio -> 0.6, 
+             PlotRange -> {{0, 
+                If[
+                 TrueQ[$CellContext`fixScale$$ == 1], 
+                 Automatic, $CellContext`maxt$$]}, 
+               If[
+                TrueQ[$CellContext`fixScale$$ == 1], 
+                All, {-$CellContext`maxy$$, $CellContext`maxy$$}]}, AxesLabel -> {
+               Text[
+                Row[{
+                  Style["t", Italic], " (sec)"}]], 
+               Text[
+                Row[{
+                  Style["y", Italic], "(", 
+                  Style["t", Italic], ")"}]]}, PlotLabel -> Text[
+               Row[{
+                 Style["impulse response", 11], 
+                 If[$CellContext`\[Xi]$$ < 1, 
+                  Style[" (underdamped)", 11], 
+                  If[$CellContext`\[Xi]$$ > 1, 
+                   Style[" (overdamped)", 11], 
+                   Style[" (critcally damped)", 11]]]}, Alignment -> Center]],
+              AxesOrigin -> {0, 0}, TicksStyle -> Directive[8], PlotStyle -> 
+             Red]]}, {
+           Manipulate`Place[5], SpanFromLeft}, {
+           Manipulate`Place[6], SpanFromLeft}}, Alignment -> Center, 
+         Spacings -> {0, 0}, Frame -> None], FrameMargins -> 5]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`fixScaleHsPoles$$], 0, 
+       Text["use automatic scale"]}, {0, 1}}, {
+      Hold[
+       Panel[
+        Grid[{{
+           Column[{
+             Dynamic[
+              Plot[0, {$CellContext`t$$, 0.5, 
+                If[$CellContext`\[Xi]$$ < 0.5, -2, 
+                 If[$CellContext`\[CapitalOmega]n$$ < 1, -2, 
+                  If[$CellContext`\[CapitalOmega]n$$ < 2, -4.5, -6]]]}, 
+               ImageSize -> {130}, ImageMargins -> 0, 
+               ImagePadding -> {{15, 5}, {5, 20}}, AspectRatio -> 1.6, 
+               PlotRange -> If[
+                 TrueQ[$CellContext`fixScaleHsPoles$$ == 1], 
+                 
+                 If[$CellContext`\[Xi]$$ < 
+                  1, {{(-1.2) $CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$, 0.2 $CellContext`\[CapitalOmega]n$$ $CellContext`\[Xi]$$}, {(-1.2) \
+($CellContext`\[CapitalOmega]n$$ (1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]),
+                     1.2 $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}}, 
+                  
+                  If[$CellContext`\[Xi]$$ > 
+                   1, {{(-1.2) ($CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ ($CellContext`\[Xi]$$^2 - 1)^
+                    Rational[1, 2]), 0.5}, {-0.2, 
+                    0.2}}, {{-$CellContext`\[CapitalOmega]n$$, 0.5}, {-0.2, 
+                    0.2}}]], 
+                 If[$CellContext`\[Xi]$$ < 0.5, {{-2, 0.5}, {-3.5, 3.5}}, 
+                  
+                  If[$CellContext`\[CapitalOmega]n$$ < 
+                   1, {{-2, 0.5}, {-3.5, 3.5}}, 
+                   
+                   If[$CellContext`\[CapitalOmega]n$$ < 2, {{-4.5, 
+                    0.5}, {-3.5, 3.5}}, {{-6, 0.5}, {-3.5, 3.5}}]]]], 
+               AxesOrigin -> {0, 0}, Ticks -> If[
+                 TrueQ[$CellContext`fixScaleHsPoles$$ == 1], 
+                 
+                 If[$CellContext`\[Xi]$$ < 
+                  1, {{(-1.2) $CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$, (-0.5) $CellContext`\[CapitalOmega]n$$ $CellContext`\[Xi]$$}, 
+                   Automatic}, 
+                  
+                  If[$CellContext`\[Xi]$$ > 
+                   1, {{(-1.2) ($CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ ($CellContext`\[Xi]$$^2 - 1)^
+                    Rational[
+                    1, 2]), (-0.5) ($CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2])}, 
+                    Automatic}, {{-$CellContext`\[CapitalOmega]n$$, 0.5}, 
+                    Automatic}]], 
+                 If[$CellContext`\[Xi]$$ < 0.5, {{-2, -1}, Null, {-3, 3}}, 
+                  
+                  If[$CellContext`\[CapitalOmega]n$$ < 
+                   1, {{-2, -1}, Null, {-3, 3}}, 
+                   
+                   If[$CellContext`\[CapitalOmega]n$$ < 
+                    2, {{-4, -2}, Null, {-3, 3}}, {{-6, -4, -2}, Null, {-3, 
+                    3}}]]]], TicksStyle -> Directive[8], PlotLabel -> Text[
+                 Row[{
+                   Style[
+                    $CellContext`H[$CellContext`s], 11], 
+                   Style[" poles", 11]}]], AxesLabel -> {None, 
+                 Text[
+                  Row[{
+                    Style["j", Italic], "\[CapitalOmega]"}]]}, 
+               Epilog -> {{Thin, Red, 
+                  Line[{{0, 0}, 
+                    
+                    If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]]}]}, {
+                 Thin, Red, 
+                  Line[{{0, 0}, 
+                    
+                    If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, (-$CellContext`\[CapitalOmega]n$$) (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ - $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]]}]}, 
+                 Text[
+                  Style["\[Cross]", Bold, 16], 
+                  
+                  If[$CellContext`\[Xi]$$ < 
+                   1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                   
+                   If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]], {0, 0}], 
+                 Text[
+                  Style["\[Cross]", Bold, 16], 
+                  
+                  If[$CellContext`\[Xi]$$ < 
+                   1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, (-$CellContext`\[CapitalOmega]n$$) (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                   
+                   If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ - $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]], {0, 0}]}]], 
+             Manipulate`Place[7]}, Spacings -> {0, 0}], 
+           Dynamic[
+            Plot[
+            0, {$CellContext`t$$, -1.1, 1.1}, ImageSize -> {130}, 
+             ImageMargins -> 0, ImagePadding -> {{1, 1}, {5, 10}}, 
+             AspectRatio -> 1, PlotRange -> All, AxesOrigin -> {0, 0}, 
+             PlotLabel -> Style[
+               Text[
+                Row[{
+                  $CellContext`H[$CellContext`z], 
+                  Style[" poles"]}]], 11], Ticks -> None, Epilog -> {
+               Circle[{0, 0}, 1], 
+               Text[
+                Style["\[Cross]", Bold, 16], 
+                
+                If[$CellContext`\[Xi]$$ < 1, {
+                 Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`\[Xi]$$ \
+$CellContext`T$$] 
+                  Cos[$CellContext`\[CapitalOmega]n$$ $CellContext`T$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                  Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`\[Xi]$$ \
+$CellContext`T$$] Sin[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                 If[$CellContext`\[Xi]$$ > 1, {
+                   
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$ + $CellContext`\[CapitalOmega]n$$ \
+$CellContext`T$$ (-1 + $CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`T$$], 
+                   0}]], {0, 0}], 
+               Text[
+                Style["\[Cross]", Bold, 16], 
+                
+                If[$CellContext`\[Xi]$$ < 1, {
+                 Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`\[Xi]$$ \
+$CellContext`T$$] 
+                  Cos[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                  Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                  Sin[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                 If[$CellContext`\[Xi]$$ > 1, {
+                   
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$ - $CellContext`\[CapitalOmega]n$$ \
+$CellContext`T$$ (-1 + $CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`T$$], 
+                   0}]], {0, 0}], {Thin, Red, 
+                Line[{{0, 0}, 
+                  
+                  If[$CellContext`\[Xi]$$ < 1, {
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$] 
+                    Cos[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Sin[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                   If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$], 
+                    0}]]}]}, {Thin, Red, 
+                Line[{{0, 0}, 
+                  
+                  If[$CellContext`\[Xi]$$ < 1, {
+                   Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Cos[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Sin[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                   If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ - $CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$], 
+                    0}]]}]}}]]}}, Alignment -> Center, Spacings -> {0, 0}, 
+         Frame -> None, ItemSize -> 16], FrameMargins -> 1, 
+        ImageSize -> {{260, 180}}]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`t$$], 0}}, {{
+       Hold[$CellContext`maxy$$], 1}}, {{
+       Hold[$CellContext`maxt$$], 50}}, {{
+       Hold[$CellContext`fixScale$$], 1}}}, Typeset`size$$ = {
+    320., {239.5, 244.5}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`\[Xi]$3135$$ = 
+    0, $CellContext`\[CapitalOmega]n$3136$$ = 0, $CellContext`T$3137$$ = 
+    0, $CellContext`maxy$3138$$ = 0, $CellContext`maxt$3139$$ = 
+    0, $CellContext`fixScale$3140$$ = 
+    False, $CellContext`fixScaleHsPoles$3141$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`fixScale$$ = 
+        1, $CellContext`fixScaleHsPoles$$ = 0, $CellContext`maxt$$ = 
+        50, $CellContext`maxy$$ = 1, $CellContext`t$$ = 0, $CellContext`T$$ = 
+        1, $CellContext`\[Xi]$$ = 0.07, $CellContext`\[CapitalOmega]n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Xi]$$, $CellContext`\[Xi]$3135$$, 0], 
+        Hold[$CellContext`\[CapitalOmega]n$$, \
+$CellContext`\[CapitalOmega]n$3136$$, 0], 
+        Hold[$CellContext`T$$, $CellContext`T$3137$$, 0], 
+        Hold[$CellContext`maxy$$, $CellContext`maxy$3138$$, 0], 
+        Hold[$CellContext`maxt$$, $CellContext`maxt$3139$$, 0], 
+        Hold[$CellContext`fixScale$$, $CellContext`fixScale$3140$$, False], 
+        Hold[$CellContext`fixScaleHsPoles$$, \
+$CellContext`fixScaleHsPoles$3141$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`process[$CellContext`\[Xi]$$, $CellContext`\
+\[CapitalOmega]n$$, $CellContext`T$$], 
+      "Specifications" :> {{{$CellContext`\[Xi]$$, 0.07, ""}, 0, 1.2, 0.1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         1}, {{$CellContext`\[CapitalOmega]n$$, 1, ""}, 0.01, Pi, 0.1, 
+         Appearance -> "Labeled", ImageSize -> Small, ControlPlacement -> 
+         2}, {{$CellContext`T$$, 1, ""}, 0.01, 2 Pi, 0.1, Appearance -> 
+         "Labeled", ImageSize -> Small, ControlPlacement -> 3}, 
+        Panel[
+         Labeled[
+          Grid[{{
+             Text["\[Xi]"], 
+             Manipulate`Place[1]}, {
+             Text[
+             "\!\(\*SubscriptBox[\(\[CapitalOmega]\), \(n\)]\) (rad/sec)"], 
+             Manipulate`Place[2]}, {
+             Text[
+              Row[{
+                Style["T", Italic], " (sec)"}]], 
+             Manipulate`Place[3]}}, Spacings -> {0, 0}], 
+          Column[{
+            Text[
+             Style["second-order system specification", 11]], 
+            Text[
+             Row[{
+               Derivative[2][
+                Style["y", Italic]], "(", 
+               Style["t", Italic], ") + 2 \[Xi] ", 
+               Subscript[$CellContext`\[CapitalOmega], 
+                Style["n", Italic]], 
+               Derivative[1][
+                Style["y", Italic]], "(", 
+               Style["t", Italic], ") + ", 
+               Subscript[$CellContext`\[CapitalOmega], 
+                 Style["n", Italic]]^2, 
+               Style["y", Italic], "(", 
+               Style["t", Italic], ") = \[Delta](", 
+               Style["t", Italic], ")"}]]}, Center], {{Top, Center}}, 
+          Spacings -> {0, 1}], FrameMargins -> 7, ImageSize -> 260], 
+        Panel[
+         Grid[{{
+            Dynamic[
+             If[$CellContext`\[Xi]$$ > 0, 
+              Text[
+               Style[
+                Row[{
+                  Derivative[2][
+                   Style["y", Italic]], "(", 
+                  Style["t", Italic], ") + ", 
+                  ToString[
+                   NumberForm[
+                   2 $CellContext`\[Xi]$$ $CellContext`\[CapitalOmega]n$$, {4,
+                     3}, NumberPadding -> {"", "0"}]], 
+                  Derivative[1][
+                   Style["y", Italic]], "(", 
+                  Style["t", Italic], ") + ", 
+                  ToString[
+                   
+                   NumberForm[$CellContext`\[CapitalOmega]n$$^2, {4, 3}, 
+                    NumberPadding -> {"", "0"}]], 
+                  Style["y", Italic], "(", 
+                  Style["t", Italic], ") = \[Delta](", 
+                  Style["t", Italic], ")"}], 11]], 
+              Text[
+               Style[
+                Row[{
+                  Derivative[2][
+                   Style["y", Italic]], "(", 
+                  Style["t", Italic], ") + ", 
+                  ToString[
+                   
+                   NumberForm[$CellContext`\[CapitalOmega]n$$^2, {4, 3}, 
+                    NumberPadding -> {"", "0"}]], 
+                  Style["y", Italic], "(", 
+                  Style["t", Italic], ") = \[Delta](", 
+                  Style["t", Italic], ")"}], 11]]]]}}, Spacings -> {0, 0}, 
+          Alignment -> Center, ItemSize -> 30, Frame -> None], FrameMargins -> 
+         7, ImageSize -> 260], {{$CellContext`maxy$$, 1, ""}, 0.1, 10, 0.1, 
+         ImageSize -> Small, ControlType -> VerticalSlider, Enabled -> Dynamic[
+           TrueQ[$CellContext`fixScale$$ == 0]], ControlPlacement -> 
+         4}, {{$CellContext`maxt$$, 50, 
+          Text["time scale"]}, 0.1, 100, 0.1, Appearance -> "Labeled", 
+         ImageSize -> Small, Enabled -> Dynamic[
+           TrueQ[$CellContext`fixScale$$ == 0]], ControlPlacement -> 
+         5}, {{$CellContext`fixScale$$, 1, 
+          Text["use automatic scale"]}, {0, 1}, ControlType -> Checkbox, 
+         ImageSize -> Small, ControlPlacement -> 6}, 
+        Panel[
+         Grid[{{
+            Labeled[
+             Manipulate`Place[4], 
+             Text[
+              Column[{
+                Row[{
+                  Style["y", Italic], "(", 
+                  Style["t", Italic], ")"}], " scale"}, Alignment -> 
+               Center]], {{Top, Center}}, Spacings -> {0, 0}], 
+            Dynamic[
+             Plot[
+              
+              If[$CellContext`\[Xi]$$ == 1, $CellContext`t$$ 
+               Exp[(-$CellContext`t$$) $CellContext`\[CapitalOmega]n$$], -((
+                 E^($CellContext`t$$ ((-$CellContext`\[Xi]$$) $CellContext`\
+\[CapitalOmega]n$$ - $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2])) - 
+                 E^($CellContext`t$$ ((-$CellContext`\[Xi]$$) $CellContext`\
+\[CapitalOmega]n$$ + $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2])))/(
+                2 $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]))], {$CellContext`t$$, 0, 
+               If[
+                TrueQ[$CellContext`fixScale$$ == 1], 
+                50, $CellContext`maxt$$]}, ImageMargins -> 0, ImageSize -> 
+              220, ImagePadding -> {{40, 40}, {10, 20}}, AspectRatio -> 0.6, 
+              PlotRange -> {{0, 
+                 If[
+                  TrueQ[$CellContext`fixScale$$ == 1], 
+                  Automatic, $CellContext`maxt$$]}, 
+                If[
+                 TrueQ[$CellContext`fixScale$$ == 1], 
+                 All, {-$CellContext`maxy$$, $CellContext`maxy$$}]}, 
+              AxesLabel -> {
+                Text[
+                 Row[{
+                   Style["t", Italic], " (sec)"}]], 
+                Text[
+                 Row[{
+                   Style["y", Italic], "(", 
+                   Style["t", Italic], ")"}]]}, PlotLabel -> Text[
+                Row[{
+                  Style["impulse response", 11], 
+                  If[$CellContext`\[Xi]$$ < 1, 
+                   Style[" (underdamped)", 11], 
+                   If[$CellContext`\[Xi]$$ > 1, 
+                    Style[" (overdamped)", 11], 
+                    Style[" (critcally damped)", 11]]]}, Alignment -> 
+                 Center]], AxesOrigin -> {0, 0}, TicksStyle -> Directive[8], 
+              PlotStyle -> Red]]}, {
+            Manipulate`Place[5], SpanFromLeft}, {
+            Manipulate`Place[6], SpanFromLeft}}, Alignment -> Center, 
+          Spacings -> {0, 0}, Frame -> None], FrameMargins -> 
+         5], {{$CellContext`fixScaleHsPoles$$, 0, 
+          Text["use automatic scale"]}, {0, 1}, ControlType -> Checkbox, 
+         ImageSize -> Small, ControlPlacement -> 7}, 
+        Panel[
+         Grid[{{
+            Column[{
+              Dynamic[
+               Plot[0, {$CellContext`t$$, 0.5, 
+                 If[$CellContext`\[Xi]$$ < 0.5, -2, 
+                  If[$CellContext`\[CapitalOmega]n$$ < 1, -2, 
+                   If[$CellContext`\[CapitalOmega]n$$ < 2, -4.5, -6]]]}, 
+                ImageSize -> {130}, ImageMargins -> 0, 
+                ImagePadding -> {{15, 5}, {5, 20}}, AspectRatio -> 1.6, 
+                PlotRange -> If[
+                  TrueQ[$CellContext`fixScaleHsPoles$$ == 1], 
+                  
+                  If[$CellContext`\[Xi]$$ < 
+                   1, {{(-1.2) $CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$, 0.2 $CellContext`\[CapitalOmega]n$$ $CellContext`\[Xi]$$}, {(-1.2) \
+($CellContext`\[CapitalOmega]n$$ (1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]),
+                     1.2 $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}}, 
+                   
+                   If[$CellContext`\[Xi]$$ > 
+                    1, {{(-1.2) ($CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2]), 0.5}, {-0.2, 
+                    0.2}}, {{-$CellContext`\[CapitalOmega]n$$, 0.5}, {-0.2, 
+                    0.2}}]], 
+                  If[$CellContext`\[Xi]$$ < 0.5, {{-2, 0.5}, {-3.5, 3.5}}, 
+                   
+                   If[$CellContext`\[CapitalOmega]n$$ < 
+                    1, {{-2, 0.5}, {-3.5, 3.5}}, 
+                    
+                    If[$CellContext`\[CapitalOmega]n$$ < 2, {{-4.5, 
+                    0.5}, {-3.5, 3.5}}, {{-6, 0.5}, {-3.5, 3.5}}]]]], 
+                AxesOrigin -> {0, 0}, Ticks -> If[
+                  TrueQ[$CellContext`fixScaleHsPoles$$ == 1], 
+                  
+                  If[$CellContext`\[Xi]$$ < 
+                   1, {{(-1.2) $CellContext`\[CapitalOmega]n$$ $CellContext`\
+\[Xi]$$, (-0.5) $CellContext`\[CapitalOmega]n$$ $CellContext`\[Xi]$$}, 
+                    Automatic}, 
+                   
+                   If[$CellContext`\[Xi]$$ > 
+                    1, {{(-1.2) ($CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^
+                    Rational[
+                    1, 2]), (-0.5) ($CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2])}, 
+                    Automatic}, {{-$CellContext`\[CapitalOmega]n$$, 0.5}, 
+                    Automatic}]], 
+                  If[$CellContext`\[Xi]$$ < 0.5, {{-2, -1}, Null, {-3, 3}}, 
+                   
+                   If[$CellContext`\[CapitalOmega]n$$ < 
+                    1, {{-2, -1}, Null, {-3, 3}}, 
+                    
+                    If[$CellContext`\[CapitalOmega]n$$ < 
+                    2, {{-4, -2}, Null, {-3, 3}}, {{-6, -4, -2}, Null, {-3, 
+                    3}}]]]], TicksStyle -> Directive[8], PlotLabel -> Text[
+                  Row[{
+                    Style[
+                    $CellContext`H[$CellContext`s], 11], 
+                    Style[" poles", 11]}]], AxesLabel -> {None, 
+                  Text[
+                   Row[{
+                    Style["j", Italic], "\[CapitalOmega]"}]]}, 
+                Epilog -> {{Thin, Red, 
+                   Line[{{0, 0}, 
+                    
+                    If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]]}]}, {
+                  Thin, Red, 
+                   Line[{{0, 0}, 
+                    
+                    If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, (-$CellContext`\[CapitalOmega]n$$) (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ - $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]]}]}, 
+                  Text[
+                   Style["\[Cross]", Bold, 16], 
+                   
+                   If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ + $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]], {0, 0}], 
+                  Text[
+                   Style["\[Cross]", Bold, 16], 
+                   
+                   If[$CellContext`\[Xi]$$ < 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$, (-$CellContext`\[CapitalOmega]n$$) (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]}, 
+                    
+                    If[$CellContext`\[Xi]$$ > 
+                    1, {(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ - $CellContext`\[CapitalOmega]n$$ \
+($CellContext`\[Xi]$$^2 - 1)^Rational[1, 2], 
+                    0}, {-$CellContext`\[CapitalOmega]n$$, 0}]], {0, 0}]}]], 
+              Manipulate`Place[7]}, Spacings -> {0, 0}], 
+            Dynamic[
+             Plot[
+             0, {$CellContext`t$$, -1.1, 1.1}, ImageSize -> {130}, 
+              ImageMargins -> 0, ImagePadding -> {{1, 1}, {5, 10}}, 
+              AspectRatio -> 1, PlotRange -> All, AxesOrigin -> {0, 0}, 
+              PlotLabel -> Style[
+                Text[
+                 Row[{
+                   $CellContext`H[$CellContext`z], 
+                   Style[" poles"]}]], 11], Ticks -> None, Epilog -> {
+                Circle[{0, 0}, 1], 
+                Text[
+                 Style["\[Cross]", Bold, 16], 
+                 
+                 If[$CellContext`\[Xi]$$ < 1, {
+                  Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`\[Xi]$$ \
+$CellContext`T$$] Cos[$CellContext`\[CapitalOmega]n$$ $CellContext`T$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                   Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$] 
+                   Sin[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                  If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$ + $CellContext`\[CapitalOmega]n$$ \
+$CellContext`T$$ (-1 + $CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`T$$], 
+                    0}]], {0, 0}], 
+                Text[
+                 Style["\[Cross]", Bold, 16], 
+                 
+                 If[$CellContext`\[Xi]$$ < 1, {
+                  Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`\[Xi]$$ \
+$CellContext`T$$] Cos[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                   
+                   Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                   Sin[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                  If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$ - $CellContext`\[CapitalOmega]n$$ \
+$CellContext`T$$ (-1 + $CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`\[CapitalOmega]n$$) $CellContext`T$$], 
+                    0}]], {0, 0}], {Thin, Red, 
+                 Line[{{0, 0}, 
+                   
+                   If[$CellContext`\[Xi]$$ < 1, {
+                    Exp[(-$CellContext`\[CapitalOmega]n$$) \
+$CellContext`\[Xi]$$ $CellContext`T$$] 
+                    Cos[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Sin[$CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                    If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ + $CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$], 
+                    0}]]}]}, {Thin, Red, 
+                 Line[{{0, 0}, 
+                   
+                   If[$CellContext`\[Xi]$$ < 1, {
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Cos[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]], 
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$] 
+                    Sin[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ (
+                    1 - $CellContext`\[Xi]$$^2)^Rational[1, 2]]}, 
+                    If[$CellContext`\[Xi]$$ > 1, {
+                    
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$ \
+$CellContext`\[Xi]$$ - $CellContext`T$$ $CellContext`\[CapitalOmega]n$$ (-1 + \
+$CellContext`\[Xi]$$^2)^Rational[1, 2]], 0}, {
+                    Exp[(-$CellContext`T$$) $CellContext`\[CapitalOmega]n$$], 
+                    0}]]}]}}]]}}, Alignment -> Center, Spacings -> {0, 0}, 
+          Frame -> None, ItemSize -> 16], FrameMargins -> 1, 
+         ImageSize -> {{260, 180}}], {{$CellContext`t$$, 0}, ControlType -> 
+         None}, {{$CellContext`maxy$$, 1}, ControlType -> 
+         None}, {{$CellContext`maxt$$, 50}, ControlType -> 
+         None}, {{$CellContext`fixScale$$, 1}, ControlType -> None}}, 
+      "Options" :> {
+       ContinuousAction -> False, SynchronousUpdating -> True, 
+        AutorunSequencing -> {1, 2, 3}, ControlPlacement -> Left}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{628., {269., 274.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`str[
+          Pattern[$CellContext`expr, 
+           Blank[]]] := Module[{}, 
+          StringReplace[
+           ToString[$CellContext`expr, FormatType -> TraditionalForm], 
+           StringExpression[
+             Pattern[$CellContext`c, LetterCharacter], "$", 
+             Repeated[DigitCharacter]] :> $CellContext`c]]; $CellContext`numIt[
+          Pattern[$CellContext`v, 
+           Blank[]], 
+          Pattern[$CellContext`s1, 
+           Blank[]], 
+          Pattern[$CellContext`s2, 
+           Blank[]]] := Module[{}, 
+          ToString[
+           AccountingForm[
+            Chop[$CellContext`v], {$CellContext`s1, $CellContext`s2}, 
+            NumberPadding -> {" ", "0"}, 
+            NumberSigns -> {"-", ""}]]]; $CellContext`formatHsPoles[
+          Pattern[$CellContext`\[CapitalOmega]n, 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`T, 
+           Blank[]]] := 
+        Module[{$CellContext`p1, $CellContext`p2}, $CellContext`p1 = 
+           If[$CellContext`\[Xi] == 0, 
+             Row[{
+               Style["j", Italic], 
+               $CellContext`numIt[$CellContext`T \
+$CellContext`\[CapitalOmega]n, 6, 4]}], 
+             If[$CellContext`\[Xi] < 1, 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] $CellContext`T, 6, 4], " + ", 
+                Style["j", Italic], 
+                $CellContext`numIt[$CellContext`\[CapitalOmega]n \
+$CellContext`T (1 - $CellContext`\[Xi]^2)^Rational[1, 2], 6, 4]}], 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] $CellContext`T + $CellContext`\[CapitalOmega]n \
+$CellContext`T ($CellContext`\[Xi]^2 - 1)^Rational[1, 2], 6, 
+                 4]}]]]; $CellContext`p2 = If[$CellContext`\[Xi] == 0, 
+             Row[{
+               Style["- j", Italic], 
+               $CellContext`numIt[$CellContext`\[CapitalOmega]n \
+$CellContext`T, 6, 4]}], 
+             If[$CellContext`\[Xi] < 1, 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] $CellContext`T, 6, 4], " - ", 
+                Style["j", Italic], 
+                $CellContext`numIt[$CellContext`\[CapitalOmega]n \
+$CellContext`T (1 - $CellContext`\[Xi]^2)^Rational[1, 2], 6, 4]}], 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] $CellContext`T - $CellContext`\[CapitalOmega]n \
+$CellContext`T ($CellContext`\[Xi]^2 - 1)^Rational[1, 2], 6, 
+                 4]}]]]; {$CellContext`p1, $CellContext`p2}]; \
+$CellContext`formatHsPoles[
+          Pattern[$CellContext`\[CapitalOmega]n, 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]]] := 
+        Module[{$CellContext`p1, $CellContext`p2}, $CellContext`p1 = 
+           If[$CellContext`\[Xi] == 0, 
+             Row[{
+               Style["j", Italic], 
+               $CellContext`numIt[$CellContext`\[CapitalOmega]n, 6, 4]}], 
+             If[$CellContext`\[Xi] < 1, 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi], 6, 4], " + ", 
+                Style["j", Italic], 
+                $CellContext`numIt[$CellContext`\[CapitalOmega]n (
+                   1 - $CellContext`\[Xi]^2)^Rational[1, 2], 6, 4]}], 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] + $CellContext`\[CapitalOmega]n ($CellContext`\[Xi]^2 - 1)^
+                   Rational[1, 2], 6, 4]}]]]; $CellContext`p2 = 
+           If[$CellContext`\[Xi] == 0, 
+             Row[{
+               Style["- j", Italic], 
+               $CellContext`numIt[$CellContext`\[CapitalOmega]n, 6, 4]}], 
+             If[$CellContext`\[Xi] < 1, 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi], 6, 4], " - ", 
+                Style["j", Italic], 
+                $CellContext`numIt[$CellContext`\[CapitalOmega]n (
+                   1 - $CellContext`\[Xi]^2)^Rational[1, 2], 6, 4]}], 
+              Row[{
+                $CellContext`numIt[(-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] - $CellContext`\[CapitalOmega]n ($CellContext`\[Xi]^2 - 1)^
+                  Rational[1, 2], 6, 
+                 4]}]]]; {$CellContext`p1, $CellContext`p2}]; \
+$CellContext`formatHzPoles[
+          Pattern[$CellContext`\[CapitalOmega]n, 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`T, 
+           Blank[]]] := 
+        Module[{$CellContext`p1, $CellContext`p2, $CellContext`t1, \
+$CellContext`tt1, $CellContext`t2, $CellContext`tt2, $CellContext`t3, \
+$CellContext`tt3}, $CellContext`tt1 = 
+           N[Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] \
+$CellContext`T] 
+             Cos[$CellContext`\[CapitalOmega]n $CellContext`T (
+                 1 - $CellContext`\[Xi]^2)^Rational[1, 2]]]; $CellContext`tt2 = 
+           N[Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] \
+$CellContext`T] 
+             Sin[$CellContext`T $CellContext`\[CapitalOmega]n (
+                 1 - $CellContext`\[Xi]^2)^Rational[1, 2]]]; $CellContext`t1 = 
+           N[
+             
+             Exp[$CellContext`T ((-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] + $CellContext`\[CapitalOmega]n ($CellContext`\[Xi]^2 - 1)^
+                 Rational[1, 2])]]; $CellContext`t2 = N[
+             
+             Exp[$CellContext`T ((-$CellContext`\[CapitalOmega]n) \
+$CellContext`\[Xi] - $CellContext`\[CapitalOmega]n ($CellContext`\[Xi]^2 - 1)^
+                Rational[1, 2])]]; $CellContext`t3 = N[
+             
+             Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] \
+$CellContext`T + $CellContext`\[CapitalOmega]n $CellContext`T ($CellContext`\
+\[Xi]^2 - 1)^Rational[1, 2]]]; $CellContext`tt3 = N[
+             
+             Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] \
+$CellContext`T - $CellContext`\[CapitalOmega]n $CellContext`T ($CellContext`\
+\[Xi]^2 - 1)^Rational[1, 2]]]; $CellContext`p1 = If[$CellContext`\[Xi] < 1, 
+             Row[{
+               $CellContext`numIt[$CellContext`tt1, 6, 4], 
+               If[Sign[$CellContext`tt2] == 1, " + ", " - "], 
+               Style[" j", Italic], 
+               $CellContext`numIt[
+                Abs[$CellContext`tt2], 6, 4]}], 
+             If[$CellContext`\[Xi] > 1, 
+              Row[{
+                $CellContext`numIt[$CellContext`t1, 6, 4]}], 
+              $CellContext`numIt[
+               N[
+                Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`T]], 6, 
+               4]]]; $CellContext`p2 = If[$CellContext`\[Xi] < 1, 
+             Row[{
+               $CellContext`numIt[$CellContext`tt1, 6, 4], 
+               If[Sign[$CellContext`tt2] == 1, " - ", " + "], 
+               Style["j", Italic], 
+               $CellContext`numIt[
+                Abs[$CellContext`tt2], 6, 4]}], 
+             If[$CellContext`\[Xi] > 1, 
+              Row[{
+                $CellContext`numIt[$CellContext`t2, 6, 4]}], 
+              $CellContext`numIt[
+               N[
+                Exp[(-$CellContext`\[CapitalOmega]n) $CellContext`T]], 6, 
+               4]]]; {$CellContext`p1, $CellContext`p2}]; $CellContext`process[
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalOmega]n, 
+           Blank[]], 
+          Pattern[$CellContext`Ts, 
+           Blank[]]] := 
+        Module[{$CellContext`s, $CellContext`\[CapitalOmega], \
+$CellContext`plotOptions, $CellContext`hz, $CellContext`z, $CellContext`dtft, \
+$CellContext`\[Omega], $CellContext`fourierTransformPlot, \
+$CellContext`dtftPlot, $CellContext`tfLaplace, $CellContext`tfFourier, \
+$CellContext`ps1, $CellContext`ps2, $CellContext`absMag, \
+$CellContext`fourierTransformPlotLabel, $CellContext`ps1Str, \
+$CellContext`ps2Str, $CellContext`f1, $CellContext`f2, \
+$CellContext`dtftPlotLabel, $CellContext`pz1Str, $CellContext`pz2Str, \
+$CellContext`f3, $CellContext`f4, $CellContext`p1Coeff, \
+$CellContext`p2Coeff}, $CellContext`plotOptions = {
+            ImageSize -> {310}, ImageMargins -> 0, 
+             ImagePadding -> {{45, 55}, {20, 30}}, AspectRatio -> 0.45, 
+             PlotStyle -> {Thick, Red}}; $CellContext`ps1 = 
+           Chop[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] - \
+$CellContext`\[CapitalOmega]n (-1 + $CellContext`\[Xi]^2)^
+              Rational[1, 2]]; $CellContext`ps2 = 
+           Chop[(-$CellContext`\[CapitalOmega]n) $CellContext`\[Xi] + \
+$CellContext`\[CapitalOmega]n (-1 + $CellContext`\[Xi]^2)^
+               Rational[
+                1, 2]]; {$CellContext`ps1Str, $CellContext`ps2Str} = \
+$CellContext`formatHsPoles[$CellContext`\[CapitalOmega]n, 
+             
+             Chop[$CellContext`\[Xi]]]; {$CellContext`pz1Str, \
+$CellContext`pz2Str} = \
+$CellContext`formatHzPoles[$CellContext`\[CapitalOmega]n, 
+             
+             Chop[$CellContext`\[Xi]], $CellContext`Ts]; \
+$CellContext`tfLaplace = 
+           1/($CellContext`s^2 + 
+            2 $CellContext`\[Xi] $CellContext`\[CapitalOmega]n $CellContext`s + \
+$CellContext`\[CapitalOmega]n^2); $CellContext`tfFourier = 
+           ReplaceAll[$CellContext`tfLaplace, $CellContext`s -> 
+             I $CellContext`\[CapitalOmega]]; $CellContext`absMag = 
+           ComplexExpand[
+             
+             Abs[$CellContext`tfFourier]]; \
+$CellContext`fourierTransformPlotLabel = Grid[{{
+               Graphics[
+                Text[
+                 Style["H(s)", Italic, 12]], ImageSize -> {35, 30}], 
+               Graphics[
+                Text["1"/If[$CellContext`\[Xi] > 0, 
+                  Style[
+                   Row[{Style["s", Italic]^2, " +", 
+                    ToString[
+                    NumberForm[
+                    2 $CellContext`\[Xi] $CellContext`\[CapitalOmega]n, {6, 
+                    4}, NumberPadding -> {" ", "0"}]], 
+                    Style[" s", Italic], " +", 
+                    ToString[
+                    
+                    NumberForm[$CellContext`\[CapitalOmega]n^2, {6, 4}, 
+                    NumberPadding -> {" ", "0"}]]}, ImageMargins -> 0], 12], 
+                  Style[
+                   Row[{
+                    Style["\!\(\*SuperscriptBox[\(s\), \(2\)]\)", Italic], 
+                    " + ", 
+                    ToString[
+                    
+                    NumberForm[$CellContext`\[CapitalOmega]n^2, {6, 4}, 
+                    NumberPadding -> {" ", "0"}]]}]]]], 
+                ImageSize -> {280, 30}], SpanFromLeft}, {
+               Graphics[
+                Text[
+                 Style["poles", 12]], ImageSize -> {35, 30}], 
+               Graphics[
+                Text[
+                 Style[$CellContext`ps1Str, 12]], ImageSize -> {110, 30}], 
+               Graphics[
+                Text[
+                 Style[$CellContext`ps2Str, 12]], ImageSize -> {110, 30}]}}, 
+             Frame -> All, Alignment -> Center, 
+             Spacings -> {0, 0}]; $CellContext`fourierTransformPlot = Framed[
+             Plot[
+             20 Log[10, $CellContext`absMag], {$CellContext`\[CapitalOmega], 
+               0, 2 Pi}, AxesOrigin -> {0, 0}, 
+              Evaluate[$CellContext`plotOptions], 
+              PlotRange -> {{0, 2 Pi}, {-40, 80}}, AxesLabel -> {
+                Style[
+                 Text[
+                  TraditionalForm[
+                   Row[{"\[CapitalOmega] ", "(rad/sec)"}]]], 10], 
+                Style[
+                 Text[
+                  TraditionalForm[
+                   Row[{"20 log|", 
+                    Subscript[$CellContext`H, $CellContext`a], "(", 
+                    Style["j", Italic], " \[CapitalOmega])|", " (db)"}]]], 
+                 10]}, PlotLabel -> 
+              Style["continuous\[Hyphen]time Fourier transform magnitude \
+spectrum", Bold, 12]]]; 
+          If[$CellContext`\[Xi] == 
+            1, $CellContext`hz = $CellContext`Ts $CellContext`z 
+             Exp[$CellContext`ps1 $CellContext`Ts]/(
+              Exp[$CellContext`ps1 $CellContext`Ts] - $CellContext`z)^2, \
+$CellContext`hz = $CellContext`Ts $CellContext`z/($CellContext`z - 
+              Exp[$CellContext`ps1 $CellContext`Ts]) + $CellContext`Ts \
+$CellContext`z/($CellContext`z - Exp[$CellContext`ps2 $CellContext`Ts])]; 
+          If[$CellContext`\[Xi] != 
+            1, {$CellContext`f1 = (-$CellContext`Ts) 
+               Exp[$CellContext`\[Xi] $CellContext`\[CapitalOmega]n]/(2 
+               Sin[$CellContext`\[CapitalOmega]n 
+                 Sqrt[1 - $CellContext`\[Xi]^2]]); $CellContext`f2 = \
+$CellContext`Ts Exp[$CellContext`\[Xi] $CellContext`\[CapitalOmega]n]/(
+               Exp[$CellContext`\[CapitalOmega]n 
+                 Sqrt[$CellContext`\[Xi]^2 - 1]] - 
+               Exp[(-$CellContext`\[CapitalOmega]n) 
+                Sqrt[$CellContext`\[Xi]^2 - 
+                  1]]); $CellContext`f3 = -$CellContext`f1; $CellContext`f4 = \
+$CellContext`Ts Exp[$CellContext`\[Xi] $CellContext`\[CapitalOmega]n]/(
+               Exp[(-$CellContext`\[CapitalOmega]n) 
+                 Sqrt[$CellContext`\[Xi]^2 - 1]] - 
+               Exp[$CellContext`\[CapitalOmega]n 
+                Sqrt[$CellContext`\[Xi]^2 - 
+                  1]])}]; $CellContext`p1Coeff = $CellContext`numIt[
+             If[$CellContext`\[Xi] < 1, 
+              Abs[$CellContext`f1], 
+              If[$CellContext`\[Xi] > 1, 
+               Abs[$CellContext`f2], 0]], 6, 
+             4]; $CellContext`p2Coeff = $CellContext`numIt[
+             If[$CellContext`\[Xi] < 1, 
+              Abs[$CellContext`f3], 
+              If[$CellContext`\[Xi] > 1, 
+               Abs[$CellContext`f4], 0]], 6, 
+             4]; {$CellContext`ps1Str, $CellContext`ps2Str} = \
+$CellContext`formatHsPoles[$CellContext`\[CapitalOmega]n, 
+             
+             Chop[$CellContext`\[Xi]], $CellContext`Ts]; \
+$CellContext`dtftPlotLabel = Grid[{{
+               Graphics[
+                Text[
+                 Style["H(z)", Italic, 12]], ImageSize -> {35, 30}], 
+               Graphics[
+                If[$CellContext`\[Xi] == 1, 
+                 Style[
+                  Text[
+                   Row[{Row[{
+                    $CellContext`numIt[$CellContext`Ts, 6, 4], 
+                    Style[" z ", Italic], "exp", "(", $CellContext`ps1Str, 
+                    ")"}]/Row[{"(", 
+                    Style["z", Italic], " - ", "exp", 
+                    "(", $CellContext`ps1Str, 
+                    ") \!\(\*SuperscriptBox[\()\), \(2\)]\)"}]}]], 9], 
+                 Text[
+                  Row[{Row[{
+                    If[$CellContext`\[Xi] < 1, 
+                    If[$CellContext`f1 < 0, 
+                    Style["j ", Italic], 
+                    Style["- j ", Italic]], 
+                    If[$CellContext`f2 < 0, "- "]], $CellContext`p1Coeff, 
+                    Style[" z", Italic]}]/Style[
+                    Row[{
+                    Style["z", Italic], " - ", "exp", 
+                    "(", $CellContext`ps1Str, ")"}], 9], 
+                    If[$CellContext`\[Xi] < 1, 
+                    If[$CellContext`f3 < 0, " - ", " + "], 
+                    If[$CellContext`f4 < 0, " - ", " + "]], Row[{
+                    If[$CellContext`\[Xi] < 1, 
+                    Style[" j ", Italic]], $CellContext`p2Coeff, 
+                    Style[" z", Italic]}]/Style[
+                    Row[{
+                    Style["z", Italic], " - ", "exp", 
+                    "(", $CellContext`ps2Str, ")"}], 9]}]]], 
+                ImageSize -> {280, 30}], SpanFromLeft}, {
+               Graphics[
+                Text[
+                 Style["poles", 12]], ImageSize -> {35, 30}], 
+               Graphics[
+                Text[
+                 Style[$CellContext`pz1Str, 12]], ImageSize -> {110, 30}], 
+               Graphics[
+                Text[
+                 Style[$CellContext`pz2Str, 12]], ImageSize -> {110, 30}]}}, 
+             Frame -> All, Alignment -> Center, 
+             Spacings -> {0, 0}]; $CellContext`dtft = 
+           ReplaceAll[$CellContext`hz, $CellContext`z -> 
+             Exp[I $CellContext`\[Omega]]]; $CellContext`absMag = 
+           ComplexExpand[
+             Abs[$CellContext`dtft]]; $CellContext`dtftPlot = Framed[
+             Plot[
+             20 Log[10, $CellContext`absMag], {$CellContext`\[Omega], 0.001, 
+               2 Pi}, 
+              Evaluate[$CellContext`plotOptions], AxesOrigin -> {0, 0}, 
+              PlotRange -> {All, {-75, 50}}, AxesLabel -> {
+                Style[
+                 Grid[{{
+                    Text[
+                    Row[{"\[Omega] = \[CapitalOmega] ", 
+                    Style[" T", Italic]}]]}, {
+                    Text[
+                    TraditionalForm["(rad)"]]}}, Spacings -> {0, 0}], 10], 
+                Style[
+                 Text[
+                  Row[{"20 log|", 
+                    Style["H", Italic], 
+                    "(\!\(\*SuperscriptBox[\(e\), \(j \[Omega]\)]\))|", 
+                    " (db)"}]], 10]}, 
+              Ticks -> {{
+                0, Pi/4, Pi/2, (3/4) Pi, Pi, (5/4) Pi, (6/4) Pi, (7/4) Pi, 2 
+                 Pi}, Automatic}, PlotLabel -> 
+              Style["discrete\[Hyphen]time Fourier transform magnitude \
+spectrum", Bold, 12]]]; 
+          Grid[{{$CellContext`fourierTransformPlotLabel}, \
+{$CellContext`dtftPlotLabel}, {$CellContext`fourierTransformPlot}, \
+{$CellContext`dtftPlot}}, Alignment -> Center, Spacings -> {0, 0.5}, Frame -> 
+            None]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->866745630],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration illustrates the impulse invariance method used to \
+convert an analog to a discrete system representation. The analog system \
+consisting of the Laplace transfer function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " is converted to the discrete system ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ ", the ",
+ Cell[BoxData[
+  FormBox["Z", TraditionalForm]], "InlineMath"],
+ " transfer function. This analog system is the response of a standard \
+second-order system (with damping and stiffness) to a given impulse with zero \
+initial conditions. The functions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", 
+    RowBox[{"(", "z", ")"}]}], TraditionalForm]], "InlineMath"],
+ " are displayed with their pole locations. "
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "In this Demonstration, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"j", "=", 
+    SqrtBox[
+     RowBox[{"-", "1"}]]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "Using the impulse invariance method, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ " is directly generated from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " using a mapping that depends on the sampling period and the locations of \
+the poles of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ ". Because the input is an impulse, the system transfer function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " is the same as the Laplace transform of the response ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "(", "t", ")"}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "The method starts by expressing the Laplace transfer function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " in partial-fraction form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", "s", ")"}], "=", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"i", "=", "1"}], "N"], 
+     FractionBox[
+      SubscriptBox["A", "i"], 
+      RowBox[{"s", "-", 
+       SubscriptBox["p", "i"]}]]}]}], TraditionalForm]], "InlineMath"],
+ ", where the ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]], "InlineMath"],
+ " poles are located at the points",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    SubscriptBox["p", "i"]}], TraditionalForm]], "InlineMath"],
+ ". Then the discrete system can be written as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", "z", ")"}], "=", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"i", "=", "1"}], "N"], 
+     FractionBox[
+      RowBox[{"T", " ", 
+       SubscriptBox["A", "i"]}], 
+      RowBox[{"1", "-", 
+       RowBox[{
+        SuperscriptBox["z", 
+         RowBox[{"-", "1"}]], " ", 
+        RowBox[{"exp", "[", 
+         RowBox[{"T", " ", 
+          SubscriptBox["p", "i"]}], "]"}]}]}]]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ " is the sampling period for the analog system. This formula applies when \
+the poles ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "i"], TraditionalForm]], "InlineMath"],
+ " are all distinct. In the case of a pole of order two, which pertains to \
+the damping ratio ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{"\[Xi]", "=", "1"}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"H", "(", "z", ")"}], "=", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"i", "=", "1"}], "N"], 
+     FractionBox[
+      RowBox[{"T", " ", "z", " ", 
+       RowBox[{"exp", "[", 
+        RowBox[{"T", " ", 
+         SubscriptBox["p", "i"]}], "]"}]}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"exp", "[", 
+          RowBox[{"T", " ", 
+           SubscriptBox["p", "i"]}], "]"}], "-", "z"}], ")"}], "2"]]}]}], 
+   TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "Plots of the magnitude of the frequency response are generated for both ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ " to compare the effect of changing the system parameters, including the \
+sampling period ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ ".  Aliasing effects (which occur in the impulse invariance method) can be \
+observed by making ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ " larger and comparing the frequency response shapes of the analog and \
+discrete systems. In these plots, the frequency axis (",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " axis) is a linear scale (not the more usual logarithmic scale) to better \
+illustrate the method. "
+}], "Text"],
+
+Cell[TextData[{
+ "Locations of the poles of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ " show that stable poles in the left ",
+ Cell[BoxData[
+  FormBox["s", TraditionalForm]], "InlineMath"],
+ "-half-plane are mapped to stable poles inside the unit circle in ",
+ Cell[BoxData[
+  FormBox["z", TraditionalForm]], "InlineMath"],
+ "-space."
+}], "Text"],
+
+Cell["\<\
+This Demonstration can also be used to analyze the impulse response of a \
+second-order system as the system's natural frequency and damping ratio are \
+varied.\
+\>", "Text"],
+
+Cell[TextData[{
+ "You can change the system damping ratio ",
+ Cell[BoxData[
+  FormBox["\[Xi]", TraditionalForm]], "InlineMath"],
+ ", the natural frequency ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[CapitalOmega]", "n"], TraditionalForm]], "InlineMath"],
+ ", and the sampling period ",
+ Cell[BoxData[
+  FormBox["T", TraditionalForm]], "InlineMath"],
+ " to observe how the poles of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ " change. The analytic forms of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "s", ")"}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "(", "z", ")"}], TraditionalForm]], "InlineMath"],
+ " are displayed at the top-center of the graphic with the numerical values \
+of the poles. The system response ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "(", "t", ")"}], TraditionalForm]], "InlineMath"],
+ " is plotted, with the option to scale the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " axis and the ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]], "InlineMath"],
+ " axis manually."
+}], "Text"],
+
+Cell[TextData[{
+ "Reference: A. V. Oppenheim and R. W. Schafer, ",
+ StyleBox["Digital Signal Processing",
+  FontSlant->"Italic"],
+ ", Upper Saddle River, NJ: Prentice Hall, 1975 pp. 201\[Dash]203."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Analog-to-Discrete System Conversion Using Impulse Invariance",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Nasser M. Abbasi",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Nasser+M.+\
+Abbasi"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Nasser+M.+Abbasi"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->95413255],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+AnalogToDiscreteSystemConversionUsingImpulseInvariance"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Analog-to-Discrete System Conversion Using Impulse Invariance - \
+Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[653, 24, 261, 6, 70, "Section"],
+Cell[917, 32, 100278, 2305, 70, "Input",
+ CellID->1496021318]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101232, 2342, 53983, 1119, 70, "Output",
+ CellID->866745630],
+Cell[CellGroupData[{
+Cell[155240, 3465, 199, 4, 70, "Section"],
+Cell[155442, 3471, 972, 26, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[156462, 3503, 199, 4, 70, "Section"],
+Cell[156664, 3509, 183, 8, 70, "Text"],
+Cell[156850, 3519, 794, 23, 70, "Text"],
+Cell[157647, 3544, 2320, 79, 70, "Text"],
+Cell[159970, 3625, 921, 23, 70, "Text"],
+Cell[160894, 3650, 504, 16, 70, "Text"],
+Cell[161401, 3668, 184, 4, 70, "Text"],
+Cell[161588, 3674, 1248, 39, 70, "Text"],
+Cell[162839, 3715, 209, 5, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[163084, 3725, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[163460, 3736, 1126, 31, 70, "Text"],
+Cell[164589, 3769, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[164929, 3780, 461, 15, 70, "Text",
+ CellID->95413255],
+Cell[CellGroupData[{
+Cell[165415, 3799, 847, 24, 70, "Text"],
+Cell[166265, 3825, 1230, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature cSzOyiDtikRT9C0duocxIOZ# *)

@@ -1,0 +1,3787 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    159760,       3777]
+NotebookOptionsPosition[    155811,       3649]
+NotebookOutlinePosition[    156429,       3673]
+CellTagsIndexPosition[    156386,       3670]
+WindowTitle->Insurance and Precautions - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Insurance and Precautions", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"eu", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"k_", "/;", 
+      RowBox[{
+       RowBox[{"k", "\[NotEqual]", "0"}], " ", "&&", " ", 
+       RowBox[{"k", "\[NotEqual]", "1"}]}]}], ",", "\[CapitalXi]_", ",", 
+     "\[Xi]_", ",", "\[CapitalPsi]_", ",", "\[Psi]_", ",", "p_", ",", 
+     "\[Rho]_", ",", "i_", ",", "r_"}], "]"}], ":=", 
+   RowBox[{"\[Piecewise]", GridBox[{
+      {
+       FractionBox[
+        RowBox[{"1", "-", 
+         RowBox[{
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{
+            RowBox[{"-", "r"}], "+", 
+            RowBox[{"k", " ", 
+             RowBox[{"(", 
+              RowBox[{"1", "+", 
+               RowBox[{"i", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], "+", "p"}], ")"}]}], "+", 
+               RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]}]], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"i", " ", "k"}], "+", "r"}]], "+", 
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", "k"], " ", "f"}], "-", 
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"i", " ", "k"}]], " ", "f"}]}], ")"}]}], "+", "k"}], 
+        "k"], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}], "&&", 
+        RowBox[{"i", "\[LessEqual]", "\[CapitalXi]"}]}]},
+      {
+       FractionBox[
+        RowBox[{"1", "-", 
+         RowBox[{
+          SuperscriptBox["\[ExponentialE]", 
+           RowBox[{"k", "+", 
+            RowBox[{"i", " ", "k", " ", "p"}], "-", "r", "+", 
+            RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", "r"], "-", "f", "+", 
+            RowBox[{
+             SuperscriptBox["\[ExponentialE]", "k"], " ", "f"}]}], ")"}]}], 
+         "+", "k"}], "k"], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+          RowBox[{"r", "<", "\[CapitalPsi]"}]}], ")"}], "||", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+          RowBox[{"i", ">", "\[CapitalXi]"}]}], ")"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{"2", " ", "k"}]], 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"-", "r"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", "r", "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]]}], "-", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{"i", " ", "p"}], "+", 
+                   RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", "f"}], "+", 
+              
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]], " ", "f"}], "+", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", "r"], " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "+", "k"}], ")"}]}]}], ")"}]}], "+", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"k", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{"i", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "p"}], ")"}]}], "+", 
+                RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"i", " ", "k"}]]}], ")"}], " ", "f", " ", 
+            RowBox[{"Erfc", "[", 
+             FractionBox[
+              RowBox[{"i", "-", "\[CapitalXi]"}], 
+              RowBox[{
+               SqrtBox["2"], " ", "\[Xi]"}]], "]"}]}]}], ")"}]}]}], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[NotEqual]", "0"}], "&&", 
+        RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{"2", " ", "k"}]], 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"-", "r"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", "r", "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]]}], "-", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{"i", " ", "p"}], "+", 
+                   RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", "f"}], "+", 
+              
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]], " ", "f"}], "+", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", "r"], " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "+", "k"}], ")"}]}]}], ")"}]}], "+", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"k", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{"i", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "p"}], ")"}]}], "+", 
+                RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"i", " ", "k"}]]}], ")"}], " ", "f", " ", 
+            RowBox[{"Erfc", "[", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "r"}], "+", "\[CapitalPsi]"}], 
+              RowBox[{
+               SqrtBox["2"], " ", "\[Psi]"}]], "]"}]}]}], ")"}]}]}], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[NotEqual]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"i", "\[LessEqual]", "\[CapitalXi]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{"4", " ", "k"}]], 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"-", "r"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"4", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", "r", "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]]}], "-", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{"i", " ", "p"}], "+", 
+                   RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", "f"}], "+", 
+              
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"k", "+", 
+                 RowBox[{"i", " ", "k", " ", "p"}], "+", 
+                 RowBox[{"k", " ", "r", " ", "\[Rho]"}]}]], " ", "f"}], "+", 
+              RowBox[{
+               SuperscriptBox["\[ExponentialE]", "r"], " ", 
+               RowBox[{"(", 
+                RowBox[{"1", "+", "k"}], ")"}]}]}], ")"}]}], "+", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"k", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{"i", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "p"}], ")"}]}], "+", 
+                RowBox[{"r", " ", "\[Rho]"}]}], ")"}]}]], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"i", " ", "k"}]]}], ")"}], " ", "f", " ", 
+            RowBox[{"Erfc", "[", 
+             FractionBox[
+              RowBox[{"i", "-", "\[CapitalXi]"}], 
+              RowBox[{
+               SqrtBox["2"], " ", "\[Xi]"}]], "]"}], " ", 
+            RowBox[{"Erfc", "[", 
+             FractionBox[
+              RowBox[{
+               RowBox[{"-", "r"}], "+", "\[CapitalPsi]"}], 
+              RowBox[{
+               SqrtBox["2"], " ", "\[Psi]"}]], "]"}]}]}], ")"}]}]}], 
+       TagBox["True",
+        "PiecewiseDefault",
+        AutoDelete->False,
+        DeletionWarning->True]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.84]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489924689359144*^9, 3.4899246930714207`*^9}, {
+   3.489942731605805*^9, 3.489942737808466*^9}, 3.489954779110869*^9, 
+   3.489955157151277*^9, {3.490007729044127*^9, 3.490007761137463*^9}, {
+   3.4900249067601013`*^9, 3.490024911405249*^9}, {3.490184505731471*^9, 
+   3.490184514026101*^9}, 3.4901845468697433`*^9, {3.491304989376175*^9, 
+   3.491305009398986*^9}, {3.491305102293007*^9, 3.491305102423573*^9}, {
+   3.49130516817056*^9, 3.491305168341835*^9}, {3.491305205798308*^9, 
+   3.4913052302361193`*^9}, {3.4913226538261013`*^9, 3.491322662938294*^9}},
+ CellID->89540161],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"eu", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"k_", "/;", 
+      RowBox[{"k", "\[Equal]", "0"}]}], ",", "\[CapitalXi]_", ",", "\[Xi]_", 
+     ",", "\[CapitalPsi]_", ",", "\[Psi]_", ",", "p_", ",", "\[Rho]_", ",", 
+     "i_", ",", "r_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "i"}], " ", "p"}], "-", 
+    RowBox[{"r", " ", "\[Rho]"}], "+", 
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"-", "r"}]], " ", "f", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       RowBox[{"i", " ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"\[Psi]", "\[Equal]", "0"}], ",", 
+          RowBox[{"Boole", "[", 
+           RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}], "]"}], ",", 
+          RowBox[{"CDF", "[", 
+           RowBox[{
+            RowBox[{"NormalDistribution", "[", 
+             RowBox[{"\[CapitalPsi]", ",", "\[Psi]"}], "]"}], ",", "r"}], 
+           "]"}]}], "]"}], " ", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+          RowBox[{"Boole", "[", 
+           RowBox[{"\[CapitalXi]", "\[GreaterEqual]", "i"}], "]"}], ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"CDF", "[", 
+            RowBox[{
+             RowBox[{"NormalDistribution", "[", 
+              RowBox[{"\[CapitalXi]", ",", "\[Xi]"}], "]"}], ",", "i"}], 
+            "]"}]}]}], "]"}]}]}], ")"}]}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489924689359144*^9, 3.4899246930714207`*^9}, {
+   3.489942731605805*^9, 3.489942737808466*^9}, 3.489954779110869*^9, 
+   3.489955157151277*^9, {3.490007729044127*^9, 3.490007761137463*^9}, {
+   3.490007811790058*^9, 3.490007839436763*^9}, {3.491305102481292*^9, 
+   3.491305102507638*^9}, {3.491305168401379*^9, 3.4913051684274817`*^9}, {
+   3.491305206214024*^9, 3.491305230469721*^9}},
+ CellID->1006939914],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"eu", "[", 
+    RowBox[{"f_", ",", 
+     RowBox[{"k_", "/;", 
+      RowBox[{"k", "\[Equal]", "1"}]}], ",", "\[CapitalXi]_", ",", "\[Xi]_", 
+     ",", "\[CapitalPsi]_", ",", "\[Psi]_", ",", "p_", ",", "\[Rho]_", ",", 
+     "i_", ",", "r_"}], "]"}], ":=", 
+   RowBox[{"\[Piecewise]", GridBox[{
+      {
+       RowBox[{"2", "-", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"1", "+", 
+           RowBox[{"i", " ", "p"}], "+", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[Rho]"}], ")"}]}]}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", "r"], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[ExponentialE]"}], ")"}], " ", 
+            "f"}]}], ")"}]}]}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+          RowBox[{"r", "<", "\[CapitalPsi]"}]}], ")"}], "||", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+          RowBox[{"i", ">", "\[CapitalXi]"}]}], ")"}]}]},
+      {
+       RowBox[{"2", "-", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"1", "+", 
+           RowBox[{"i", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "p"}], ")"}]}], "+", 
+           RowBox[{"r", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "\[Rho]"}], ")"}]}]}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"i", "+", "r"}]], "+", 
+           RowBox[{"\[ExponentialE]", " ", "f"}], "-", 
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", "i"], " ", "f"}]}], ")"}]}]}], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}], "&&", 
+        RowBox[{"i", "\[LessEqual]", "\[CapitalXi]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "i"}], "-", "r"}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"i", "+", "r"}]]}], "+", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"1", "+", 
+             RowBox[{"i", " ", "p"}], "+", 
+             RowBox[{"r", " ", "\[Rho]"}]}]], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "2"}], " ", 
+              SuperscriptBox["\[ExponentialE]", "i"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["\[ExponentialE]", "r"], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[ExponentialE]"}], ")"}], " ", 
+                 "f"}]}], ")"}]}], "+", 
+             RowBox[{"\[ExponentialE]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                SuperscriptBox["\[ExponentialE]", "i"]}], ")"}], " ", "f", 
+              " ", 
+              RowBox[{"Erfc", "[", 
+               FractionBox[
+                RowBox[{"i", "-", "\[CapitalXi]"}], 
+                RowBox[{
+                 SqrtBox["2"], " ", "\[Xi]"}]], "]"}]}]}], ")"}]}]}], ")"}]}], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[NotEqual]", "0"}], "&&", 
+        RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "i"}], "-", "r"}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"i", "+", "r"}]]}], "+", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"1", "+", 
+             RowBox[{"i", " ", "p"}], "+", 
+             RowBox[{"r", " ", "\[Rho]"}]}]], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "2"}], " ", 
+              SuperscriptBox["\[ExponentialE]", "i"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["\[ExponentialE]", "r"], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[ExponentialE]"}], ")"}], " ", 
+                 "f"}]}], ")"}]}], "+", 
+             RowBox[{"\[ExponentialE]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                SuperscriptBox["\[ExponentialE]", "i"]}], ")"}], " ", "f", 
+              " ", 
+              RowBox[{"Erfc", "[", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "r"}], "+", "\[CapitalPsi]"}], 
+                RowBox[{
+                 SqrtBox["2"], " ", "\[Psi]"}]], "]"}]}]}], ")"}]}]}], 
+         ")"}]}], 
+       RowBox[{
+        RowBox[{"\[Psi]", "\[NotEqual]", "0"}], "&&", 
+        RowBox[{"\[Xi]", "\[Equal]", "0"}], "&&", 
+        RowBox[{"i", "\[LessEqual]", "\[CapitalXi]"}]}]},
+      {
+       RowBox[{
+        FractionBox["1", "4"], " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "i"}], "-", "r"}]], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"8", " ", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"i", "+", "r"}]]}], "+", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"1", "+", 
+             RowBox[{"i", " ", "p"}], "+", 
+             RowBox[{"r", " ", "\[Rho]"}]}]], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "4"}], " ", 
+              SuperscriptBox["\[ExponentialE]", "i"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["\[ExponentialE]", "r"], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], "+", "\[ExponentialE]"}], ")"}], " ", 
+                 "f"}]}], ")"}]}], "+", 
+             RowBox[{"\[ExponentialE]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "1"}], "+", 
+                SuperscriptBox["\[ExponentialE]", "i"]}], ")"}], " ", "f", 
+              " ", 
+              RowBox[{"Erfc", "[", 
+               FractionBox[
+                RowBox[{"i", "-", "\[CapitalXi]"}], 
+                RowBox[{
+                 SqrtBox["2"], " ", "\[Xi]"}]], "]"}], " ", 
+              RowBox[{"Erfc", "[", 
+               FractionBox[
+                RowBox[{
+                 RowBox[{"-", "r"}], "+", "\[CapitalPsi]"}], 
+                RowBox[{
+                 SqrtBox["2"], " ", "\[Psi]"}]], "]"}]}]}], ")"}]}]}], 
+         ")"}]}], 
+       TagBox["True",
+        "PiecewiseDefault",
+        AutoDelete->False,
+        DeletionWarning->True]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.84]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.489924689359144*^9, 3.4899246930714207`*^9}, {
+   3.489942731605805*^9, 3.489942737808466*^9}, 3.489954779110869*^9, 
+   3.489955157151277*^9, {3.490007729044127*^9, 3.490007761137463*^9}, {
+   3.490007811790058*^9, 3.4900078517089157`*^9}, 3.490007902776569*^9, {
+   3.490024959574213*^9, 3.490024965856475*^9}, {3.4901845368964167`*^9, 
+   3.4901845436309233`*^9}, {3.491305102543292*^9, 3.491305102624652*^9}, {
+   3.491305168461525*^9, 3.491305168575828*^9}, {3.491305206445751*^9, 
+   3.491305231016272*^9}},
+ CellID->1467996238],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ui", "[", 
+    RowBox[{
+     RowBox[{"k_", "/;", 
+      RowBox[{
+       RowBox[{"k", "\[NotEqual]", "0"}], " ", "&&", " ", 
+       RowBox[{"k", "\[NotEqual]", "1"}]}]}], ",", "y_"}], "]"}], ":=", 
+   RowBox[{"1", "-", 
+    FractionBox[
+     RowBox[{"Log", "[", 
+      RowBox[{"1", "+", "k", "-", 
+       RowBox[{"k", " ", "y"}]}], "]"}], "k"]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.48992310728792*^9, 3.489923115610256*^9}, {
+   3.489924729341366*^9, 3.48992473604661*^9}, {3.4899248468551083`*^9, 
+   3.489924846946352*^9}, {3.4900079459375563`*^9, 3.490007956935862*^9}},
+ CellID->208704201],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ui", "[", 
+    RowBox[{
+     RowBox[{"k_", "/;", 
+      RowBox[{"k", "\[Equal]", "0"}]}], ",", "y_"}], "]"}], ":=", "y"}], 
+  ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.48992310728792*^9, 3.489923115610256*^9}, {
+   3.489924729341366*^9, 3.48992473604661*^9}, {3.4899248468551083`*^9, 
+   3.489924846946352*^9}, {3.4900079459375563`*^9, 3.490007974980358*^9}},
+ CellID->173151683],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ui", "[", 
+    RowBox[{
+     RowBox[{"k_", "/;", 
+      RowBox[{"k", "\[Equal]", "1"}]}], ",", 
+     RowBox[{"y_", "/;", 
+      RowBox[{"y", "<", "2"}]}]}], "]"}], ":=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"-", 
+     FractionBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", "y"}]]}], "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.48992310728792*^9, 3.489923115610256*^9}, {
+   3.489924729341366*^9, 3.48992473604661*^9}, {3.4899248468551083`*^9, 
+   3.489924846946352*^9}, {3.4900079459375563`*^9, 3.490007984764163*^9}, {
+   3.4900080225484858`*^9, 3.490008029627762*^9}},
+ CellID->319994496],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"expectedBenefits", "[", 
+   RowBox[{
+   "f_", ",", "k_", ",", "\[CapitalXi]_", ",", "\[Xi]_", ",", 
+    "\[CapitalPsi]_", ",", "\[Psi]_", ",", "p_", ",", "\[Rho]_", ",", "i_", 
+    ",", "r_"}], "]"}], ":=", 
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{"-", "r"}]], " ", "f", " ", "i", " ", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"\[Psi]", "==", "0."}], ",", 
+     RowBox[{"Boole", "[", 
+      RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}], "]"}], ",", 
+     RowBox[{"CDF", "[", 
+      RowBox[{
+       RowBox[{"NormalDistribution", "[", 
+        RowBox[{"\[CapitalPsi]", ",", "\[Psi]"}], "]"}], ",", "r"}], "]"}]}], 
+    "]"}], " ", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"\[Xi]", "==", "0."}], ",", 
+     RowBox[{"Boole", "[", 
+      RowBox[{"\[CapitalXi]", "\[GreaterEqual]", "i"}], "]"}], ",", 
+     RowBox[{"1", "-", 
+      RowBox[{"CDF", "[", 
+       RowBox[{
+        RowBox[{"NormalDistribution", "[", 
+         RowBox[{"\[CapitalXi]", ",", "\[Xi]"}], "]"}], ",", "i"}], "]"}]}]}],
+     "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.489941766679237*^9, {3.489941913978138*^9, 
+   3.489941964397571*^9}, {3.489942038440218*^9, 3.489942043045906*^9}, {
+   3.4899422465799217`*^9, 3.489942247295977*^9}, {3.489954301364479*^9, 
+   3.489954313004343*^9}, {3.489954546748762*^9, 3.489954556689129*^9}, {
+   3.490008059370816*^9, 3.490008062559298*^9}, {3.4913051026272182`*^9, 
+   3.491305102630682*^9}, {3.4913051685781927`*^9, 3.491305168581531*^9}, {
+   3.491305206879052*^9, 3.491305231250228*^9}},
+ CellID->1785783461],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"v", "[", 
+    RowBox[{
+    "f_", ",", "k_", ",", "\[CapitalXi]_", ",", "\[Xi]_", ",", "mc_", ",", 
+     "\[CapitalPsi]_", ",", "\[Psi]_", ",", "rc_", ",", "p_", ",", "\[Rho]_", 
+     ",", "i_", ",", "r_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"i", "\[LessEqual]", "0."}], ",", "\"\<N/A\>\"", ",", 
+     RowBox[{
+      FractionBox["1", "i"], 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{
+        RowBox[{"-", "r"}], "-", "\[Psi]"}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"f", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox["\[ExponentialE]", "\[Psi]"], " ", "i"}], "+", 
+           "rc"}], ")"}], " ", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"\[Xi]", "\[Equal]", "0"}], ",", 
+           RowBox[{"Boole", "[", 
+            RowBox[{"\[CapitalXi]", "\[GreaterEqual]", "i"}], "]"}], ",", 
+           RowBox[{"1", "-", 
+            RowBox[{"CDF", "[", 
+             RowBox[{
+              RowBox[{"NormalDistribution", "[", 
+               RowBox[{"\[CapitalXi]", ",", "\[Xi]"}], "]"}], ",", "i"}], 
+             "]"}]}]}], "]"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"r", "+", "\[Psi]"}]], " ", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"i", "\[GreaterEqual]", "0.001`"}], ",", 
+           RowBox[{"mc", " ", 
+            RowBox[{"Exp", "[", 
+             RowBox[{"-", "\[Xi]"}], "]"}]}], ",", "0"}], "]"}]}]}], 
+       ")"}]}]}], "]"}]}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "this", " ", "computes", " ", "the", " ", "premium", " ", "the", " ", 
+    "insurer", " ", "would", " ", "need", " ", "to", " ", "charge", " ", "in",
+     " ", "order", " ", "to", " ", "break", " ", "even", " ", "assuming", " ", 
+    RowBox[{"(", "incorrectly", ")"}], " ", "that", " ", "the", " ", 
+    "insured", " ", "would", " ", "not", " ", "change", " ", "its", " ", 
+    "behavior", " ", "as", " ", "a", " ", "result", " ", "of", " ", "the", 
+    " ", "new", " ", "premium"}], "*)"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.489951165247315*^9, 3.48995121478203*^9}, {
+   3.489951478616707*^9, 3.4899514971699123`*^9}, {3.48995440427563*^9, 
+   3.489954417954018*^9}, {3.489954560737239*^9, 3.489954563710442*^9}, {
+   3.489958458638248*^9, 3.489958464934519*^9}, 3.490189569318416*^9, 
+   3.490189765228735*^9, {3.490189851052992*^9, 3.490189852104287*^9}, {
+   3.491305102633061*^9, 3.491305102637548*^9}, {3.4913051685838137`*^9, 
+   3.491305168590119*^9}, {3.491305207112982*^9, 3.4913052315502367`*^9}, {
+   3.4913062409362926`*^9, 3.491306271850439*^9}},
+ CellID->777669566],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"opts", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"BaseStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"FontSize", "\[Rule]", "12"}], ",", 
+        RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "}"}]}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<insurance\>\"", ",", "\"\<precaution\>\"", ",", 
+        "\"\<wealth \>\""}], "}"}]}]}], "}"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.489926187380381*^9, 3.489926223392054*^9}, {
+   3.490008758600974*^9, 3.490008758747878*^9}, {3.490023120736569*^9, 
+   3.490023148470829*^9}, {3.490377010628634*^9, 3.4903770110116725`*^9}, 
+   3.490377140014571*^9},
+ CellID->790690416],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"formatNM", "[", 
+   RowBox[{
+   "f_", ",", "k_", ",", "\[CapitalXi]_", ",", "\[Xi]_", ",", "mc_", ",", 
+    "\[CapitalPsi]_", ",", "\[Psi]_", ",", "rc_", ",", "p_", ",", "\[Rho]_", 
+    ",", "nm_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"probI", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"\[Xi]", "==", "0."}], ",", 
+         RowBox[{"Boole", "[", 
+          RowBox[{"\[CapitalXi]", "\[GreaterEqual]", "i"}], "]"}], ",", 
+         RowBox[{"1", "-", 
+          RowBox[{"CDF", "[", 
+           RowBox[{
+            RowBox[{"NormalDistribution", "[", 
+             RowBox[{"\[CapitalXi]", ",", "\[Xi]"}], "]"}], ",", "i"}], 
+           "]"}]}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"probR", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"\[Psi]", "==", "0."}], ",", 
+         RowBox[{"Boole", "[", 
+          RowBox[{"r", "\[GreaterEqual]", "\[CapitalPsi]"}], "]"}], ",", 
+         RowBox[{"CDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"\[CapitalPsi]", ",", "\[Psi]"}], "]"}], ",", "r"}], 
+          "]"}]}], "]"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Labeled", "[", 
+     RowBox[{
+      RowBox[{"Grid", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<optimal insurance\>\"", ",", 
+                "\"\<This is the amount of insurance that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent \
+wealth.\>\""}], "]"}], ",", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<optimal precaution\>\"", ",", 
+                "\"\<This is the amount of precautions that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent \
+wealth.\>\""}], "]"}], ",", "r"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<wealth at optimum\>\"", ",", 
+                "\"\<This is the certainty equivalent wealth of the insured \
+when it purchases the optimal amount of insurance and takes the optimum \
+amount of precautions.\>\""}], "]"}], ",", 
+              RowBox[{"ui", "[", 
+               RowBox[{"k", ",", 
+                RowBox[{"First", "@", "nm"}]}], "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<P(accident)\>\"", ",", 
+                "\"\<This is the probability of an accident occurring given \
+the insured's baseline accident probability and the amount of precuations \
+taken by the insured.\>\""}], "]"}], ",", " ", 
+              RowBox[{"f", " ", 
+               RowBox[{"Exp", "[", 
+                RowBox[{"-", "r"}], "]"}]}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<P(insured amount OK)\>\"", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"i", "\[Equal]", "0"}], ",", "\"\<N/A\>\"", ",", 
+                "probI"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<P(precautions OK)\>\"", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"i", "\[Equal]", "0"}], ",", "\"\<N/A\>\"", ",", 
+                "probR"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"\"\<P(indemnity if accident)\>\"", ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"i", "\[Equal]", "0"}], ",", "\"\<N/A\>\"", ",", 
+                RowBox[{"probI", "*", "probR"}]}], "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<expected benefits\>\"", ",", 
+                "\"\<This is the amount on average that the insured will \
+receive in payments from the insurer.\>\""}], "]"}], ",", 
+              RowBox[{"expectedBenefits", "[", 
+               RowBox[{
+               "f", ",", "k", ",", "\[CapitalXi]", ",", "\[Xi]", ",", 
+                "\[CapitalPsi]", ",", "\[Psi]", ",", "p", ",", "\[Rho]", ",", 
+                
+                RowBox[{"i", "/.", 
+                 RowBox[{"Last", "[", "nm", "]"}]}], ",", 
+                RowBox[{"r", "/.", 
+                 RowBox[{"Last", "[", "nm", "]"}]}]}], "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<premium\>\"", ",", 
+                "\"\<Note: premium is not the same as the unit price of \
+insurance; premium is the unit price of insurance multiplied by the amount of \
+insurance purchased.\>\""}], "]"}], ",", " ", 
+              RowBox[{
+               RowBox[{"i", " ", "p"}], " ", "/.", 
+               RowBox[{"Last", "[", "nm", "]"}]}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<apparent break\[Hyphen]even premium\>\"", ",", 
+                "\"\<This is the amount the insured would have to pay\
+\[LongDash]assuming (incorrectly) that its behavior would not change as a \
+result\[LongDash]in order for the insurer to break even; the premium is not \
+the same as the unit price of insurance; the premium is the unit price of \
+insurance multiplied by the amount of insurance purchased.\>\""}], "]"}], ",", 
+              RowBox[{"With", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"\[ScriptV]", "=", 
+                  RowBox[{"v", "[", 
+                   RowBox[{
+                   "f", ",", "k", ",", "\[CapitalXi]", ",", "\[Xi]", ",", 
+                    "mc", ",", "\[CapitalPsi]", ",", "\[Psi]", ",", "rc", ",",
+                     "p", ",", "\[Rho]", ",", 
+                    RowBox[{"i", "/.", 
+                    RowBox[{"Last", "[", "nm", "]"}]}], ",", 
+                    RowBox[{"r", "/.", 
+                    RowBox[{"Last", "[", "nm", "]"}]}]}], "]"}]}], "}"}], ",", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"And", "[", 
+                   RowBox[{
+                    RowBox[{"\[ScriptV]", "!=", "0."}], ",", 
+                    RowBox[{"i", "!=", "0."}]}], "]"}], ",", 
+                  RowBox[{"\[ScriptV]", " ", "i"}], ",", "\"\<N/A\>\""}], 
+                 "]"}]}], "]"}]}], " ", "}"}]}], "\[IndentingNewLine]", "}"}],
+           "/.", 
+          RowBox[{"Last", "[", "nm", "]"}]}], "/.", 
+         RowBox[{
+          RowBox[{"z_", "?", "NumericQ"}], "\[RuleDelayed]", 
+          RowBox[{"NumberForm", "[", 
+           RowBox[{
+            RowBox[{"Chop", "[", 
+             RowBox[{
+              RowBox[{"N", "[", "z", "]"}], ",", 
+              RowBox[{"10", "^", 
+               RowBox[{"-", "4"}]}]}], "]"}], ",", "4"}], "]"}]}]}], ",", 
+        RowBox[{"Dividers", "\[Rule]", "All"}], ",", 
+        RowBox[{"BaseStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"FontSize", "\[Rule]", "12"}], ",", 
+           RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}]}], "}"}]}], ",", 
+        RowBox[{"Background", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"ColorData", "[", "\"\<SolarColors\>\"", "]"}], "[", 
+            "0.8", "]"}], ",", "None"}], "}"}]}]}], "]"}], ",", 
+      RowBox[{"Style", "[", 
+       RowBox[{"\"\<Statistics\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Times\>\""}], ",", 
+          RowBox[{"FontColor", "\[Rule]", 
+           RowBox[{
+            RowBox[{"ColorData", "[", "\"\<SolarColors\>\"", "]"}], "[", ".5",
+             "]"}]}]}], "}"}]}], "]"}], ",", "Top"}], "]"}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.489926367471991*^9, 3.489926471996977*^9}, {
+   3.489926516061316*^9, 3.489926637061363*^9}, {3.4899266761087112`*^9, 
+   3.489926765981436*^9}, {3.4899267965332403`*^9, 3.4899268523195343`*^9}, {
+   3.489926885220417*^9, 3.489926904989957*^9}, {3.4899274406303797`*^9, 
+   3.489927464602954*^9}, {3.489927502658516*^9, 3.48992752491352*^9}, {
+   3.489939674901658*^9, 3.489939691886208*^9}, {3.48993976656913*^9, 
+   3.489939768416787*^9}, {3.4899410264985933`*^9, 3.4899410940470257`*^9}, 
+   3.489941151703532*^9, {3.489941970593214*^9, 3.489942035183963*^9}, {
+   3.489942205094534*^9, 3.4899422549334307`*^9}, {3.489942396320259*^9, 
+   3.4899424235298147`*^9}, {3.489942471591408*^9, 3.489942507871133*^9}, {
+   3.4899425720929823`*^9, 3.489942573292348*^9}, {3.4899460939114733`*^9, 
+   3.489946099933083*^9}, {3.489946226130371*^9, 3.489946314988368*^9}, {
+   3.489946371122918*^9, 3.489946403865738*^9}, {3.4899464590351057`*^9, 
+   3.4899464971156597`*^9}, {3.4899468620489063`*^9, 3.489946862325817*^9}, {
+   3.489947509341652*^9, 3.489947521652946*^9}, {3.4899510976665287`*^9, 
+   3.489951144941318*^9}, {3.489951237604615*^9, 3.489951338686452*^9}, {
+   3.4899513752184057`*^9, 3.4899513792205877`*^9}, {3.4899515300088863`*^9, 
+   3.4899515314649153`*^9}, {3.4899536257132387`*^9, 
+   3.4899537247490177`*^9}, {3.489953778328024*^9, 3.489953817019857*^9}, {
+   3.489954578180109*^9, 3.4899546027351294`*^9}, {3.489955457897691*^9, 
+   3.48995546433598*^9}, {3.489955497213512*^9, 3.4899557469891987`*^9}, {
+   3.489958601618907*^9, 3.489958601839778*^9}, {3.4899587263901176`*^9, 
+   3.489959016344841*^9}, {3.490008161439845*^9, 3.490008167750328*^9}, {
+   3.490015828667736*^9, 3.490015832913027*^9}, {3.4900231749855747`*^9, 
+   3.49002327708972*^9}, {3.490185960971115*^9, 3.4901859944121637`*^9}, {
+   3.490188003147299*^9, 3.490188011047722*^9}, {3.4901880723683653`*^9, 
+   3.490188078341714*^9}, {3.490189766459991*^9, 3.4901897682133417`*^9}, {
+   3.4901898530425167`*^9, 3.490189853830081*^9}, {3.4903770711376843`*^9, 
+   3.490377071643735*^9}, {3.490649348260806*^9, 3.490649442463931*^9}, {
+   3.491305102644113*^9, 3.4913051026724243`*^9}, {3.4913051685963097`*^9, 
+   3.491305168622225*^9}, {3.491305207230278*^9, 3.491305231915954*^9}, {
+   3.491335330288353*^9, 3.491335374789777*^9}, {3.4913360600142994`*^9, 
+   3.4913360987496653`*^9}},
+ CellID->1246826524],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sliderInterpolation", "[", "\[ScriptL]_", "]"}], ":=", 
+  RowBox[{"Interpolation", "[", 
+   RowBox[{
+    RowBox[{"Thread", "[", 
+     RowBox[{"List", "[", 
+      RowBox[{
+       RowBox[{"Range", "[", 
+        RowBox[{"0", ",", "1", ",", 
+         RowBox[{"1", "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Length", "[", "\[ScriptL]", "]"}], "-", "1"}], ")"}]}]}],
+         "]"}], ",", "\[ScriptL]"}], "]"}], "]"}], ",", 
+    RowBox[{"InterpolationOrder", "\[Rule]", "1"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.490020033895637*^9, 3.490020052656239*^9}},
+ CellID->1190521295],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kI", "=", 
+   RowBox[{"sliderInterpolation", "[", 
+    RowBox[{"List", "[", 
+     RowBox[{
+     "0", ",", "0.5", ",", "1", ",", "2", ",", "4", ",", "8", ",", "16"}], 
+     "]"}], "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4900148517385197`*^9, 3.490014928797798*^9}, {
+   3.490015084993085*^9, 3.490015090645397*^9}, {3.490020002043171*^9, 
+   3.490020028560718*^9}, {3.49002006090659*^9, 3.490020072840679*^9}},
+ CellID->744847548],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[CapitalPsi]I", "=", 
+   RowBox[{"sliderInterpolation", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"4", "^", 
+         RowBox[{"Range", "[", 
+          RowBox[{"2.", ",", 
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"-", "1"}]}], "]"}]}], ")"}]}], ",", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0", ",", "3", ",", "0.25"}], "]"}], ",", 
+      RowBox[{"{", "4", "}"}]}], "]"}], "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.490014665987213*^9, 3.490014670854127*^9}, {
+   3.490020077777823*^9, 3.490020088650219*^9}, 3.491305207613234*^9},
+ CellID->1491779162],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Rho]I", "=", 
+   RowBox[{"sliderInterpolation", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"Range", "[", 
+       RowBox[{"0.01", ",", "0.1", ",", "0.01"}], "]"}], ",", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0.2", ",", "1", ",", "0.2"}], "]"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.489958839218309*^9, 3.489958841704567*^9}, {
+   3.490014422108149*^9, 3.490014424439486*^9}, {3.490020092451295*^9, 
+   3.490020104318467*^9}},
+ CellID->1667261695],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"accuracyI", "=", 
+   RowBox[{"sliderInterpolation", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", "0.", "}"}], ",", 
+      RowBox[{"N", "[", 
+       RowBox[{"2", "^", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"-", "6"}], ",", "5", ",", "1"}], "]"}]}], "]"}]}], "]"}], 
+    "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.490015262980392*^9, 3.490015371877524*^9}, {
+  3.490020108906766*^9, 3.4900201184302883`*^9}},
+ CellID->72930763],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"determinationCostI", "=", 
+   RowBox[{"sliderInterpolation", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", "0.", "}"}], ",", 
+      RowBox[{"N", "[", 
+       RowBox[{"2", "^", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "1", ",", "1"}], "]"}]}], "]"}]}], "]"}], 
+    "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.490015886735609*^9, 3.490015911908063*^9}, {
+   3.4900201216508427`*^9, 3.490020136176597*^9}},
+ CellID->1622562719],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"manipulateOutput", "[", 
+   RowBox[{
+   "colorsurface_", ",", "computeOptQ_", ",", "f_", ",", "\[CapitalXi]_", ",",
+     "\[Chi]k_", ",", "\[Chi]p_", ",", "\[Chi]\[Psi]_", ",", "\[Chi]\[Xi]_", 
+    ",", "\[Chi]mc_", ",", "\[Chi]rc_", ",", "\[Chi]\[Rho]_", ",", 
+    "\[Chi]\[CapitalPsi]_"}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"p$", "=", 
+       RowBox[{
+        RowBox[{"Exp", "[", "\[Chi]p", "]"}], " ", "f"}]}], ",", 
+      RowBox[{"k$", "=", 
+       RowBox[{"kI", "[", "\[Chi]k", "]"}]}], ",", 
+      RowBox[{"\[CapitalPsi]$", "=", 
+       RowBox[{"\[CapitalPsi]I", "[", "\[Chi]\[CapitalPsi]", "]"}]}], ",", 
+      RowBox[{"\[Rho]$", "=", 
+       RowBox[{"\[Rho]I", "[", "\[Chi]\[Rho]", "]"}]}], ",", 
+      RowBox[{"\[Xi]$", "=", 
+       RowBox[{"accuracyI", "[", "\[Chi]\[Xi]", "]"}]}], ",", 
+      RowBox[{"\[Psi]$", "=", 
+       RowBox[{"accuracyI", "[", "\[Chi]\[Psi]", "]"}]}], ",", 
+      RowBox[{"mc$", "=", 
+       RowBox[{"determinationCostI", "[", "\[Chi]mc", "]"}]}], ",", 
+      RowBox[{"rc$", "=", 
+       RowBox[{"determinationCostI", "[", "\[Chi]rc", "]"}]}]}], "}"}], ",", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"vars1$", "=", 
+         RowBox[{"{", 
+          RowBox[{
+          "f", ",", "k$", ",", "\[CapitalXi]", ",", "\[Xi]$", ",", 
+           "\[CapitalPsi]$", ",", "\[Psi]$", ",", "p$", ",", "\[Rho]$"}], 
+          "}"}]}], ",", 
+        RowBox[{"vars2$", "=", 
+         RowBox[{"{", 
+          RowBox[{
+          "f", ",", "k$", ",", "\[CapitalXi]", ",", "\[Xi]$", ",", "mc$", ",",
+            "\[CapitalPsi]$", ",", "\[Psi]$", ",", "rc$", ",", "p$", ",", 
+           "\[Rho]$"}], "}"}]}], ",", "nm$", ",", "plot$"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"plot$", "=", 
+        RowBox[{"Plot3D", "[", 
+         RowBox[{
+          RowBox[{"ui", "[", 
+           RowBox[{"k$", ",", 
+            RowBox[{"eu", "[", 
+             RowBox[{
+              RowBox[{"Sequence", "@@", "vars1$"}], ",", "i", ",", "r"}], 
+             "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "0", ",", "5"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"r", ",", "0", ",", "5"}], "}"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"300", ",", "300"}], "}"}]}], ",", 
+          RowBox[{"AspectRatio", "\[Rule]", "0.9`"}], ",", 
+          RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+          RowBox[{"Evaluate", "@", 
+           RowBox[{"Switch", "[", 
+            RowBox[{"colorsurface", ",", "\"\<height\>\"", ",", 
+             RowBox[{"Boxed", "\[Rule]", "False"}], ",", "_", ",", 
+             RowBox[{"ColorFunctionScaling", "\[Rule]", "False"}]}], "]"}]}], 
+          
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "peculiar", " ", "construct", " ", "required", " ", "to", " ", 
+            "get", " ", "around", " ", "peculiarity", " ", "in", " ", 
+            "Mathematica", " ", "7", " ", "relating", " ", "to", " ", 
+            "operation", " ", "of", " ", "ColorFunctionScaling", " ", "that", 
+            " ", "is", " ", "apparently", " ", "being", " ", "fixed", " ", 
+            "in", " ", "later", " ", "versions", " ", "of", " ", 
+            "Mathematica"}], "*)"}], ",", 
+          RowBox[{"ColorFunction", "\[RuleDelayed]", 
+           RowBox[{"(", 
+            RowBox[{"Switch", "[", 
+             RowBox[{
+             "colorsurface", ",", "\[IndentingNewLine]", "\"\<height\>\"", 
+              ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ColorData", "[", "\"\<SolarColors\>\"", "]"}], "[", 
+                "#3", "]"}], "&"}], ",", "\[IndentingNewLine]", 
+              "\"\<P(indemnity)\>\"", ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ColorData", "[", "\"\<SolarColors\>\"", "]"}], "[", 
+                RowBox[{
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"\[Xi]$", "\[LessEqual]", "0.`"}], ",", 
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"\[CapitalXi]", "\[GreaterEqual]", "#1"}], "]"}], 
+                   ",", 
+                   RowBox[{"1", "-", 
+                    RowBox[{"CDF", "[", 
+                    RowBox[{
+                    RowBox[{"NormalDistribution", "[", 
+                    RowBox[{"\[CapitalXi]", ",", "\[Xi]$"}], "]"}], ",", 
+                    "#1"}], "]"}]}]}], "]"}], " ", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"\[Psi]$", "\[LessEqual]", "0"}], ",", 
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[GreaterEqual]", "\[CapitalPsi]$"}], 
+                    "]"}], ",", 
+                   RowBox[{"CDF", "[", 
+                    RowBox[{
+                    RowBox[{"NormalDistribution", "[", 
+                    RowBox[{"\[CapitalPsi]$", ",", "\[Psi]$"}], "]"}], ",", 
+                    "#2"}], "]"}]}], "]"}]}], "]"}], "&"}]}], "]"}], ")"}]}], 
+          ",", 
+          RowBox[{"MeshFunctions", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"#3", "&"}], "}"}]}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"Sequence", "@@", "opts"}], "]"}]}], "]"}]}], ";", 
+       RowBox[{"If", "[", 
+        RowBox[{"computeOptQ", ",", 
+         RowBox[{
+          RowBox[{"nm$", "=", 
+           RowBox[{"Quiet", "[", 
+            RowBox[{"NMaximize", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"eu", "[", 
+                 RowBox[{
+                  RowBox[{"Sequence", "@@", "vars1$"}], ",", "i", ",", "r"}], 
+                 "]"}], ",", 
+                RowBox[{
+                 RowBox[{
+                 "5", "\[GreaterEqual]", "i", "\[GreaterEqual]", "0"}], "&&", 
+                 
+                 RowBox[{
+                 "5", "\[GreaterEqual]", "r", "\[GreaterEqual]", "0"}]}]}], 
+               "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "r"}], "}"}], ",", 
+              RowBox[{"Method", "\[Rule]", "\"\<NelderMead\>\""}]}], "]"}], 
+            "]"}]}], ";", 
+          RowBox[{"Pane", "[", 
+           RowBox[{
+            RowBox[{"Grid", "[", 
+             RowBox[{"{", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Show", "[", 
+                 RowBox[{"plot$", ",", 
+                  RowBox[{"Graphics3D", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Directive", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"PointSize", "[", "0.04`", "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"ColorData", "[", "\"\<SolarColors\>\"", "]"}], 
+                    "[", "0", "]"}]}], "}"}], "]"}], ",", 
+                    RowBox[{"Point", "[", 
+                    RowBox[{"Flatten", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "r"}], "}"}], "/.", "\[InvisibleSpace]", 
+                    RowBox[{"Last", "[", "nm$", "]"}]}], ",", 
+                    RowBox[{"ui", "[", 
+                    RowBox[{"k$", ",", 
+                    RowBox[{"First", "[", "nm$", "]"}]}], "]"}]}], "}"}], 
+                    "]"}], "]"}]}], "}"}], "]"}]}], "]"}], ",", 
+                RowBox[{"formatNM", "[", 
+                 RowBox[{
+                  RowBox[{"Sequence", "@@", "vars2$"}], ",", "nm$"}], "]"}]}],
+                "}"}], "}"}], "]"}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"550", ",", "300"}], "}"}]}]}], "]"}]}], ",", 
+         RowBox[{"Pane", "[", 
+          RowBox[{"plot$", ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"550", ",", "300"}], "}"}]}]}], "]"}]}], "]"}]}]}], 
+     "]"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.49001627534503*^9, 3.490016354082397*^9}, {
+   3.490017048392623*^9, 3.49001707808167*^9}, {3.490022881197235*^9, 
+   3.490022949176835*^9}, {3.490022986983536*^9, 3.490023005360209*^9}, {
+   3.490023062720316*^9, 3.490023101771551*^9}, {3.490023307135193*^9, 
+   3.4900233090008907`*^9}, {3.490023442168757*^9, 3.490023467552786*^9}, {
+   3.490023541001812*^9, 3.4900235461841383`*^9}, {3.490023576788875*^9, 
+   3.4900236049563627`*^9}, {3.4900236420188026`*^9, 3.4900236789274*^9}, {
+   3.490023716598362*^9, 3.490023716843833*^9}, {3.490060179731708*^9, 
+   3.490060194452125*^9}, {3.490184221298216*^9, 3.490184223009489*^9}, {
+   3.490184261096839*^9, 3.490184345244787*^9}, {3.4901843770200167`*^9, 
+   3.490184378914009*^9}, {3.490184410592967*^9, 3.49018445531896*^9}, {
+   3.490186607104587*^9, 3.490186607631139*^9}, {3.4901897693870907`*^9, 
+   3.490189781794024*^9}, {3.490189854867697*^9, 3.490189858007194*^9}, {
+   3.490376832282095*^9, 3.490376858636365*^9}, {3.490376921949767*^9, 
+   3.4903769759001617`*^9}, {3.490649494604556*^9, 3.490649495620181*^9}, {
+   3.490649628760806*^9, 3.490649635870181*^9}, {3.4913051026914062`*^9, 
+   3.491305102716589*^9}, {3.4913051686293488`*^9, 3.491305168664247*^9}, {
+   3.491305207712935*^9, 3.491305232416147*^9}, {3.4913363304569693`*^9, 
+   3.491336347082182*^9}, {3.4913364075517063`*^9, 3.49133641642682*^9}, {
+   3.4913365746163445`*^9, 3.4913365753351035`*^9}, {3.4913366197575474`*^9, 
+   3.491336638585511*^9}, {3.4913368073090873`*^9, 3.4913368126993675`*^9}, {
+   3.491579601324815*^9, 3.4915796854762287`*^9}, {3.49158328979694*^9, 
+   3.491583290073968*^9}, {3.4919269074340267`*^9, 3.4919269146253138`*^9}},
+ CellID->707827391],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"manipulateOutput", "[", 
+    RowBox[{
+    "colorsurface", ",", "computeOptQ", ",", "f", ",", "\[CapitalXi]", ",", 
+     "\[Chi]k", ",", "\[Chi]p", ",", "\[Chi]\[Psi]", ",", "\[Chi]\[Xi]", ",", 
+     "\[Chi]mc", ",", "\[Chi]rc", ",", "\[Chi]\[Rho]", ",", 
+     "\[Chi]\[CapitalPsi]"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "controls", " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<insured characteristics\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"f", ",", "0.1", ",", 
+           RowBox[{"Tooltip", "[", 
+            RowBox[{
+            "\"\<baseline accident probability\>\"", ",", 
+             "\"\<f is the baseline probability of an accident, that is, the \
+probability of an accident if the insured takes no precautions against \
+it.\>\""}], "]"}]}], "}"}], ",", "0.05", ",", "0.6", ",", "0.01", ",", 
+         RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Control", "@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Chi]k", ",", "0.625", ",", 
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<risk aversion\>\"", ",", 
+                "\"\<k is a measure of the risk aversion of the insured, \
+where higher levels of k correspond to higher levels of risk aversion; the \
+insured is assumed to have a constant absolute level of risk aversion (CARA).\
+\>\""}], "]"}]}], "}"}], ",", "0", ",", "1", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+         RowBox[{"Spacer", "[", "12", "]"}], ",", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"NumberForm", "[", 
+           RowBox[{
+            RowBox[{"N", "[", 
+             RowBox[{"kI", "[", "\[Chi]k", "]"}], "]"}], ",", "4"}], "]"}], 
+          "]"}]}], "}"}], "]"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<insurer conditions\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\[CapitalXi]", ",", "1", ",", 
+           RowBox[{"Tooltip", "[", 
+            RowBox[{
+            "\"\<maximum insurance\>\"", ",", 
+             "\"\<\[CapitalXi] is the maximum amount of insurance that may \
+lawfully be purchased.\>\""}], "]"}]}], "}"}], ",", "0.5", ",", "5", ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Tiny"}], ",", 
+         RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], ",",
+       "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Control", "@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Chi]\[CapitalPsi]", ",", "0.5", ",", 
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<minimum precaution\>\"", ",", 
+                "\"\<\[CapitalPsi] is the minimum amount of precautions that \
+the insured must take before the insured has a right to payment in the event \
+of an accident.\>\""}], "]"}]}], "}"}], ",", "0", ",", "1", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+         RowBox[{"Spacer", "[", "12", "]"}], ",", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"NumberForm", "[", 
+           RowBox[{
+            RowBox[{"\[CapitalPsi]I", "[", "\[Chi]\[CapitalPsi]", "]"}], ",", 
+            "4"}], "]"}], "]"}]}], "}"}], "]"}]}], "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<prices\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Control", "@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Chi]p", ",", 
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<relative price of insurance\>\"", ",", "\"\<\>\""}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"-", "6"}], ",", "1", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+         RowBox[{"Spacer", "[", "12", "]"}], ",", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"NumberForm", "[", 
+           RowBox[{
+            RowBox[{"N", "@", 
+             RowBox[{"Exp", "[", "\[Chi]p", "]"}]}], ",", "5"}], "]"}], 
+          "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"Spacer", "[", "18", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Control", "@", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[Chi]\[Rho]", ",", "0.02", ",", 
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+               "\"\<price of precaution\>\"", ",", 
+                "\"\<\[Rho] is the price per unit of precaution.\>\""}], 
+               "]"}]}], "}"}], ",", "0", ",", "1", ",", 
+            RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+         RowBox[{"Spacer", "[", "12", "]"}], ",", 
+         RowBox[{"Dynamic", "[", 
+          RowBox[{"\[Rho]I", "[", "\[Chi]\[Rho]", "]"}], "]"}]}], "}"}], 
+       "]"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", "Delimiter", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"OpenerView", "[", 
+    RowBox[{"{", 
+     RowBox[{"\"\<advanced controls\>\"", ",", 
+      RowBox[{"Column", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Column", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<error\>\"", ",", "Bold"}], "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Control", "@", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\[Chi]\[Xi]", ",", "0.2", ",", 
+                    RowBox[{"Tooltip", "[", 
+                    RowBox[{
+                    "\"\<max. ins. error\>\"", ",", 
+                    "\"\<\[Xi] measures the error in determining whether the \
+amount of insurance purchased exceeded the maximum.\>\""}], "]"}]}], "}"}], 
+                    ",", "0", ",", "1", ",", 
+                    RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+                  
+                  RowBox[{"Spacer", "[", "12", "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", 
+                    RowBox[{"accuracyI", "[", "\[Chi]\[Xi]", "]"}], "]"}], 
+                    ",", "4"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Spacer", "[", "18", "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Control", "@", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\[Chi]\[Psi]", ",", "0.2", ",", 
+                    RowBox[{"Tooltip", "[", 
+                    RowBox[{
+                    "\"\<precaution error\>\"", ",", 
+                    "\"\<\[Xi] measures the error in determining whether the \
+precautions taken fall below the minimum.\>\""}], "]"}]}], "}"}], ",", "0", 
+                    ",", "1", ",", 
+                    RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+                  
+                  RowBox[{"Spacer", "[", "12", "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", 
+                    RowBox[{"accuracyI", "[", "\[Chi]\[Psi]", "]"}], "]"}], 
+                    ",", "4"}], "]"}], "]"}]}], "}"}], "]"}]}], "}"}], 
+             "]"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Column", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<cost to reduce error\>\"", ",", "Bold"}], "]"}], 
+            ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Control", "@", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\[Chi]mc", ",", "0.1", ",", 
+                    RowBox[{"Tooltip", "[", 
+                    RowBox[{
+                    "\"\<mc\>\"", ",", 
+                    "\"\<mc is the unit cost of increasing the accuracy of \
+the determination whether the amount of insurance purchased exceeded the \
+maximum.\>\""}], "]"}]}], "}"}], ",", "0", ",", "1", ",", 
+                    RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+                  
+                  RowBox[{"Spacer", "[", "12", "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", 
+                    RowBox[{"determinationCostI", "[", "\[Chi]mc", "]"}], 
+                    "]"}], ",", "4"}], "]"}], "]"}]}], "}"}], "]"}], ",", 
+               RowBox[{"Spacer", "[", "18", "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Control", "@", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\[Chi]rc", ",", "0.1", ",", 
+                    RowBox[{"Tooltip", "[", 
+                    RowBox[{
+                    "\"\<rc\>\"", ",", 
+                    "\"\<rc is the unit cost of increasing the accuracy of \
+the determination whether the amount of precautions taken was under the \
+minimum.\>\""}], "]"}]}], "}"}], ",", "0", ",", "1", ",", 
+                    RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+                  
+                  RowBox[{"Spacer", "[", "12", "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", 
+                    RowBox[{"determinationCostI", "[", "\[Chi]rc", "]"}], 
+                    "]"}], ",", "4"}], "]"}], "]"}]}], "}"}], "]"}]}], "}"}], 
+             "]"}]}], "}"}], "]"}]}], "}"}], "]"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Item", "[", 
+    RowBox[{
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "computeOptQ", ",", "True", ",", "\"\<compute details\>\""}], 
+            "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"Spacer", "[", "36", "]"}], ",", 
+        RowBox[{"Control", "@", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "colorsurface", ",", "\"\<height\>\"", ",", 
+             "\"\<color surface according to\[Ellipsis]\>\""}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<height\>\"", ",", "\"\<P(indemnity)\>\""}], "}"}]}], 
+          "}"}]}]}], "}"}], "]"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Bottom"}]}], "]"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"5", ",", "6"}], "}"}]}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.48991575489867*^9, 3.489915886565085*^9}, {
+   3.489916297416155*^9, 3.4899163407618637`*^9}, {3.489916370817624*^9, 
+   3.489916522089283*^9}, {3.489916820330133*^9, 3.489917051085413*^9}, {
+   3.48991814132686*^9, 3.48991817741881*^9}, {3.489918266355875*^9, 
+   3.4899182667478743`*^9}, {3.48991832704634*^9, 3.489918347550811*^9}, {
+   3.489918488194541*^9, 3.489918495874419*^9}, 3.4899186116961613`*^9, {
+   3.4899206870034237`*^9, 3.4899207619981003`*^9}, {3.489920799438429*^9, 
+   3.489920824848918*^9}, {3.489920858447184*^9, 3.489920913149729*^9}, {
+   3.4899209437472353`*^9, 3.489920956027234*^9}, {3.4899209919475594`*^9, 
+   3.4899210287698174`*^9}, {3.4899210641264544`*^9, 3.489921136415277*^9}, {
+   3.489921213439557*^9, 3.489921274371048*^9}, 3.489921355479488*^9, {
+   3.489921389590681*^9, 3.489921404593639*^9}, {3.489921446661463*^9, 
+   3.489921526210249*^9}, {3.489921567773678*^9, 3.489922045408538*^9}, {
+   3.48992213842248*^9, 3.489922138566124*^9}, {3.489922170971428*^9, 
+   3.489922376897666*^9}, {3.489922415091271*^9, 3.489922649371756*^9}, {
+   3.4899247486763906`*^9, 3.489924829786455*^9}, {3.489924862551475*^9, 
+   3.489924865764441*^9}, {3.489925239558967*^9, 3.489925271264504*^9}, {
+   3.489925357711841*^9, 3.489925387031282*^9}, {3.489925474061617*^9, 
+   3.4899254770188026`*^9}, {3.48992551110179*^9, 3.4899255248548098`*^9}, {
+   3.489925557714826*^9, 3.489925794822958*^9}, {3.489925825622624*^9, 
+   3.48992582899576*^9}, {3.4899261631507*^9, 3.489926180974275*^9}, {
+   3.4899262312441473`*^9, 3.4899262811850147`*^9}, {3.4899263134484997`*^9, 
+   3.48992631671194*^9}, {3.489926481809765*^9, 3.489926507985334*^9}, {
+   3.4899265776536503`*^9, 3.489926577893115*^9}, {3.489926647891987*^9, 
+   3.489926651625065*^9}, {3.489939995235477*^9, 3.4899400259682426`*^9}, {
+   3.48994006232926*^9, 3.489940087101851*^9}, {3.489940125894906*^9, 
+   3.489940162498085*^9}, {3.489943084260799*^9, 3.4899431375457172`*^9}, {
+   3.489945821821649*^9, 3.4899458243880577`*^9}, {3.489946130637834*^9, 
+   3.489946211904806*^9}, {3.489946538067868*^9, 3.489946572315858*^9}, {
+   3.489946623225878*^9, 3.489946757261359*^9}, {3.489946789804675*^9, 
+   3.489946856702157*^9}, {3.489946914936261*^9, 3.489946919294551*^9}, {
+   3.489946971734048*^9, 3.489946988611332*^9}, {3.489947101150463*^9, 
+   3.4899471302159653`*^9}, {3.489947179638179*^9, 3.489947185997821*^9}, {
+   3.489947318466515*^9, 3.48994745155114*^9}, {3.489947787135065*^9, 
+   3.489947863087955*^9}, {3.489948521526986*^9, 3.48994865255881*^9}, {
+   3.489948727658646*^9, 3.489948729058197*^9}, {3.489950341928817*^9, 
+   3.4899503462046328`*^9}, {3.489950458911158*^9, 3.489950660487936*^9}, {
+   3.489951022325536*^9, 3.489951080656577*^9}, {3.489951354911525*^9, 
+   3.4899513550146914`*^9}, {3.4899514344616747`*^9, 3.489951435099948*^9}, {
+   3.489954209404038*^9, 3.4899542148558903`*^9}, {3.4899544457678633`*^9, 
+   3.489954448146933*^9}, {3.489954478850624*^9, 3.489954504228024*^9}, {
+   3.48995495709468*^9, 3.4899549817603073`*^9}, {3.489955014754723*^9, 
+   3.489955021203083*^9}, {3.4899552040866823`*^9, 3.4899552998198147`*^9}, {
+   3.489958017880628*^9, 3.48995802333118*^9}, {3.490008087914735*^9, 
+   3.490008146508586*^9}, {3.490009416444427*^9, 3.490009455554288*^9}, {
+   3.490009523171548*^9, 3.490009527426588*^9}, {3.490009559193997*^9, 
+   3.490009571392537*^9}, {3.490009737084013*^9, 3.490009827270154*^9}, {
+   3.490009953300634*^9, 3.490010017016719*^9}, {3.490010128630815*^9, 
+   3.49001016102742*^9}, {3.4900102226549263`*^9, 3.490010309987071*^9}, {
+   3.490011265005026*^9, 3.490011329823194*^9}, {3.4900113668109913`*^9, 
+   3.4900113737511063`*^9}, {3.4900114065828943`*^9, 
+   3.4900114555278587`*^9}, {3.49001162132199*^9, 3.490011639419454*^9}, {
+   3.4900118028268003`*^9, 3.49001182727178*^9}, {3.490011868577714*^9, 
+   3.490011905483059*^9}, {3.4900121604201593`*^9, 3.490012174554368*^9}, {
+   3.490012215923024*^9, 3.490012221393158*^9}, {3.490012497744748*^9, 
+   3.490012499774152*^9}, {3.4900125492971573`*^9, 3.490012585035734*^9}, {
+   3.490012634379739*^9, 3.490012782331233*^9}, {3.490012821417089*^9, 
+   3.490013025677766*^9}, {3.4900130651969213`*^9, 3.490013265247766*^9}, {
+   3.4900133750258293`*^9, 3.490013384134375*^9}, {3.490014058474864*^9, 
+   3.490014134666095*^9}, {3.4900142159470882`*^9, 3.490014232495762*^9}, {
+   3.490014437174515*^9, 3.490014489273488*^9}, {3.490014681389765*^9, 
+   3.490014718200325*^9}, {3.490014807426765*^9, 3.490014828280344*^9}, {
+   3.490014951827403*^9, 3.490015021417925*^9}, {3.490015379476685*^9, 
+   3.490015736529655*^9}, {3.490015923476532*^9, 3.49001600321021*^9}, {
+   3.490016034061335*^9, 3.490016125226282*^9}, {3.49001621898612*^9, 
+   3.490016220609962*^9}, {3.490016363226275*^9, 3.490016401894362*^9}, {
+   3.490016458181896*^9, 3.490016854985758*^9}, {3.4900168935229273`*^9, 
+   3.4900170185496197`*^9}, {3.490023020612349*^9, 3.490023025890139*^9}, {
+   3.490023355731388*^9, 3.490023368861085*^9}, {3.4901881158389893`*^9, 
+   3.4901881339598427`*^9}, {3.490189787975422*^9, 3.490189807453442*^9}, {
+   3.490189860335*^9, 3.490189866862649*^9}, {3.4903768627951965`*^9, 
+   3.4903768863108983`*^9}, {3.4903770484074116`*^9, 
+   3.4903770526268334`*^9}, {3.490649073838931*^9, 3.490649156479556*^9}, {
+   3.490649188932681*^9, 3.490649246010806*^9}, {3.490649582854556*^9, 
+   3.490649611463931*^9}, {3.490650160276431*^9, 3.490650171776431*^9}, {
+   3.490650234104556*^9, 3.490650238260806*^9}, 3.4909693775113506`*^9, {
+   3.491305102742015*^9, 3.491305102762278*^9}, {3.491305168673402*^9, 
+   3.4913051687103024`*^9}, {3.4913052083104353`*^9, 3.491305232649541*^9}, {
+   3.491335573935641*^9, 3.491335575404419*^9}, {3.491336551459798*^9, 
+   3.4913365520535555`*^9}, {3.4913368293701754`*^9, 3.491336830932575*^9}, 
+   3.4913419973553467`*^9, {3.4915797392666073`*^9, 3.4915797633770185`*^9}, {
+   3.49158036338822*^9, 3.491580399709673*^9}, {3.4917402840868683`*^9, 
+   3.491740288835596*^9}, {3.4919140458946466`*^9, 3.491914049866044*^9}},
+ CellID->1932124315]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`colorsurface$$ = 
+    "height", $CellContext`computeOptQ$$ = True, $CellContext`f$$ = 
+    0.1, $CellContext`\[CapitalXi]$$ = 1, $CellContext`\[Chi]k$$ = 
+    0.625, $CellContext`\[Chi]mc$$ = 
+    0.1, $CellContext`\[Chi]p$$ = -1, $CellContext`\[Chi]rc$$ = 
+    0.1, $CellContext`\[Chi]\[Xi]$$ = 0.2, $CellContext`\[Chi]\[Rho]$$ = 
+    0.02, $CellContext`\[Chi]\[Psi]$$ = 
+    0.2, $CellContext`\[Chi]\[CapitalPsi]$$ = 0.5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["insured characteristics", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`f$$], 0.1, 
+       Tooltip[
+       "baseline accident probability", 
+        "f is the baseline probability of an accident, that is, the \
+probability of an accident if the insured takes no precautions against it."]},
+       0.05, 0.6, 0.01}, {{
+       Hold[$CellContext`\[Chi]k$$], 0.625, 
+       Tooltip[
+       "risk aversion", 
+        "k is a measure of the risk aversion of the insured, where higher \
+levels of k correspond to higher levels of risk aversion; the insured is \
+assumed to have a constant absolute level of risk aversion (CARA)."]}, 0, 1}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Row[{
+           Manipulate`Place[2], 
+           Spacer[12], 
+           Dynamic[
+            NumberForm[
+             N[
+              $CellContext`kI[$CellContext`\[Chi]k$$]], 4]]}]}]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["insurer conditions", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[CapitalXi]$$], 1, 
+       Tooltip[
+       "maximum insurance", 
+        "\[CapitalXi] is the maximum amount of insurance that may lawfully be \
+purchased."]}, 0.5, 5}, {{
+       Hold[$CellContext`\[Chi]\[CapitalPsi]$$], 0.5, 
+       Tooltip[
+       "minimum precaution", 
+        "\[CapitalPsi] is the minimum amount of precautions that the insured \
+must take before the insured has a right to payment in the event of an \
+accident."]}, 0, 1}, {
+      Hold[
+       Row[{
+         Manipulate`Place[3], 
+         Row[{
+           Manipulate`Place[4], 
+           Spacer[12], 
+           Dynamic[
+            NumberForm[
+             $CellContext`\[CapitalPsi]I[$CellContext`\[Chi]\[CapitalPsi]$$], 
+             4]]}]}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["prices", Bold]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[Chi]p$$], -1, 
+       Tooltip["relative price of insurance", ""]}, -6, 1}, {{
+       Hold[$CellContext`\[Chi]\[Rho]$$], 0.02, 
+       Tooltip[
+       "price of precaution", "\[Rho] is the price per unit of precaution."]},
+       0, 1}, {
+      Hold[
+       Row[{
+         Row[{
+           Manipulate`Place[5], 
+           Spacer[12], 
+           Dynamic[
+            NumberForm[
+             N[
+              Exp[$CellContext`\[Chi]p$$]], 5]]}], 
+         Spacer[18], 
+         Row[{
+           Manipulate`Place[6], 
+           Spacer[12], 
+           Dynamic[
+            $CellContext`\[Rho]I[$CellContext`\[Chi]\[Rho]$$]]}]}]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[Chi]\[Xi]$$], 0.2, 
+       Tooltip[
+       "max. ins. error", 
+        "\[Xi] measures the error in determining whether the amount of \
+insurance purchased exceeded the maximum."]}, 0, 1}, {{
+       Hold[$CellContext`\[Chi]\[Psi]$$], 0.2, 
+       Tooltip[
+       "precaution error", 
+        "\[Xi] measures the error in determining whether the precautions \
+taken fall below the minimum."]}, 0, 1}, {{
+       Hold[$CellContext`\[Chi]mc$$], 0.1, 
+       Tooltip[
+       "mc", "mc is the unit cost of increasing the accuracy of the \
+determination whether the amount of insurance purchased exceeded the \
+maximum."]}, 0, 1}, {{
+       Hold[$CellContext`\[Chi]rc$$], 0.1, 
+       Tooltip[
+       "rc", "rc is the unit cost of increasing the accuracy of the \
+determination whether the amount of precautions taken was under the \
+minimum."]}, 0, 1}, {
+      Hold[
+       OpenerView[{"advanced controls", 
+         Column[{
+           Column[{
+             Style["error", Bold], 
+             Row[{
+               Row[{
+                 Manipulate`Place[7], 
+                 Spacer[12], 
+                 Dynamic[
+                  NumberForm[
+                   N[
+                    $CellContext`accuracyI[$CellContext`\[Chi]\[Xi]$$]], 
+                   4]]}], 
+               Spacer[18], 
+               Row[{
+                 Manipulate`Place[8], 
+                 Spacer[12], 
+                 Dynamic[
+                  NumberForm[
+                   N[
+                    $CellContext`accuracyI[$CellContext`\[Chi]\[Psi]$$]], 
+                   4]]}]}]}], 
+           Column[{
+             Style["cost to reduce error", Bold], 
+             Row[{
+               Row[{
+                 Manipulate`Place[9], 
+                 Spacer[12], 
+                 Dynamic[
+                  NumberForm[
+                   N[
+                    $CellContext`determinationCostI[$CellContext`\[Chi]mc$$]],
+                    4]]}], 
+               Spacer[18], 
+               Row[{
+                 Manipulate`Place[10], 
+                 Spacer[12], 
+                 Dynamic[
+                  NumberForm[
+                   N[
+                    $CellContext`determinationCostI[$CellContext`\[Chi]rc$$]],
+                    4]]}]}]}]}]}]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`computeOptQ$$], True, "compute details"}, {
+      True, False}}, {{
+       Hold[$CellContext`colorsurface$$], "height", 
+       "color surface according to\[Ellipsis]"}, {"height", "P(indemnity)"}}, {
+      Hold[
+       Item[
+        Row[{
+          Manipulate`Place[11], 
+          Spacer[36], 
+          Manipulate`Place[12]}]]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {550., {147.5, 152.5}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`f$962251$$ = 0, $CellContext`\[Chi]k$962252$$ = 
+    0, $CellContext`\[CapitalXi]$962253$$ = 
+    0, $CellContext`\[Chi]\[CapitalPsi]$962254$$ = 
+    0, $CellContext`\[Chi]p$962255$$ = 0, $CellContext`\[Chi]\[Rho]$962256$$ =
+     0, $CellContext`\[Chi]\[Xi]$962257$$ = 
+    0, $CellContext`\[Chi]\[Psi]$962258$$ = 
+    0, $CellContext`\[Chi]mc$962259$$ = 0, $CellContext`\[Chi]rc$962260$$ = 
+    0, $CellContext`computeOptQ$962261$$ = 
+    False, $CellContext`colorsurface$962262$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`colorsurface$$ = 
+        "height", $CellContext`computeOptQ$$ = True, $CellContext`f$$ = 
+        0.1, $CellContext`\[CapitalXi]$$ = 1, $CellContext`\[Chi]k$$ = 
+        0.625, $CellContext`\[Chi]mc$$ = 
+        0.1, $CellContext`\[Chi]p$$ = -1, $CellContext`\[Chi]rc$$ = 
+        0.1, $CellContext`\[Chi]\[Xi]$$ = 0.2, $CellContext`\[Chi]\[Rho]$$ = 
+        0.02, $CellContext`\[Chi]\[Psi]$$ = 
+        0.2, $CellContext`\[Chi]\[CapitalPsi]$$ = 0.5}, "ControllerVariables" :> {
+        Hold[$CellContext`f$$, $CellContext`f$962251$$, 0], 
+        Hold[$CellContext`\[Chi]k$$, $CellContext`\[Chi]k$962252$$, 0], 
+        Hold[$CellContext`\[CapitalXi]$$, $CellContext`\[CapitalXi]$962253$$, 
+         0], 
+        Hold[$CellContext`\[Chi]\[CapitalPsi]$$, $CellContext`\[Chi]\
+\[CapitalPsi]$962254$$, 0], 
+        Hold[$CellContext`\[Chi]p$$, $CellContext`\[Chi]p$962255$$, 0], 
+        Hold[$CellContext`\[Chi]\[Rho]$$, $CellContext`\[Chi]\[Rho]$962256$$, 
+         0], 
+        Hold[$CellContext`\[Chi]\[Xi]$$, $CellContext`\[Chi]\[Xi]$962257$$, 
+         0], 
+        Hold[$CellContext`\[Chi]\[Psi]$$, $CellContext`\[Chi]\[Psi]$962258$$, 
+         0], 
+        Hold[$CellContext`\[Chi]mc$$, $CellContext`\[Chi]mc$962259$$, 0], 
+        Hold[$CellContext`\[Chi]rc$$, $CellContext`\[Chi]rc$962260$$, 0], 
+        Hold[$CellContext`computeOptQ$$, $CellContext`computeOptQ$962261$$, 
+         False], 
+        Hold[$CellContext`colorsurface$$, $CellContext`colorsurface$962262$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`manipulateOutput[$CellContext`colorsurface$$, \
+$CellContext`computeOptQ$$, $CellContext`f$$, $CellContext`\[CapitalXi]$$, \
+$CellContext`\[Chi]k$$, $CellContext`\[Chi]p$$, $CellContext`\[Chi]\[Psi]$$, \
+$CellContext`\[Chi]\[Xi]$$, $CellContext`\[Chi]mc$$, $CellContext`\[Chi]rc$$, \
+$CellContext`\[Chi]\[Rho]$$, $CellContext`\[Chi]\[CapitalPsi]$$], 
+      "Specifications" :> {
+        Style["insured characteristics", Bold], {{$CellContext`f$$, 0.1, 
+          Tooltip[
+          "baseline accident probability", 
+           "f is the baseline probability of an accident, that is, the \
+probability of an accident if the insured takes no precautions against it."]},
+          0.05, 0.6, 0.01, Appearance -> "Labeled", ImageSize -> Tiny, 
+         ControlPlacement -> 1}, {{$CellContext`\[Chi]k$$, 0.625, 
+          Tooltip[
+          "risk aversion", 
+           "k is a measure of the risk aversion of the insured, where higher \
+levels of k correspond to higher levels of risk aversion; the insured is \
+assumed to have a constant absolute level of risk aversion (CARA)."]}, 0, 1, 
+         ImageSize -> Tiny, ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Row[{
+            Manipulate`Place[2], 
+            Spacer[12], 
+            Dynamic[
+             NumberForm[
+              N[
+               $CellContext`kI[$CellContext`\[Chi]k$$]], 4]]}]}], 
+        Style["insurer conditions", Bold], {{$CellContext`\[CapitalXi]$$, 1, 
+          Tooltip[
+          "maximum insurance", 
+           "\[CapitalXi] is the maximum amount of insurance that may lawfully \
+be purchased."]}, 0.5, 5, ImageSize -> Tiny, Appearance -> "Labeled", 
+         ControlPlacement -> 3}, {{$CellContext`\[Chi]\[CapitalPsi]$$, 0.5, 
+          Tooltip[
+          "minimum precaution", 
+           "\[CapitalPsi] is the minimum amount of precautions that the \
+insured must take before the insured has a right to payment in the event of \
+an accident."]}, 0, 1, ImageSize -> Tiny, ControlPlacement -> 4}, 
+        Row[{
+          Manipulate`Place[3], 
+          Row[{
+            Manipulate`Place[4], 
+            Spacer[12], 
+            Dynamic[
+             NumberForm[
+              $CellContext`\[CapitalPsi]I[$CellContext`\[Chi]\[CapitalPsi]$$],
+               4]]}]}], 
+        Style["prices", Bold], {{$CellContext`\[Chi]p$$, -1, 
+          Tooltip["relative price of insurance", ""]}, -6, 1, ImageSize -> 
+         Tiny, ControlPlacement -> 5}, {{$CellContext`\[Chi]\[Rho]$$, 0.02, 
+          Tooltip[
+          "price of precaution", 
+           "\[Rho] is the price per unit of precaution."]}, 0, 1, ImageSize -> 
+         Tiny, ControlPlacement -> 6}, 
+        Row[{
+          Row[{
+            Manipulate`Place[5], 
+            Spacer[12], 
+            Dynamic[
+             NumberForm[
+              N[
+               Exp[$CellContext`\[Chi]p$$]], 5]]}], 
+          Spacer[18], 
+          Row[{
+            Manipulate`Place[6], 
+            Spacer[12], 
+            Dynamic[
+             $CellContext`\[Rho]I[$CellContext`\[Chi]\[Rho]$$]]}]}], 
+        Delimiter, {{$CellContext`\[Chi]\[Xi]$$, 0.2, 
+          Tooltip[
+          "max. ins. error", 
+           "\[Xi] measures the error in determining whether the amount of \
+insurance purchased exceeded the maximum."]}, 0, 1, ImageSize -> Tiny, 
+         ControlPlacement -> 7}, {{$CellContext`\[Chi]\[Psi]$$, 0.2, 
+          Tooltip[
+          "precaution error", 
+           "\[Xi] measures the error in determining whether the precautions \
+taken fall below the minimum."]}, 0, 1, ImageSize -> Tiny, ControlPlacement -> 
+         8}, {{$CellContext`\[Chi]mc$$, 0.1, 
+          Tooltip[
+          "mc", "mc is the unit cost of increasing the accuracy of the \
+determination whether the amount of insurance purchased exceeded the \
+maximum."]}, 0, 1, ImageSize -> Tiny, ControlPlacement -> 
+         9}, {{$CellContext`\[Chi]rc$$, 0.1, 
+          Tooltip[
+          "rc", "rc is the unit cost of increasing the accuracy of the \
+determination whether the amount of precautions taken was under the \
+minimum."]}, 0, 1, ImageSize -> Tiny, ControlPlacement -> 10}, 
+        OpenerView[{"advanced controls", 
+          Column[{
+            Column[{
+              Style["error", Bold], 
+              Row[{
+                Row[{
+                  Manipulate`Place[7], 
+                  Spacer[12], 
+                  Dynamic[
+                   NumberForm[
+                    N[
+                    $CellContext`accuracyI[$CellContext`\[Chi]\[Xi]$$]], 
+                    4]]}], 
+                Spacer[18], 
+                Row[{
+                  Manipulate`Place[8], 
+                  Spacer[12], 
+                  Dynamic[
+                   NumberForm[
+                    N[
+                    $CellContext`accuracyI[$CellContext`\[Chi]\[Psi]$$]], 
+                    4]]}]}]}], 
+            Column[{
+              Style["cost to reduce error", Bold], 
+              Row[{
+                Row[{
+                  Manipulate`Place[9], 
+                  Spacer[12], 
+                  Dynamic[
+                   NumberForm[
+                    N[
+                    $CellContext`determinationCostI[$CellContext`\[Chi]mc$$]],
+                     4]]}], 
+                Spacer[18], 
+                Row[{
+                  Manipulate`Place[10], 
+                  Spacer[12], 
+                  Dynamic[
+                   NumberForm[
+                    N[
+                    $CellContext`determinationCostI[$CellContext`\[Chi]rc$$]],
+                     4]]}]}]}]}]}], {{$CellContext`computeOptQ$$, True, 
+          "compute details"}, {True, False}, ControlPlacement -> 
+         11}, {{$CellContext`colorsurface$$, "height", 
+          "color surface according to\[Ellipsis]"}, {
+         "height", "P(indemnity)"}, ControlPlacement -> 12}, 
+        Item[
+         Row[{
+           Manipulate`Place[11], 
+           Spacer[36], 
+           Manipulate`Place[12]}], ControlPlacement -> Bottom]}, 
+      "Options" :> {
+       ControlPlacement -> Top, TrackedSymbols -> True, 
+        AutorunSequencing -> {5, 6}, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{595., {259., 264.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(({$CellContext`manipulateOutput[
+          Pattern[$CellContext`colorsurface, 
+           Blank[]], 
+          Pattern[$CellContext`computeOptQ, 
+           Blank[]], 
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]k, 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]mc, 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]rc, 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`\[Chi]\[CapitalPsi], 
+           Blank[]]] := 
+        With[{$CellContext`p$ = 
+           Exp[$CellContext`\[Chi]p] $CellContext`f, $CellContext`k$ = \
+$CellContext`kI[$CellContext`\[Chi]k], $CellContext`\[CapitalPsi]$ = \
+$CellContext`\[CapitalPsi]I[$CellContext`\[Chi]\[CapitalPsi]], $CellContext`\
+\[Rho]$ = $CellContext`\[Rho]I[$CellContext`\[Chi]\[Rho]], \
+$CellContext`\[Xi]$ = $CellContext`accuracyI[$CellContext`\[Chi]\[Xi]], \
+$CellContext`\[Psi]$ = $CellContext`accuracyI[$CellContext`\[Chi]\[Psi]], \
+$CellContext`mc$ = $CellContext`determinationCostI[$CellContext`\[Chi]mc], \
+$CellContext`rc$ = $CellContext`determinationCostI[$CellContext`\[Chi]rc]}, 
+          
+          Module[{$CellContext`vars1$ = {$CellContext`f, $CellContext`k$, \
+$CellContext`\[CapitalXi], $CellContext`\[Xi]$, $CellContext`\[CapitalPsi]$, \
+$CellContext`\[Psi]$, $CellContext`p$, $CellContext`\[Rho]$}, \
+$CellContext`vars2$ = {$CellContext`f, $CellContext`k$, $CellContext`\
+\[CapitalXi], $CellContext`\[Xi]$, $CellContext`mc$, $CellContext`\
+\[CapitalPsi]$, $CellContext`\[Psi]$, $CellContext`rc$, $CellContext`p$, \
+$CellContext`\[Rho]$}, $CellContext`nm$, $CellContext`plot$}, \
+$CellContext`plot$ = Plot3D[
+              $CellContext`ui[$CellContext`k$, 
+               $CellContext`eu[
+                Apply[
+                Sequence, $CellContext`vars1$], $CellContext`i, \
+$CellContext`r]], {$CellContext`i, 0, 5}, {$CellContext`r, 0, 5}, 
+              ImageSize -> {300, 300}, AspectRatio -> 0.9, Boxed -> False, 
+              Evaluate[
+               Switch[$CellContext`colorsurface, "height", Boxed -> False, 
+                Blank[], ColorFunctionScaling -> False]], ColorFunction :> 
+              Switch[$CellContext`colorsurface, "height", ColorData[
+                "SolarColors"][#3]& , "P(indemnity)", ColorData[
+                "SolarColors"][If[$CellContext`\[Xi]$ <= 0., 
+                   Boole[$CellContext`\[CapitalXi] >= #], 1 - CDF[
+                    
+                    NormalDistribution[$CellContext`\[CapitalXi], \
+$CellContext`\[Xi]$], #]] If[$CellContext`\[Psi]$ <= 0, 
+                   Boole[# >= $CellContext`\[CapitalPsi]$], 
+                   CDF[
+                    
+                    NormalDistribution[$CellContext`\[CapitalPsi]$, \
+$CellContext`\[Psi]$], #2]]]& ], MeshFunctions -> {#3& }, PlotRange -> All, 
+              Evaluate[
+               Apply[Sequence, $CellContext`opts]]]; 
+           If[$CellContext`computeOptQ, $CellContext`nm$ = Quiet[
+                NMaximize[{
+                  $CellContext`eu[
+                   Apply[
+                   Sequence, $CellContext`vars1$], $CellContext`i, \
+$CellContext`r], 
+                  And[
+                  5 >= $CellContext`i >= 0, 5 >= $CellContext`r >= 
+                   0]}, {$CellContext`i, $CellContext`r}, Method -> 
+                 "NelderMead"]]; Pane[
+               Grid[{{
+                  Show[$CellContext`plot$, 
+                   Graphics3D[{
+                    Directive[{
+                    PointSize[0.04], 
+                    ColorData["SolarColors"][0]}], 
+                    Point[
+                    Flatten[{
+                    ReplaceAll[{$CellContext`i, $CellContext`r}, 
+                    Last[$CellContext`nm$]], 
+                    $CellContext`ui[$CellContext`k$, 
+                    First[$CellContext`nm$]]}]]}]], 
+                  $CellContext`formatNM[
+                   Apply[Sequence, $CellContext`vars2$], $CellContext`nm$]}}],
+                ImageSize -> {550, 300}], 
+             
+             Pane[$CellContext`plot$, 
+              ImageSize -> {550, 300}]]]], $CellContext`kI = 
+        InterpolatingFunction[{{0., 1.}}, {3, 3, 0, {7}, {2}, 0, 0, 0, 0}, {{
+          0., 0.16666666666666666`, 0.3333333333333333, 0.5, 
+          0.6666666666666666, 0.8333333333333334, 1.}}, {
+          Developer`PackedArrayForm, {0, 1, 2, 3, 4, 5, 6, 7}, {0., 0.5, 1., 
+           2., 4., 8., 16.}}, {Automatic}], $CellContext`\[CapitalPsi]I = 
+        InterpolatingFunction[{{0., 1.}}, {3, 3, 0, {18}, {2}, 0, 0, 0, 0}, {{
+          0., 0.058823529411764705`, 0.11764705882352941`, 
+          0.17647058823529413`, 0.23529411764705882`, 0.29411764705882354`, 
+          0.35294117647058826`, 0.4117647058823529, 0.47058823529411764`, 
+          0.5294117647058824, 0.5882352941176471, 0.6470588235294118, 
+          0.7058823529411765, 0.7647058823529411, 0.8235294117647058, 
+          0.8823529411764706, 0.9411764705882353, 1.}}, {
+          Developer`PackedArrayForm, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
+           12, 13, 14, 15, 16, 17, 18}, {-16., -4., -1., -0.25, 0., 0.25, 0.5,
+            0.75, 1., 1.25, 1.5, 1.75, 2., 2.25, 2.5, 2.75, 3., 4.}}, {
+          Automatic}], $CellContext`\[Rho]I = 
+        InterpolatingFunction[{{0., 1.}}, {3, 3, 0, {15}, {2}, 0, 0, 0, 0}, {{
+          0., 0.07142857142857142, 0.14285714285714285`, 0.21428571428571427`,
+           0.2857142857142857, 0.35714285714285715`, 0.42857142857142855`, 
+          0.5, 0.5714285714285714, 0.6428571428571429, 0.7142857142857143, 
+          0.7857142857142857, 0.8571428571428571, 0.9285714285714286, 1.}}, {
+          Developer`PackedArrayForm, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
+           12, 13, 14, 15}, {0.01, 0.02, 0.03, 0.04, 0.05, 
+           0.060000000000000005`, 0.06999999999999999, 0.08, 0.09, 
+           0.09999999999999999, 0.2, 0.4, 0.6000000000000001, 0.8, 1.}}, {
+          Automatic}], $CellContext`accuracyI = 
+        InterpolatingFunction[{{0., 1.}}, {3, 3, 0, {13}, {2}, 0, 0, 0, 0}, {{
+          0., 0.08333333333333333, 0.16666666666666666`, 0.25, 
+          0.3333333333333333, 0.4166666666666667, 0.5, 0.5833333333333334, 
+          0.6666666666666666, 0.75, 0.8333333333333334, 0.9166666666666666, 
+          1.}}, {Developer`PackedArrayForm, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12, 13}, {0., 0.015625, 0.03125, 0.0625, 0.125, 0.25, 0.5, 1.,
+            2., 4., 8., 16., 32.}}, {
+          Automatic}], $CellContext`determinationCostI = 
+        InterpolatingFunction[{{0., 1.}}, {3, 3, 0, {13}, {2}, 0, 0, 0, 0}, {{
+          0., 0.08333333333333333, 0.16666666666666666`, 0.25, 
+          0.3333333333333333, 0.4166666666666667, 0.5, 0.5833333333333334, 
+          0.6666666666666666, 0.75, 0.8333333333333334, 0.9166666666666666, 
+          1.}}, {Developer`PackedArrayForm, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12, 13}, {0., 0.0009765625, 0.001953125, 0.00390625, 
+           0.0078125, 0.015625, 0.03125, 0.0625, 0.125, 0.25, 0.5, 1., 2.}}, {
+          Automatic}], $CellContext`ui[
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], 
+           And[$CellContext`k != 0, $CellContext`k != 1]], 
+          Pattern[$CellContext`y, 
+           Blank[]]] := 
+        1 - Log[1 + $CellContext`k - $CellContext`k \
+$CellContext`y]/$CellContext`k, $CellContext`ui[
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], $CellContext`k == 0], 
+          Pattern[$CellContext`y, 
+           Blank[]]] := $CellContext`y, $CellContext`ui[
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], $CellContext`k == 1], 
+          Condition[
+           Pattern[$CellContext`y, 
+            Blank[]], $CellContext`y < 2]] := 
+        Log[-(E/(-2 + $CellContext`y))], $CellContext`eu[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], 
+           And[$CellContext`k != 0, $CellContext`k != 1]], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`r, 
+           Blank[]]] := 
+        Piecewise[{{(1 - 
+             E^(-$CellContext`r + $CellContext`k (
+                 1 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (E^($CellContext`i $CellContext`k + $CellContext`r) + 
+              E^$CellContext`k $CellContext`f - 
+              E^($CellContext`i $CellContext`k) $CellContext`f) + \
+$CellContext`k)/$CellContext`k, 
+            
+            And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] == 
+             0, $CellContext`r >= $CellContext`\[CapitalPsi], $CellContext`i <= \
+$CellContext`\[CapitalXi]]}, {(1 - 
+             E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p - $CellContext`r + ($CellContext`k $CellContext`r) \
+$CellContext`\[Rho]) (E^$CellContext`r - $CellContext`f + 
+              E^$CellContext`k $CellContext`f) + \
+$CellContext`k)/$CellContext`k, 
+            Or[
+             
+             And[$CellContext`\[Psi] == 
+              0, $CellContext`r < $CellContext`\[CapitalPsi]], 
+             
+             And[$CellContext`\[Xi] == 
+              0, $CellContext`i > $CellContext`\[CapitalXi]]]}, {(1/(
+             2 $CellContext`k)) ((
+              2 (-E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + $CellContext`r + ($CellContext`k $CellContext`r) \
+$CellContext`\[Rho]) - 
+                E^($CellContext`k (
+                   2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+                E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + ($CellContext`k $CellContext`r) $CellContext`\[Rho]) \
+$CellContext`f + E^$CellContext`r (1 + $CellContext`k)) + ((
+                 E^($CellContext`k (
+                    2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + 
+                  E^($CellContext`i $CellContext`k))) $CellContext`f) 
+               Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                 Sqrt[2] $CellContext`\[Xi])])/E^$CellContext`r), 
+            
+            And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] != 
+             0, $CellContext`r >= $CellContext`\[CapitalPsi]]}, {(1/(
+             2 $CellContext`k)) ((
+              2 (-E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + $CellContext`r + ($CellContext`k $CellContext`r) \
+$CellContext`\[Rho]) - 
+                E^($CellContext`k (
+                   2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+                E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + ($CellContext`k $CellContext`r) $CellContext`\[Rho]) \
+$CellContext`f + E^$CellContext`r (1 + $CellContext`k)) + ((
+                 E^($CellContext`k (
+                    2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + 
+                  E^($CellContext`i $CellContext`k))) $CellContext`f) 
+               Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                 Sqrt[2] $CellContext`\[Psi])])/E^$CellContext`r), 
+            And[$CellContext`\[Psi] != 0, $CellContext`\[Xi] == 
+             0, $CellContext`i <= $CellContext`\[CapitalXi]]}}, (1/(
+           4 $CellContext`k)) ((
+            4 (-E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + $CellContext`r + ($CellContext`k $CellContext`r) \
+$CellContext`\[Rho]) - 
+              E^($CellContext`k (
+                 2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+              E^($CellContext`k + ($CellContext`i $CellContext`k) \
+$CellContext`p + ($CellContext`k $CellContext`r) $CellContext`\[Rho]) \
+$CellContext`f + 
+              E^$CellContext`r (1 + $CellContext`k)) + (((
+                E^($CellContext`k (
+                   2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + 
+                 E^($CellContext`i $CellContext`k))) $CellContext`f) 
+              Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                Sqrt[2] $CellContext`\[Xi])]) 
+             Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+               Sqrt[2] $CellContext`\[Psi])])/
+           E^$CellContext`r)], $CellContext`eu[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], $CellContext`k == 0], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`r, 
+           
+           Blank[]]] := (-$CellContext`i) $CellContext`p - $CellContext`r \
+$CellContext`\[Rho] + ($CellContext`f (-1 + ($CellContext`i 
+              If[$CellContext`\[Psi] == 0, 
+                Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+                CDF[
+                 
+                 NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]]) If[$CellContext`\[Xi] == 0, 
+               Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+                
+                NormalDistribution[$CellContext`\[CapitalXi], $CellContext`\
+\[Xi]], $CellContext`i]]))/E^$CellContext`r, $CellContext`eu[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Condition[
+           Pattern[$CellContext`k, 
+            Blank[]], $CellContext`k == 1], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`r, 
+           Blank[]]] := 
+        Piecewise[{{
+           2 - E^(1 + $CellContext`i $CellContext`p + $CellContext`r (-1 + \
+$CellContext`\[Rho])) (E^$CellContext`r + (-1 + E) $CellContext`f), 
+            Or[
+             
+             And[$CellContext`\[Psi] == 
+              0, $CellContext`r < $CellContext`\[CapitalPsi]], 
+             
+             And[$CellContext`\[Xi] == 
+              0, $CellContext`i > $CellContext`\[CapitalXi]]]}, {
+           2 - E^(1 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+(-1 + $CellContext`\[Rho])) (E^($CellContext`i + $CellContext`r) + 
+             E $CellContext`f - E^$CellContext`i $CellContext`f), 
+            
+            And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] == 
+             0, $CellContext`r >= $CellContext`\[CapitalPsi], $CellContext`i <= \
+$CellContext`\[CapitalXi]]}, {((1/2) E^(-$CellContext`i - $CellContext`r)) (
+             4 E^($CellContext`i + $CellContext`r) + 
+             E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) (((-2) E^$CellContext`i) (
+                 E^$CellContext`r + (-1 + E) $CellContext`f) + ((
+                  E (-1 + E^$CellContext`i)) $CellContext`f) 
+                Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                  Sqrt[2] $CellContext`\[Xi])])), 
+            
+            And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] != 
+             0, $CellContext`r >= $CellContext`\[CapitalPsi]]}, {((1/2) 
+             E^(-$CellContext`i - $CellContext`r)) (
+             4 E^($CellContext`i + $CellContext`r) + 
+             E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) (((-2) E^$CellContext`i) (
+                 E^$CellContext`r + (-1 + E) $CellContext`f) + ((
+                  E (-1 + E^$CellContext`i)) $CellContext`f) 
+                Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                  Sqrt[2] $CellContext`\[Psi])])), 
+            
+            And[$CellContext`\[Psi] != 0, $CellContext`\[Xi] == 
+             0, $CellContext`i <= $CellContext`\[CapitalXi]]}}, ((1/4) 
+           E^(-$CellContext`i - $CellContext`r)) (
+           8 E^($CellContext`i + $CellContext`r) + 
+           E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) (((-4) E^$CellContext`i) (
+               E^$CellContext`r + (-1 + E) $CellContext`f) + (((
+                 E (-1 + E^$CellContext`i)) $CellContext`f) 
+               Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                 Sqrt[2] $CellContext`\[Xi])]) 
+              Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                Sqrt[2] $CellContext`\[Psi])]))], $CellContext`opts = {
+         BaseStyle -> {FontSize -> 12, FontFamily -> "Times"}, 
+          AxesLabel -> {
+           "insurance", "precaution", "wealth "}}, $CellContext`formatNM[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Pattern[$CellContext`k, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`mc, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`rc, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`nm, 
+           Blank[]]] := 
+        With[{$CellContext`probI = If[$CellContext`\[Xi] == 0., 
+             Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+              
+              NormalDistribution[$CellContext`\[CapitalXi], \
+$CellContext`\[Xi]], $CellContext`i]], $CellContext`probR = 
+           If[$CellContext`\[Psi] == 0., 
+             Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+             CDF[
+              
+              NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]]}, 
+          Labeled[
+           Grid[
+            ReplaceAll[
+             ReplaceAll[{{
+                Tooltip[
+                "optimal insurance", 
+                 "This is the amount of insurance that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent wealth."], \
+$CellContext`i}, {
+                Tooltip[
+                "optimal precaution", 
+                 "This is the amount of precautions that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent wealth."], \
+$CellContext`r}, {
+                Tooltip[
+                "wealth at optimum", 
+                 "This is the certainty equivalent wealth of the insured when \
+it purchases the optimal amount of insurance and takes the optimum amount of \
+precautions."], 
+                $CellContext`ui[$CellContext`k, 
+                 First[$CellContext`nm]]}, {
+                Tooltip[
+                "P(accident)", 
+                 "This is the probability of an accident occurring given the \
+insured's baseline accident probability and the amount of precuations taken \
+by the insured."], $CellContext`f Exp[-$CellContext`r]}, {
+               "P(insured amount OK)", 
+                If[$CellContext`i == 0, "N/A", $CellContext`probI]}, {
+               "P(precautions OK)", 
+                If[$CellContext`i == 0, "N/A", $CellContext`probR]}, {
+               "P(indemnity if accident)", 
+                
+                If[$CellContext`i == 0, 
+                 "N/A", $CellContext`probI $CellContext`probR]}, {
+                Tooltip[
+                "expected benefits", 
+                 "This is the amount on average that the insured will receive \
+in payments from the insurer."], 
+                $CellContext`expectedBenefits[$CellContext`f, $CellContext`k, \
+$CellContext`\[CapitalXi], $CellContext`\[Xi], $CellContext`\[CapitalPsi], \
+$CellContext`\[Psi], $CellContext`p, $CellContext`\[Rho], 
+                 ReplaceAll[$CellContext`i, 
+                  Last[$CellContext`nm]], 
+                 ReplaceAll[$CellContext`r, 
+                  Last[$CellContext`nm]]]}, {
+                Tooltip[
+                "premium", 
+                 "Note: premium is not the same as the unit price of \
+insurance; premium is the unit price of insurance multiplied by the amount of \
+insurance purchased."], 
+                ReplaceAll[$CellContext`i $CellContext`p, 
+                 Last[$CellContext`nm]]}, {
+                Tooltip[
+                "apparent break\[Hyphen]even premium", 
+                 "This is the amount the insured would have to \
+pay\[LongDash]assuming (incorrectly) that its behavior would not change as a \
+result\[LongDash]in order for the insurer to break even; the premium is not \
+the same as the unit price of insurance; the premium is the unit price of \
+insurance multiplied by the amount of insurance purchased."], 
+                
+                With[{$CellContext`\[ScriptV] = \
+$CellContext`v[$CellContext`f, $CellContext`k, $CellContext`\[CapitalXi], \
+$CellContext`\[Xi], $CellContext`mc, $CellContext`\[CapitalPsi], \
+$CellContext`\[Psi], $CellContext`rc, $CellContext`p, $CellContext`\[Rho], 
+                    ReplaceAll[$CellContext`i, 
+                    Last[$CellContext`nm]], 
+                    ReplaceAll[$CellContext`r, 
+                    Last[$CellContext`nm]]]}, 
+                 If[
+                  
+                  And[$CellContext`\[ScriptV] != 0., $CellContext`i != 
+                   0.], $CellContext`\[ScriptV] $CellContext`i, "N/A"]]}}, 
+              Last[$CellContext`nm]], PatternTest[
+               Pattern[$CellContext`z, 
+                Blank[]], NumericQ] :> NumberForm[
+               Chop[
+                N[$CellContext`z], 10^(-4)], 4]], Dividers -> All, 
+            BaseStyle -> {FontSize -> 12, FontFamily -> "Times"}, Background -> {
+              ColorData["SolarColors"][0.8], None}], 
+           Style[
+           "Statistics", {
+            FontSize -> 14, FontFamily -> "Times", FontColor -> 
+             ColorData["SolarColors"][0.5]}], 
+           Top]], $CellContext`expectedBenefits[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Pattern[$CellContext`k, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`r, 
+           Blank[]]] := ((($CellContext`f $CellContext`i) 
+           If[$CellContext`\[Psi] == 0., 
+             Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+             CDF[
+              
+              NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]]) If[$CellContext`\[Xi] == 0., 
+            Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+             
+             NormalDistribution[$CellContext`\[CapitalXi], \
+$CellContext`\[Xi]], $CellContext`i]])/E^$CellContext`r, $CellContext`v[
+          Pattern[$CellContext`f, 
+           Blank[]], 
+          Pattern[$CellContext`k, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalXi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Xi], 
+           Blank[]], 
+          Pattern[$CellContext`mc, 
+           Blank[]], 
+          Pattern[$CellContext`\[CapitalPsi], 
+           Blank[]], 
+          Pattern[$CellContext`\[Psi], 
+           Blank[]], 
+          Pattern[$CellContext`rc, 
+           Blank[]], 
+          Pattern[$CellContext`p, 
+           Blank[]], 
+          Pattern[$CellContext`\[Rho], 
+           Blank[]], 
+          Pattern[$CellContext`i, 
+           Blank[]], 
+          Pattern[$CellContext`r, 
+           Blank[]]] := 
+        If[$CellContext`i <= 0., 
+          "N/A", ((1/$CellContext`i) 
+           E^(-$CellContext`r - $CellContext`\[Psi])) (($CellContext`f (
+              E^$CellContext`\[Psi] $CellContext`i + $CellContext`rc)) 
+            If[$CellContext`\[Xi] == 0, 
+              Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+               
+               NormalDistribution[$CellContext`\[CapitalXi], $CellContext`\
+\[Xi]], $CellContext`i]] + 
+           E^($CellContext`r + $CellContext`\[Psi]) 
+            If[$CellContext`i >= 0.001, $CellContext`mc 
+              Exp[-$CellContext`\[Xi]], 0])]}; Typeset`initDone$$ = True); 
+     ReleaseHold[
+       HoldComplete[{$CellContext`eu[
+            Pattern[$CellContext`f, 
+             Blank[]], 
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], 
+             And[$CellContext`k != 0, $CellContext`k != 1]], 
+            Pattern[$CellContext`\[CapitalXi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Xi], 
+             Blank[]], 
+            Pattern[$CellContext`\[CapitalPsi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Psi], 
+             Blank[]], 
+            Pattern[$CellContext`p, 
+             Blank[]], 
+            Pattern[$CellContext`\[Rho], 
+             Blank[]], 
+            Pattern[$CellContext`i, 
+             Blank[]], 
+            Pattern[$CellContext`r, 
+             Blank[]]] := 
+          Piecewise[{{(1 - 
+               E^(-$CellContext`r + $CellContext`k (
+                   1 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (E^($CellContext`i $CellContext`k + $CellContext`r) + 
+                E^$CellContext`k $CellContext`f - 
+                E^($CellContext`i $CellContext`k) $CellContext`f) + \
+$CellContext`k)/$CellContext`k, 
+              
+              And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] == 
+               0, $CellContext`r >= $CellContext`\[CapitalPsi], \
+$CellContext`i <= $CellContext`\[CapitalXi]]}, {(1 - 
+               E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p - $CellContext`r + $CellContext`k $CellContext`r $CellContext`\
+\[Rho]) (E^$CellContext`r - $CellContext`f + 
+                E^$CellContext`k $CellContext`f) + \
+$CellContext`k)/$CellContext`k, 
+              Or[
+               
+               And[$CellContext`\[Psi] == 
+                0, $CellContext`r < $CellContext`\[CapitalPsi]], 
+               
+               And[$CellContext`\[Xi] == 
+                0, $CellContext`i > $CellContext`\[CapitalXi]]]}, {(1/(
+               2 $CellContext`k)) (
+               E^(-$CellContext`r) (
+                2 (-E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`r + $CellContext`k $CellContext`r $CellContext`\
+\[Rho]) - E^($CellContext`k (
+                    2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+                  E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`k $CellContext`r $CellContext`\[Rho]) \
+$CellContext`f + E^$CellContext`r (1 + $CellContext`k)) + 
+                E^($CellContext`k (
+                    2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + E^($CellContext`i $CellContext`k)) $CellContext`f 
+                 Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                   2^Rational[1, 2] $CellContext`\[Xi])])), 
+              
+              And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] != 
+               0, $CellContext`r >= $CellContext`\[CapitalPsi]]}, {(1/(
+               2 $CellContext`k)) (
+               E^(-$CellContext`r) (
+                2 (-E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`r + $CellContext`k $CellContext`r $CellContext`\
+\[Rho]) - E^($CellContext`k (
+                    2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+                  
+                  E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`k $CellContext`r $CellContext`\[Rho]) \
+$CellContext`f + E^$CellContext`r (1 + $CellContext`k)) + 
+                E^($CellContext`k (
+                    2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + E^($CellContext`i $CellContext`k)) $CellContext`f 
+                 Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                   2^Rational[1, 2] $CellContext`\[Psi])])), 
+              
+              And[$CellContext`\[Psi] != 0, $CellContext`\[Xi] == 
+               0, $CellContext`i <= $CellContext`\[CapitalXi]]}}, (1/(
+             4 $CellContext`k)) (
+             E^(-$CellContext`r) (
+              4 (-E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`r + $CellContext`k $CellContext`r $CellContext`\
+\[Rho]) - E^($CellContext`k (
+                   2 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho])) $CellContext`f + 
+                E^($CellContext`k + $CellContext`i $CellContext`k \
+$CellContext`p + $CellContext`k $CellContext`r $CellContext`\[Rho]) \
+$CellContext`f + E^$CellContext`r (1 + $CellContext`k)) + 
+              E^($CellContext`k (
+                  2 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+$CellContext`\[Rho])) (-1 + E^($CellContext`i $CellContext`k)) $CellContext`f 
+               Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                 2^Rational[1, 2] $CellContext`\[Xi])] 
+               Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                 2^Rational[1, 2] $CellContext`\[Psi])]))]; 
+         Null, $CellContext`eu[
+            Pattern[$CellContext`f, 
+             Blank[]], 
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], $CellContext`k == 0], 
+            Pattern[$CellContext`\[CapitalXi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Xi], 
+             Blank[]], 
+            Pattern[$CellContext`\[CapitalPsi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Psi], 
+             Blank[]], 
+            Pattern[$CellContext`p, 
+             Blank[]], 
+            Pattern[$CellContext`\[Rho], 
+             Blank[]], 
+            Pattern[$CellContext`i, 
+             Blank[]], 
+            Pattern[$CellContext`r, 
+             
+             Blank[]]] := (-$CellContext`i) $CellContext`p - $CellContext`r \
+$CellContext`\[Rho] + 
+           E^(-$CellContext`r) $CellContext`f (-1 + $CellContext`i 
+              If[$CellContext`\[Psi] == 0, 
+                Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+                CDF[
+                 
+                 NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]] If[$CellContext`\[Xi] == 0, 
+                Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+                 
+                 NormalDistribution[$CellContext`\[CapitalXi], $CellContext`\
+\[Xi]], $CellContext`i]]); Null, $CellContext`eu[
+            Pattern[$CellContext`f, 
+             Blank[]], 
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], $CellContext`k == 1], 
+            Pattern[$CellContext`\[CapitalXi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Xi], 
+             Blank[]], 
+            Pattern[$CellContext`\[CapitalPsi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Psi], 
+             Blank[]], 
+            Pattern[$CellContext`p, 
+             Blank[]], 
+            Pattern[$CellContext`\[Rho], 
+             Blank[]], 
+            Pattern[$CellContext`i, 
+             Blank[]], 
+            Pattern[$CellContext`r, 
+             Blank[]]] := 
+          Piecewise[{{
+             2 - E^(1 + $CellContext`i $CellContext`p + $CellContext`r (-1 + \
+$CellContext`\[Rho])) (E^$CellContext`r + (-1 + E) $CellContext`f), 
+              Or[
+               
+               And[$CellContext`\[Psi] == 
+                0, $CellContext`r < $CellContext`\[CapitalPsi]], 
+               
+               And[$CellContext`\[Xi] == 
+                0, $CellContext`i > $CellContext`\[CapitalXi]]]}, {
+             2 - E^(1 + $CellContext`i (-1 + $CellContext`p) + $CellContext`r \
+(-1 + $CellContext`\[Rho])) (E^($CellContext`i + $CellContext`r) + 
+               E $CellContext`f - E^$CellContext`i $CellContext`f), 
+              
+              And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] == 
+               0, $CellContext`r >= $CellContext`\[CapitalPsi], \
+$CellContext`i <= $CellContext`\[CapitalXi]]}, {(1/2) 
+              E^(-$CellContext`i - $CellContext`r) (
+               4 E^($CellContext`i + $CellContext`r) + 
+               E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) ((-2) 
+                  E^$CellContext`i (
+                   E^$CellContext`r + (-1 + E) $CellContext`f) + 
+                 E (-1 + E^$CellContext`i) $CellContext`f 
+                  Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                    2^Rational[1, 2] $CellContext`\[Xi])])), 
+              
+              And[$CellContext`\[Psi] == 0, $CellContext`\[Xi] != 
+               0, $CellContext`r >= $CellContext`\[CapitalPsi]]}, {(1/2) 
+              E^(-$CellContext`i - $CellContext`r) (
+               4 E^($CellContext`i + $CellContext`r) + 
+               E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) ((-2) 
+                  E^$CellContext`i (
+                   E^$CellContext`r + (-1 + E) $CellContext`f) + 
+                 E (-1 + E^$CellContext`i) $CellContext`f 
+                  Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                    2^Rational[1, 2] $CellContext`\[Psi])])), 
+              
+              And[$CellContext`\[Psi] != 0, $CellContext`\[Xi] == 
+               0, $CellContext`i <= $CellContext`\[CapitalXi]]}}, (1/4) 
+            E^(-$CellContext`i - $CellContext`r) (
+             8 E^($CellContext`i + $CellContext`r) + 
+             E^(1 + $CellContext`i $CellContext`p + $CellContext`r \
+$CellContext`\[Rho]) ((-4) 
+                E^$CellContext`i (E^$CellContext`r + (-1 + E) $CellContext`f) + 
+               E (-1 + E^$CellContext`i) $CellContext`f 
+                Erfc[($CellContext`i - $CellContext`\[CapitalXi])/(
+                  2^Rational[1, 2] $CellContext`\[Xi])] 
+                Erfc[(-$CellContext`r + $CellContext`\[CapitalPsi])/(
+                  2^Rational[1, 2] $CellContext`\[Psi])]))]; 
+         Null, $CellContext`ui[
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], 
+             And[$CellContext`k != 0, $CellContext`k != 1]], 
+            Pattern[$CellContext`y, 
+             Blank[]]] := 
+          1 - Log[1 + $CellContext`k - $CellContext`k \
+$CellContext`y]/$CellContext`k; Null, $CellContext`ui[
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], $CellContext`k == 0], 
+            Pattern[$CellContext`y, 
+             Blank[]]] := $CellContext`y; Null, $CellContext`ui[
+            Condition[
+             Pattern[$CellContext`k, 
+              Blank[]], $CellContext`k == 1], 
+            Condition[
+             Pattern[$CellContext`y, 
+              Blank[]], $CellContext`y < 2]] := 
+          Log[-(E/(-2 + $CellContext`y))]; Null, $CellContext`expectedBenefits[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`k, 
+            Blank[]], 
+           Pattern[$CellContext`\[CapitalXi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Xi], 
+            Blank[]], 
+           Pattern[$CellContext`\[CapitalPsi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Psi], 
+            Blank[]], 
+           Pattern[$CellContext`p, 
+            Blank[]], 
+           Pattern[$CellContext`\[Rho], 
+            Blank[]], 
+           Pattern[$CellContext`i, 
+            Blank[]], 
+           Pattern[$CellContext`r, 
+            Blank[]]] := 
+         E^(-$CellContext`r) $CellContext`f $CellContext`i 
+          If[$CellContext`\[Psi] == 0., 
+            Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+            CDF[
+             
+             NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]] If[$CellContext`\[Xi] == 0., 
+            Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+             
+             NormalDistribution[$CellContext`\[CapitalXi], \
+$CellContext`\[Xi]], $CellContext`i]], $CellContext`v[
+            Pattern[$CellContext`f, 
+             Blank[]], 
+            Pattern[$CellContext`k, 
+             Blank[]], 
+            Pattern[$CellContext`\[CapitalXi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Xi], 
+             Blank[]], 
+            Pattern[$CellContext`mc, 
+             Blank[]], 
+            Pattern[$CellContext`\[CapitalPsi], 
+             Blank[]], 
+            Pattern[$CellContext`\[Psi], 
+             Blank[]], 
+            Pattern[$CellContext`rc, 
+             Blank[]], 
+            Pattern[$CellContext`p, 
+             Blank[]], 
+            Pattern[$CellContext`\[Rho], 
+             Blank[]], 
+            Pattern[$CellContext`i, 
+             Blank[]], 
+            Pattern[$CellContext`r, 
+             Blank[]]] := 
+          If[$CellContext`i <= 0., "N/A", (1/$CellContext`i) 
+            E^(-$CellContext`r - $CellContext`\[Psi]) ($CellContext`f (
+               E^$CellContext`\[Psi] $CellContext`i + $CellContext`rc) 
+              If[$CellContext`\[Xi] == 0, 
+                Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+                 
+                 NormalDistribution[$CellContext`\[CapitalXi], $CellContext`\
+\[Xi]], $CellContext`i]] + 
+             E^($CellContext`r + $CellContext`\[Psi]) 
+              If[$CellContext`i >= 0.001, $CellContext`mc 
+                Exp[-$CellContext`\[Xi]], 0])]; 
+         Null, $CellContext`opts = {
+           BaseStyle -> {FontSize -> 12, FontFamily -> "Times"}, 
+            AxesLabel -> {"insurance", "precaution", "wealth "}}; 
+         Null, $CellContext`formatNM[
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`k, 
+            Blank[]], 
+           Pattern[$CellContext`\[CapitalXi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Xi], 
+            Blank[]], 
+           Pattern[$CellContext`mc, 
+            Blank[]], 
+           Pattern[$CellContext`\[CapitalPsi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Psi], 
+            Blank[]], 
+           Pattern[$CellContext`rc, 
+            Blank[]], 
+           Pattern[$CellContext`p, 
+            Blank[]], 
+           Pattern[$CellContext`\[Rho], 
+            Blank[]], 
+           Pattern[$CellContext`nm, 
+            Blank[]]] := 
+         With[{$CellContext`probI = If[$CellContext`\[Xi] == 0., 
+              Boole[$CellContext`\[CapitalXi] >= $CellContext`i], 1 - CDF[
+               
+               NormalDistribution[$CellContext`\[CapitalXi], $CellContext`\
+\[Xi]], $CellContext`i]], $CellContext`probR = If[$CellContext`\[Psi] == 0., 
+              Boole[$CellContext`r >= $CellContext`\[CapitalPsi]], 
+              CDF[
+               
+               NormalDistribution[$CellContext`\[CapitalPsi], $CellContext`\
+\[Psi]], $CellContext`r]]}, 
+           Labeled[
+            Grid[
+             ReplaceAll[
+              ReplaceAll[{{
+                 Tooltip[
+                 "optimal insurance", 
+                  "This is the amount of insurance that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent wealth."], \
+$CellContext`i}, {
+                 Tooltip[
+                 "optimal precaution", 
+                  "This is the amount of precautions that maximizes the \
+insured's expected utility and (equivalently) certainty equivalent wealth."], \
+$CellContext`r}, {
+                 Tooltip[
+                 "wealth at optimum", 
+                  "This is the certainty equivalent wealth of the insured \
+when it purchases the optimal amount of insurance and takes the optimum \
+amount of precautions."], 
+                 $CellContext`ui[$CellContext`k, 
+                  First[$CellContext`nm]]}, {
+                 Tooltip[
+                 "P(accident)", 
+                  "This is the probability of an accident occurring given the \
+insured's baseline accident probability and the amount of precuations taken \
+by the insured."], $CellContext`f Exp[-$CellContext`r]}, {
+                "P(insured amount OK)", 
+                 If[$CellContext`i == 0, "N/A", $CellContext`probI]}, {
+                "P(precautions OK)", 
+                 If[$CellContext`i == 0, "N/A", $CellContext`probR]}, {
+                "P(indemnity if accident)", 
+                 If[$CellContext`i == 0, 
+                  "N/A", $CellContext`probI $CellContext`probR]}, {
+                 Tooltip[
+                 "expected benefits", 
+                  "This is the amount on average that the insured will \
+receive in payments from the insurer."], 
+                 $CellContext`expectedBenefits[$CellContext`f, \
+$CellContext`k, $CellContext`\[CapitalXi], $CellContext`\[Xi], $CellContext`\
+\[CapitalPsi], $CellContext`\[Psi], $CellContext`p, $CellContext`\[Rho], 
+                  ReplaceAll[$CellContext`i, 
+                   Last[$CellContext`nm]], 
+                  ReplaceAll[$CellContext`r, 
+                   Last[$CellContext`nm]]]}, {
+                 Tooltip[
+                 "premium", 
+                  "Note: premium is not the same as the unit price of \
+insurance; premium is the unit price of insurance multiplied by the amount of \
+insurance purchased."], 
+                 ReplaceAll[$CellContext`i $CellContext`p, 
+                  Last[$CellContext`nm]]}, {
+                 Tooltip[
+                 "apparent break\[Hyphen]even premium", 
+                  "This is the amount the insured would have to \
+pay\[LongDash]assuming (incorrectly) that its behavior would not change as a \
+result\[LongDash]in order for the insurer to break even; the premium is not \
+the same as the unit price of insurance; the premium is the unit price of \
+insurance multiplied by the amount of insurance purchased."], 
+                 
+                 With[{$CellContext`\[ScriptV] = \
+$CellContext`v[$CellContext`f, $CellContext`k, $CellContext`\[CapitalXi], \
+$CellContext`\[Xi], $CellContext`mc, $CellContext`\[CapitalPsi], \
+$CellContext`\[Psi], $CellContext`rc, $CellContext`p, $CellContext`\[Rho], 
+                    ReplaceAll[$CellContext`i, 
+                    Last[$CellContext`nm]], 
+                    ReplaceAll[$CellContext`r, 
+                    Last[$CellContext`nm]]]}, 
+                  If[
+                   
+                   And[$CellContext`\[ScriptV] != 0., $CellContext`i != 
+                    0.], $CellContext`\[ScriptV] $CellContext`i, "N/A"]]}}, 
+               Last[$CellContext`nm]], PatternTest[
+                Pattern[$CellContext`z, 
+                 Blank[]], NumericQ] :> NumberForm[
+                Chop[
+                 N[$CellContext`z], 10^(-4)], 4]], Dividers -> All, 
+             BaseStyle -> {FontSize -> 12, FontFamily -> "Times"}, Background -> {
+               ColorData["SolarColors"][0.8], None}], 
+            Style[
+            "Statistics", {
+             FontSize -> 14, FontFamily -> "Times", FontColor -> 
+              ColorData["SolarColors"][0.5]}], 
+            Top]], $CellContext`sliderInterpolation[
+           Pattern[$CellContext`\[ScriptL], 
+            Blank[]]] := Interpolation[
+           Thread[{
+             Range[
+             0, 1, 1/(Length[$CellContext`\[ScriptL]] - 
+              1)], $CellContext`\[ScriptL]}], InterpolationOrder -> 
+           1], $CellContext`kI = $CellContext`sliderInterpolation[{
+            0, 0.5, 1, 2, 4, 8, 16}]; 
+         Null, $CellContext`\[CapitalPsi]I = $CellContext`sliderInterpolation[
+           
+            Join[-4^Range[2., -1, -1], 
+             Range[0, 3, 0.25], {4}]]; 
+         Null, $CellContext`\[Rho]I = $CellContext`sliderInterpolation[
+            Join[
+             Range[0.01, 0.1, 0.01], 
+             Range[0.2, 1, 0.2]]]; 
+         Null, $CellContext`accuracyI = $CellContext`sliderInterpolation[
+            Join[{0.}, 
+             N[2^Range[-6, 5, 1]]]]; 
+         Null, $CellContext`determinationCostI = \
+$CellContext`sliderInterpolation[
+            Join[{0.}, 
+             N[2^Range[-10, 1, 1]]]]; Null, $CellContext`manipulateOutput[
+           Pattern[$CellContext`colorsurface, 
+            Blank[]], 
+           Pattern[$CellContext`computeOptQ, 
+            Blank[]], 
+           Pattern[$CellContext`f, 
+            Blank[]], 
+           Pattern[$CellContext`\[CapitalXi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]k, 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]p, 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]\[Psi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]\[Xi], 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]mc, 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]rc, 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]\[Rho], 
+            Blank[]], 
+           Pattern[$CellContext`\[Chi]\[CapitalPsi], 
+            Blank[]]] := 
+         With[{$CellContext`p$ = 
+            Exp[$CellContext`\[Chi]p] $CellContext`f, $CellContext`k$ = \
+$CellContext`kI[$CellContext`\[Chi]k], $CellContext`\[CapitalPsi]$ = \
+$CellContext`\[CapitalPsi]I[$CellContext`\[Chi]\[CapitalPsi]], $CellContext`\
+\[Rho]$ = $CellContext`\[Rho]I[$CellContext`\[Chi]\[Rho]], \
+$CellContext`\[Xi]$ = $CellContext`accuracyI[$CellContext`\[Chi]\[Xi]], \
+$CellContext`\[Psi]$ = $CellContext`accuracyI[$CellContext`\[Chi]\[Psi]], \
+$CellContext`mc$ = $CellContext`determinationCostI[$CellContext`\[Chi]mc], \
+$CellContext`rc$ = $CellContext`determinationCostI[$CellContext`\[Chi]rc]}, 
+           
+           Module[{$CellContext`vars1$ = {$CellContext`f, $CellContext`k$, \
+$CellContext`\[CapitalXi], $CellContext`\[Xi]$, $CellContext`\[CapitalPsi]$, \
+$CellContext`\[Psi]$, $CellContext`p$, $CellContext`\[Rho]$}, \
+$CellContext`vars2$ = {$CellContext`f, $CellContext`k$, $CellContext`\
+\[CapitalXi], $CellContext`\[Xi]$, $CellContext`mc$, $CellContext`\
+\[CapitalPsi]$, $CellContext`\[Psi]$, $CellContext`rc$, $CellContext`p$, \
+$CellContext`\[Rho]$}, $CellContext`nm$, $CellContext`plot$}, \
+$CellContext`plot$ = Plot3D[
+               $CellContext`ui[$CellContext`k$, 
+                $CellContext`eu[
+                 Apply[
+                 Sequence, $CellContext`vars1$], $CellContext`i, \
+$CellContext`r]], {$CellContext`i, 0, 5}, {$CellContext`r, 0, 5}, 
+               ImageSize -> {300, 300}, AspectRatio -> 0.9, Boxed -> False, 
+               Evaluate[
+                Switch[$CellContext`colorsurface, "height", Boxed -> False, 
+                 Blank[], ColorFunctionScaling -> False]], ColorFunction :> 
+               Switch[$CellContext`colorsurface, "height", ColorData[
+                 "SolarColors"][#3]& , "P(indemnity)", ColorData[
+                 "SolarColors"][If[$CellContext`\[Xi]$ <= 0., 
+                    Boole[$CellContext`\[CapitalXi] >= #], 1 - CDF[
+                    
+                    NormalDistribution[$CellContext`\[CapitalXi], \
+$CellContext`\[Xi]$], #]] If[$CellContext`\[Psi]$ <= 0, 
+                    Boole[# >= $CellContext`\[CapitalPsi]$], 
+                    CDF[
+                    
+                    NormalDistribution[$CellContext`\[CapitalPsi]$, \
+$CellContext`\[Psi]$], #2]]]& ], MeshFunctions -> {#3& }, PlotRange -> All, 
+               Evaluate[
+                Apply[Sequence, $CellContext`opts]]]; 
+            If[$CellContext`computeOptQ, $CellContext`nm$ = Quiet[
+                 NMaximize[{
+                   $CellContext`eu[
+                    Apply[
+                    Sequence, $CellContext`vars1$], $CellContext`i, \
+$CellContext`r], 
+                   And[
+                   5 >= $CellContext`i >= 0, 5 >= $CellContext`r >= 
+                    0]}, {$CellContext`i, $CellContext`r}, Method -> 
+                  "NelderMead"]]; Pane[
+                Grid[{{
+                   Show[$CellContext`plot$, 
+                    Graphics3D[{
+                    Directive[{
+                    PointSize[0.04], 
+                    ColorData["SolarColors"][0]}], 
+                    Point[
+                    Flatten[{
+                    ReplaceAll[{$CellContext`i, $CellContext`r}, 
+                    Last[$CellContext`nm$]], 
+                    $CellContext`ui[$CellContext`k$, 
+                    First[$CellContext`nm$]]}]]}]], 
+                   $CellContext`formatNM[
+                    Apply[
+                    Sequence, $CellContext`vars2$], $CellContext`nm$]}}], 
+                ImageSize -> {550, 300}], 
+              Pane[$CellContext`plot$, ImageSize -> {550, 300}]]]]}]]; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->434256841],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["\<\
+A prospective insured facing an insurable risk generally chooses how much \
+insurance to purchase against the risk and the level of precautions to take \
+to avoid the risk materializing. Increasing the precautions reduces the \
+probability of a potentially costly accident but costs money. Increasing the \
+insurance reduces the loss to the insured from an accident but increases \
+premiums. The insurer attempts to control the insured's choices due to the \
+twin threats of moral hazard\[LongDash]reduced precautions by the insured \
+after purchasing large amounts of insurance\[LongDash]and adverse selection\
+\[LongDash]increased purchase of insurance by the insured who suspects, \
+usually correctly, that the risk is beyond that reflected in the premium. The \
+insurer generally addresses moral hazard by assessing, after an accident, \
+whether the insured has been \"grossly negligent\" or failed to meet some \
+other contractually specified standard. If so, the insurer refuses to \
+indemnify the insured. The insurer generally addresses adverse selection (and \
+also the potential for heightened moral hazard) through its underwriting \
+processes by refusing to issue policies where the amount of insurance \
+requested is excessive. Neither of these conditions can generally be enforced \
+with perfect accuracy. Increasing the accuracy of determining whether these \
+conditions have been satisfied also costs money. \
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ "This Demonstration models the demand for insurance and the optimal level of \
+costly precautions when the insurer is permitted to condition payment\
+\[LongDash]but in a way that costs money\[LongDash]on the insured taking a \
+required level of precautions and the insured not overinsuring. You select \
+the two major characteristics of the insured: the \"baseline accident \
+probability\" for the probability that the insured will suffer an accident if \
+the insured fails to take any precautions, and the insured\[CloseCurlyQuote]s \
+level of \"risk aversion\". You then specify the two conditions the insurer \
+imposes: the maximum amount of insurance the insured can purchase and the \
+level of precautions the insured is required to take. You also specify the \
+prices to purchase a unit of insurance and to increase the level of \
+precautions by one unit. Advanced controls let you determine (1) the accuracy \
+with which compliance with the conditions is assessed and (2) the costs \
+(denoted as ",
+ Cell[BoxData[
+  FormBox["mc", TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox["rc", TraditionalForm]], "InlineMath"],
+ ") faced by the insurer in achieving this accuracy."
+}], "Text"],
+
+Cell["\<\
+The Demonstration responds with a plot showing certainty equivalent wealth as \
+a function of the level of insurance purchased and the level of precautions \
+taken. You can choose to color the surface according to its height or \
+according to the probability that the insurer will pay the insured in the \
+event of an accident. A red dot shows the optimal combination of precaution \
+and insurance along with the associated certainty equivalent wealth. By \
+default, the Demonstration also presents a table showing various statistics \
+that result when insurance and precautions are optimized. By unchecking the \
+\"compute details\" checkbox, you can obtain speedier redraws of the surface, \
+although doing so results in omission of the statistics table.\
+\>", "Text"],
+
+Cell["\<\
+Want a challenge? Try to set the controls so that the premium the insured \
+pays is close to the premium needed for the insurer to break even. Try doing \
+it when the cost of determining compliance with the conditions is high.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["\<\
+The variables used in the formulas employed by this Demonstration are defined \
+as follows:\
+\>", "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["f", TraditionalForm]], "InlineMath"],
+ " is the baseline probability of an accident, that is, the probability of an \
+accident if the insured takes no precautions against it."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " is a measure of the risk aversion of the insured, where higher levels of \
+",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " correspond to higher levels of risk aversion; the insured is assumed to \
+have a constant absolute level of risk aversion (CARA)."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[CapitalXi]", TraditionalForm]], "InlineMath"],
+ " is the maximum amount of insurance that may lawfully be purchased."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Xi]", TraditionalForm]], "InlineMath"],
+ " is the accuracy with which it is determined whether the amount of \
+insurance purchased exceeded the maximum."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[CapitalPsi]", TraditionalForm]], "InlineMath"],
+ " is the minimum amount of precautions that the insured must take before the \
+insured has a right to payment in the event of an accident."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Psi]", TraditionalForm]], "InlineMath"],
+ " is the accuracy with which it is determined whether the amount of \
+precautions taken was under the minimum."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]], "InlineMath"],
+ " is the price per unit of insurance."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["\[Rho]", TraditionalForm]], "InlineMath"],
+ " is the price per unit of precaution."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", " "}], TraditionalForm]], "InlineMath"],
+ " is the amount of insurance purchased."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox["r", TraditionalForm]], "InlineMath"],
+ " is the level of precautions taken."
+}], "Text"],
+
+Cell["The model is scaled so that an accident causes a loss of 1.", "Text"],
+
+Cell[TextData[{
+ "The utility of the insured is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["lim", 
+     RowBox[{"z", "\[Rule]", "k"}]], 
+    FractionBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"z", "-", 
+        RowBox[{"x", " ", "z"}]}]], "+", "z"}], "z"]}], TraditionalForm]], 
+  "InlineMath"],
+ ". The function of ",
+ Cell[BoxData[
+  FormBox["z", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"1", "-", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"z", "-", 
+       RowBox[{"x", " ", "z"}]}]], "+", "z"}], "z"], TraditionalForm]], 
+  "InlineMath"],
+ ", has the property that equals 1 at 1, that its derivative at 1 is 1, and \
+that, for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"k", "\[NotEqual]", "0"}], TraditionalForm]], "InlineMath"],
+ " the ratio of its first derivative to its second derivative (absolute risk \
+aversion) is equal to ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", 
+    RowBox[{"-", "k"}]], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "The expected utility of the insured is computed based on the mathematical \
+expectation of a transformed distribution: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"i", " ", "accident", " ", "coverage1", " ", "coverage2"}], " ", 
+    "-", " ", "accident", " ", "-", " ", 
+    RowBox[{"i", " ", "p", " ", "permit"}], " ", "-", " ", 
+    RowBox[{"r", " ", "\[Rho]"}]}], TraditionalForm]], "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["coverage1", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["coverage2", TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["permit", TraditionalForm]], "InlineMath"],
+ " are random variables. The random variable ",
+ Cell[BoxData[
+  FormBox["coverage1", TraditionalForm]], "InlineMath"],
+ " is distributed according to a Bernoulli distribution with a parameter \
+usually equal to the cumulative distribution function of a normal \
+distribution with mean ",
+ Cell[BoxData[
+  FormBox["\[CapitalPsi]", TraditionalForm]], "InlineMath"],
+ " and standard deviation ",
+ Cell[BoxData[
+  FormBox["\[Psi]", TraditionalForm]], "InlineMath"],
+ " evaluated at ",
+ Cell[BoxData[
+  FormBox["r", TraditionalForm]], "InlineMath"],
+ ", the level of precautions taken. When the standard deviation ",
+ Cell[BoxData[
+  FormBox["\[Psi]", TraditionalForm]], "InlineMath"],
+ " of this normal distribution goes to the limit of zero, the Bernoulli \
+parameter is 1 if the level of precautions equals or exceeds the \"standard\" \
+of ",
+ Cell[BoxData[
+  FormBox["\[CapitalPsi]", TraditionalForm]], "InlineMath"],
+ " and is 0 otherwise. The random variable ",
+ Cell[BoxData[
+  FormBox["coverage2", TraditionalForm]], "InlineMath"],
+ " is subject to a somewhat similar distribution. It is distributed according \
+to a Bernoulli distribution with a parameter usually equal to the cumulative \
+distribution function of a normal distribution with mean ",
+ Cell[BoxData[
+  FormBox["\[CapitalXi]", TraditionalForm]], "InlineMath"],
+ " and standard deviation ",
+ Cell[BoxData[
+  FormBox["\[Xi]", TraditionalForm]], "InlineMath"],
+ ", evaluated at ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]], "InlineMath"],
+ ", the level of insurance purchased. When the standard deviation ",
+ Cell[BoxData[
+  FormBox["\[Xi]", TraditionalForm]], "InlineMath"],
+ " of this normal distribution goes to the limit of zero, the Bernoulli \
+parameter is 0 if the level of precautions equals or exceeds the \"standard\" \
+of ",
+ Cell[BoxData[
+  FormBox["\[CapitalXi]", TraditionalForm]], "InlineMath"],
+ " and is 0 otherwise. The random variable ",
+ Cell[BoxData[
+  FormBox["permit", TraditionalForm]], "InlineMath"],
+ " (used to prevent negative insurance) is distributed according to a \
+Bernoulli distribution with parameter 1 if ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]], "InlineMath"],
+ ", the level of insurance purchased, is greater than 1 and a parameter of \
+zero otherwise. "
+}], "Text"],
+
+Cell[TextData[{
+ "The certainty equivalent wealth of the insured is the inverse of its \
+expected utility ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["lim", 
+     RowBox[{"z", "\[Rule]", "k"}]], 
+    FractionBox[
+     RowBox[{"z", "-", 
+      RowBox[{"log", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", "-", "y", "+", 
+          FractionBox["1", "z"]}], ")"}], " ", "z"}], "]"}]}], "z"]}], 
+   TraditionalForm]], "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]], "InlineMath"],
+ " is expected utility. The certainty equivalent wealth is the amount of \
+money that, if held with absolute certainty, would yield the insured the same \
+expected utility as the \"lottery\" it faces as a result of the dependence of \
+its utility on random variables. Use of limits is necessary to address cases \
+where risk aversion is zero or one."
+}], "Text"],
+
+Cell["\<\
+Many of the slider controls have nonlinear responses in order to gain the \
+greatest \"resolution\" within the zones of interest while providing for the \
+controls to take on relatively extreme values. This interface methodology can \
+be used in conjunction with slider zoom to provide even greater resolution.\
+\>", "Text"],
+
+Cell["\<\
+Tooltips on the controls and table elements of the output provide additional \
+information.\
+\>", "Text"],
+
+Cell[TextData[{
+ "The insurer may also prevent excessive insurance purchases by declining to \
+pay or limiting the amount it will pay if it discovers that the amount of \
+insurance the insured has purchased is excessive. Coordination provisions in \
+an insurance contract, such as those requiring pro rata payment in the event \
+of multiple insurance against the same event, provide one vehicle whereby the \
+insurer attempts to prevent excessive purchase. See J. W. Stempel, ",
+ StyleBox["Stempel on Insurance Contracts",
+  FontSlant->"Italic"],
+ ", 3rd. ed., 2007. A more complex approach to the situation modeled in this \
+Demonstration would permit the insurer to use both conventional underwriting \
+and \"post-claims\" underwriting to determine whether the insured had \
+purchased excessive insurance. Such post-claims underwriting might encompass \
+assessments after an accident whether the insured, given other insurance the \
+insured might have in place, had purchased insurance that resulted in being \
+better off after an accident than if no accident occurred."
+}], "Text"],
+
+Cell["\<\
+Snapshot 1: the surface is colored according to indemnity probability rather \
+than certainty equivalent wealth\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 2: a high price of precautions relative to precaution conditions \
+results in purchase of no insurance\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 3: a reduction in the precaution condition permits purchase of \
+insurance even when precautions are costly\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 4: use of advanced controls shows an effect of high costs in \
+accurately determining whether the precaution condition has been satisfied\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 5: an insured with a high baseline risk relative to the premium \
+purchases a large amount of insurance and takes minimal precaution where the \
+precaution condition is low\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 6: an insured with a high baseline risk relative to the premium \
+purchases no insurance and takes high precautions where the precaution \
+condition is high\
+\>", "Text"],
+
+Cell["\<\
+Snapshot 7: an insured with a low baseline risk relative to the premium \
+charged purchases no insurance but takes high levels of precaution (well \
+beyond what the insurer would have required)\
+\>", "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Insurance and Precautions",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/InsuranceAndPrecautions/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/InsuranceAndPrecautions/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/InsuranceAndPrecautions/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/InsuranceAndPrecautions/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/InsuranceAndPrecautions/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Seth J. Chandler",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Seth+J.+\
+Chandler"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Seth+J.+Chandler"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+InsuranceAndPrecautions"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{775, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Insurance and Precautions - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[615, 23, 217, 4, 70, "Section"],
+Cell[835, 29, 10593, 270, 70, "Input",
+ InitializationCell->True,
+ CellID->89540161],
+Cell[11431, 301, 1943, 48, 70, "Input",
+ InitializationCell->True,
+ CellID->1006939914],
+Cell[13377, 351, 8501, 226, 70, "Input",
+ InitializationCell->True,
+ CellID->1467996238],
+Cell[21881, 579, 696, 19, 70, "Input",
+ InitializationCell->True,
+ CellID->208704201],
+Cell[22580, 600, 474, 13, 70, "Input",
+ InitializationCell->True,
+ CellID->173151683],
+Cell[23057, 615, 716, 20, 70, "Input",
+ InitializationCell->True,
+ CellID->319994496],
+Cell[23776, 637, 1648, 40, 70, "Input",
+ InitializationCell->True,
+ CellID->1785783461],
+Cell[25427, 679, 2764, 64, 70, "Input",
+ InitializationCell->True,
+ CellID->777669566],
+Cell[28194, 745, 793, 21, 70, "Input",
+ InitializationCell->True,
+ CellID->790690416],
+Cell[28990, 768, 10951, 230, 70, "Input",
+ InitializationCell->True,
+ CellID->1246826524],
+Cell[39944, 1000, 691, 19, 70, "Input",
+ InitializationCell->True,
+ CellID->1190521295],
+Cell[40638, 1021, 523, 13, 70, "Input",
+ InitializationCell->True,
+ CellID->744847548],
+Cell[41164, 1036, 724, 20, 70, "Input",
+ InitializationCell->True,
+ CellID->1491779162],
+Cell[41891, 1058, 580, 16, 70, "Input",
+ InitializationCell->True,
+ CellID->1667261695],
+Cell[42474, 1076, 541, 16, 70, "Input",
+ InitializationCell->True,
+ CellID->72930763],
+Cell[43018, 1094, 578, 17, 70, "Input",
+ InitializationCell->True,
+ CellID->1622562719],
+Cell[43599, 1113, 9920, 216, 70, "Input",
+ InitializationCell->True,
+ CellID->707827391],
+Cell[53522, 1331, 18648, 377, 70, "Input",
+ CellID->1932124315]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72207, 1713, 65284, 1436, 70, "Output",
+ CellID->434256841],
+Cell[CellGroupData[{
+Cell[137516, 3153, 199, 4, 70, "Section"],
+Cell[137718, 3159, 1448, 20, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[139192, 3183, 1228, 21, 70, "Text"],
+Cell[140423, 3206, 780, 11, 70, "Text"],
+Cell[141206, 3219, 250, 4, 70, "Text"],
+Cell[CellGroupData[{
+Cell[141481, 3227, 199, 4, 70, "Section"],
+Cell[141683, 3233, 115, 3, 70, "Text"],
+Cell[141801, 3238, 229, 5, 70, "Text"],
+Cell[142033, 3245, 370, 9, 70, "Text"],
+Cell[142406, 3256, 173, 4, 70, "Text"],
+Cell[142582, 3262, 209, 5, 70, "Text"],
+Cell[142794, 3269, 244, 5, 70, "Text"],
+Cell[143041, 3276, 209, 5, 70, "Text"],
+Cell[143253, 3283, 131, 4, 70, "Text"],
+Cell[143387, 3289, 137, 4, 70, "Text"],
+Cell[143527, 3295, 152, 5, 70, "Text"],
+Cell[143682, 3302, 130, 4, 70, "Text"],
+Cell[143815, 3308, 75, 0, 70, "Text"],
+Cell[143893, 3310, 1082, 37, 70, "Text"],
+Cell[144978, 3349, 2958, 72, 70, "Text"],
+Cell[147939, 3423, 902, 24, 70, "Text"],
+Cell[148844, 3449, 334, 5, 70, "Text"],
+Cell[149181, 3456, 115, 3, 70, "Text"],
+Cell[149299, 3461, 1084, 16, 70, "Text"],
+Cell[150386, 3479, 135, 3, 70, "Text"],
+Cell[150524, 3484, 135, 3, 70, "Text"],
+Cell[150662, 3489, 140, 3, 70, "Text"],
+Cell[150805, 3494, 170, 3, 70, "Text"],
+Cell[150978, 3499, 205, 4, 70, "Text"],
+Cell[151186, 3505, 189, 4, 70, "Text"],
+Cell[151378, 3511, 217, 4, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[151631, 3520, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[152007, 3531, 917, 24, 70, "Text"],
+Cell[152927, 3557, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[153267, 3568, 442, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[153734, 3586, 847, 24, 70, "Text"],
+Cell[154584, 3612, 1199, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature CT4JHAzGoO#fYCDEmGumOfof *)

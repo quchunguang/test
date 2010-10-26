@@ -1,0 +1,1845 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     86447,       1835]
+NotebookOptionsPosition[     84871,       1778]
+NotebookOutlinePosition[     85523,       1803]
+CellTagsIndexPosition[     85480,       1800]
+WindowTitle->Monopoly Profit-Maximization with Quadratic Marginal Cost - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Monopoly Profit-Maximization with Quadratic Marginal Cost", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"myRed", "=", 
+     RowBox[{"RGBColor", "[", 
+      RowBox[{".894", ",", ".102", ",", "0.110"}], "]"}]}], ";", 
+    RowBox[{"myGreen", "=", 
+     RowBox[{"RGBColor", "[", 
+      RowBox[{".302", ",", ".686", ",", ".290"}], "]"}]}], ";", 
+    RowBox[{"myBlue", "=", 
+     RowBox[{"RGBColor", "[", 
+      RowBox[{".116", ",", ".394", ",", ".622"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"myXmin", "=", 
+     RowBox[{"-", "10"}]}], ";", 
+    RowBox[{"myXmax", "=", "150"}], ";", 
+    RowBox[{"myYmin", "=", 
+     RowBox[{"-", "10"}]}], ";", 
+    RowBox[{"myYmax", "=", "80"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4901040366140003`*^9, 3.4901041548380003`*^9}, {
+   3.4901085106610003`*^9, 3.4901085690220003`*^9}, {3.4901086478*^9, 
+   3.490108650689*^9}, {3.490532065637*^9, 3.4905320722139997`*^9}, {
+   3.490534241975*^9, 3.490534242359*^9}, {3.490537358177*^9, 
+   3.490537361608*^9}, 3.4946820645651035`*^9},
+ CellID->509070766],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"QStar", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"\[Gamma]", ">=", "a"}], ",", "0", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", 
+         FractionBox[
+          RowBox[{"a", "-", "\[Gamma]"}], 
+          RowBox[{
+           RowBox[{"2", "*", "b"}], "+", "\[Beta]"}]], ",", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", "*", "b"}], "+", "\[Beta]"}], ")"}]}], "+", 
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", "*", "b"}], "+", "\[Beta]"}], ")"}], "2"], "-", 
+             RowBox[{"4", "*", "\[Alpha]", "*", 
+              RowBox[{"(", 
+               RowBox[{"\[Gamma]", "-", "a"}], ")"}]}]}]]}], 
+          RowBox[{"2", "*", "\[Alpha]"}]]}], "]"}]}], "]"}]}], ";", 
+    RowBox[{"PStar", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"\[Gamma]", ">=", "a"}], ",", "\[Gamma]", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"a", "*", 
+            RowBox[{"(", 
+             RowBox[{"b", "+", "\[Beta]"}], ")"}]}], "+", 
+           RowBox[{"b", "*", "\[Gamma]"}]}], 
+          RowBox[{
+           RowBox[{"2", "*", "b"}], "+", "\[Beta]"}]], ",", 
+         RowBox[{"a", "+", 
+          RowBox[{"b", "*", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"2", "*", "b"}], "+", "\[Beta]", "-", 
+             SqrtBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "*", "b"}], "+", "\[Beta]"}], ")"}], "2"], "-", 
+               RowBox[{"4", "*", "\[Alpha]", "*", 
+                RowBox[{"(", 
+                 RowBox[{"\[Gamma]", "-", "a"}], ")"}]}]}]]}], 
+            RowBox[{"2", "*", "\[Alpha]"}]]}]}]}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"MCMRStar", "=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"\[Gamma]", ">=", "a"}], ",", "a", ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"a", "*", "\[Beta]"}], "+", 
+           RowBox[{"2", "*", "b", "*", "\[Gamma]"}]}], 
+          RowBox[{
+           RowBox[{"2", "*", "b"}], "+", "\[Beta]"}]], ",", 
+         RowBox[{"a", "+", 
+          RowBox[{
+           FractionBox["b", "\[Alpha]"], "*", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"2", "*", "b"}], "+", "\[Beta]", "-", 
+             SqrtBox[
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"2", "*", "b"}], "+", "\[Beta]"}], ")"}], "2"], "-", 
+               RowBox[{"4", "*", "\[Alpha]", "*", 
+                RowBox[{"(", 
+                 RowBox[{"\[Gamma]", "-", "a"}], ")"}]}]}]]}], ")"}]}]}]}], 
+        "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"grid", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", "60", ",", 
+         "70", ",", "80", ",", "90", ",", "100", ",", "110", ",", "120", ",", 
+         "130", ",", "140", ",", "150"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", "60", ",", 
+         "70", ",", "80"}], "}"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"xgrid", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"#", ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"#", ",", 
+           RowBox[{"Max", "[", 
+            RowBox[{"grid", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], "}"}], "&"}], "/@", 
+      RowBox[{"grid", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"ygrid", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "#"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Max", "[", 
+            RowBox[{"grid", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "#"}], "}"}]}], 
+        "}"}], "&"}], "/@", 
+      RowBox[{"grid", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}]}], ";", 
+    RowBox[{"myDiam", "=", "1.5"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"myQTicks", "=", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"And", "[", 
+        RowBox[{
+         RowBox[{"QStar", "\[GreaterEqual]", "15"}], ",", 
+         RowBox[{"QStar", "<", "25"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "40", ",", "60", ",", "80", ",", "100", ",", "120", ",", "140"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"And", "[", 
+          RowBox[{
+           RowBox[{"QStar", "\[GreaterEqual]", "35"}], ",", 
+           RowBox[{"QStar", "<", "45"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "20", ",", "60", ",", "80", ",", "100", ",", "120", ",", "140"}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"And", "[", 
+            RowBox[{
+             RowBox[{"QStar", "\[GreaterEqual]", "55"}], ",", 
+             RowBox[{"QStar", "<", "65"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "20", ",", "40", ",", "80", ",", "100", ",", "120", ",", "140"}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"And", "[", 
+              RowBox[{
+               RowBox[{"QStar", "\[GreaterEqual]", "75"}], ",", 
+               RowBox[{"QStar", "<", "85"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "20", ",", "40", ",", "60", ",", "100", ",", "120", ",", 
+               "140"}], "}"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"And", "[", 
+                RowBox[{
+                 RowBox[{"QStar", "\[GreaterEqual]", "95"}], ",", 
+                 RowBox[{"QStar", "<", "105"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "20", ",", "40", ",", "60", ",", "80", ",", "120", ",", 
+                 "140"}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"And", "[", 
+                  RowBox[{
+                   RowBox[{"QStar", "\[GreaterEqual]", "115"}], ",", 
+                   RowBox[{"QStar", "<", "125"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                  "20", ",", "40", ",", "60", ",", "80", ",", "100", ",", 
+                   "140"}], "}"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"And", "[", 
+                    RowBox[{
+                    RowBox[{"QStar", "\[GreaterEqual]", "135"}], ",", 
+                    RowBox[{"QStar", "<", "145"}]}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "20", ",", "40", ",", "60", ",", "80", ",", "100", ",", 
+                    "120"}], "}"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "20", ",", "40", ",", "60", ",", "80", ",", "100", ",", 
+                    "120", ",", "140"}], "}"}]}], "]"}]}], "]"}]}], "]"}]}], 
+            "]"}]}], "]"}]}], "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"myPTicks", "=", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"And", "[", 
+        RowBox[{
+         RowBox[{"PStar", "\[GreaterEqual]", "6"}], ",", 
+         RowBox[{"PStar", "<", "14"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "20", ",", "30", ",", "40", ",", "50", ",", "60", ",", "70", ",", 
+         "80"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"And", "[", 
+          RowBox[{
+           RowBox[{"PStar", "\[GreaterEqual]", "16"}], ",", 
+           RowBox[{"PStar", "<", "24"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "10", ",", "30", ",", "40", ",", "50", ",", "60", ",", "70", ",", 
+           "80"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"And", "[", 
+            RowBox[{
+             RowBox[{"PStar", "\[GreaterEqual]", "26"}], ",", 
+             RowBox[{"PStar", "<", "34"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "10", ",", "20", ",", "40", ",", "50", ",", "60", ",", "70", ",", 
+             "80"}], "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"And", "[", 
+              RowBox[{
+               RowBox[{"PStar", "\[GreaterEqual]", "36"}], ",", 
+               RowBox[{"PStar", "<", "44"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "10", ",", "20", ",", "30", ",", "50", ",", "60", ",", "70", 
+               ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"And", "[", 
+                RowBox[{
+                 RowBox[{"PStar", "\[GreaterEqual]", "46"}], ",", 
+                 RowBox[{"PStar", "<", "54"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "10", ",", "20", ",", "30", ",", "40", ",", "60", ",", "70", 
+                 ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"And", "[", 
+                  RowBox[{
+                   RowBox[{"PStar", "\[GreaterEqual]", "56"}], ",", 
+                   RowBox[{"PStar", "<", "64"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                  "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", "70",
+                    ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"And", "[", 
+                    RowBox[{
+                    RowBox[{"PStar", "\[GreaterEqual]", "66"}], ",", 
+                    RowBox[{"PStar", "<", "74"}]}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", 
+                    "60", ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"And", "[", 
+                    RowBox[{
+                    RowBox[{"PStar", "\[GreaterEqual]", "76"}], ",", 
+                    RowBox[{"PStar", "<", "84"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", 
+                    "60", ",", "70"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "10", ",", "20", ",", "30", ",", "40", ",", "50", ",", 
+                    "60", ",", "70", ",", "80"}], "}"}]}], "]"}]}], "]"}]}], 
+                "]"}]}], "]"}]}], "]"}]}], "]"}]}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Column", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Text", "@", 
+         RowBox[{"Column", "[", 
+          RowBox[{
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<demand: \>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<P\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) = \>\"", ",", 
+                  RowBox[{"Dynamic", "[", "a", "]"}], ",", 
+                  "\"\< \[Dash] \>\"", ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"b", "\[Equal]", "1"}], ",", "\"\<\>\"", ",", 
+                    "b"}], "]"}], "]"}], ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<:\>\"", ",", 
+                  RowBox[{"Spacer", "[", "140", "]"}]}], "}"}], "]"}], ",", 
+               "myGreen"}], "]"}], ",", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<Therefore, marginal revenue is MR(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) = \>\"", ",", 
+                  RowBox[{"Dynamic", "[", "a", "]"}], ",", " ", "\"\< - \>\"",
+                   ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"b", "\[Equal]", 
+                    RowBox[{"1", "/", "2"}]}], ",", "\"\<\>\"", ",", 
+                    RowBox[{"2", "*", "b"}]}], "]"}], "]"}], ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}]}], "}"}], 
+                "]"}], ",", "myBlue"}], "]"}], ",", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<marginal cost: MC(\>\"", ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], ",", 
+                  "\"\<) = \>\"", ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"Or", "[", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", 
+                    RowBox[{"\[Alpha]", "\[Equal]", "1"}]}], "]"}], ",", 
+                    "\"\<\>\"", ",", "\[Alpha]"}], "]"}], "]"}], ",", 
+                  RowBox[{"Style", "[", 
+                   RowBox[{
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", "\"\<\>\"", 
+                    ",", "\"\<Q\>\""}], "]"}], "]"}], ",", "Italic"}], "]"}], 
+                  ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", "\"\<\>\"", 
+                    ",", 
+                    RowBox[{"Superscript", "[", 
+                    RowBox[{"\"\<\>\"", ",", "\"\<2\>\""}], "]"}]}], "]"}], 
+                   "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"And", "[", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", ">", "0"}], ",", 
+                    RowBox[{"\[Beta]", ">", "0"}]}], "]"}], ",", 
+                    "\"\< + \>\"", ",", "\"\<\>\""}], "]"}], "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"Or", "[", 
+                    RowBox[{
+                    RowBox[{"\[Beta]", "\[Equal]", "0"}], ",", 
+                    RowBox[{"\[Beta]", "\[Equal]", "1"}]}], "]"}], ",", 
+                    "\"\<\>\"", ",", "\[Beta]"}], "]"}], "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Beta]", "\[Equal]", "0"}], ",", "\"\<\>\"", 
+                    ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}]}], "]"}], 
+                   "]"}], ",", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"Or", "[", 
+                    RowBox[{
+                    RowBox[{"\[Alpha]", ">", "0"}], ",", 
+                    RowBox[{"\[Beta]", ">", "0"}]}], "]"}], ",", 
+                    "\"\< + \>\"", ",", "\"\<\>\""}], "]"}], "]"}], ",", 
+                  RowBox[{"Dynamic", "[", "\[Gamma]", "]"}], ",", 
+                  "\"\<:\>\""}], "}"}], "]"}], ",", "myRed"}], "]"}], ",", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"\[Gamma]", ">=", "a"}], ",", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"\"\<There is no market (MC\>\"", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">", "a"}], ",", "\"\< > \>\"", ",", 
+                    "\"\< \[GreaterEqual] \>\""}], "]"}], ",", "\"\<MR\>\"", 
+                    ",", "\"\< for all \>\"", ",", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], ",", 
+                    "\"\< \[GreaterEqual] 0).\>\""}], "}"}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Row", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], "*"], ",", 
+                    "\"\< = \>\"", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"IntegerPart", "[", "QStar", "]"}], "\[Equal]", 
+                    "QStar"}], ",", 
+                    RowBox[{"IntegerPart", "[", "QStar", "]"}], ",", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", "QStar", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "2"}], "}"}]}], "]"}]}], "]"}], ",", 
+                    "\[IndentingNewLine]", "\"\<;  \>\"", ",", 
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<P\>\"", ",", "Italic"}], "]"}], "*"], ",", 
+                    "\"\< = \>\"", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"IntegerPart", "[", "PStar", "]"}], "\[Equal]", 
+                    "PStar"}], ",", 
+                    RowBox[{"IntegerPart", "[", "PStar", "]"}], ",", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", "PStar", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "2"}], "}"}]}], "]"}]}], "]"}], ",", 
+                    "\"\<;  \!\(\*SuperscriptBox[\(MC\), \(*\)]\) = \
+\!\(\*SuperscriptBox[\(MR\), \(*\)]\) = \>\"", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"IntegerPart", "[", "MCMRStar", "]"}], "\[Equal]",
+                     "MCMRStar"}], ",", 
+                    RowBox[{"IntegerPart", "[", "MCMRStar", "]"}], ",", 
+                    RowBox[{"NumberForm", "[", 
+                    RowBox[{
+                    RowBox[{"N", "[", "MCMRStar", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"5", ",", "2"}], "}"}]}], "]"}]}], "]"}]}], "}"}],
+                   "]"}]}], "]"}], ",", 
+               RowBox[{"Directive", "[", 
+                RowBox[{"12", ",", 
+                 RowBox[{"RGBColor", "[", 
+                  RowBox[{".25", ",", ".25", ",", ".25"}], "]"}]}], "]"}]}], 
+              "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+           RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}]}], ",", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"Tooltip", "[", 
+               RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"\[Alpha]", "\[Equal]", "0"}], ",", 
+                  RowBox[{
+                   RowBox[{"\[Beta]", "*", "Q"}], "+", "\[Gamma]"}], ",", 
+                  RowBox[{
+                   RowBox[{"\[Alpha]", "*", 
+                    SuperscriptBox["Q", "2"]}], "+", 
+                   RowBox[{"\[Beta]", "*", "Q"}], "+", "\[Gamma]"}]}], "]"}], 
+                ",", "\"\<Marginal Cost\>\"", ",", 
+                RowBox[{"LabelStyle", "\[Rule]", 
+                 RowBox[{"Directive", "[", 
+                  RowBox[{"myRed", ",", "Bold"}], "]"}]}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"Q", ",", 
+                RowBox[{"-", "10"}], ",", "150"}], "}"}], ",", 
+              RowBox[{"PlotRange", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "85"}], "}"}]}], ",", 
+              RowBox[{"AspectRatio", "\[Rule]", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"85", "+", "10"}], ")"}], "/", 
+                RowBox[{"(", 
+                 RowBox[{"150", "+", "10"}], ")"}]}]}], ",", 
+              RowBox[{"AxesOrigin", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+              RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+              RowBox[{"Frame", "\[Rule]", "False"}], ",", 
+              RowBox[{"AxesStyle", "\[Rule]", 
+               RowBox[{"Directive", "[", 
+                RowBox[{
+                 RowBox[{"Darker", "[", "Gray", "]"}], ",", "8"}], "]"}]}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"PlotStyle", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"myRed", ",", 
+                 RowBox[{"Thickness", "[", ".0075", "]"}]}], "}"}]}], ",", 
+              RowBox[{"Ticks", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"myQTicks", ",", "myPTicks"}], "}"}]}], ",", 
+              RowBox[{"ImagePadding", "\[Rule]", "20"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"Dotted", ",", 
+                 RowBox[{"Lighter", "[", "Gray", "]"}], ",", 
+                 RowBox[{"Line", "[", "xgrid", "]"}], ",", 
+                 RowBox[{"Line", "[", "ygrid", "]"}]}], "}"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"RGBColor", "[", 
+                  RowBox[{".3", ",", ".3", ",", ".3"}], "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Q\>\"", ",", "Italic"}], "]"}], "*"], ",", 
+                    "11", ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{".3", ",", ".3", ",", ".3"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", 
+                    RowBox[{"-", "4"}]}], "}"}]}], "]"}], ",", 
+                   "\"\<Profit\[Hyphen]maximizing output\>\""}], "]"}]}], 
+                "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"RGBColor", "[", 
+                  RowBox[{".3", ",", ".3", ",", ".3"}], "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Text", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<P\>\"", ",", "Italic"}], "]"}], "*"], ",", 
+                    "11", ",", 
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{".3", ",", ".3", ",", ".3"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "4"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">", "a"}], ",", "999", ",", 
+                    "PStar"}], "]"}]}], "}"}]}], "]"}], ",", 
+                   "\"\<Profit\[Hyphen]maximizing price\>\""}], "]"}]}], 
+                "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"Dashed", ",", 
+                 RowBox[{"RGBColor", "[", 
+                  RowBox[{".3", ",", ".3", ",", ".3"}], "]"}], ",", "Thick", 
+                 ",", 
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", "MCMRStar"}], "}"}]}], "}"}], 
+                  "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"Dashed", ",", "Red", ",", "Thick", ",", 
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", "MCMRStar"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", "PStar"}], "}"}]}], "}"}], "]"}]}],
+                 "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"myGreen", ",", 
+                 RowBox[{"Thickness", "[", ".0075", "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "a"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"a", "/", "b"}], ",", "0"}], "}"}]}], "}"}], 
+                    "]"}], ",", "\"\<Demand\>\"", ",", 
+                   RowBox[{"LabelStyle", "\[Rule]", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{"myGreen", ",", "Bold"}], "]"}]}]}], "]"}]}], 
+                "}"}], ",", 
+               RowBox[{"(*", " ", "Demand", " ", "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"myBlue", ",", 
+                 RowBox[{"Thickness", "[", ".0075", "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Line", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "a"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"a", "-", "myYmin"}], ")"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "*", "b"}], ")"}]}], ",", "myYmin"}], 
+                    "}"}]}], "}"}], "]"}], ",", "\"\<Marginal Revenue\>\"", 
+                   ",", 
+                   RowBox[{"LabelStyle", "\[Rule]", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{"myBlue", ",", "Bold"}], "]"}]}]}], "]"}]}], 
+                "}"}], ",", 
+               RowBox[{"(*", " ", "MR", " ", "*)"}], "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"Dashed", ",", "Red", ",", "Thick", ",", 
+                 RowBox[{"Line", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", "0"}], 
+                    "]"}], ",", "PStar"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "999", ",", 
+                    "QStar"}], "]"}], ",", "PStar"}], "}"}]}], "}"}], "]"}]}],
+                 "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"EdgeForm", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"Thick", ",", "myGreen"}], "}"}], "]"}], ",", 
+                 RowBox[{"Dynamic", "[", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "myGreen", ",", 
+                    "Yellow"}], "]"}], "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"QStar", ",", 
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "a", ",", "PStar"}],
+                     "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"myDiam", ",", "myDiam"}], "}"}]}], "]"}], ",", 
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", "\[LessEqual]", "a"}], ",", 
+                    "\"\<The firm uses this point to set the \
+profit\[Hyphen]maximizing price.\>\"", ",", 
+                    "\"\<This point indicates the greatest price a \
+prospective buyer would pay.\>\""}], "]"}], "]"}]}], "]"}]}], "}"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"EdgeForm", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"Thick", ",", "myRed"}], "}"}], "]"}], ",", 
+                 RowBox[{"Dynamic", "[", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"\[Gamma]", "\[GreaterEqual]", "a"}], ",", 
+                    "myRed", ",", "myBlue"}], "]"}], "]"}], ",", 
+                 RowBox[{"Tooltip", "[", 
+                  RowBox[{
+                   RowBox[{"Disk", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"QStar", ",", 
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", ">=", "a"}], ",", "\[Gamma]", ",", 
+                    "MCMRStar"}], "]"}], "]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"myDiam", ",", "myDiam"}], "}"}]}], "]"}], ",", 
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"\[Gamma]", "\[LessEqual]", "a"}], ",", 
+                    "\"\<This is the point where marginal revenue equals \
+marginal cost.\>\"", ",", 
+                    "\"\<This point indicates the smallest value of marginal \
+cost.\>\""}], "]"}], "]"}]}], "]"}]}], "}"}]}], "\[IndentingNewLine]", "}"}], 
+             "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "375"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "72", ",", "\"\<intercept\>\""}], "}"}], ",", "40", 
+     ",", "80", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "0.5", ",", 
+       RowBox[{"Tooltip", "[", 
+        RowBox[{"\"\<slope\>\"", ",", "\"\<magnitude\>\""}], "]"}]}], "}"}], 
+     ",", "0.25", ",", "3", ",", "0.125", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<coefficients\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", "0.015", ",", "\"\<quadratic\>\""}], "}"}], 
+     ",", "0", ",", "0.05", ",", "0.005", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "0.25", ",", "\"\<linear\>\""}], "}"}], ",", 
+     "0", ",", "2", ",", "0.125", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "21", ",", "\"\<additive constant\>\""}], 
+      "}"}], ",", "10", ",", "50", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "4", ",", "5"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.474063739191*^9, 3.474063778157*^9}, {
+   3.474063832538*^9, 3.474064131297*^9}, {3.474064167866*^9, 
+   3.474064259852*^9}, {3.474064299796*^9, 3.474064480332*^9}, {
+   3.4740645567279997`*^9, 3.474064581632*^9}, {3.474064643532*^9, 
+   3.474064649149*^9}, {3.4740647463710003`*^9, 3.4740647614440002`*^9}, {
+   3.474064796696*^9, 3.4740648053050003`*^9}, {3.474064858801*^9, 
+   3.474064884743*^9}, {3.474065114631*^9, 3.474065256568*^9}, {
+   3.474067717707*^9, 3.474067735174*^9}, {3.474067789432*^9, 
+   3.474067902117*^9}, {3.4740680556949997`*^9, 3.474068097001*^9}, {
+   3.474068128277*^9, 3.4740681295629997`*^9}, {3.474068197594*^9, 
+   3.474068320266*^9}, {3.4740683646940002`*^9, 3.474068379771*^9}, 
+   3.474068462484*^9, {3.4740685605559998`*^9, 3.4740686068380003`*^9}, {
+   3.4740686722460003`*^9, 3.474068704203*^9}, {3.474068740477*^9, 
+   3.4740688026730003`*^9}, {3.474068883102*^9, 3.4740689726289997`*^9}, {
+   3.47406910601*^9, 3.474069170892*^9}, {3.4740692012609997`*^9, 
+   3.4740692487060003`*^9}, {3.474069282323*^9, 3.4740693419700003`*^9}, {
+   3.4740693843269997`*^9, 3.47406943169*^9}, {3.47406950875*^9, 
+   3.474069621748*^9}, {3.474069708873*^9, 3.474069709526*^9}, {
+   3.474069763317*^9, 3.474069804244*^9}, {3.474069841343*^9, 
+   3.474069849403*^9}, {3.4740699027539997`*^9, 3.4740699130030003`*^9}, {
+   3.474070064408*^9, 3.474070088083*^9}, {3.474070144052*^9, 
+   3.474070227475*^9}, {3.4740702800299997`*^9, 3.474070381974*^9}, {
+   3.474070431465*^9, 3.474070726778*^9}, {3.474070817396*^9, 
+   3.474070971703*^9}, {3.474071042575*^9, 3.47407105306*^9}, 
+   3.4741093017650003`*^9, {3.474109336578*^9, 3.47410937862*^9}, {
+   3.474109420045*^9, 3.474109491101*^9}, {3.474109542943*^9, 
+   3.474109551509*^9}, {3.4741097052060003`*^9, 3.474109733067*^9}, {
+   3.47410992675*^9, 3.474110009832*^9}, {3.474110528199*^9, 
+   3.4741105803269997`*^9}, {3.474110638234*^9, 3.47411074392*^9}, {
+   3.474110985109*^9, 3.474110986334*^9}, {3.474111626852*^9, 
+   3.4741116274709997`*^9}, {3.474111659552*^9, 3.474111670707*^9}, {
+   3.474111761868*^9, 3.474111848229*^9}, {3.4741118909709997`*^9, 
+   3.474111946047*^9}, {3.4741122257790003`*^9, 3.474112252689*^9}, {
+   3.474113249626*^9, 3.474113258542*^9}, 3.474113301462*^9, {
+   3.474113442876*^9, 3.474113490973*^9}, {3.474113526288*^9, 
+   3.4741135571809998`*^9}, {3.474114016851*^9, 3.474114025307*^9}, {
+   3.4741140826809998`*^9, 3.47411415259*^9}, {3.474114183941*^9, 
+   3.474114184741*^9}, {3.4741142826540003`*^9, 3.474114317124*^9}, 
+   3.474114350883*^9, 3.474114386242*^9, {3.474114419106*^9, 
+   3.474114453174*^9}, {3.474117065429*^9, 3.474117200652*^9}, 
+   3.474117239351*^9, {3.474125801061*^9, 3.474125985943*^9}, {
+   3.474126582375*^9, 3.4741266031689997`*^9}, {3.474127662659*^9, 
+   3.4741276924820004`*^9}, {3.4741278304519997`*^9, 3.474127854075*^9}, {
+   3.474127894609*^9, 3.474127900542*^9}, {3.4741284263120003`*^9, 
+   3.474128473295*^9}, {3.474128515608*^9, 3.4741285483529997`*^9}, {
+   3.474197843094*^9, 3.474198018256*^9}, {3.4742022410299997`*^9, 
+   3.4742026829560003`*^9}, 3.4742027257460003`*^9, {3.4742028576*^9, 
+   3.474202943624*^9}, {3.474203023099*^9, 3.474203050984*^9}, {
+   3.474203105666*^9, 3.474203132957*^9}, {3.474203186075*^9, 
+   3.4742032287720003`*^9}, {3.474203960083*^9, 3.474203966005*^9}, {
+   3.474204007499*^9, 3.474204043533*^9}, {3.474204198656*^9, 
+   3.474204314648*^9}, {3.47420435*^9, 3.474204432842*^9}, {3.474204470415*^9,
+    3.474204545572*^9}, {3.4742045972790003`*^9, 3.474204677737*^9}, {
+   3.474204709948*^9, 3.474204768777*^9}, {3.474205191344*^9, 
+   3.474205205226*^9}, {3.4742052888*^9, 3.4742052980769997`*^9}, 
+   3.474205335949*^9, {3.474205372106*^9, 3.474205383021*^9}, 
+   3.474205444573*^9, 3.474205537135*^9, 3.474205567625*^9, {
+   3.4742057108199997`*^9, 3.4742057792060003`*^9}, {3.474205830557*^9, 
+   3.474205838067*^9}, {3.474205872075*^9, 3.474205873683*^9}, {
+   3.474206137436*^9, 3.474206218498*^9}, {3.474206251398*^9, 
+   3.474206270573*^9}, {3.474206496308*^9, 3.4742065091*^9}, {
+   3.474206587007*^9, 3.4742066020810003`*^9}, {3.474206746201*^9, 
+   3.4742068449049997`*^9}, {3.474207015835*^9, 3.474207103375*^9}, {
+   3.474207142487*^9, 3.474207512924*^9}, {3.4742075902799997`*^9, 
+   3.474207591429*^9}, {3.474207696311*^9, 3.474207708617*^9}, {
+   3.47420775009*^9, 3.474207765257*^9}, {3.4742078634119997`*^9, 
+   3.474208082656*^9}, {3.474208140994*^9, 3.4742082138859997`*^9}, {
+   3.474208313106*^9, 3.474208321745*^9}, {3.474208471267*^9, 
+   3.4742084936359997`*^9}, {3.474208602814*^9, 3.474208609921*^9}, {
+   3.474208742807*^9, 3.47420874312*^9}, {3.474208799184*^9, 
+   3.4742088117539997`*^9}, {3.4742145720032*^9, 3.4742146145242*^9}, {
+   3.4742163275322*^9, 3.4742163344782*^9}, {3.4742163748202*^9, 
+   3.4742167744552*^9}, {3.4742168084692*^9, 3.4742168330282*^9}, {
+   3.4742176421322002`*^9, 3.4742176576582003`*^9}, {3.4742177009012003`*^9, 
+   3.4742177839862003`*^9}, {3.4742178838101997`*^9, 3.4742179341492*^9}, {
+   3.4742216282222*^9, 3.4742216477972*^9}, {3.4742216832162*^9, 
+   3.4742217363342*^9}, {3.474241133516*^9, 3.474241183257*^9}, {
+   3.474284202376*^9, 3.474284244991*^9}, {3.4742842784709997`*^9, 
+   3.474284283609*^9}, {3.474285178782*^9, 3.474285241027*^9}, {
+   3.4742854136800003`*^9, 3.47428543102*^9}, {3.474285515585*^9, 
+   3.4742855679110003`*^9}, {3.4742874049849997`*^9, 3.474287470281*^9}, {
+   3.474287623724*^9, 3.474287672267*^9}, {3.4743685153710003`*^9, 
+   3.474368561671*^9}, {3.474368602851*^9, 3.474368680748*^9}, {
+   3.474368723067*^9, 3.474368733401*^9}, {3.474368955042*^9, 
+   3.474368979479*^9}, {3.474369328245*^9, 3.474369360955*^9}, {
+   3.474369716565*^9, 3.4743698062460003`*^9}, {3.47437024695*^9, 
+   3.474370253543*^9}, {3.4743711971359997`*^9, 3.4743712940290003`*^9}, {
+   3.474371330804*^9, 3.4743713394820004`*^9}, {3.4743714987939997`*^9, 
+   3.474371637934*^9}, {3.474371700074*^9, 3.474371708861*^9}, {
+   3.474371768703*^9, 3.474371824899*^9}, {3.4743718715039997`*^9, 
+   3.4743719317209997`*^9}, {3.4743719781140003`*^9, 3.474372002461*^9}, {
+   3.474417103711*^9, 3.4744172724449997`*^9}, {3.4744173331280003`*^9, 
+   3.474417667975*^9}, {3.474426022766*^9, 3.4744262080004*^9}, {
+   3.4744262392004004`*^9, 3.4744262619296*^9}, {3.474426296234*^9, 
+   3.4744262988704*^9}, {3.474448092651266*^9, 3.4744483322672663`*^9}, {
+   3.4744484619032664`*^9, 3.474448486722866*^9}, {3.4744485174548664`*^9, 
+   3.4744486247984667`*^9}, {3.4744486625660667`*^9, 
+   3.4744487237024665`*^9}, {3.4744494244804664`*^9, 3.4744494277408667`*^9}, 
+   3.4744494928708663`*^9, {3.474466944806466*^9, 3.474467042524866*^9}, {
+   3.4744677052284665`*^9, 3.4744677610296664`*^9}, {3.4744680075252666`*^9, 
+   3.4744680354648666`*^9}, {3.4744680801432667`*^9, 3.474468184585266*^9}, {
+   3.474468225192066*^9, 3.474468230870466*^9}, {3.4744682613372664`*^9, 
+   3.4744684476636667`*^9}, {3.4744705648382664`*^9, 3.474470573538266*^9}, {
+   3.4744706166012664`*^9, 3.4744706176642666`*^9}, {3.4744706888462667`*^9, 
+   3.4744707031152663`*^9}, {3.4744815271592665`*^9, 3.474481555920266*^9}, {
+   3.4744815979642663`*^9, 3.474481612005266*^9}, {3.4744829675142665`*^9, 
+   3.4744829839022665`*^9}, {3.474548964555464*^9, 3.4745489682214637`*^9}, {
+   3.4745557092139635`*^9, 3.4745557287819633`*^9}, {3.474555785681964*^9, 
+   3.4745558262209635`*^9}, {3.4745559245229635`*^9, 
+   3.4745559472399635`*^9}, {3.4745561287259636`*^9, 
+   3.4745561758169637`*^9}, {3.4745562639419637`*^9, 
+   3.4745563281809635`*^9}, {3.4745563717649636`*^9, 3.474556400485964*^9}, {
+   3.4745566892899637`*^9, 3.4745568950389633`*^9}, {3.4745576750209637`*^9, 
+   3.4745576847179637`*^9}, {3.4745577336869636`*^9, 3.474557802740964*^9}, {
+   3.4745578401089635`*^9, 3.474557907978964*^9}, {3.4745579514989634`*^9, 
+   3.474558089379964*^9}, {3.4745581310789633`*^9, 3.4745586034139633`*^9}, {
+   3.4745586458309636`*^9, 3.474558703115964*^9}, {3.4745587363079634`*^9, 
+   3.474558799742964*^9}, {3.4745589089819636`*^9, 3.4745589217049637`*^9}, {
+   3.4745589719069633`*^9, 3.4745591300169635`*^9}, 3.474559219044964*^9, {
+   3.4745592763029633`*^9, 3.4745592779179635`*^9}, {3.4745593951309633`*^9, 
+   3.4745594519369636`*^9}, {3.474559514728964*^9, 3.4745597378289633`*^9}, {
+   3.4745601215659637`*^9, 3.4745601384779634`*^9}, {3.4745601871319637`*^9, 
+   3.4745602643529634`*^9}, {3.4745604113299637`*^9, 
+   3.4745604213699636`*^9}, {3.4745604542989635`*^9, 
+   3.4745604837299633`*^9}, {3.474560547320964*^9, 3.4745605599969635`*^9}, {
+   3.4745606187469635`*^9, 3.4745606222669635`*^9}, {3.4745606559119635`*^9, 
+   3.4745607008689637`*^9}, {3.474560742537964*^9, 3.4745607857229633`*^9}, {
+   3.4745608352469635`*^9, 3.474560846209964*^9}, {3.4745608842499638`*^9, 
+   3.4745608855029635`*^9}, {3.4745609162089634`*^9, 
+   3.4745609168389635`*^9}, {3.4745610018789635`*^9, 
+   3.4745611227319636`*^9}, {3.474561188716964*^9, 3.4745612295659637`*^9}, {
+   3.4745612946089635`*^9, 3.4745613935909634`*^9}, 3.474561480966964*^9, {
+   3.474561552228964*^9, 3.4745615700609636`*^9}, {3.4745616400599637`*^9, 
+   3.474561644688964*^9}, {3.4745617912959633`*^9, 3.4745619062349634`*^9}, {
+   3.474595792277*^9, 3.474595875023*^9}, {3.4746286627208853`*^9, 
+   3.474628780968885*^9}, {3.474628900786585*^9, 3.474628927146585*^9}, {
+   3.474629146687585*^9, 3.474629151682585*^9}, {3.4746294826705847`*^9, 
+   3.4746297591375847`*^9}, {3.474629866171585*^9, 3.474629902704585*^9}, {
+   3.474630231009585*^9, 3.474630254845585*^9}, {3.474630456916585*^9, 
+   3.474630474442585*^9}, {3.474630902803585*^9, 3.4746309112995853`*^9}, {
+   3.474631345204585*^9, 3.474631406362585*^9}, {3.474631452185585*^9, 
+   3.474631454610585*^9}, {3.4746316105635853`*^9, 3.474631692157585*^9}, {
+   3.474631738057585*^9, 3.474631742664585*^9}, {3.474631782770585*^9, 
+   3.4746319732805853`*^9}, {3.474632004459585*^9, 3.474632054077585*^9}, {
+   3.474632105419585*^9, 3.474632160869585*^9}, {3.474632285232585*^9, 
+   3.474632453859585*^9}, {3.474632558413185*^9, 3.474632586399585*^9}, {
+   3.474632643167985*^9, 3.474632707845585*^9}, {3.4746327569231853`*^9, 
+   3.474632771056785*^9}, {3.474632921877585*^9, 3.474632969785185*^9}, {
+   3.4746363933966*^9, 3.4746365105706*^9}, {3.4746365496986*^9, 
+   3.4746367035606003`*^9}, {3.4746368366826*^9, 3.4746368800906*^9}, {
+   3.4746369693185997`*^9, 3.4746371348115997`*^9}, {3.4746376753696003`*^9, 
+   3.4746377940436*^9}, 3.4746379238786*^9, {3.4746380049426003`*^9, 
+   3.4746380090666*^9}, {3.4746380464646*^9, 3.4746380762056*^9}, {
+   3.4746381153956003`*^9, 3.4746381263696003`*^9}, {3.4746382342836*^9, 
+   3.4746383499695997`*^9}, {3.4746383930526*^9, 3.4746384689056*^9}, {
+   3.4746385594955997`*^9, 3.4746386851766*^9}, {3.4746387434256*^9, 
+   3.4746387652506*^9}, {3.4746388338716*^9, 3.4746388373606*^9}, {
+   3.4746388828546*^9, 3.4746388991376*^9}, {3.4746389716745996`*^9, 
+   3.4746390718166*^9}, {3.4746391088016*^9, 3.4746391253016*^9}, {
+   3.4746391931396*^9, 3.4746393853176003`*^9}, {3.4746394164256*^9, 
+   3.4746394424806004`*^9}, {3.4746394752785997`*^9, 3.4746395758026*^9}, {
+   3.4746397637476*^9, 3.4746397820986*^9}, {3.4746398457576*^9, 
+   3.4746398628796*^9}, {3.4746399747335997`*^9, 3.4746400465836*^9}, {
+   3.4746400941066*^9, 3.4746402007265997`*^9}, {3.4746402651126003`*^9, 
+   3.4746402954096003`*^9}, {3.4746403447766*^9, 3.4746404562366*^9}, {
+   3.4746405118416*^9, 3.4746405356156*^9}, {3.4746405801986*^9, 
+   3.4746406314926*^9}, {3.4746409189046*^9, 3.4746409250656*^9}, {
+   3.4746410125046*^9, 3.4746410539936*^9}, {3.4746417467636003`*^9, 
+   3.4746417512506*^9}, {3.4746517392976*^9, 3.4746517394096003`*^9}, {
+   3.4746535539835997`*^9, 3.4746535541865997`*^9}, {3.4747556131828003`*^9, 
+   3.4747556150758*^9}, {3.4747558224988003`*^9, 3.4747558253988*^9}, {
+   3.4747558699158*^9, 3.4747559710788*^9}, {3.4747560250158*^9, 
+   3.4747561087078*^9}, 3.4747564606408*^9, {3.4747566481168003`*^9, 
+   3.4747566944828*^9}, {3.4747631647637997`*^9, 3.4747631699378*^9}, {
+   3.47480813797736*^9, 3.47480816227636*^9}, {3.47480819526236*^9, 
+   3.47480821199736*^9}, {3.47480833797936*^9, 3.4748083625313597`*^9}, {
+   3.47480840174436*^9, 3.4748084046303596`*^9}, {3.47480854638636*^9, 
+   3.47480861015836*^9}, {3.47480864363636*^9, 3.47480876983836*^9}, {
+   3.47480882153836*^9, 3.4748088352413597`*^9}, {3.47480888044436*^9, 
+   3.47480896060336*^9}, {3.47480915256736*^9, 3.47480915298936*^9}, {
+   3.47480928096736*^9, 3.47480938955136*^9}, {3.47480944028236*^9, 
+   3.47480944319836*^9}, {3.4748094858253603`*^9, 3.4748096279313602`*^9}, {
+   3.4748096636423597`*^9, 3.47480968101136*^9}, {3.47481047628436*^9, 
+   3.47481053016636*^9}, {3.47481061847036*^9, 3.47481065620336*^9}, {
+   3.47481072776036*^9, 3.47481074753236*^9}, {3.47481086034136*^9, 
+   3.4748108640503597`*^9}, {3.47481089751136*^9, 3.47481097590136*^9}, {
+   3.47481135312136*^9, 3.4748114096423597`*^9}, {3.4748114514313602`*^9, 
+   3.47481150621136*^9}, 3.4748115407933598`*^9, {3.47481157550836*^9, 
+   3.4748117205093603`*^9}, {3.4748119287483597`*^9, 3.47481195600836*^9}, {
+   3.47481198610036*^9, 3.47481200476136*^9}, {3.47481206217036*^9, 
+   3.47481206803736*^9}, {3.47481219434336*^9, 3.47481227352936*^9}, {
+   3.4748123301893597`*^9, 3.47481234042236*^9}, {3.4748124143663597`*^9, 
+   3.47481244986136*^9}, {3.47481291285736*^9, 3.47481292610236*^9}, {
+   3.47481607684536*^9, 3.4748161980053596`*^9}, {3.47481635265136*^9, 
+   3.47481636800036*^9}, {3.47481639816936*^9, 3.47481642021136*^9}, {
+   3.4748165062403603`*^9, 3.47481653447036*^9}, {3.47481658053036*^9, 
+   3.47481708966236*^9}, 3.47481713636236*^9, {3.47481727734836*^9, 
+   3.47481752132836*^9}, {3.47481950062436*^9, 3.47481952338336*^9}, {
+   3.47481955741936*^9, 3.4748198502153597`*^9}, {3.47481988321236*^9, 
+   3.4748199583513603`*^9}, {3.47481999532036*^9, 3.47481999862936*^9}, {
+   3.4748200370943604`*^9, 3.4748200394983597`*^9}, {3.47482024769236*^9, 
+   3.4748202993593597`*^9}, {3.47482034704736*^9, 3.47482036989736*^9}, {
+   3.47482058816136*^9, 3.47482060523036*^9}, {3.4748213415053596`*^9, 
+   3.47482138823036*^9}, {3.47482143423136*^9, 3.47482147848936*^9}, {
+   3.4748215255683603`*^9, 3.47482153074436*^9}, {3.47482158962936*^9, 
+   3.47482178092136*^9}, {3.47482210413736*^9, 3.47482210857836*^9}, {
+   3.47482214705836*^9, 3.47482219968536*^9}, {3.47482223250036*^9, 
+   3.47482235242336*^9}, {3.47482238848636*^9, 3.4748223971483603`*^9}, {
+   3.47482245473736*^9, 3.47482250411136*^9}, {3.47482261482836*^9, 
+   3.47482261808636*^9}, {3.4748226622743597`*^9, 3.47482266303336*^9}, {
+   3.4748533954903*^9, 3.4748535001195*^9}, {3.4748844751983*^9, 
+   3.4748844782303*^9}, {3.4748845112792997`*^9, 3.4748845345393*^9}, {
+   3.4748845767543*^9, 3.4748845993363*^9}, {3.4749993011437283`*^9, 
+   3.47499935091352*^9}, 3.4751535131473894`*^9, {3.4751536815013895`*^9, 
+   3.4751536940113897`*^9}, {3.4751537674253893`*^9, 
+   3.4751537838733892`*^9}, {3.4751538174093895`*^9, 
+   3.4751538539213896`*^9}, {3.4751541832033896`*^9, 
+   3.4751543710593896`*^9}, {3.47515495277339*^9, 3.4751549636133895`*^9}, {
+   3.4751551646633897`*^9, 3.47515524721439*^9}, {3.4751552800713897`*^9, 
+   3.4751554087423897`*^9}, {3.4751572115373898`*^9, 
+   3.4751572333003893`*^9}, {3.4751573288543897`*^9, 3.47515743183939*^9}, {
+   3.4899217518640413`*^9, 3.489921766358041*^9}, {3.489928477961041*^9, 
+   3.4899286125550413`*^9}, {3.489928644788041*^9, 3.4899286510480413`*^9}, {
+   3.489929344982041*^9, 3.4899294189640408`*^9}, {3.489929513635041*^9, 
+   3.489929531501041*^9}, {3.489929589273041*^9, 3.489929604450041*^9}, {
+   3.489929668802041*^9, 3.4899296885550413`*^9}, {3.489929785451041*^9, 
+   3.489929795755041*^9}, {3.4899299442350407`*^9, 3.489929944888041*^9}, {
+   3.489931925696041*^9, 3.489931932112041*^9}, {3.489933116461041*^9, 
+   3.489933125032041*^9}, {3.489933175321041*^9, 3.489933270439041*^9}, {
+   3.489933305773041*^9, 3.489933331142041*^9}, {3.489933400657041*^9, 
+   3.489933400925041*^9}, {3.4899334722980413`*^9, 3.489933476545041*^9}, {
+   3.489933511337041*^9, 3.4899335165480413`*^9}, {3.4899335466220407`*^9, 
+   3.489933586363041*^9}, {3.489933675891041*^9, 3.489933683856041*^9}, {
+   3.489933729764041*^9, 3.4899337380360413`*^9}, {3.4899338000810413`*^9, 
+   3.489933810469041*^9}, {3.489933846691041*^9, 3.489933874117041*^9}, {
+   3.489961773264*^9, 3.489961807802*^9}, {3.489961839118*^9, 
+   3.489961870406*^9}, {3.489961927141*^9, 3.489962002992*^9}, {
+   3.489962095461*^9, 3.4899621239189997`*^9}, {3.489962321843*^9, 
+   3.489962372633*^9}, {3.489962483085*^9, 3.48996248324*^9}, {
+   3.48996295734*^9, 3.4899630673*^9}, {3.4899632512469997`*^9, 
+   3.4899633096730003`*^9}, {3.489963383475*^9, 3.489963445507*^9}, {
+   3.489963489507*^9, 3.4899635252349997`*^9}, {3.4899635720360003`*^9, 
+   3.4899635777139997`*^9}, {3.489963655469*^9, 3.489963692119*^9}, {
+   3.489963742094*^9, 3.489963875627*^9}, {3.4900082216785536`*^9, 
+   3.490008232174554*^9}, {3.4900083843215537`*^9, 3.4900086425555534`*^9}, {
+   3.4900087474725533`*^9, 3.4900087951125536`*^9}, {3.490008866049554*^9, 
+   3.4900089074405537`*^9}, {3.4900089545555534`*^9, 3.4900090705455537`*^9}, 
+   3.4900091623315535`*^9, {3.4900092070285535`*^9, 3.4900093088305535`*^9}, {
+   3.4900096869775534`*^9, 3.4900097340265536`*^9}, {3.4900097799215536`*^9, 
+   3.4900097867385535`*^9}, {3.490009832167554*^9, 3.4900098452845535`*^9}, {
+   3.4900099461875534`*^9, 3.4900099517355537`*^9}, {3.4900099889045534`*^9, 
+   3.4900100001585536`*^9}, {3.4900100742135534`*^9, 
+   3.4900101217355537`*^9}, {3.4900101687355537`*^9, 3.4900102266425533`*^9}, 
+   3.4900102710835533`*^9, {3.4900108039115534`*^9, 3.4900108050885534`*^9}, {
+   3.490011115252554*^9, 3.490011175471554*^9}, {3.4900112093125534`*^9, 
+   3.490011228523554*^9}, {3.490011262174554*^9, 3.4900112865175533`*^9}, {
+   3.4900113188235536`*^9, 3.4900114253755536`*^9}, {3.4900114894525537`*^9, 
+   3.4900115416305532`*^9}, {3.4900134748435535`*^9, 
+   3.4900135512585535`*^9}, {3.4900136054475536`*^9, 3.4900136327895536`*^9}, 
+   3.490013722438554*^9, {3.4900137600725536`*^9, 3.4900138492685537`*^9}, {
+   3.4900139069495535`*^9, 3.4900139119425535`*^9}, {3.4900139420485535`*^9, 
+   3.4900139440135536`*^9}, {3.4900176058165536`*^9, 
+   3.4900176570665536`*^9}, {3.4900184185995536`*^9, 3.4900186289255533`*^9}, 
+   3.4900186596685534`*^9, {3.4900187083335533`*^9, 3.4900187175205536`*^9}, {
+   3.490018800431554*^9, 3.4900188224185534`*^9}, {3.4900188638455534`*^9, 
+   3.4900188989095535`*^9}, {3.490019081811554*^9, 3.4900191089265537`*^9}, {
+   3.4900191990955534`*^9, 3.4900192291825533`*^9}, {3.490019308431554*^9, 
+   3.4900193376645536`*^9}, {3.490019475851554*^9, 3.4900197514895535`*^9}, {
+   3.4900198989045534`*^9, 3.490019922344554*^9}, {3.4900199872465534`*^9, 
+   3.4900199913945537`*^9}, 3.490020054938554*^9, {3.490020410115554*^9, 
+   3.490020422228554*^9}, {3.490021350075554*^9, 3.4900213768345537`*^9}, {
+   3.490021455292554*^9, 3.4900215004235535`*^9}, {3.4900215473235536`*^9, 
+   3.490021556002554*^9}, {3.490087254430543*^9, 3.490087255424543*^9}, {
+   3.4900872919075427`*^9, 3.4900873107195425`*^9}, 3.4900901045515428`*^9, {
+   3.4900902200875425`*^9, 3.490090221869543*^9}, {3.490104030808*^9, 
+   3.490104031874*^9}, {3.4901042551*^9, 3.4901042636549997`*^9}, {
+   3.4901079468459997`*^9, 3.4901079852019997`*^9}, {3.490196543523*^9, 
+   3.4901965578529997`*^9}, {3.4905320965369997`*^9, 
+   3.4905321194700003`*^9}, {3.4905321808789997`*^9, 3.490532233686*^9}, {
+   3.490532295873*^9, 3.490532348317*^9}, {3.490532395394*^9, 
+   3.4905324454*^9}, {3.490532568098*^9, 3.490532595177*^9}, {3.4905342901*^9,
+    3.490534297576*^9}, {3.490534358972*^9, 3.490534501031*^9}, {
+   3.4905345903129997`*^9, 3.490534595752*^9}, {3.490534655224*^9, 
+   3.4905346612799997`*^9}, {3.490534716375*^9, 3.490534732822*^9}, {
+   3.490534801421*^9, 3.490534879148*^9}, {3.490534921519*^9, 
+   3.4905349275109997`*^9}, {3.4905349913199997`*^9, 
+   3.4905350284709997`*^9}, {3.4905351026689997`*^9, 
+   3.4905351164049997`*^9}, {3.490535176675*^9, 3.4905351771879997`*^9}, {
+   3.4905352192200003`*^9, 3.490535372826*^9}, {3.490535405719*^9, 
+   3.4905355443120003`*^9}, {3.490536702332*^9, 3.490536797795*^9}, {
+   3.490536869362*^9, 3.490536912447*^9}, {3.490537274061*^9, 
+   3.490537333789*^9}, {3.490869451738*^9, 3.4908694680299997`*^9}, {
+   3.490872718493*^9, 3.490872744473*^9}, {3.4908729288199997`*^9, 
+   3.4908729363050003`*^9}, {3.490873063408*^9, 3.490873066278*^9}, {
+   3.490873107092*^9, 3.490873115722*^9}, {3.490873423987*^9, 
+   3.490873456172*^9}, {3.49087488862*^9, 3.490874942699*^9}, {
+   3.490874991815*^9, 3.490875051381*^9}, {3.490875084726*^9, 
+   3.4908751106070004`*^9}, {3.4908751542539997`*^9, 3.490875155289*^9}, {
+   3.490875214671*^9, 3.490875246087*^9}, {3.49087529056*^9, 
+   3.4908753369110003`*^9}, {3.490875397663*^9, 3.490875405983*^9}, {
+   3.494414183828125*^9, 3.494414208796875*^9}, {3.494414260859375*^9, 
+   3.49441426115625*^9}, {3.49441504325*^9, 3.494415048390625*^9}, {
+   3.494415300984375*^9, 3.494415351921875*^9}, {3.494419243102*^9, 
+   3.494419257558*^9}, {3.49468207393004*^9, 3.4946820866483116`*^9}, {
+   3.4946821192065673`*^9, 3.494682329402585*^9}, {3.4946823670553493`*^9, 
+   3.4946824614737906`*^9}, {3.4946824947391167`*^9, 3.494682540568699*^9}, {
+   3.4946825804776897`*^9, 3.49468261328197*^9}, {3.4947862453556113`*^9, 
+   3.4947862989490185`*^9}, {3.4947863571517706`*^9, 3.49478654872867*^9}, {
+   3.494786606275176*^9, 3.4947869189138007`*^9}, {3.49478696664787*^9, 
+   3.494787118193775*^9}, 3.494787229786811*^9, 3.494787272520912*^9, {
+   3.4947873068019433`*^9, 3.4947873856920633`*^9}, {3.494787566940903*^9, 
+   3.4947876787683125`*^9}, {3.494787773111459*^9, 3.494787775705192*^9}, {
+   3.494787819126789*^9, 3.494787834220443*^9}, {3.494787878642033*^9, 
+   3.494787958110275*^9}, {3.4947880141880407`*^9, 3.494788014859912*^9}, {
+   3.4947880640470967`*^9, 3.4947880933125343`*^9}, {3.4947882217335873`*^9, 
+   3.494788226952304*^9}, {3.494788334670365*^9, 3.4947883681389008`*^9}, {
+   3.4948432326433096`*^9, 3.494843281187388*^9}, {3.4948433262004204`*^9, 
+   3.494843365354415*^9}},
+ CellID->92555794]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 72, $CellContext`b$$ = 
+    0.5, $CellContext`\[Alpha]$$ = 0.015, $CellContext`\[Beta]$$ = 
+    0.25, $CellContext`\[Gamma]$$ = 21, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 72, "intercept"}, 40, 80, 1}, {{
+       Hold[$CellContext`b$$], 0.5, 
+       Tooltip["slope", "magnitude"]}, 0.25, 3, 0.125}, {
+      Hold[
+       Style["coefficients", Bold]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`\[Alpha]$$], 0.015, "quadratic"}, 0, 0.05, 0.005}, {{
+      
+       Hold[$CellContext`\[Beta]$$], 0.25, "linear"}, 0, 2, 0.125}, {{
+       Hold[$CellContext`\[Gamma]$$], 21, "additive constant"}, 10, 50, 1}}, 
+    Typeset`size$$ = {375., {152.84375, 158.15625}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`a$1931$$ = 0, $CellContext`b$1932$$ = 
+    0, $CellContext`\[Alpha]$1933$$ = 0, $CellContext`\[Beta]$1934$$ = 
+    0, $CellContext`\[Gamma]$1935$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 72, $CellContext`b$$ = 
+        0.5, $CellContext`\[Alpha]$$ = 0.015, $CellContext`\[Beta]$$ = 
+        0.25, $CellContext`\[Gamma]$$ = 21}, "ControllerVariables" :> {
+        Hold[$CellContext`a$$, $CellContext`a$1931$$, 0], 
+        Hold[$CellContext`b$$, $CellContext`b$1932$$, 0], 
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$1933$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$1934$$, 0], 
+        Hold[$CellContext`\[Gamma]$$, $CellContext`\[Gamma]$1935$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`QStar = 
+        If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 0, 
+          
+          If[$CellContext`\[Alpha]$$ == 
+           0, ($CellContext`a$$ - $CellContext`\[Gamma]$$)/(
+           2 $CellContext`b$$ + $CellContext`\[Beta]$$), (-(
+              2 $CellContext`b$$ + $CellContext`\[Beta]$$) + ((
+                2 $CellContext`b$$ + $CellContext`\[Beta]$$)^2 - (
+               4 $CellContext`\[Alpha]$$) ($CellContext`\[Gamma]$$ - \
+$CellContext`a$$))^Rational[1, 2])/(
+           2 $CellContext`\[Alpha]$$)]]; $CellContext`PStar = 
+        If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, \
+$CellContext`\[Gamma]$$, 
+          
+          If[$CellContext`\[Alpha]$$ == 
+           0, ($CellContext`a$$ ($CellContext`b$$ + $CellContext`\[Beta]$$) + \
+$CellContext`b$$ $CellContext`\[Gamma]$$)/(
+           2 $CellContext`b$$ + $CellContext`\[Beta]$$), $CellContext`a$$ + \
+$CellContext`b$$ ((
+              2 $CellContext`b$$ + $CellContext`\[Beta]$$ - ((
+                 2 $CellContext`b$$ + $CellContext`\[Beta]$$)^2 - (
+                4 $CellContext`\[Alpha]$$) ($CellContext`\[Gamma]$$ - \
+$CellContext`a$$))^Rational[1, 2])/(
+             2 $CellContext`\[Alpha]$$))]]; $CellContext`MCMRStar = 
+        If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, $CellContext`a$$, 
+          
+          If[$CellContext`\[Alpha]$$ == 
+           0, ($CellContext`a$$ $CellContext`\[Beta]$$ + (
+              2 $CellContext`b$$) $CellContext`\[Gamma]$$)/(
+           2 $CellContext`b$$ + $CellContext`\[Beta]$$), $CellContext`a$$ + \
+($CellContext`b$$/$CellContext`\[Alpha]$$) (
+             2 $CellContext`b$$ + $CellContext`\[Beta]$$ - ((
+                2 $CellContext`b$$ + $CellContext`\[Beta]$$)^2 - (
+               4 $CellContext`\[Alpha]$$) ($CellContext`\[Gamma]$$ - \
+$CellContext`a$$))^Rational[1, 2])]]; $CellContext`grid = {{10, 20, 30, 40, 
+          50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150}, {10, 20, 30, 40, 
+          50, 60, 70, 80}}; $CellContext`xgrid = Map[{{#, 0}, {#, 
+            Max[
+             Part[$CellContext`grid, 2]]}}& , 
+          Part[$CellContext`grid, 1]]; $CellContext`ygrid = Map[{{0, #}, {
+            Max[
+             Part[$CellContext`grid, 1]], #}}& , 
+          Part[$CellContext`grid, 2]]; $CellContext`myDiam = 
+        1.5; $CellContext`myQTicks = If[
+          And[$CellContext`QStar >= 15, $CellContext`QStar < 25], {40, 60, 80,
+           100, 120, 140}, 
+          If[
+           And[$CellContext`QStar >= 35, $CellContext`QStar < 45], {20, 60, 
+           80, 100, 120, 140}, 
+           If[
+            And[$CellContext`QStar >= 55, $CellContext`QStar < 65], {20, 40, 
+            80, 100, 120, 140}, 
+            If[
+             And[$CellContext`QStar >= 75, $CellContext`QStar < 85], {20, 40, 
+             60, 100, 120, 140}, 
+             If[
+              And[$CellContext`QStar >= 95, $CellContext`QStar < 105], {20, 
+              40, 60, 80, 120, 140}, 
+              If[
+               And[$CellContext`QStar >= 115, $CellContext`QStar < 125], {20, 
+               40, 60, 80, 100, 140}, 
+               If[
+                And[$CellContext`QStar >= 135, $CellContext`QStar < 145], {20,
+                 40, 60, 80, 100, 120}, {20, 40, 60, 80, 100, 120, 
+                140}]]]]]]]; $CellContext`myPTicks = If[
+          And[$CellContext`PStar >= 6, $CellContext`PStar < 14], {20, 30, 40, 
+          50, 60, 70, 80}, 
+          If[
+           And[$CellContext`PStar >= 16, $CellContext`PStar < 24], {10, 30, 
+           40, 50, 60, 70, 80}, 
+           If[
+            And[$CellContext`PStar >= 26, $CellContext`PStar < 34], {10, 20, 
+            40, 50, 60, 70, 80}, 
+            If[
+             And[$CellContext`PStar >= 36, $CellContext`PStar < 44], {10, 20, 
+             30, 50, 60, 70, 80}, 
+             If[
+              And[$CellContext`PStar >= 46, $CellContext`PStar < 54], {10, 20,
+               30, 40, 60, 70, 80}, 
+              If[
+               And[$CellContext`PStar >= 56, $CellContext`PStar < 64], {10, 
+               20, 30, 40, 50, 70, 80}, 
+               If[
+                And[$CellContext`PStar >= 66, $CellContext`PStar < 74], {10, 
+                20, 30, 40, 50, 60, 80}, 
+                If[
+                 And[$CellContext`PStar >= 76, $CellContext`PStar < 84], {10, 
+                 20, 30, 40, 50, 60, 70}, {10, 20, 30, 40, 50, 60, 70, 
+                 80}]]]]]]]]; Column[{
+          Text[
+           Column[{
+             Style[
+              Row[{"demand: ", 
+                Style["P", Italic], "(", 
+                Style["Q", Italic], ") = ", 
+                Dynamic[$CellContext`a$$], " \[Dash] ", 
+                Dynamic[
+                 If[$CellContext`b$$ == 1, "", $CellContext`b$$]], 
+                Style["Q", Italic], ":", 
+                Spacer[140]}], $CellContext`myGreen], 
+             Style[
+              Row[{"Therefore, marginal revenue is MR(", 
+                Style["Q", Italic], ") = ", 
+                Dynamic[$CellContext`a$$], " - ", 
+                Dynamic[
+                 If[$CellContext`b$$ == 1/2, "", 2 $CellContext`b$$]], 
+                Style["Q", Italic]}], $CellContext`myBlue], 
+             Style[
+              Row[{"marginal cost: MC(", 
+                Style["Q", Italic], ") = ", 
+                Dynamic[
+                 If[
+                  
+                  Or[$CellContext`\[Alpha]$$ == 0, $CellContext`\[Alpha]$$ == 
+                   1], "", $CellContext`\[Alpha]$$]], 
+                Style[
+                 Dynamic[
+                  If[$CellContext`\[Alpha]$$ == 0, "", "Q"]], Italic], 
+                Dynamic[
+                 If[$CellContext`\[Alpha]$$ == 0, "", 
+                  Superscript["", "2"]]], 
+                Dynamic[
+                 If[
+                  
+                  And[$CellContext`\[Alpha]$$ > 0, $CellContext`\[Beta]$$ > 
+                   0], " + ", ""]], 
+                Dynamic[
+                 If[
+                  
+                  Or[$CellContext`\[Beta]$$ == 0, $CellContext`\[Beta]$$ == 
+                   1], "", $CellContext`\[Beta]$$]], 
+                Dynamic[
+                 If[$CellContext`\[Beta]$$ == 0, "", 
+                  Style["Q", Italic]]], 
+                Dynamic[
+                 If[
+                  Or[$CellContext`\[Alpha]$$ > 0, $CellContext`\[Beta]$$ > 0],
+                   " + ", ""]], 
+                Dynamic[$CellContext`\[Gamma]$$], ":"}], $CellContext`myRed], 
+             
+             Style[
+              If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+               Row[{"There is no market (MC", 
+                 
+                 If[$CellContext`\[Gamma]$$ > $CellContext`a$$, " > ", 
+                  " \[GreaterEqual] "], "MR", " for all ", 
+                 Style["Q", Italic], " \[GreaterEqual] 0)."}], 
+               Row[{
+                 SuperStar[
+                  Style["Q", Italic]], " = ", 
+                 If[IntegerPart[$CellContext`QStar] == $CellContext`QStar, 
+                  IntegerPart[$CellContext`QStar], 
+                  NumberForm[
+                   N[$CellContext`QStar], {5, 2}]], ";  ", 
+                 SuperStar[
+                  Style["P", Italic]], " = ", 
+                 If[IntegerPart[$CellContext`PStar] == $CellContext`PStar, 
+                  IntegerPart[$CellContext`PStar], 
+                  NumberForm[
+                   N[$CellContext`PStar], {5, 2}]], 
+                 ";  \!\(\*SuperscriptBox[\(MC\), \(*\)]\) = \
+\!\(\*SuperscriptBox[\(MR\), \(*\)]\) = ", 
+                 If[
+                 IntegerPart[$CellContext`MCMRStar] == $CellContext`MCMRStar, 
+                  
+                  IntegerPart[$CellContext`MCMRStar], 
+                  NumberForm[
+                   N[$CellContext`MCMRStar], {5, 2}]]}]], 
+              Directive[12, 
+               RGBColor[0.25, 0.25, 0.25]]]}, Alignment -> Left]], 
+          Show[{
+            Plot[
+             Tooltip[
+              
+              If[$CellContext`\[Alpha]$$ == 
+               0, $CellContext`\[Beta]$$ $CellContext`Q + $CellContext`\
+\[Gamma]$$, $CellContext`\[Alpha]$$ $CellContext`Q^2 + $CellContext`\[Beta]$$ \
+$CellContext`Q + $CellContext`\[Gamma]$$], "Marginal Cost", LabelStyle -> 
+              Directive[$CellContext`myRed, Bold]], {$CellContext`Q, -10, 
+              150}, PlotRange -> {-10, 85}, 
+             AspectRatio -> (85 + 10)/(150 + 10), AxesOrigin -> {0, 0}, Axes -> 
+             True, Frame -> False, AxesStyle -> Directive[
+               Darker[Gray], 8], PlotStyle -> {$CellContext`myRed, 
+               Thickness[0.0075]}, 
+             Ticks -> {$CellContext`myQTicks, $CellContext`myPTicks}, 
+             ImagePadding -> 20], 
+            Graphics[{{Dotted, 
+               Lighter[Gray], 
+               Line[$CellContext`xgrid], 
+               Line[$CellContext`ygrid]}, {
+               RGBColor[0.3, 0.3, 0.3], 
+               Tooltip[
+                Text[
+                 Style[
+                  SuperStar[
+                   Style["Q", Italic]], 11, 
+                  RGBColor[0.3, 0.3, 0.3]], {
+                  
+                  If[$CellContext`\[Gamma]$$ > $CellContext`a$$, 
+                   999, $CellContext`QStar], -4}], 
+                "Profit\[Hyphen]maximizing output"]}, {
+               RGBColor[0.3, 0.3, 0.3], 
+               Tooltip[
+                Text[
+                 Style[
+                  SuperStar[
+                   Style["P", Italic]], 11, 
+                  RGBColor[0.3, 0.3, 0.3]], {-4, 
+                  
+                  If[$CellContext`\[Gamma]$$ > $CellContext`a$$, 
+                   999, $CellContext`PStar]}], 
+                "Profit\[Hyphen]maximizing price"]}, {Dashed, 
+               RGBColor[0.3, 0.3, 0.3], Thick, 
+               Line[{{
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+                   999, $CellContext`QStar], 0}, {
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+                   999, $CellContext`QStar], $CellContext`MCMRStar}}]}, {
+              Dashed, Red, Thick, 
+               Line[{{
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+                   999, $CellContext`QStar], $CellContext`MCMRStar}, {
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+                   999, $CellContext`QStar], $CellContext`PStar}}]}, \
+{$CellContext`myGreen, 
+               Thickness[0.0075], 
+               Tooltip[
+                
+                Line[{{0, $CellContext`a$$}, \
+{$CellContext`a$$/$CellContext`b$$, 0}}], "Demand", LabelStyle -> 
+                Directive[$CellContext`myGreen, Bold]]}, {$CellContext`myBlue, 
+               Thickness[0.0075], 
+               Tooltip[
+                
+                Line[{{0, $CellContext`a$$}, {($CellContext`a$$ - \
+$CellContext`myYmin)/(2 $CellContext`b$$), $CellContext`myYmin}}], 
+                "Marginal Revenue", LabelStyle -> 
+                Directive[$CellContext`myBlue, Bold]]}, {Dashed, Red, Thick, 
+               Line[{{
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 999, 
+                   0], $CellContext`PStar}, {
+                  
+                  If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, 
+                   999, $CellContext`QStar], $CellContext`PStar}}]}, {
+               EdgeForm[{Thick, $CellContext`myGreen}], 
+               Dynamic[
+                
+                If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, \
+$CellContext`myGreen, Yellow]], 
+               Tooltip[
+                Disk[{$CellContext`QStar, 
+                  Dynamic[
+                   
+                   If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, \
+$CellContext`a$$, $CellContext`PStar]]}, {$CellContext`myDiam, \
+$CellContext`myDiam}], 
+                Dynamic[
+                 
+                 If[$CellContext`\[Gamma]$$ <= $CellContext`a$$, 
+                  "The firm uses this point to set the \
+profit\[Hyphen]maximizing price.", 
+                  "This point indicates the greatest price a prospective \
+buyer would pay."]]]}, {
+               EdgeForm[{Thick, $CellContext`myRed}], 
+               Dynamic[
+                
+                If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, \
+$CellContext`myRed, $CellContext`myBlue]], 
+               Tooltip[
+                Disk[{$CellContext`QStar, 
+                  Dynamic[
+                   
+                   If[$CellContext`\[Gamma]$$ >= $CellContext`a$$, \
+$CellContext`\[Gamma]$$, $CellContext`MCMRStar]]}, {$CellContext`myDiam, \
+$CellContext`myDiam}], 
+                Dynamic[
+                 
+                 If[$CellContext`\[Gamma]$$ <= $CellContext`a$$, 
+                  "This is the point where marginal revenue equals marginal \
+cost.", "This point indicates the smallest value of marginal cost."]]]}}]}, 
+           ImageSize -> 375]}, Alignment -> Center]), 
+      "Specifications" :> {{{$CellContext`a$$, 72, "intercept"}, 40, 80, 1, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, {{$CellContext`b$$, 0.5, 
+          Tooltip["slope", "magnitude"]}, 0.25, 3, 0.125, Appearance -> 
+         "Labeled", ImageSize -> Tiny}, Delimiter, 
+        Style[
+        "coefficients", Bold], {{$CellContext`\[Alpha]$$, 0.015, "quadratic"},
+          0, 0.05, 0.005, Appearance -> "Labeled", ImageSize -> 
+         Tiny}, {{$CellContext`\[Beta]$$, 0.25, "linear"}, 0, 2, 0.125, 
+         Appearance -> "Labeled", ImageSize -> Tiny}, 
+        Delimiter, {{$CellContext`\[Gamma]$$, 21, "additive constant"}, 10, 
+         50, 1, Appearance -> "Labeled", ImageSize -> Tiny}}, 
+      "Options" :> {
+       ControlPlacement -> Left, TrackedSymbols -> True, 
+        AutorunSequencing -> {3, 4, 5}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{625., {183., 188.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(({$CellContext`QStar = 30., $CellContext`PStar = 
+        57., $CellContext`MCMRStar = 
+        42., $CellContext`grid = {{10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 
+          110, 120, 130, 140, 150}, {10, 20, 30, 40, 50, 60, 70, 
+          80}}, $CellContext`xgrid = {{{10, 0}, {10, 80}}, {{20, 0}, {20, 
+         80}}, {{30, 0}, {30, 80}}, {{40, 0}, {40, 80}}, {{50, 0}, {50, 
+         80}}, {{60, 0}, {60, 80}}, {{70, 0}, {70, 80}}, {{80, 0}, {80, 
+         80}}, {{90, 0}, {90, 80}}, {{100, 0}, {100, 80}}, {{110, 0}, {110, 
+         80}}, {{120, 0}, {120, 80}}, {{130, 0}, {130, 80}}, {{140, 0}, {140, 
+         80}}, {{150, 0}, {150, 80}}}, $CellContext`ygrid = {{{0, 10}, {150, 
+         10}}, {{0, 20}, {150, 20}}, {{0, 30}, {150, 30}}, {{0, 40}, {150, 
+         40}}, {{0, 50}, {150, 50}}, {{0, 60}, {150, 60}}, {{0, 70}, {150, 
+         70}}, {{0, 80}, {150, 80}}}, $CellContext`myDiam = 
+        1.5, $CellContext`myQTicks = {20, 40, 60, 80, 100, 120, 
+         140}, $CellContext`myPTicks = {10, 20, 30, 40, 50, 70, 
+         80}, $CellContext`myGreen = 
+        RGBColor[0.302, 0.686, 0.29], $CellContext`myBlue = 
+        RGBColor[0.116, 0.394, 0.622], 
+        Attributes[Superscript] = {
+         NHoldRest, ReadProtected}, $CellContext`myRed = 
+        RGBColor[0.894, 0.102, 0.11], 
+        Attributes[PlotRange] = {ReadProtected}, $CellContext`myYmin = -10}; 
+      Typeset`initDone$$ = True); ReleaseHold[
+       HoldComplete[{($CellContext`myRed = 
+           RGBColor[0.894, 0.102, 0.11]; $CellContext`myGreen = 
+           RGBColor[0.302, 0.686, 0.29]; $CellContext`myBlue = 
+           RGBColor[0.116, 0.394, 0.622]; 
+          Null) ($CellContext`myXmin = -10; $CellContext`myXmax = 
+           150; $CellContext`myYmin = -10; $CellContext`myYmax = 80; Null)}]]; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->58283418],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["\<\
+A firm possessing market power faces a downward-sloping demand curve. An \
+important consequence of the firm's market power is that its marginal revenue \
+is less than price. If the firm produces in the short run, the \
+profit-maximizing output is found where marginal cost equals marginal \
+revenue. This Demonstration shows a linear demand curve (green), its \
+associated marginal revenue curve (blue), and the firm's marginal cost curve \
+(red); mouse over the curves to identify them. The point where the marginal \
+revenue and marginal cost curves intersect is identified as well as the point \
+the firm uses to set the profit-maximizing price; mouse over these points to \
+identify them.\
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration lets you change the parameters that define the linear \
+demand curve (and, therefore, the marginal revenue) and the marginal cost. \
+You can track the two points where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"MR", " ", "=", " ", "MC"}], TraditionalForm]], "InlineMath"],
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ "determines the profit-maximizing output and the point on the demand curve \
+that determines the profit-maximizing price for the seller to charge. The \
+snapshots show that the Demonstration accommodates three \"shapes\" for \
+marginal cost. "
+}], "Text"],
+
+Cell["Snapshot 1: quadratic marginal cost", "Text"],
+
+Cell["Snapshot 2: linear, but not constant, marginal cost ", "Text"],
+
+Cell["Snapshot 3: constant marginal cost", "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Monopoly Profit-Maximization with Quadratic Marginal Cost",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+MonopolyProfitMaximizationWithQuadraticMarginalCost/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+MonopolyProfitMaximizationWithQuadraticMarginalCost/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+MonopolyProfitMaximizationWithQuadraticMarginalCost/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+MonopolyProfitMaximizationWithQuadraticMarginalCost/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+MonopolyProfitMaximizationWithQuadraticMarginalCost/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Thomas Mitchell",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Thomas+\
+Mitchell"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Thomas+Mitchell"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+MonopolyProfitMaximizationWithQuadraticMarginalCost"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Monopoly Profit-Maximization with Quadratic Marginal Cost - \
+Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[647, 23, 249, 4, 70, "Section"],
+Cell[899, 29, 1124, 29, 70, "Input",
+ InitializationCell->True,
+ CellID->509070766],
+Cell[2026, 60, 58238, 1141, 70, "Input",
+ CellID->92555794]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60301, 1206, 18164, 379, 70, "Output",
+ CellID->58283418],
+Cell[CellGroupData[{
+Cell[78490, 1589, 199, 4, 70, "Section"],
+Cell[78692, 1595, 717, 11, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79457, 1612, 199, 4, 70, "Section"],
+Cell[79659, 1618, 603, 13, 70, "Text"],
+Cell[80265, 1633, 51, 0, 70, "Text"],
+Cell[80319, 1635, 68, 0, 70, "Text"],
+Cell[80390, 1637, 50, 0, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[80476, 1642, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[80852, 1653, 1107, 31, 70, "Text"],
+Cell[81962, 1686, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[82302, 1697, 439, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[82766, 1715, 847, 24, 70, "Text"],
+Cell[83616, 1741, 1227, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature FRjCAW8gmdQQmCpMM611K84b *)

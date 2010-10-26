@@ -1,0 +1,562 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     17579,        552]
+NotebookOptionsPosition[     15885,        491]
+NotebookOutlinePosition[     16503,        515]
+CellTagsIndexPosition[     16460,        512]
+WindowTitle->Heat Transfer along a Rod - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Heat Transfer along a Rod", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"l", "=", "1"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"x_", ",", "t_"}], "]"}], ":=", 
+     RowBox[{"NSum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         FractionBox["400", 
+          RowBox[{"n", "*", "\[Pi]"}]], ")"}], 
+        RowBox[{"Sin", "[", 
+         FractionBox[
+          RowBox[{"n", "*", "\[Pi]", "*", "x"}], "l"], "]"}], 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "k"}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"n", "*", "\[Pi]"}], "l"], ")"}], "2"], "t"}]]}], " ", 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", "m", ",", "2"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Plot3D", "[", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"x", ",", "t"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "2"}], "}"}], ",", 
+      RowBox[{"FaceGrids", "\[Rule]", "All"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "150"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"PlotStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Orange", ",", 
+         RowBox[{"Specularity", "[", 
+          RowBox[{"White", ",", "30"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"PlotPoints", "\[Rule]", 
+       RowBox[{"ControlActive", "[", 
+        RowBox[{"4", ",", "20"}], "]"}]}], ",", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<length\>\"", ",", "\"\<time\>\"", ",", "\"\<temperature\>\""}], 
+        "}"}]}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"k", ",", ".1", ",", "\"\<conductivity parameter k\>\""}], 
+      "}"}], ",", ".01", ",", ".5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "1", ",", "\"\<number of terms n\>\""}], "}"}], ",", 
+     "1", ",", "47", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", "m"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.493760846583181*^9, 3.4939371202609997`*^9, {
+   3.493938129172*^9, 3.493938131271*^9}, {3.4939965697207813`*^9, 
+   3.4939966084549084`*^9}, {3.4939976191359396`*^9, 
+   3.4939976307139907`*^9}, {3.494006283699779*^9, 3.4940062872146997`*^9}, {
+   3.49486343974965*^9, 3.4948634571243873`*^9}, {3.494863496909361*^9, 
+   3.494863497019372*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`k$$ = 0.1, $CellContext`m$$ = 1, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 0.1, "conductivity parameter k"}, 0.01, 0.5}, {{
+       Hold[$CellContext`m$$], 1, "number of terms n"}, 1, 47, 2}}, 
+    Typeset`size$$ = {400., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`k$421824$$ = 0, $CellContext`m$421825$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`k$$ = 0.1, $CellContext`m$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$421824$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$421825$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`l = 1; $CellContext`f[
+          Pattern[$CellContext`x$, 
+           Blank[]], 
+          Pattern[$CellContext`t$, 
+           Blank[]]] := 
+        NSum[(400/($CellContext`n Pi)) 
+          Sin[$CellContext`n Pi $CellContext`x$/$CellContext`l] 
+          E^((-$CellContext`k$$) ($CellContext`n 
+              Pi/$CellContext`l)^2 $CellContext`t$), {$CellContext`n, 
+           1, $CellContext`m$$, 2}]; Plot3D[
+         $CellContext`f[$CellContext`x, $CellContext`t], {$CellContext`x, 0, 
+          1}, {$CellContext`t, 0, 2}, FaceGrids -> All, 
+         PlotRange -> {{0, 1}, {0, 2}, {0, 150}}, PlotStyle -> 
+         Directive[Orange, 
+           Specularity[White, 30]], PlotPoints -> ControlActive[4, 20], 
+         AxesLabel -> {"length", "time", "temperature"}, 
+         ImageSize -> {400, 400}]), 
+      "Specifications" :> {{{$CellContext`k$$, 0.1, 
+          "conductivity parameter k"}, 0.01, 0.5, Appearance -> 
+         "Labeled"}, {{$CellContext`m$$, 1, "number of terms n"}, 1, 47, 2, 
+         Appearance -> "Labeled"}}, 
+      "Options" :> {TrackedSymbols :> {$CellContext`k$$, $CellContext`m$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{445., {256., 261.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->30024237],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["\<\
+This Demonstration shows the solution to the heat equation for a \
+one-dimensional rod. The rod is initially submerged in a bath of 100 degrees \
+and is perfectly insulated except at the ends. The ends are then held at 0 \
+degrees. The equation to solve is\
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"\[PartialD]", "\[InvisibleSpace]", "u"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"x", ",", " ", "t"}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[InvisibleSpace]", "t"}]], "-", 
+     RowBox[{"k", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[PartialD]", "2"], 
+        RowBox[{"u", "(", 
+         RowBox[{"x", ",", "t"}], ")"}]}], 
+       RowBox[{"\[PartialD]", "\[InvisibleSpace]", 
+        SuperscriptBox["x", "2"]}]]}]}], "=", "0"}], TraditionalForm]], 
+  "InlineMath"],
+ ", with boundary conditions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"u", "(", 
+     RowBox[{"0", ",", "t"}], ")"}], "=", "0"}], TraditionalForm]], 
+  "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"u", "(", 
+     RowBox[{"L", ",", "t"}], ")"}], "=", "0"}], TraditionalForm]], 
+  "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"u", "(", 
+     RowBox[{"x", ",", "0"}], ")"}], "=", 
+    RowBox[{"f", "(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox["t", TraditionalForm]], "InlineMath"],
+ " is time, ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " is distance along the rod, ",
+ Cell[BoxData[
+  FormBox["L", TraditionalForm]], "InlineMath"],
+ " is the length of the rod, and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "x", ")"}], "=", "100"}], TraditionalForm]], 
+  "InlineMath"],
+ "."
+}], "Text"],
+
+Cell["The solution is of the form", "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"u", " ", 
+     RowBox[{"(", 
+      RowBox[{"x", ",", "t"}], ")"}]}], "=", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"i", "=", "1"}], "\[Infinity]"], 
+     RowBox[{
+      SubscriptBox["A", "n"], 
+      RowBox[{"sin", "(", 
+       FractionBox[
+        RowBox[{"n", " ", "\[Pi]"}], "L"], ")"}], 
+      SuperscriptBox["e", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"k", "(", 
+          FractionBox[
+           RowBox[{"n", " ", "\[Pi]"}], "L"], ")"}], "2"], "t"}]]}]}]}], 
+   TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " is the conductivity parameter (a product of the density, thermal \
+conductivity, and specific heat of the rod) and "
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", 
+    RowBox[{
+     FractionBox["2", "L"], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "L"], 
+      RowBox[{
+       RowBox[{"f", "(", "x", ")"}], 
+       RowBox[{"sin", "(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"n", " ", "\[Pi]"}], "L"], "x"}], ")"}], "d", 
+       "\[InvisibleSpace]", "x"}]}]}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "As you increase the number of terms ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath"],
+ ", the solution improves as long as the time is small. As ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"t", "\[Rule]", "\[Infinity]"}], TraditionalForm]], "InlineMath"],
+ " (the final state), the entire rod approaches a temperature of 0 degrees. \
+You can see the effect of the thermal properties by varying the conductivity \
+parameter ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["Reference", "Text"],
+
+Cell[TextData[{
+ "[1] R. Haberman, ",
+ StyleBox["Applied Partial Differential Equations with Fourier Series and \
+Boundary Value Problems,",
+  FontSlant->"Italic"],
+ " 4th ed., Saddle River, NJ: Prentice Hall, 2003."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Heat Transfer along a Rod",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/HeatTransferAlongARod/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/HeatTransferAlongARod/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/HeatTransferAlongARod/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/HeatTransferAlongARod/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/HeatTransferAlongARod/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Stephen Wilkerson",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Stephen+\
+Wilkerson"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Stephen+Wilkerson"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell["\<\
+(Department of Mathematical Sciences at the United States Military Academy, \
+West Point, NY)\
+\>", "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->452156664]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+HeatTransferAlongARod"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Heat Transfer along a Rod - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[615, 23, 217, 4, 70, "Section"],
+Cell[835, 29, 3211, 86, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4083, 120, 2788, 56, 70, "Output",
+ CellID->30024237],
+Cell[CellGroupData[{
+Cell[6896, 180, 199, 4, 70, "Section"],
+Cell[7098, 186, 280, 5, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[7404, 195, 1143, 42, 70, "Text"],
+Cell[8550, 239, 442, 17, 70, "Text"],
+Cell[8995, 258, 43, 0, 70, "Text"],
+Cell[9041, 260, 626, 23, 70, "Text"],
+Cell[9670, 285, 222, 6, 70, "Text"],
+Cell[9895, 293, 447, 16, 70, "Text"],
+Cell[10345, 311, 537, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[10907, 329, 199, 4, 70, "Section"],
+Cell[11109, 335, 25, 0, 70, "Text"],
+Cell[11137, 337, 228, 6, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[11401, 348, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[11777, 359, 907, 24, 70, "Text"],
+Cell[12687, 385, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[CellGroupData[{
+Cell[13049, 398, 445, 14, 70, "Text"],
+Cell[13497, 414, 276, 9, 70, "Text",
+ CellID->452156664]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13810, 428, 847, 24, 70, "Text"],
+Cell[14660, 454, 1197, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature BRNWPy@qYezBDCTlhzUR#YX# *)

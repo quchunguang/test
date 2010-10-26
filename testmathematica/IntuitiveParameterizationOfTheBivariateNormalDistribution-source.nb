@@ -1,0 +1,764 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     24639,        754]
+NotebookOptionsPosition[     22789,        691]
+NotebookOutlinePosition[     23447,        716]
+CellTagsIndexPosition[     23404,        713]
+WindowTitle->Intuitive Parameterization of the Bivariate Normal Distribution \
+- Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Intuitive Parameterization of the Bivariate Normal Distribution\
+\>", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Local", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Variables", " ", "--"}], "--"}], "--"}], "--"}], "--"}]}], 
+    "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "c"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Calculation", " ", "--"}], "--"}], "--"}], "--"}], 
+         "--"}], "--"}], "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"a", "=", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Cos", "[", 
+           RowBox[{"thet", " ", "Degree"}], "]"}], "2"], 
+         RowBox[{"2", " ", 
+          RowBox[{"sx", "^", "2"}]}]], "+", 
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Sin", "[", 
+           RowBox[{"thet", " ", "Degree"}], "]"}], "2"], 
+         RowBox[{"2", " ", 
+          RowBox[{"sy", "^", "2"}]}]]}]}], ";", 
+      RowBox[{"b", "=", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"-", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"2", " ", "thet", " ", "Degree"}], "]"}]}], 
+         RowBox[{"4", " ", 
+          RowBox[{"sx", "^", "2"}]}]], "+", 
+        FractionBox[
+         RowBox[{"Sin", "[", 
+          RowBox[{"2", " ", "thet", " ", "Degree"}], "]"}], 
+         RowBox[{"4", " ", 
+          RowBox[{"sy", "^", "2"}]}]]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"c", "=", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Sin", "[", 
+           RowBox[{"thet", " ", "Degree"}], "]"}], "2"], 
+         RowBox[{"2", " ", 
+          RowBox[{"sx", "^", "2"}]}]], "+", 
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Cos", "[", 
+           RowBox[{"thet", " ", "Degree"}], "]"}], "2"], 
+         RowBox[{"2", " ", 
+          RowBox[{"sy", "^", "2"}]}]]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"Display", " ", "--"}], "--"}], "--"}], "--"}], "--"}],
+            "--"}], "--"}], "--"}], "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Column", "[", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Text", "@", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{"\"\<{\>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<a\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<, \>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<b\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<, \>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<c\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<} = \>\"", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"NumberForm", "[", 
+                   RowBox[{
+                    RowBox[{"Chop", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"10", "^", 
+                    RowBox[{"-", "5"}]}]}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"3", ",", "2"}], "}"}]}], "]"}], "&"}], "/@", 
+                 RowBox[{"{", 
+                  RowBox[{"a", ",", "b", ",", "c"}], "}"}]}]}], "}"}], 
+              "]"}]}], ",", "Blue"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Plot3D", "[", 
+           RowBox[{
+            RowBox[{"E", "^", 
+             RowBox[{"(", 
+              RowBox[{"-", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"a", " ", 
+                  RowBox[{"x", "^", "2"}]}], "+", 
+                 RowBox[{"2", " ", "b", " ", "x", " ", "y"}], "+", 
+                 RowBox[{"c", " ", 
+                  RowBox[{"y", "^", "2"}]}]}], ")"}]}], ")"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", 
+              RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", "Full"}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"500", ",", "350"}], "}"}]}]}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], ",", 
+        RowBox[{"Alignment", "\[Rule]", "Center"}]}], "\[IndentingNewLine]", 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"thet", ",", "0.01", ",", "\"\<\[Theta]\>\""}], "}"}], ",", 
+     "0.01", ",", "179.99", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "sx", ",", "1.01", ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Sigma]\), \(x\)]\)\>\""}], "}"}], ",", "1",
+      ",", "1.99", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "sy", ",", "1", ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Sigma]\), \(y\)]\)\>\""}], "}"}], ",", "1",
+      ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4942736527288613`*^9, 3.494273662033394*^9}, {
+   3.4942742509060755`*^9, 3.494274273625375*^9}, {3.4942743233822203`*^9, 
+   3.4942743777193284`*^9}, {3.494275336007139*^9, 3.4942753369501934`*^9}, {
+   3.494275451878767*^9, 3.4942755653112545`*^9}, {3.4942778529421*^9, 
+   3.4942778653278084`*^9}, {3.494423053388686*^9, 3.4944231536974235`*^9}, {
+   3.494423186405294*^9, 3.4944232463667235`*^9}, {3.4944234261660075`*^9, 
+   3.494423430109233*^9}, {3.494470280794939*^9, 3.4944702812729664`*^9}, {
+   3.495733365220093*^9, 3.495733380139946*^9}, {3.495735843309831*^9, 
+   3.4957359250435057`*^9}, {3.495735959788493*^9, 3.495735980987706*^9}, {
+   3.4957360855956893`*^9, 3.4957361363995953`*^9}, 3.495736273959463*^9, {
+   3.495736322879261*^9, 3.495736392901266*^9}, {3.4957364368527803`*^9, 
+   3.495736555844586*^9}, {3.4957365949758244`*^9, 3.495736638487313*^9}, {
+   3.4957372956439*^9, 3.495737297369999*^9}, {3.4957373535662127`*^9, 
+   3.495737357119416*^9}, {3.495739662968303*^9, 3.4957396636373415`*^9}, {
+   3.495741130454239*^9, 3.4957411898386354`*^9}, {3.4957412784527035`*^9, 
+   3.495741286099141*^9}, 3.4957413367580385`*^9, {3.495742452829874*^9, 
+   3.4957424846706953`*^9}, 3.495742520031718*^9, 3.495742569266534*^9, 
+   3.4957426353293123`*^9, {3.495820563251831*^9, 3.4958205968801937`*^9}, {
+   3.4958206994404488`*^9, 3.4958207041309175`*^9}, {3.495820759713475*^9, 
+   3.4958207950350075`*^9}, {3.4958240638181543`*^9, 
+   3.4958240843962793`*^9}, {3.4958244227087793`*^9, 
+   3.4958244323650293`*^9}, {3.4958244849119043`*^9, 
+   3.4958246298806543`*^9}, {3.4958246648962793`*^9, 
+   3.4958248008962793`*^9}, {3.4958248345525293`*^9, 
+   3.4958248712869043`*^9}, {3.4958249609900293`*^9, 
+   3.4958249687869043`*^9}, {3.495829365644958*^9, 3.4958293922230825`*^9}, {
+   3.4958294352855825`*^9, 3.495829441957458*^9}, {3.4958294868480825`*^9, 
+   3.495829488144958*^9}, {3.4958305505180845`*^9, 3.4958305685808153`*^9}, 
+   3.495830785098515*^9, {3.49607440190981*^9, 3.496074402972365*^9}, 
+   3.4960744764448767`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`sx$$ = 1.01, $CellContext`sy$$ = 
+    1, $CellContext`thet$$ = 0.01, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`thet$$], 0.01, "\[Theta]"}, 0.01, 179.99}, {{
+       Hold[$CellContext`sx$$], 1.01, 
+       "\!\(\*SubscriptBox[\(\[Sigma]\), \(x\)]\)"}, 1, 1.99}, {{
+       Hold[$CellContext`sy$$], 1, 
+       "\!\(\*SubscriptBox[\(\[Sigma]\), \(y\)]\)"}, 1, 2}}, 
+    Typeset`size$$ = {500., {180.84375, 186.15625}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`thet$1446$$ = 0, $CellContext`sx$1447$$ = 
+    0, $CellContext`sy$1448$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`sx$$ = 1.01, $CellContext`sy$$ = 
+        1, $CellContext`thet$$ = 0.01}, "ControllerVariables" :> {
+        Hold[$CellContext`thet$$, $CellContext`thet$1446$$, 0], 
+        Hold[$CellContext`sx$$, $CellContext`sx$1447$$, 0], 
+        Hold[$CellContext`sy$$, $CellContext`sy$1448$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$}, \
+$CellContext`a$ = 
+         Cos[$CellContext`thet$$ Degree]^2/(2 $CellContext`sx$$^2) + 
+          Sin[$CellContext`thet$$ Degree]^2/(
+           2 $CellContext`sy$$^2); $CellContext`b$ = (-
+            Sin[(2 $CellContext`thet$$) Degree])/(4 $CellContext`sx$$^2) + 
+          Sin[(2 $CellContext`thet$$) Degree]/(
+           4 $CellContext`sy$$^2); $CellContext`c$ = 
+         Sin[$CellContext`thet$$ Degree]^2/(2 $CellContext`sx$$^2) + 
+          Cos[$CellContext`thet$$ Degree]^2/(2 $CellContext`sy$$^2); Column[{
+           Style[
+            Text[
+             Row[{"{", 
+               Style["a", Italic], ", ", 
+               Style["b", Italic], ", ", 
+               Style["c", Italic], "} = ", 
+               Map[NumberForm[
+                 Chop[#, 10^(-5)], {3, 
+                 2}]& , {$CellContext`a$, $CellContext`b$, \
+$CellContext`c$}]}]], Blue], 
+           Plot3D[
+           E^(-($CellContext`a$ $CellContext`x^2 + ((
+                 2 $CellContext`b$) $CellContext`x) $CellContext`y + \
+$CellContext`c$ $CellContext`y^2)), {$CellContext`x, -5, 
+             5}, {$CellContext`y, -5, 5}, PlotRange -> Full, 
+            ImageSize -> {500, 350}]}, Alignment -> Center]], 
+      "Specifications" :> {{{$CellContext`thet$$, 0.01, "\[Theta]"}, 0.01, 
+         179.99, Appearance -> 
+         "Labeled"}, {{$CellContext`sx$$, 1.01, 
+          "\!\(\*SubscriptBox[\(\[Sigma]\), \(x\)]\)"}, 1, 1.99, Appearance -> 
+         "Labeled"}, {{$CellContext`sy$$, 1, 
+          "\!\(\*SubscriptBox[\(\[Sigma]\), \(y\)]\)"}, 1, 2, Appearance -> 
+         "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{545., {253., 258.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->569468523],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration shows a parameterization of a bivariate normal \
+distribution by specifying an angle of cross-correlation ",
+ Cell[BoxData[
+  FormBox["\[Theta]", TraditionalForm]], "InlineMath"],
+ ". The controls ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "x"], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "y"], TraditionalForm]], "InlineMath"],
+ " are the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]], "InlineMath"],
+ " spreads of the blob."
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "A bivariate normal distribution can be represented by three polar \
+variables: ",
+ Cell[BoxData[
+  FormBox["\[Theta]", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "x"], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "y"], TraditionalForm]], "InlineMath"],
+ " or with the parameters ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]], "InlineMath"],
+ ", where"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["cos", "2"], "\[Theta]"}], 
+      RowBox[{"2", 
+       SubscriptBox["\[Sigma]", "x"]}]], "+", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["sin", "2"], "\[Theta]"}], 
+      RowBox[{"2", 
+       SubscriptBox["\[Sigma]", "y"]}]]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"b", "=", 
+    RowBox[{
+     FractionBox["1", "4"], 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", 
+        SubscriptBox["\[Sigma]", "y"]], "-", 
+       FractionBox["1", 
+        SubscriptBox["\[Sigma]", "x"]]}], ")"}], "sin", " ", "2", 
+     "\[Theta]"}]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"c", "=", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["sin", "2"], "\[Theta]"}], 
+      RowBox[{"2", 
+       SubscriptBox["\[Sigma]", "x"]}]], "+", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["cos", "2"], "\[Theta]"}], 
+      RowBox[{"2", 
+       SubscriptBox["\[Sigma]", "y"]}]]}]}], TraditionalForm]], 
+  "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["c", "0"], "=", 
+    SqrtBox[
+     RowBox[{
+      FractionBox["1", "2"], "+", 
+      FractionBox[
+       RowBox[{"a", "-", "c"}], 
+       RowBox[{"2", 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"a", "-", "c"}], ")"}], "2"], "+", 
+          RowBox[{"4", 
+           SuperscriptBox["b", "2"]}]}]]}]]}]]}], TraditionalForm]], 
+  "InlineMath"],
+ "."
+}], "Text"],
+
+Cell["Conversely, define:", "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["s", "0"], "=", 
+    SqrtBox[
+     RowBox[{"1", "-", 
+      SuperscriptBox[
+       SubscriptBox["c", "0"], "2"]}]]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"y", "=", 
+    FractionBox["1", 
+     RowBox[{"a", "+", "c", "+", 
+      FractionBox["b", 
+       RowBox[{
+        SubscriptBox["c", "0"], 
+        SubscriptBox["s", "0"]}]]}]]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", 
+    FractionBox["1", 
+     RowBox[{"a", "+", "c", "-", 
+      FractionBox["b", 
+       RowBox[{
+        SubscriptBox["c", "0"], 
+        SubscriptBox["s", "0"]}]]}]]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "Then this gives ",
+ Cell[BoxData[
+  FormBox["\[Theta]", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "x"], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "y"], TraditionalForm]], "InlineMath"],
+ " from ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["c", TraditionalForm]], "InlineMath"],
+ ":"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Theta]", "=", 
+    RowBox[{"{", GridBox[{
+       {
+        RowBox[{
+         RowBox[{"arcsin", " ", 
+          SubscriptBox["c", "0"], " ", "if", " ", "x"}], ">", "y"}]},
+       {
+        RowBox[{
+         RowBox[{"arcos", " ", 
+          SubscriptBox["c", "0"], " ", "if", " ", "x"}], "\[LessEqual]", "y"}]}
+      }]}]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Sigma]", "x"], "=", 
+    SqrtBox["x"]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Sigma]", "y"], "=", 
+    SqrtBox["y"]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "See the Wikipedia article ",
+ ButtonBox["Gaussian function",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://en.wikipedia.org/wiki/Gaussian_function"], None},
+  ButtonNote->"http://en.wikipedia.org/wiki/Gaussian_function"],
+ "."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Intuitive Parameterization of the Bivariate Normal Distribution",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+IntuitiveParameterizationOfTheBivariateNormalDistribution/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+IntuitiveParameterizationOfTheBivariateNormalDistribution/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+IntuitiveParameterizationOfTheBivariateNormalDistribution/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+IntuitiveParameterizationOfTheBivariateNormalDistribution/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+IntuitiveParameterizationOfTheBivariateNormalDistribution/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Robert L. Brown",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Robert+L.+\
+Brown"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Robert+L.+Brown"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+IntuitiveParameterizationOfTheBivariateNormalDistribution"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Intuitive Parameterization of the Bivariate Normal Distribution \
+- Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[655, 24, 263, 6, 70, "Section"],
+Cell[921, 32, 7842, 190, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8800, 227, 3615, 73, 70, "Output",
+ CellID->569468523],
+Cell[CellGroupData[{
+Cell[12440, 304, 199, 4, 70, "Section"],
+Cell[12642, 310, 623, 20, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13313, 336, 199, 4, 70, "Section"],
+Cell[13515, 342, 630, 23, 70, "Text"],
+Cell[14148, 367, 428, 17, 70, "Text"],
+Cell[14579, 386, 374, 14, 70, "Text"],
+Cell[14956, 402, 428, 17, 70, "Text"],
+Cell[15387, 421, 492, 20, 70, "Text"],
+Cell[15882, 443, 35, 0, 70, "Text"],
+Cell[15920, 445, 239, 10, 70, "Text"],
+Cell[16162, 457, 283, 11, 70, "Text"],
+Cell[16448, 470, 283, 11, 70, "Text"],
+Cell[16734, 483, 543, 22, 70, "Text"],
+Cell[17280, 507, 429, 15, 70, "Text"],
+Cell[17712, 524, 165, 7, 70, "Text"],
+Cell[17880, 533, 165, 7, 70, "Text"],
+Cell[18048, 542, 268, 8, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[18352, 555, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[18728, 566, 1143, 31, 70, "Text"],
+Cell[19874, 599, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[20214, 610, 439, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[20678, 628, 847, 24, 70, "Text"],
+Cell[21528, 654, 1233, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature cQ48TAq2veJyCADEvr0REVZN *)

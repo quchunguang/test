@@ -1,0 +1,495 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18695,        485]
+NotebookOptionsPosition[     17619,        445]
+NotebookOutlinePosition[     18242,        469]
+CellTagsIndexPosition[     18199,        466]
+WindowTitle->Families of Solutions for ODEs - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Families of Solutions for ODEs", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"StreamPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"f", "@@", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "aa", ",", "bb", ",", "cc", ",", "dd"}], 
+         "}"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", 
+       RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", 
+        RowBox[{"0.0", ",", "0.05"}], "}"}], "]"}]}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "False"}], ",", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "3"}], ",", 
+        RowBox[{"-", "3"}]}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#3", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{"#1", "^", "#4"}], ")"}]}], "+", 
+         RowBox[{"#5", 
+          RowBox[{"(", " ", 
+           RowBox[{"#2", "^", "#6"}], ")"}]}]}], "&"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<\!\(\*FractionBox[\(dy\), \(dx\)]\) =\>\"", ",", "12"}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#3", " ", 
+           RowBox[{"(", " ", 
+            RowBox[{"#1", "^", "#4"}], ")"}]}], "+", 
+          RowBox[{"#5", 
+           RowBox[{"(", " ", 
+            RowBox[{"#2", "^", "#6"}], ")"}]}]}], "&"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           SuperscriptBox["x", "b"]}], " ", "+", " ", 
+          RowBox[{"c", " ", 
+           SuperscriptBox["y", "d"]}]}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#3", " ", 
+          RowBox[{"(", " ", 
+           RowBox[{"#1", "^", "#4"}], ")"}], 
+          RowBox[{"(", " ", 
+           RowBox[{"#2", "^", "#5"}], ")"}]}], "&"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{"a", " ", 
+          SuperscriptBox["x", "b"], 
+          SuperscriptBox["y", "c"]}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#3", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"#4", " ", "#1"}], "]"}]}], "+", 
+          RowBox[{"#5", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"#6", "  ", "#2"}], "]"}]}]}], "&"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           RowBox[{"Sin", "[", 
+            RowBox[{"b", " ", "x"}], "]"}]}], " ", "+", " ", 
+          RowBox[{"c", " ", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"d", " ", "y"}], "]"}]}]}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"#3", " ", 
+           RowBox[{"Cos", "[", " ", 
+            RowBox[{"#1", "^", "#4"}], "]"}]}], "+", 
+          RowBox[{"#5", " ", 
+           RowBox[{"Sin", "[", " ", 
+            RowBox[{"#2", "^", "#6"}], "]"}]}]}], "&"}], "\[Rule]", 
+        RowBox[{"TraditionalForm", "[", 
+         RowBox[{
+          RowBox[{"a", " ", 
+           RowBox[{"Cos", "[", 
+            SuperscriptBox["x", "b"], "]"}]}], " ", "+", " ", 
+          RowBox[{"c", " ", 
+           RowBox[{"Sin", "[", 
+            SuperscriptBox["y", "d"], "]"}]}]}], "]"}]}]}], "}"}], ",", 
+     "PopupMenu"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"aa", ",", "1", ",", "\"\<a\>\""}], "}"}], ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bb", ",", "1", ",", "\"\<b\>\""}], "}"}], ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"cc", ",", "1", ",", "\"\<c\>\""}], "}"}], ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dd", ",", "1", ",", "\"\<d\>\""}], "}"}], ",", 
+     RowBox[{"-", "5"}], ",", "5", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}], ",", 
+     RowBox[{"Enabled", "\[Rule]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"f", "\[Equal]", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"#3", " ", 
+            RowBox[{"(", " ", 
+             RowBox[{"#1", "^", "#4"}], ")"}], 
+            RowBox[{"(", " ", 
+             RowBox[{"#2", "^", "#5"}], ")"}]}], "&"}], ")"}]}], ",", "False",
+         ",", "True"}], "]"}]}]}], "}"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.434807020324404*^9, 3.434807151568872*^9}, {
+   3.4348150215456676`*^9, 3.434815057345525*^9}, {3.434815093723626*^9, 
+   3.434815222741316*^9}, {3.434815372583088*^9, 3.434815379647146*^9}, {
+   3.435335913746183*^9, 3.435335940441823*^9}, {3.435513597413043*^9, 
+   3.435513729798764*^9}, {3.4355138048107567`*^9, 3.4355138922947474`*^9}, {
+   3.435514624042632*^9, 3.435514743887121*^9}, {3.435515535795887*^9, 
+   3.435515738014236*^9}, {3.435515816338675*^9, 3.435515820873494*^9}, {
+   3.435515852835278*^9, 3.435515875107538*^9}, {3.435515912729567*^9, 
+   3.43551593720877*^9}, {3.435516838086997*^9, 3.435516860219625*^9}, 
+   3.435516931007141*^9, {3.4355170742292852`*^9, 3.435517110692251*^9}, {
+   3.435517162157552*^9, 3.435517198692458*^9}, {3.4355174598358517`*^9, 
+   3.435517520044991*^9}, {3.435517704097333*^9, 3.435517729312462*^9}, {
+   3.435518539728847*^9, 3.435518613884056*^9}, {3.435518655023699*^9, 
+   3.4355186862469053`*^9}, {3.4355187839948072`*^9, 3.435518791000113*^9}, {
+   3.4355188246914177`*^9, 3.4355188333848133`*^9}, {3.43551897046282*^9, 
+   3.435519087776628*^9}, {3.4355191654970503`*^9, 3.435519298585702*^9}, {
+   3.435519337892116*^9, 3.435519342213678*^9}, {3.435519603146851*^9, 
+   3.4355197020262947`*^9}, 3.435590851402869*^9, {3.4355909438144712`*^9, 
+   3.435590946435031*^9}, {3.4356923291850443`*^9, 3.435692390484249*^9}, {
+   3.435698347234375*^9, 3.4356983603125*^9}, {3.435698500953125*^9, 
+   3.435698504875*^9}, {3.4356989402605333`*^9, 3.4356989578407516`*^9}, {
+   3.4356989981287527`*^9, 3.4356989990794554`*^9}, {3.4356990340996246`*^9, 
+   3.435699062760991*^9}, {3.43569910139695*^9, 3.4356991245416393`*^9}, {
+   3.435699157458849*^9, 3.4356992635981474`*^9}, {3.4360335046198945`*^9, 
+   3.436033509206353*^9}},
+ CellID->1442908506]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`aa$$ = 1, $CellContext`bb$$ = 
+    1, $CellContext`cc$$ = 1, $CellContext`dd$$ = 
+    1, $CellContext`f$$ = #3 #^#4 + #5 #2^#6& , Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`f$$], #3 #^#4 + #5 #2^#6& , 
+       Style[
+       "\!\(\*FractionBox[\(dy\), \(dx\)]\) =", 12]}, {(#3 #^#4 + #5 #2^#6& ) -> 
+       TraditionalForm[$CellContext`a $CellContext`x^$CellContext`b + \
+$CellContext`c $CellContext`y^$CellContext`d], (#3 #^#4 #2^#5& ) -> 
+       TraditionalForm[$CellContext`a $CellContext`x^$CellContext`b \
+$CellContext`y^$CellContext`c], (#3 Sin[#4 #] + #5 Cos[#6 #2]& ) -> 
+       TraditionalForm[$CellContext`c 
+          Cos[$CellContext`d $CellContext`y] + $CellContext`a 
+          Sin[$CellContext`b $CellContext`x]], (#3 Cos[#^#4] + #5 
+         Sin[#2^#6]& ) -> 
+       TraditionalForm[$CellContext`a 
+          Cos[$CellContext`x^$CellContext`b] + $CellContext`c 
+          Sin[$CellContext`y^$CellContext`d]]}}, {{
+       Hold[$CellContext`aa$$], 1, "a"}, -5, 5, 1}, {{
+       Hold[$CellContext`bb$$], 1, "b"}, -5, 5, 1}, {{
+       Hold[$CellContext`cc$$], 1, "c"}, -5, 5, 1}, {{
+       Hold[$CellContext`dd$$], 1, "d"}, -5, 5, 1}}, Typeset`size$$ = {
+    400., {198., 202.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`f$12749$$ = 
+    False, $CellContext`aa$12750$$ = 0, $CellContext`bb$12751$$ = 
+    0, $CellContext`cc$12752$$ = 0, $CellContext`dd$12753$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`aa$$ = 1, $CellContext`bb$$ = 
+        1, $CellContext`cc$$ = 1, $CellContext`dd$$ = 
+        1, $CellContext`f$$ = #3 #^#4 + #5 #2^#6& }, "ControllerVariables" :> {
+        Hold[$CellContext`f$$, $CellContext`f$12749$$, False], 
+        Hold[$CellContext`aa$$, $CellContext`aa$12750$$, 0], 
+        Hold[$CellContext`bb$$, $CellContext`bb$12751$$, 0], 
+        Hold[$CellContext`cc$$, $CellContext`cc$12752$$, 0], 
+        Hold[$CellContext`dd$$, $CellContext`dd$12753$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> StreamPlot[{1, 
+         Apply[$CellContext`f$$, {$CellContext`x, $CellContext`y, \
+$CellContext`aa$$, $CellContext`bb$$, $CellContext`cc$$, \
+$CellContext`dd$$}]}, {$CellContext`x, -3, 3}, {$CellContext`y, -3, 3}, Axes -> 
+        True, AxesStyle -> Arrowheads[{0., 0.05}], 
+        AxesLabel -> {$CellContext`x, $CellContext`y}, Frame -> False, 
+        AxesOrigin -> {-3, -3}, PlotRange -> {{-3, 3}, {-3, 3}}, 
+        ImageSize -> {400, 400}], 
+      "Specifications" :> {{{$CellContext`f$$, #3 #^#4 + #5 #2^#6& , 
+          Style[
+          "\!\(\*FractionBox[\(dy\), \(dx\)]\) =", 
+           12]}, {(#3 #^#4 + #5 #2^#6& ) -> 
+          TraditionalForm[$CellContext`a $CellContext`x^$CellContext`b + \
+$CellContext`c $CellContext`y^$CellContext`d], (#3 #^#4 #2^#5& ) -> 
+          TraditionalForm[$CellContext`a $CellContext`x^$CellContext`b \
+$CellContext`y^$CellContext`c], (#3 Sin[#4 #] + #5 Cos[#6 #2]& ) -> 
+          TraditionalForm[$CellContext`c 
+             Cos[$CellContext`d $CellContext`y] + $CellContext`a 
+             Sin[$CellContext`b $CellContext`x]], (#3 Cos[#^#4] + #5 
+            Sin[#2^#6]& ) -> 
+          TraditionalForm[$CellContext`a 
+             Cos[$CellContext`x^$CellContext`b] + $CellContext`c 
+             Sin[$CellContext`y^$CellContext`d]]}, ControlType -> 
+         PopupMenu}, {{$CellContext`aa$$, 1, "a"}, -5, 5, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny}, {{$CellContext`bb$$, 1, "b"}, -5, 5, 
+         1, Appearance -> "Labeled", ImageSize -> 
+         Tiny}, {{$CellContext`cc$$, 1, "c"}, -5, 5, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny}, {{$CellContext`dd$$, 1, "d"}, -5, 5, 
+         1, Appearance -> "Labeled", ImageSize -> Tiny, Enabled -> Dynamic[
+           If[$CellContext`f$$ == (#3 #^#4 #2^#5& ), False, True]]}}, 
+      "Options" :> {ControlPlacement -> Left, SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {227., 232.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->619193364],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Families of Solutions for ODEs",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/FamiliesOfSolutionsForODEs/"], 
+    None},
+  ButtonNote->"http://demonstrations.wolfram.com/FamiliesOfSolutionsForODEs/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/FamiliesOfSolutionsForODEs/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/FamiliesOfSolutionsForODEs/"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/FamiliesOfSolutionsForODEs/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Gosia Konwerska",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Gosia+\
+Konwerska"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Gosia+Konwerska"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+FamiliesOfSolutionsForODEs"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Families of Solutions for ODEs - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[620, 23, 222, 4, 70, "Section"],
+Cell[845, 29, 7659, 190, 70, "Input",
+ CellID->1442908506]
+}, Open  ]],
+Cell[8519, 222, 4861, 87, 70, "Output",
+ CellID->619193364],
+Cell[CellGroupData[{
+Cell[13405, 313, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[13781, 324, 951, 27, 70, "Text"],
+Cell[14735, 353, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[15075, 364, 439, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[15539, 382, 847, 24, 70, "Text"],
+Cell[16389, 408, 1202, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature vRj7cB@OBagw6ATdtHONJImx *)

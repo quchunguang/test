@@ -1,0 +1,934 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     30597,        924]
+NotebookOptionsPosition[     29198,        871]
+NotebookOutlinePosition[     29820,        895]
+CellTagsIndexPosition[     29777,        892]
+WindowTitle->Pompe\357u's Theorem - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Pompe\[IDoubleDot]u's Theorem", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.01"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", "p1"}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"\"\<D\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}], ",", 
+         
+         RowBox[{"p1", "+", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", ".2"}]}], "}"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Green", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.013"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", "p1"}], "}"}], 
+          "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.01"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", "0"}], "}"}], ",", "p1"}], "}"}], 
+          "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Dashed", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.01"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{"p1", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Green", ",", "Dashed", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.008"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", "Dashed", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.01"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.025", "]"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<C(C')\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}],
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"0.2", ",", 
+             RowBox[{"-", "0.2"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.025", "]"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<B(A')\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}],
+            ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "3", "]"}], "+", "0.2"}]}], "}"}]}], "]"}],
+          ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", 
+            RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.025", "]"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<A\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", 
+             RowBox[{"-", "0.2"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "0"}], "}"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.025", "]"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<B'\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "3", "]"}], "+", "0.2"}]}], "}"}]}], "]"}],
+          ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Yellow", ",", 
+         RowBox[{"Opacity", "[", "0.3", "]"}], ",", 
+         RowBox[{"Polygon", "[", 
+          RowBox[{"{", 
+           RowBox[{"p1", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Dashed", ",", 
+         RowBox[{"Circle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{
+              RowBox[{"Sqrt", "[", "3", "]"}], "/", "3"}]}], "}"}], ",", 
+           RowBox[{"2", "/", 
+            RowBox[{"Sqrt", "[", "3", "]"}]}]}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+         RowBox[{"Text", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<D'\>\"", ",", "20", ",", "\"\<Label\>\""}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"RotationMatrix", "[", 
+                 RowBox[{
+                  RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}], 
+              ".", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}], "+", "0.2"}]}], "}"}]}], 
+          "]"}], ",", "Orange", ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"RotationMatrix", "[", 
+                RowBox[{
+                 RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}], 
+             ".", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"RotationMatrix", "[", 
+                RowBox[{
+                 RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}], 
+             ".", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}], "]"}]}], "}"}], ",", 
+       
+       RowBox[{"{", 
+        RowBox[{"Red", ",", "Dashed", ",", 
+         RowBox[{"Thickness", "\[Rule]", "0.008"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], ",", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RotationMatrix", "[", 
+                  RowBox[{
+                   RowBox[{"-", "Pi"}], "/", "3"}], "]"}], ".", "p1"}], ")"}],
+                ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}]}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", "Thick", "]"}], ",", "Transparent", ",", 
+         RowBox[{"Rotate", "[", 
+          RowBox[{
+           RowBox[{"Polygon", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "1"}], ",", 
+                RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"-", "Pi"}], "/", "3"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "[", "Thick", "]"}], ",", "Transparent", ",", 
+         RowBox[{"Polygon", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"Sqrt", "[", "3", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}]}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"500", ",", "500"}], "}"}]}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"p1", ".", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "0"}], "}"}]}], "+", "1"}], ")"}], "^", 
+            "2"}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"p1", ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "1"}], "}"}]}], "-", 
+              RowBox[{
+               RowBox[{"Sqrt", "[", "3", "]"}], "/", "3"}]}], ")"}], "^", 
+            "2"}], "-", 
+           RowBox[{"4", "/", "3."}]}], "]"}], "\[LessEqual]", "0.1"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+         "\"\<degenerate triangle DBD'\>\"", ",", "Red", ",", "Bold", ",", 
+          "20"}], "]"}], ",", 
+        RowBox[{"Invisible", "[", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+          "\"\<degenerate triangle DBD'\>\"", ",", "Red", ",", "Bold", ",", 
+           "20"}], "]"}], "]"}]}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "3.2"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "3.2"}], ",", "0.5"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "3.2"}], ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.2", ",", "2"}], "}"}], ",", "Locator"}], "}"}]}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4964099497705097`*^9, 3.4964099926517973`*^9}, {
+   3.4964100547880106`*^9, 3.496410236039134*^9}, {3.4964102691544447`*^9, 
+   3.49641030280581*^9}, {3.4964246428264313`*^9, 3.4964246497639313`*^9}, {
+   3.4964247001701813`*^9, 3.4964247476545563`*^9}, {3.4964247804045563`*^9, 
+   3.4964248009358063`*^9}, {3.4964248476701813`*^9, 3.4964248923889313`*^9}},
+ 
+ CellID->731113257]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p1$$ = {-0.5420000000000003, -0.475}, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p1$$], {-2.394, 2.}}, {-3.2, -1}, {1.2, 2}}}, 
+    Typeset`size$$ = {500., {248., 252.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`p1$100611$$ = {0, 0}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`p1$$ = {-2.394, 2.}}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`p1$$, $CellContext`p1$100611$$, {0, 0}]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Graphics[{{Red, Thickness -> 0.01, 
+          Line[{{0, 0}, $CellContext`p1$$}]}, 
+         Text[
+          Style["D", 20, "Label"], $CellContext`p1$$ + {0, -0.2}], {
+         Green, Thickness -> 0.013, 
+          Line[{{-1, 
+             Sqrt[3]}, $CellContext`p1$$}]}, {Blue, Thickness -> 0.01, 
+          Line[{{-2, 0}, $CellContext`p1$$}]}, {
+         Red, Dashed, Thickness -> 0.01, 
+          Line[{$CellContext`p1$$, {
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}}]}, {
+         Green, Dashed, Thickness -> 0.008, 
+          Line[{{1, 
+             Sqrt[3]}, {
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}}]}, {
+         Blue, Dashed, Thickness -> 0.01, 
+          Line[{{-1, 
+             Sqrt[3]}, {
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}}]}, {
+          PointSize[0.025], 
+          Text[
+           Style["C(C')", 20, "Label"], {0.2, -0.2}], 
+          Point[{0, 0}]}, {
+          PointSize[0.025], 
+          Text[
+           Style["B(A')", 20, "Label"], {-1, Sqrt[3] + 0.2}], 
+          Point[{-1, 
+            Sqrt[3]}]}, {
+          PointSize[0.025], 
+          Text[
+           Style["A", 20, "Label"], {-2, -0.2}], 
+          Point[{-2, 0}]}, {
+          PointSize[0.025], 
+          Text[
+           Style["B'", 20, "Label"], {1, Sqrt[3] + 0.2}], 
+          Point[{1, 
+            Sqrt[3]}]}, {Yellow, 
+          Opacity[0.3], 
+          Polygon[{$CellContext`p1$$, {-1, 
+             Sqrt[3]}, {
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}}]}, {
+         Dashed, 
+          Circle[{-1, Sqrt[3]/3}, 2/Sqrt[3]]}, {
+          PointSize[0.02], 
+          Text[
+           Style["D'", 20, "Label"], {
+            Dot[
+             Dot[
+              RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}] + 0.2}], 
+          Orange, 
+          Point[{
+            Dot[
+             Dot[
+              RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+            Dot[
+             Dot[
+              RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}]}, {
+         Red, Dashed, Thickness -> 0.008, 
+          Line[{{0, 0}, {
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {1, 0}], 
+             Dot[
+              Dot[
+               RotationMatrix[(-Pi)/3], $CellContext`p1$$], {0, 1}]}}]}, {
+          EdgeForm[Thick], Transparent, 
+          Rotate[
+           Polygon[{{0, 0}, {-1, 
+              Sqrt[3]}, {-2, 0}}], (-Pi)/3, {0, 0}]}, {
+          EdgeForm[Thick], Transparent, 
+          Polygon[{{0, 0}, {-1, 
+             Sqrt[3]}, {-2, 0}}]}}, ImageSize -> {500, 500}, PlotLabel -> 
+        If[Abs[(Dot[$CellContext`p1$$, {1, 0}] + 1)^2 + (
+              Dot[$CellContext`p1$$, {0, 1}] - Sqrt[3]/3)^2 - 4/3.] <= 0.1, 
+          Style["degenerate triangle DBD'", Red, Bold, 20], 
+          Invisible[
+           Style["degenerate triangle DBD'", Red, Bold, 20]]], PlotRange -> 
+        3.2], "Specifications" :> {{{$CellContext`p1$$, {-2.394, 
+          2.}}, {-3.2, -1}, {1.2, 2}, ControlType -> Locator}}, 
+      "Options" :> {}, "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{551., {280., 285.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->15404858],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration gives a proof of Pompe\[IDoubleDot]u's theorem: If ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["D",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " is a point in the plane of the equilateral triangle ",
+ Cell[BoxData[
+  FormBox["ABC", TraditionalForm]], "InlineMath"],
+ ", then there exists a triangle with side lengths ",
+ Cell[BoxData[
+  FormBox["AD", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["BD", TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["CD", TraditionalForm]], "InlineMath"],
+ " unless ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["D",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " lies on the circumcircle of the triangle ",
+ Cell[BoxData[
+  FormBox["ABC", TraditionalForm]], "InlineMath"],
+ ", when the triangle is degenerate."
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ "We rotate the equilateral triangle ",
+ Cell[BoxData[
+  FormBox["ABC", TraditionalForm]], "InlineMath"],
+ " around the point ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["C",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " by an angle of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", "/", "3"}], TraditionalForm]], "InlineMath"],
+ ". This gives the triangle ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox["A",
+      FontSlant->"Plain"], "'"}], 
+    RowBox[{
+     StyleBox["B",
+      FontSlant->"Plain"], "'"}], 
+    RowBox[{
+     StyleBox["C",
+      FontSlant->"Plain"], "'"}]}], TraditionalForm]], "InlineMath"],
+ ". As ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"DC", "=", 
+    RowBox[{
+     RowBox[{
+      StyleBox["D",
+       FontSlant->"Plain"], "'"}], 
+     StyleBox["C",
+      FontSlant->"Plain"]}]}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Angle]DCD", "'"}], "=", 
+    RowBox[{"\[Pi]", "/", "3"}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]DCD", "'"}], TraditionalForm]], "InlineMath"],
+ " is equilateral, so ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"DD", "'"}], "=", "DC"}], TraditionalForm]], "InlineMath"],
+ ". Also, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"AD", "=", 
+    RowBox[{
+     RowBox[{
+      StyleBox["A",
+       FontSlant->"Plain"], "'"}], 
+     RowBox[{
+      StyleBox["D",
+       FontSlant->"Plain"], "'"}]}]}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"BD", "=", 
+    RowBox[{
+     RowBox[{
+      StyleBox["B",
+       FontSlant->"Plain"], "'"}], 
+     RowBox[{
+      StyleBox["D",
+       FontSlant->"Plain"], "'"}]}]}], TraditionalForm]], "InlineMath"],
+ ", so we have constructed ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     RowBox[{"\[CapitalDelta]D", 
+      StyleBox["BD",
+       FontSlant->"Plain"]}]], "'"}], TraditionalForm]], "InlineMath"],
+ " whose sides have the same lengths as ",
+ Cell[BoxData[
+  FormBox["AD", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox["BD", TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["CD", TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Pompe\[IDoubleDot]u's Theorem",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PompeiusTheorem/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PompeiusTheorem/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/PompeiusTheorem/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PompeiusTheorem/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PompeiusTheorem/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Igor Mandric",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Igor+Mandric"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Igor+Mandric"],
+ " and ",
+ ButtonBox["Ecaterina Bunduchi",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Ecaterina+\
+Bunduchi"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Ecaterina+Bunduchi"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->252082842],
+
+Cell["(Moldova State University)", "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->875020664]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PompeiusTheorem"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Pompe\[IDoubleDot]u's Theorem - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[610, 23, 221, 4, 70, "Section"],
+Cell[834, 29, 15002, 421, 70, "Input",
+ InitializationCell->True,
+ CellID->731113257]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15873, 455, 5257, 131, 70, "Output",
+ CellID->15404858],
+Cell[CellGroupData[{
+Cell[21155, 590, 199, 4, 70, "Section"],
+Cell[21357, 596, 861, 27, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[22244, 627, 2272, 91, 70, "Text"],
+Cell[CellGroupData[{
+Cell[24541, 722, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[24917, 733, 881, 24, 70, "Text"],
+Cell[25801, 759, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[CellGroupData[{
+Cell[26163, 772, 725, 23, 70, "Text",
+ CellID->252082842],
+Cell[26891, 797, 201, 6, 70, "Text",
+ CellID->875020664]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27129, 808, 847, 24, 70, "Text"],
+Cell[27979, 834, 1191, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature LR4s#YgklvAY8D04TDbvkct0 *)

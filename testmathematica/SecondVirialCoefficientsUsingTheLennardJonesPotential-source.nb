@@ -1,0 +1,1258 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     47726,       1248]
+NotebookOptionsPosition[     46133,       1191]
+NotebookOutlinePosition[     46788,       1216]
+CellTagsIndexPosition[     46745,       1213]
+WindowTitle->Second Virial Coefficients Using the Lennard-Jones Potential - \
+Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Second Virial Coefficients Using the Lennard-Jones Potential", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{
+    "q", ",", "n1", ",", "n2", ",", "n3", ",", "n4", ",", "n5", ",", "n6", 
+     ",", "n7", ",", "n8", ",", "n9", ",", "n10", ",", "n11", ",", "n12", ",",
+      "n13", ",", "n14"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q", ",", "1", ",", "\"\<                      plot\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<Lennard-Jones potentials\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<second virial coefficients\>\""}]}], 
+      "}"}], ",", "Setter", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<      gas\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n1", ",", "0", ",", "\"\<Ne\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n2", ",", "0", ",", "\"\<Ar\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n3", ",", "0", ",", "\"\<Kr\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "3"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n4", ",", "0", ",", "\"\<Xe\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "4"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n5", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<N\>\"", ",", "2"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "5"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n6", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<O\>\"", ",", "2"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "6"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n7", ",", "0", ",", "\"\<NO\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "7"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n8", ",", "0", ",", "\"\<CO\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "8"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n9", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<CO\>\"", ",", "2"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "9"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n10", ",", "0", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<N\>\"", ",", "2"}], "]"}], ",", "\"\<O\>\""}], "}"}],
+          "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "10"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n11", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<SF\>\"", ",", "6"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "11"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n12", ",", "0", ",", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<CH\>\"", ",", "4"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "12"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n13", ",", "0", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<C\>\"", ",", "2"}], "]"}], ",", 
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<H\>\"", ",", "4"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "13"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n14", ",", "0", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<C\>\"", ",", "2"}], "]"}], ",", 
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<H\>\"", ",", "6"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "14"}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "Checkbox"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "4", ",", "6", ",", "8"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"c", "[", "1", "]"}], "=", "\"\<Ne\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "2", "]"}], "=", "\"\<Ar\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "3", "]"}], "=", "\"\<Kr\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "4", "]"}], "=", "\"\<Xe\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "5", "]"}], "=", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<N\>\"", ",", "2"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "6", "]"}], "=", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<O\>\"", ",", "2"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "7", "]"}], "=", "\"\<NO\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "8", "]"}], "=", "\"\<CO\>\""}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "9", "]"}], "=", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<CO\>\"", ",", "2"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "10", "]"}], "=", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<N\>\"", ",", "2"}], "]"}], ",", "\"\<O\>\""}], "}"}],
+          "]"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "12", "]"}], "=", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<CH\>\"", ",", "4"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "11", "]"}], "=", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"\"\<SF\>\"", ",", "6"}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"c", "[", "13", "]"}], "=", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<C\>\"", ",", "2"}], "]"}], ",", 
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<H\>\"", ",", "4"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+      ";", "\n", 
+      RowBox[{
+       RowBox[{"c", "[", "14", "]"}], "=", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<C\>\"", ",", "2"}], "]"}], ",", 
+           RowBox[{"Subscript", "[", 
+            RowBox[{"\"\<H\>\"", ",", "6"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+      ";", "\n", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "1", "]"}], "=", "34.9"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "2", "]"}], "=", "119.8"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "3", "]"}], "=", "171"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "4", "]"}], "=", "221"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "5", "]"}], "=", "95.05"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "6", "]"}], "=", "118"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "7", "]"}], "=", "131"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "8", "]"}], "=", "100.2"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "9", "]"}], "=", "189"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "10", "]"}], "=", "189"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "12", "]"}], "=", "148.2"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "11", "]"}], "=", "200.9"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "13", "]"}], "=", "199.2"}], ";", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "14", "]"}], "=", "243"}], ";", "\n", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "1", "]"}], "=", "2.78"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "2", "]"}], "=", "3.405"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "3", "]"}], "=", "3.60"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "4", "]"}], "=", "4.10"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "5", "]"}], "=", "3.698"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "6", "]"}], "=", "3.46"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "7", "]"}], "=", "3.17"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "8", "]"}], "=", "3.763"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "9", "]"}], "=", "4.486"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "10", "]"}], "=", "4.59"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "12", "]"}], "=", "3.817"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "11", "]"}], "=", "5.51"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "13", "]"}], "=", "4.523"}], ";", 
+      RowBox[{
+       RowBox[{"\[Sigma]", "[", "14", "]"}], "=", "3.954"}], ";", "\n", 
+      RowBox[{
+       RowBox[{"v", "[", 
+        RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+       RowBox[{"4", 
+        RowBox[{"\[Epsilon]", "[", "n", "]"}], 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Sigma]", "[", "n", "]"}], "r"], ")"}], "12"], "-", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Sigma]", "[", "n", "]"}], "r"], ")"}], "6"]}], 
+         ")"}]}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"lj", "[", "n_", "]"}], ":=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"v", "[", 
+            RowBox[{"n", ",", "r"}], "]"}], ",", 
+           RowBox[{"c", "[", "n", "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"r", ",", "0", ",", "12"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "250"}], ",", "100"}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{"n", "/", "14"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", ".8"}], ",", 
+         RowBox[{"Exclusions", "\[Rule]", "None"}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{
+        "1", ",", "n1_", ",", "n2_", ",", "n3_", ",", "n4_", ",", "n5_", ",", 
+         "n6_", ",", "n7_", ",", "n8_", ",", "n9_", ",", "n10_", ",", "n11_", 
+         ",", "n12_", ",", "n13_", ",", "n14_"}], "]"}], ":=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"lj", "[", "n", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "n1", ",", "n2", ",", "n3", ",", "n4", ",", "n5", ",", "n6", 
+               ",", "n7", ",", "n8", ",", "n9", ",", "n10", ",", "n11", ",", 
+               "n12", ",", "n13", ",", "n14"}], "}"}]}], "}"}]}], "]"}], ",", 
+         
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (\[CapitalARing])\>\""}], "}"}], "]"}], ",", "18"}], 
+             "]"}], ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<v(r)/k\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (K)\>\""}], "}"}], "]"}], ",", "18"}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Lennard-Jones potentials\>\"", ",", "18"}], "]"}]}], 
+         ",", " ", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"500", ",", "400"}], "}"}]}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"B", "[", 
+        RowBox[{"n_", ",", "T_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"2", "\[Pi]"}], "3"]}], ".6022", 
+        SuperscriptBox[
+         RowBox[{"\[Sigma]", "[", "n", "]"}], "3"], 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"k", "=", "0"}], "8"], 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["2", 
+            RowBox[{"k", "+", 
+             RowBox[{"1", "/", "2"}]}]], 
+           RowBox[{"4", " ", 
+            RowBox[{"k", "!"}]}]], 
+          RowBox[{"Gamma", "[", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"2", "k"}], "-", "1"}], "4"], "]"}], 
+          SuperscriptBox[
+           RowBox[{"(", 
+            FractionBox[
+             RowBox[{"\[Epsilon]", "[", "n", "]"}], "T"], ")"}], 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", "k"}], "+", "1"}], ")"}], "/", "4"}]]}]}]}]}], ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"L", "/", "mol"}], " ", "*)"}], "\n", 
+      RowBox[{
+       RowBox[{"v2", "[", "n_", "]"}], ":=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"B", "[", 
+            RowBox[{"n", ",", "T"}], "]"}], ",", 
+           RowBox[{"c", "[", "n", "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"T", ",", "0", ",", "1000"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "20"}], ",", "20"}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Thick", ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{"n", "/", "14"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"AspectRatio", "\[Rule]", ".8"}], ",", 
+         RowBox[{"Exclusions", "\[Rule]", "None"}]}], "]"}]}], ";", "\n", 
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{
+        "2", ",", "n1_", ",", "n2_", ",", "n3_", ",", "n4_", ",", "n5_", ",", 
+         "n6_", ",", "n7_", ",", "n8_", ",", "n9_", ",", "n10_", ",", "n11_", 
+         ",", "n12_", ",", "n13_", ",", "n14_"}], "]"}], ":=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"v2", "[", "n", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"n", ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "n1", ",", "n2", ",", "n3", ",", "n4", ",", "n5", ",", "n6", 
+               ",", "n7", ",", "n8", ",", "n9", ",", "n10", ",", "n11", ",", 
+               "n12", ",", "n13", ",", "n14"}], "}"}]}], "}"}]}], "]"}], ",", 
+         
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<T\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (K)\>\""}], "}"}], "]"}], ",", "18"}], "]"}], ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<B(T)\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\< (\>\"", ",", " ", 
+                 RowBox[{"Superscript", "[", 
+                  RowBox[{"\"\<cm\>\"", ",", "3"}], "]"}], ",", 
+                 "\"\</mol)\>\""}], "}"}], "]"}], ",", "18"}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<second virial coefficients\>\"", ",", "18"}], "]"}]}],
+          ",", " ", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"500", ",", "400"}], "}"}]}]}], "]"}]}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.487895762028006*^9, 3.487895828556403*^9}, {
+   3.487895884815027*^9, 3.487895890759117*^9}, {3.4878959600434*^9, 
+   3.487895991595476*^9}, {3.487896035062648*^9, 3.487896039445406*^9}, {
+   3.4878965491807957`*^9, 3.487896552049315*^9}, 3.487896590708528*^9, {
+   3.4878967005045443`*^9, 3.487896733288454*^9}, 3.4878968927602158`*^9, {
+   3.487896947928515*^9, 3.4878969981944637`*^9}, {3.487897072174855*^9, 
+   3.487897073981192*^9}, {3.487897123248802*^9, 3.4878972996562243`*^9}, {
+   3.487897353354186*^9, 3.4878974031949167`*^9}, {3.487897451758559*^9, 
+   3.487897475661736*^9}, {3.487897540498033*^9, 3.4878975438320713`*^9}, {
+   3.4878975763548517`*^9, 3.4878976209583387`*^9}, {3.487897655478787*^9, 
+   3.4878976877899323`*^9}, {3.4878977671544724`*^9, 
+   3.4878977702891283`*^9}, {3.48789780430801*^9, 3.487898022679077*^9}, {
+   3.487898060922728*^9, 3.4878981202988777`*^9}, {3.487898311362319*^9, 
+   3.4878983284914303`*^9}, {3.487898508297447*^9, 3.48789851598456*^9}, {
+   3.487950572940304*^9, 3.487950599292591*^9}, {3.487950653703475*^9, 
+   3.487950670208103*^9}, {3.487950718585232*^9, 3.48795072240526*^9}, {
+   3.487950934906846*^9, 3.4879509575230722`*^9}, {3.4879518307314262`*^9, 
+   3.487951885540679*^9}, {3.487952037337159*^9, 3.487952043233365*^9}, {
+   3.487952261252325*^9, 3.487952263737987*^9}, 3.487952807404917*^9, {
+   3.4879528621193867`*^9, 3.4879529095103893`*^9}, {3.487953127849334*^9, 
+   3.487953210050679*^9}, {3.4879561366178427`*^9, 3.487956141256518*^9}, {
+   3.4879565192756033`*^9, 3.487956519337723*^9}, {3.487956631732395*^9, 
+   3.487956666429904*^9}, 3.487960434842516*^9, {3.487961032955976*^9, 
+   3.4879610813095493`*^9}, {3.487961119483388*^9, 3.4879611198888083`*^9}, {
+   3.487961207212867*^9, 3.4879612077493353`*^9}, {3.487961893948943*^9, 
+   3.4879618941551027`*^9}, {3.487961951151161*^9, 3.487961951477244*^9}, {
+   3.487963040738161*^9, 3.4879630415683947`*^9}, 3.487966656091805*^9, 
+   3.487966692450822*^9, {3.487966742528534*^9, 3.48796674537108*^9}, {
+   3.487966978943027*^9, 3.487967129170753*^9}, {3.487967167005423*^9, 
+   3.487967170940856*^9}, {3.487967441290587*^9, 3.487967446600244*^9}, {
+   3.4879680154158583`*^9, 3.487968016973712*^9}, {3.487970124887804*^9, 
+   3.487970140910269*^9}, {3.4879703141060123`*^9, 3.487970316191326*^9}, {
+   3.487970376193385*^9, 3.487970395800413*^9}, 3.487970429747911*^9, {
+   3.487970470839176*^9, 3.487970475059423*^9}, {3.487970970761074*^9, 
+   3.4879710813163643`*^9}, {3.487971326558969*^9, 3.487971329991329*^9}, {
+   3.487977296516962*^9, 3.487977304691599*^9}, {3.4879773439648438`*^9, 
+   3.487977475379712*^9}, 3.4879775359913387`*^9, {3.487977610297956*^9, 
+   3.487977657163412*^9}, 3.4879777322465277`*^9, {3.487977811600471*^9, 
+   3.487977895852936*^9}, {3.4879779261012287`*^9, 3.487977950694768*^9}, {
+   3.487977994194525*^9, 3.4879780592589483`*^9}, 3.4880621121929007`*^9, 
+   3.488062146713192*^9, 3.488062182426609*^9, 3.488062225116372*^9, 
+   3.488062282270914*^9, 3.488062336360928*^9, {3.4880623900189037`*^9, 
+   3.488062407891705*^9}, 3.488062449575238*^9, 3.488062494920905*^9, 
+   3.4880625758594837`*^9, 3.488062615044984*^9, {3.488062662263624*^9, 
+   3.488062681272979*^9}, {3.488138828469228*^9, 3.4881388744127*^9}, {
+   3.488138932843417*^9, 3.4881389492240725`*^9}, {3.4881391042102714`*^9, 
+   3.488139186098547*^9}, {3.4881396114094768`*^9, 3.4881396121295056`*^9}},
+ CellID->1435907716]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n1$$ = 0, $CellContext`n10$$ = 
+    0, $CellContext`n11$$ = 0, $CellContext`n12$$ = 0, $CellContext`n13$$ = 
+    0, $CellContext`n14$$ = 0, $CellContext`n2$$ = 0, $CellContext`n3$$ = 
+    0, $CellContext`n4$$ = 0, $CellContext`n5$$ = 0, $CellContext`n6$$ = 
+    0, $CellContext`n7$$ = 0, $CellContext`n8$$ = 0, $CellContext`n9$$ = 
+    0, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "                      plot"}, {
+      1 -> "Lennard-Jones potentials", 2 -> "second virial coefficients"}}, {
+      Hold[
+       Style["      gas", Bold]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n1$$], 0, "Ne"}, {0, 1}}, {{
+       Hold[$CellContext`n2$$], 0, "Ar"}, {0, 2}}, {{
+       Hold[$CellContext`n3$$], 0, "Kr"}, {0, 3}}, {{
+       Hold[$CellContext`n4$$], 0, "Xe"}, {0, 4}}, {{
+       Hold[$CellContext`n5$$], 0, 
+       Subscript["N", 2]}, {0, 5}}, {{
+       Hold[$CellContext`n6$$], 0, 
+       Subscript["O", 2]}, {0, 6}}, {{
+       Hold[$CellContext`n7$$], 0, "NO"}, {0, 7}}, {{
+       Hold[$CellContext`n8$$], 0, "CO"}, {0, 8}}, {{
+       Hold[$CellContext`n9$$], 0, 
+       Subscript["CO", 2]}, {0, 9}}, {{
+       Hold[$CellContext`n10$$], 0, 
+       Style[
+        Row[{
+          Subscript["N", 2], "O"}]]}, {0, 10}}, {{
+       Hold[$CellContext`n11$$], 0, 
+       Subscript["SF", 6]}, {0, 11}}, {{
+       Hold[$CellContext`n12$$], 0, 
+       Subscript["CH", 4]}, {0, 12}}, {{
+       Hold[$CellContext`n13$$], 0, 
+       Style[
+        Row[{
+          Subscript["C", 2], 
+          Subscript["H", 4]}]]}, {0, 13}}, {{
+       Hold[$CellContext`n14$$], 0, 
+       Style[
+        Row[{
+          Subscript["C", 2], 
+          Subscript["H", 6]}]]}, {0, 14}}}, Typeset`size$$ = {
+    500., {198., 202.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`q$5289$$ = 
+    False, $CellContext`n1$5290$$ = False, $CellContext`n2$5291$$ = 
+    False, $CellContext`n3$5292$$ = False, $CellContext`n4$5293$$ = 
+    False, $CellContext`n5$5294$$ = False, $CellContext`n6$5295$$ = 
+    False, $CellContext`n7$5296$$ = False, $CellContext`n8$5297$$ = 
+    False, $CellContext`n9$5298$$ = False, $CellContext`n10$5299$$ = 
+    False, $CellContext`n11$5300$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`n1$$ = 0, $CellContext`n10$$ = 
+        0, $CellContext`n11$$ = 0, $CellContext`n12$$ = 0, $CellContext`n13$$ = 
+        0, $CellContext`n14$$ = 0, $CellContext`n2$$ = 0, $CellContext`n3$$ = 
+        0, $CellContext`n4$$ = 0, $CellContext`n5$$ = 0, $CellContext`n6$$ = 
+        0, $CellContext`n7$$ = 0, $CellContext`n8$$ = 0, $CellContext`n9$$ = 
+        0, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$5289$$, False], 
+        Hold[$CellContext`n1$$, $CellContext`n1$5290$$, False], 
+        Hold[$CellContext`n2$$, $CellContext`n2$5291$$, False], 
+        Hold[$CellContext`n3$$, $CellContext`n3$5292$$, False], 
+        Hold[$CellContext`n4$$, $CellContext`n4$5293$$, False], 
+        Hold[$CellContext`n5$$, $CellContext`n5$5294$$, False], 
+        Hold[$CellContext`n6$$, $CellContext`n6$5295$$, False], 
+        Hold[$CellContext`n7$$, $CellContext`n7$5296$$, False], 
+        Hold[$CellContext`n8$$, $CellContext`n8$5297$$, False], 
+        Hold[$CellContext`n9$$, $CellContext`n9$5298$$, False], 
+        Hold[$CellContext`n10$$, $CellContext`n10$5299$$, False], 
+        Hold[$CellContext`n11$$, $CellContext`n11$5300$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`g[$CellContext`q$$, $CellContext`n1$$, \
+$CellContext`n2$$, $CellContext`n3$$, $CellContext`n4$$, $CellContext`n5$$, \
+$CellContext`n6$$, $CellContext`n7$$, $CellContext`n8$$, $CellContext`n9$$, \
+$CellContext`n10$$, $CellContext`n11$$, $CellContext`n12$$, \
+$CellContext`n13$$, $CellContext`n14$$], 
+      "Specifications" :> {{{$CellContext`q$$, 1, 
+          "                      plot"}, {
+         1 -> "Lennard-Jones potentials", 2 -> "second virial coefficients"}, 
+         ControlType -> Setter, ControlPlacement -> Top}, 
+        Style[
+        "      gas", Bold], {{$CellContext`n1$$, 0, "Ne"}, {0, 1}, 
+         ControlType -> Checkbox}, {{$CellContext`n2$$, 0, "Ar"}, {0, 2}, 
+         ControlType -> Checkbox}, {{$CellContext`n3$$, 0, "Kr"}, {0, 3}, 
+         ControlType -> Checkbox}, {{$CellContext`n4$$, 0, "Xe"}, {0, 4}, 
+         ControlType -> Checkbox}, {{$CellContext`n5$$, 0, 
+          Subscript["N", 2]}, {0, 5}, ControlType -> 
+         Checkbox}, {{$CellContext`n6$$, 0, 
+          Subscript["O", 2]}, {0, 6}, ControlType -> 
+         Checkbox}, {{$CellContext`n7$$, 0, "NO"}, {0, 7}, ControlType -> 
+         Checkbox}, {{$CellContext`n8$$, 0, "CO"}, {0, 8}, ControlType -> 
+         Checkbox}, {{$CellContext`n9$$, 0, 
+          Subscript["CO", 2]}, {0, 9}, ControlType -> 
+         Checkbox}, {{$CellContext`n10$$, 0, 
+          Style[
+           Row[{
+             Subscript["N", 2], "O"}]]}, {0, 10}, ControlType -> 
+         Checkbox}, {{$CellContext`n11$$, 0, 
+          Subscript["SF", 6]}, {0, 11}, ControlType -> 
+         Checkbox}, {{$CellContext`n12$$, 0, 
+          Subscript["CH", 4]}, {0, 12}, ControlType -> 
+         Checkbox}, {{$CellContext`n13$$, 0, 
+          Style[
+           Row[{
+             Subscript["C", 2], 
+             Subscript["H", 4]}]]}, {0, 13}, ControlType -> 
+         Checkbox}, {{$CellContext`n14$$, 0, 
+          Style[
+           Row[{
+             Subscript["C", 2], 
+             Subscript["H", 6]}]]}, {0, 14}, ControlType -> Checkbox}}, 
+      "Options" :> {
+       ControlPlacement -> Left, TrackedSymbols -> True, 
+        AutorunSequencing -> {2, 4, 6, 8}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{594., {241., 246.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`c[1] = "Ne"; $CellContext`c[2] = 
+       "Ar"; $CellContext`c[3] = "Kr"; $CellContext`c[4] = 
+       "Xe"; $CellContext`c[5] = Subscript["N", 2]; $CellContext`c[6] = 
+       Subscript["O", 2]; $CellContext`c[7] = "NO"; $CellContext`c[8] = 
+       "CO"; $CellContext`c[9] = Subscript["CO", 2]; $CellContext`c[10] = 
+       Style[
+         Row[{
+           Subscript["N", 2], "O"}]]; $CellContext`c[12] = 
+       Subscript["CH", 4]; $CellContext`c[11] = 
+       Subscript["SF", 6]; $CellContext`c[13] = Style[
+         Row[{
+           Subscript["C", 2], 
+           Subscript["H", 4]}]]; $CellContext`c[14] = Style[
+         Row[{
+           Subscript["C", 2], 
+           Subscript["H", 6]}]]; $CellContext`\[Epsilon][1] = 
+       34.9; $CellContext`\[Epsilon][2] = 119.8; $CellContext`\[Epsilon][3] = 
+       171; $CellContext`\[Epsilon][4] = 221; $CellContext`\[Epsilon][5] = 
+       95.05; $CellContext`\[Epsilon][6] = 118; $CellContext`\[Epsilon][7] = 
+       131; $CellContext`\[Epsilon][8] = 100.2; $CellContext`\[Epsilon][9] = 
+       189; $CellContext`\[Epsilon][10] = 189; $CellContext`\[Epsilon][12] = 
+       148.2; $CellContext`\[Epsilon][11] = 
+       200.9; $CellContext`\[Epsilon][13] = 
+       199.2; $CellContext`\[Epsilon][14] = 243; $CellContext`\[Sigma][1] = 
+       2.78; $CellContext`\[Sigma][2] = 3.405; $CellContext`\[Sigma][3] = 
+       3.6; $CellContext`\[Sigma][4] = 4.1; $CellContext`\[Sigma][5] = 
+       3.698; $CellContext`\[Sigma][6] = 3.46; $CellContext`\[Sigma][7] = 
+       3.17; $CellContext`\[Sigma][8] = 3.763; $CellContext`\[Sigma][9] = 
+       4.486; $CellContext`\[Sigma][10] = 4.59; $CellContext`\[Sigma][12] = 
+       3.817; $CellContext`\[Sigma][11] = 5.51; $CellContext`\[Sigma][13] = 
+       4.523; $CellContext`\[Sigma][14] = 3.954; $CellContext`v[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`r, 
+          Blank[]]] := (
+         4 $CellContext`\[Epsilon][$CellContext`n]) \
+(($CellContext`\[Sigma][$CellContext`n]/$CellContext`r)^12 - ($CellContext`\
+\[Sigma][$CellContext`n]/$CellContext`r)^6); $CellContext`lj[
+         Pattern[$CellContext`n, 
+          Blank[]]] := Plot[
+         Tooltip[
+          $CellContext`v[$CellContext`n, $CellContext`r], 
+          $CellContext`c[$CellContext`n]], {$CellContext`r, 0, 12}, 
+         PlotRange -> {-250, 100}, PlotStyle -> {Thick, 
+           Hue[$CellContext`n/14]}, GridLines -> Automatic, AspectRatio -> 
+         0.8, Exclusions -> None]; $CellContext`g[1, 
+         Pattern[$CellContext`n1, 
+          Blank[]], 
+         Pattern[$CellContext`n2, 
+          Blank[]], 
+         Pattern[$CellContext`n3, 
+          Blank[]], 
+         Pattern[$CellContext`n4, 
+          Blank[]], 
+         Pattern[$CellContext`n5, 
+          Blank[]], 
+         Pattern[$CellContext`n6, 
+          Blank[]], 
+         Pattern[$CellContext`n7, 
+          Blank[]], 
+         Pattern[$CellContext`n8, 
+          Blank[]], 
+         Pattern[$CellContext`n9, 
+          Blank[]], 
+         Pattern[$CellContext`n10, 
+          Blank[]], 
+         Pattern[$CellContext`n11, 
+          Blank[]], 
+         Pattern[$CellContext`n12, 
+          Blank[]], 
+         Pattern[$CellContext`n13, 
+          Blank[]], 
+         Pattern[$CellContext`n14, 
+          Blank[]]] := Show[
+         Table[
+          $CellContext`lj[$CellContext`n], {$CellContext`n, {$CellContext`n1, \
+$CellContext`n2, $CellContext`n3, $CellContext`n4, $CellContext`n5, \
+$CellContext`n6, $CellContext`n7, $CellContext`n8, $CellContext`n9, \
+$CellContext`n10, $CellContext`n11, $CellContext`n12, $CellContext`n13, \
+$CellContext`n14}}], AxesLabel -> {
+           Style[
+            Row[{
+              Style["r", Italic], " (\[CapitalARing])"}], 18], 
+           Style[
+            Row[{
+              Style["v(r)/k", Italic], " (K)"}], 18]}, PlotLabel -> 
+         Style["Lennard-Jones potentials", 18], 
+         ImageSize -> {500, 400}]; $CellContext`B[
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`T, 
+          Blank[]]] := (((-(2 (Pi/3))) 
+          0.6022) $CellContext`\[Sigma][$CellContext`n]^3) 
+        Sum[((2^($CellContext`k + 1/2)/(4 Factorial[$CellContext`k])) 
+           Gamma[(2 $CellContext`k - 1)/
+             4]) ($CellContext`\[Epsilon][$CellContext`n]/$CellContext`T)^((
+             2 $CellContext`k + 1)/4), {$CellContext`k, 0, 
+           8}]; $CellContext`v2[
+         Pattern[$CellContext`n, 
+          Blank[]]] := Plot[
+         Tooltip[
+          $CellContext`B[$CellContext`n, $CellContext`T], 
+          $CellContext`c[$CellContext`n]], {$CellContext`T, 0, 1000}, 
+         PlotRange -> {-20, 20}, PlotStyle -> {Thick, 
+           Hue[$CellContext`n/14]}, GridLines -> Automatic, AspectRatio -> 
+         0.8, Exclusions -> None]; $CellContext`g[2, 
+         Pattern[$CellContext`n1, 
+          Blank[]], 
+         Pattern[$CellContext`n2, 
+          Blank[]], 
+         Pattern[$CellContext`n3, 
+          Blank[]], 
+         Pattern[$CellContext`n4, 
+          Blank[]], 
+         Pattern[$CellContext`n5, 
+          Blank[]], 
+         Pattern[$CellContext`n6, 
+          Blank[]], 
+         Pattern[$CellContext`n7, 
+          Blank[]], 
+         Pattern[$CellContext`n8, 
+          Blank[]], 
+         Pattern[$CellContext`n9, 
+          Blank[]], 
+         Pattern[$CellContext`n10, 
+          Blank[]], 
+         Pattern[$CellContext`n11, 
+          Blank[]], 
+         Pattern[$CellContext`n12, 
+          Blank[]], 
+         Pattern[$CellContext`n13, 
+          Blank[]], 
+         Pattern[$CellContext`n14, 
+          Blank[]]] := Show[
+         Table[
+          $CellContext`v2[$CellContext`n], {$CellContext`n, {$CellContext`n1, \
+$CellContext`n2, $CellContext`n3, $CellContext`n4, $CellContext`n5, \
+$CellContext`n6, $CellContext`n7, $CellContext`n8, $CellContext`n9, \
+$CellContext`n10, $CellContext`n11, $CellContext`n12, $CellContext`n13, \
+$CellContext`n14}}], AxesLabel -> {
+           Style[
+            Row[{
+              Style["T", Italic], " (K)"}], 18], 
+           Style[
+            Row[{
+              Style["B(T)", Italic], " (", 
+              Superscript["cm", 3], "/mol)"}], 18]}, PlotLabel -> 
+         Style["second virial coefficients", 18], ImageSize -> {500, 400}]); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->210728989],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "The Lennard\[Dash]Jones (L\[Dash]J) 6-12 potential, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"v", "(", "r", "}"}], "=", 
+    RowBox[{"4", 
+     RowBox[{"\[Epsilon]", "[", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["\[Sigma]", "r"], ")"}], "12"], "-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         FractionBox["\[Sigma]", "r"], ")"}], "6"]}], "]"}]}]}], 
+   TraditionalForm]], "InlineMath"],
+ ", has been extensively employed for the computation of virial coefficients \
+and transport properties of fluids. Here ",
+ Cell[BoxData[
+  FormBox["\[Epsilon]", TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox["\[Sigma]", TraditionalForm]], "InlineMath"],
+ " are empirical parameters for each substance. The depth of the potential \
+well is equal to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"-", "\[Epsilon]"}], TraditionalForm]], "InlineMath"],
+ ", while the collision diameter is approximated by ",
+ Cell[BoxData[
+  FormBox["\[Sigma]", TraditionalForm]], "InlineMath"],
+ ". The equilibrium intermolecular separation is then given by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["r", "e"], "=", 
+    RowBox[{
+     SuperscriptBox["2", 
+      RowBox[{"1", "/", "6"}]], "\[Sigma]"}]}], TraditionalForm]], 
+  "InlineMath"],
+ ". In the first part of this Demonstration, L\[Dash]J potentials are plotted \
+for a number of common gases. "
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ "The equations of state for real gases can be represented by a virial \
+expansion: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", " ", 
+     SubscriptBox["V", "m"]}], "=", 
+    RowBox[{"R", " ", 
+     RowBox[{"T", "[", 
+      RowBox[{"1", "+", 
+       FractionBox[
+        RowBox[{"B", "(", "T", ")"}], 
+        SubscriptBox["V", "m"]], "+", 
+       FractionBox[
+        RowBox[{"C", "(", "T", ")"}], 
+        SubsuperscriptBox["V", "m", "2"]], "+", "\[CenterEllipsis]"}], 
+      "]"}]}]}], TraditionalForm]], "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "(", "T", ")"}], TraditionalForm]], "InlineMath"],
+ " is known as the second virial coefficient, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"C", "(", "T", ")"}], TraditionalForm]], "InlineMath"],
+ ", the third virial coefficient, and so on. For an ideal gas, of course, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"B", "(", "T", ")"}], "=", 
+    RowBox[{
+     RowBox[{"C", "(", "T", ")"}], " ", "=", 
+     RowBox[{"\[CenterEllipsis]", "=", "0"}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ". The virial coefficients can be determined using classical statistical \
+mechanics. In this Demonstration, we compute the second virial coefficient \
+for an L\[Dash]J gas using the relation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"B", "(", "T", ")"}], "=", 
+    RowBox[{"2", "\[Pi]", " ", 
+     SubscriptBox["N", "A"], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "\[Infinity]"], 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["r", "2"], "[", 
+        RowBox[{"1", "-", 
+         SuperscriptBox["e", 
+          RowBox[{
+           RowBox[{"-", "v"}], 
+           RowBox[{
+            RowBox[{"{", "r", "}"}], "/", "k"}], " ", "T"}]]}], "]"}], "d", 
+       "\[InvisibleSpace]", "r"}]}]}]}], TraditionalForm]], "InlineMath"],
+ ". The light gases He and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["H",
+     FontSlant->"Plain"], "2"], TraditionalForm]], "InlineMath"],
+ " have significant quantum contributions and are not considered here. The \
+temperature dependence of the second virial coefficient is shown in the \
+second series of plots. "
+}], "Text"],
+
+Cell["\<\
+Several gases can be displayed at the same time by using the checkboxes on \
+the left. Each curve can be identified using the tooltip.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "The integral for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "(", "T", ")"}], TraditionalForm]], "InlineMath"],
+ " cannot be evaluated analytically, but an accurate approximation can be \
+based on the expansion ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"B", "(", "T", ")"}], " ", "=", " ", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"(", 
+         RowBox[{"2", " ", "\[Pi]"}], ")"}]}], "/", "3"}]}], ")"}], 
+    SubscriptBox["N", "A"], " ", 
+    SuperscriptBox["\[Sigma]", "3"], " ", 
+    RowBox[{
+     UnderoverscriptBox["\[Sum]", 
+      RowBox[{"n", "=", "0"}], "\[Infinity]"], 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox["2", 
+        RowBox[{"n", "+", 
+         StyleBox[
+          RowBox[{"1", "/", "2"}],
+          FontSize->8]}]], 
+       RowBox[{"4", 
+        RowBox[{"n", "!"}]}]], 
+      RowBox[{"\[CapitalGamma]", "(", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"2", "n"}], "-", "1"}], "4"], ")"}], 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["\[Epsilon]", 
+         RowBox[{"k", " ", "T"}]], ")"}], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", "n"}], "+", "1"}], ")"}], "/", "4"}]]}]}]}], 
+   TraditionalForm]], "InlineMath"],
+ ".  It suffices to take just the first few terms of the series."
+}], "Text"],
+
+Cell["References", "Text"],
+
+Cell[TextData[{
+ "[1] S. M. Blinder, ",
+ StyleBox["Advanced Physical Chemistry",
+  FontSlant->"Italic"],
+ ", London: Macmillan, 1969, pp. 491\[Dash]496."
+}], "Text"],
+
+Cell[TextData[{
+ "[2] J. O. Hirschfelder, C. F. Curtiss, and R. B. Bird, ",
+ StyleBox["Molecular Theory of Gases and Liquids",
+  FontSlant->"Italic"],
+ ", New York: Wiley, 1954."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Second Virial Coefficients Using the Lennard-Jones Potential",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+SecondVirialCoefficientsUsingTheLennardJonesPotential/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+SecondVirialCoefficientsUsingTheLennardJonesPotential/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+SecondVirialCoefficientsUsingTheLennardJonesPotential/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+SecondVirialCoefficientsUsingTheLennardJonesPotential/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+SecondVirialCoefficientsUsingTheLennardJonesPotential/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["S. M. Blinder",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6],
+ CellID->2019377056],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+SecondVirialCoefficientsUsingTheLennardJonesPotential"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{774, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Second Virial Coefficients Using the Lennard-Jones Potential - \
+Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[652, 24, 252, 4, 70, "Section"],
+Cell[907, 30, 21665, 535, 70, "Input",
+ CellID->1435907716]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22609, 570, 13010, 282, 70, "Output",
+ CellID->210728989],
+Cell[CellGroupData[{
+Cell[35644, 856, 199, 4, 70, "Section"],
+Cell[35846, 862, 1446, 42, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[37318, 908, 2209, 65, 70, "Text"],
+Cell[39530, 975, 158, 3, 70, "Text"],
+Cell[CellGroupData[{
+Cell[39713, 982, 199, 4, 70, "Section"],
+Cell[39915, 988, 1364, 45, 70, "Text"],
+Cell[41282, 1035, 26, 0, 70, "Text"],
+Cell[41311, 1037, 165, 5, 70, "Text"],
+Cell[41479, 1044, 190, 5, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[41705, 1054, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[42081, 1065, 1120, 31, 70, "Text"],
+Cell[43204, 1098, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[43544, 1109, 457, 15, 70, "Text",
+ CellID->2019377056],
+Cell[CellGroupData[{
+Cell[44026, 1128, 847, 24, 70, "Text"],
+Cell[44876, 1154, 1229, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature qTNlu3x30UO0jC06GUPw#bGK *)

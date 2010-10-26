@@ -1,0 +1,2034 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     78461,       2024]
+NotebookOptionsPosition[     76797,       1967]
+NotebookOutlinePosition[     77479,       1992]
+CellTagsIndexPosition[     77436,       1989]
+WindowTitle->Impedance of the Randles Circuit: Redox Reaction (E) at a \
+Rotating Disk Electrode (RDE) - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Impedance of the Randles Circuit: Redox Reaction (E) at a Rotating Disk \
+Electrode (RDE)\
+\>", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Cdl", "=", 
+     RowBox[{"10", "^", "logCdl"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Rbf", "=", 
+     RowBox[{"ROhm", "+", "Rt", "+", "Rd"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"lw", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"2.54", "/", "tau"}], ",", 
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"Rt", " ", "Cdl"}], ")"}]}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"GraphicsColumn", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ParametricPlot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ROhm", "+", 
+               RowBox[{"Re", "[", 
+                RowBox[{"Z", "[", 
+                 RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", " ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}], "]"}]}], ",", 
+              RowBox[{"-", 
+               RowBox[{"Im", "[", 
+                RowBox[{"Z", "[", 
+                 RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", "  ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}], "]"}]}]}], "}"}], 
+            "/", "Rbf"}], ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ROhm", "+", 
+               RowBox[{"Re", "[", 
+                RowBox[{"Zf", "[", 
+                 RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", " ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}], "]"}]}], ",", 
+              RowBox[{"-", 
+               RowBox[{"Im", "[", 
+                RowBox[{"Zf", "[", 
+                 RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", " ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}], "]"}]}]}], "}"}], 
+            "/", "Rbf"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"logw", ",", "logwmin", ",", "logwmax"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Purple", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1.5", "]"}]}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1.02"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.6"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<Re \>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\</(\>\"", ",", 
+               RowBox[{"Subscript", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\<\[CapitalOmega]\>\""}], "]"}], ",", "\"\< + \>\"", ",", 
+               
+               RowBox[{"Style", "[", 
+                RowBox[{
+                 RowBox[{"Subscript", "[", 
+                  RowBox[{"\"\<R\>\"", ",", "\"\<p\>\""}], "]"}], ",", 
+                 "Italic"}], "]"}], ",", "\"\<)\>\""}], "}"}], "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<- Im \>\"", ",", 
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\</(\>\"", ",", 
+               RowBox[{"Subscript", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\<\[CapitalOmega]\>\""}], "]"}], ",", "\"\< + \>\"", ",", 
+               
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<)\>\""}], "}"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.5", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.5"}], "}"}], ",", "None", ",", "None"}], 
+           "}"}]}], ",", 
+         RowBox[{"Epilog", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsolutePointSize", "[", "5", "]"}], ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ROhm", "+", 
+                 RowBox[{"Re", "[", 
+                  RowBox[{"Zf", "[", 
+                   RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"10", "^", "logwc"}]}]}], "]"}], "]"}]}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Im", "[", 
+                  RowBox[{"Zf", "[", 
+                   RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"10", "^", "logwc"}]}]}], "]"}], "]"}]}]}], "}"}],
+               "/", "Rbf"}], "]"}], ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"ROhm", "+", 
+                 RowBox[{"Re", "[", 
+                  RowBox[{"Z", "[", 
+                   RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"10", "^", "logwc"}]}]}], "]"}], "]"}]}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Im", "[", 
+                  RowBox[{"Z", "[", 
+                   RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"10", "^", "logwc"}]}]}], "]"}], "]"}]}]}], "}"}],
+               "/", "Rbf"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"wc1", " ", "&&", " ", 
+               RowBox[{"Rd", " ", "\[NotEqual]", "0"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"ROhm", "+", 
+                    RowBox[{"Re", "[", 
+                    RowBox[{"Z", "[", 
+                    RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}]}], ",", 
+                    RowBox[{"-", 
+                    RowBox[{"Im", "[", 
+                    RowBox[{"Z", "[", 
+                    RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}]}]}], 
+                   "}"}], "/", "Rbf"}], "]"}], ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"ROhm", "+", 
+                    RowBox[{"Re", "[", 
+                    RowBox[{"Zf", "[", 
+                    RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}]}], ",", 
+                    RowBox[{"-", 
+                    RowBox[{"Im", "[", 
+                    RowBox[{"Zf", "[", 
+                    RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}]}]}], 
+                   "}"}], "/", "Rbf"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{"wc2", ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"ROhm", "+", 
+                    RowBox[{"Re", "[", 
+                    RowBox[{"Z", "[", 
+                    RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}], "]"}]}], ",", 
+                    RowBox[{"-", 
+                    RowBox[{"Im", "[", 
+                    RowBox[{"Z", "[", 
+                    RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                    RowBox[{"I", " ", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}], "]"}]}]}], 
+                   "}"}], "/", "Rbf"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "Purple", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.9"}], "}"}], "]"}]}], "]"}], ",", 
+            "Blue", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{"\"\<Z\>\"", ",", "\"\<f\>\""}], "]"}], ",", 
+                "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.755"}], "}"}], "]"}]}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "ims"}]}], "]"}], ",", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{"10", ",", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{"ROhm", "+", 
+                RowBox[{"Z", "[", 
+                 RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", " ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}]}], "]"}], "/", 
+              "Rbf"}]}], "]"}], ",", 
+           RowBox[{"Log", "[", 
+            RowBox[{"10", ",", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{"ROhm", "+", 
+                RowBox[{"Zf", "[", 
+                 RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                  RowBox[{"I", " ", 
+                   RowBox[{"10", "^", "logw"}]}]}], "]"}]}], "]"}], "/", 
+              "Rbf"}]}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"logw", ",", "logwmin", ",", "logwmax"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Purple", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1.5", "]"}]}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"logwmin", ",", "logwmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"2", "-", 
+               RowBox[{"(", 
+                RowBox[{"logwmax", "-", "logwmin"}], ")"}]}], ",", "1"}], 
+             "}"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", "0", ",", "2", ",", "4", ",", "6"}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "4"}], ",", 
+              RowBox[{"-", "6"}], ",", 
+              RowBox[{"-", "2"}], ",", "0"}], "}"}], ",", "None", ",", 
+            "None"}], "}"}]}], ",", 
+         RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<log(\[Omega]/(rd \>\"", ",", 
+               RowBox[{"Superscript", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<s\>\"", ",", "Italic"}], "]"}], ",", 
+                 RowBox[{"-", "1"}]}], "]"}], ",", "\"\<)\>\""}], "}"}], 
+             "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<log |Z/(\>\"", ",", 
+               RowBox[{"Subscript", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+                 "\"\<\[CapitalOmega]\>\""}], "]"}], ",", "\"\< + \>\"", ",", 
+               
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+               "\"\<)|\>\""}], "}"}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"Epilog", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsoluteDashing", "[", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "2"}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"logwc", ",", 
+                 RowBox[{"2", "-", 
+                  RowBox[{"(", 
+                   RowBox[{"logwmax", "-", "logwmin"}], ")"}]}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"logwc", ",", "1"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"wc1", " ", "&&", " ", 
+               RowBox[{"Rd", " ", "\[NotEqual]", "0"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"2", "-", 
+                    RowBox[{"(", 
+                    RowBox[{"logwmax", "-", "logwmin"}], ")"}]}]}], "}"}], 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", "1"}], 
+                    "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{"wc2", ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"2", "-", 
+                    RowBox[{"(", 
+                    RowBox[{"logwmax", "-", "logwmin"}], ")"}]}]}], "}"}], 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", "1"}], 
+                    "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", "Purple", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.3"}], "}"}], "]"}]}], "]"}], ",", 
+            "Blue", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{"\"\<Z\>\"", ",", "\"\<f\>\""}], "]"}], ",", 
+                "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.15"}], "}"}], "]"}]}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "ims"}]}], "]"}], ",", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Arg", "[", 
+             RowBox[{"ROhm", "+", 
+              RowBox[{"Z", "[", 
+               RowBox[{"Cdl", ",", "Rt", ",", "Rd", ",", "tau", ",", 
+                RowBox[{"I", " ", 
+                 RowBox[{"10", "^", "logw"}]}]}], "]"}]}], "]"}], "/", 
+            "Degree"}], ",", 
+           RowBox[{
+            RowBox[{"Arg", "[", 
+             RowBox[{"ROhm", "+", 
+              RowBox[{"Zf", "[", 
+               RowBox[{"Rt", ",", "Rd", ",", "tau", ",", 
+                RowBox[{"I", " ", 
+                 RowBox[{"10", "^", "logw"}]}]}], "]"}]}], "]"}], "/", 
+            "Degree"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"logw", ",", "logwmin", ",", "logwmax"}], "}"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Purple", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1.5", "]"}]}], "}"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"logwmin", ",", "logwmax"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "90"}], ",", "10"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "2"}], ",", "0", ",", "2", ",", "4", ",", "6"}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "90"}], ",", 
+              RowBox[{"-", "45"}], ",", "0"}], "}"}], ",", "None", ",", 
+            "None"}], "}"}]}], ",", 
+         RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"\"\<log(\[Omega]/(rd \>\"", ",", 
+               RowBox[{"Superscript", "[", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<s\>\"", ",", "Italic"}], "]"}], ",", 
+                 RowBox[{"-", "1"}]}], "]"}], ",", "\"\<)\>\""}], "}"}], 
+             "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{"\"\<\[CapitalOmega]\>\"", ",", 
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}]}], "]"}], ",", 
+              "\"\</\[Degree]\>\""}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"Epilog", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsoluteDashing", "[", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "2"}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"logwc", ",", 
+                 RowBox[{"-", "90"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"logwc", ",", "10"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"wc1", "&&", " ", 
+               RowBox[{"Rd", " ", "\[NotEqual]", "0"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"-", "90"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", "10"}], 
+                    "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{"wc2", ",", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"-", "90"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Log", "[", 
+                    RowBox[{"10", ",", 
+                    RowBox[{"lw", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", "10"}], 
+                    "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", "}"}]}], "]"}], ",", "Purple", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Z\>\"", ",", "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.3"}], "}"}], "]"}]}], "]"}], ",", 
+            "Blue", ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{"\"\<Z\>\"", ",", "\"\<f\>\""}], "]"}], ",", 
+                "Italic"}], "]"}], ",", 
+              RowBox[{"Scaled", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.1", ",", "0.15"}], "}"}], "]"}]}], "]"}]}], 
+           "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "ims"}]}], "]"}]}], "}"}], "]"}]}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Randles equivalent circuit for a\>\"", ",", "Bold"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<redox reaction at an RDE.\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"Show", "[", "gZRandlesWd", "]"}], "]"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<circuit parameter values\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Rt", ",", "1", ",", 
+       "\"\<\!\(\*SubscriptBox[\(R\), \(ct\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)\>\""}], "}"}], ",", "1.", ",", "10.", 
+     ",", "1.", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Rd", ",", "2.", ",", 
+       "\"\<\!\(\*SubscriptBox[\(R\), \(d\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)\>\""}], "}"}], ",", "0", ",", "10.", 
+     ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tau", ",", "1", ",", "\"\<\[Tau]/s\>\""}], "}"}], ",", "0.1", 
+     ",", "3.", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"logCdl", ",", 
+       RowBox[{"-", "4."}], ",", 
+       "\"\<log(\!\(\*SubscriptBox[\(C\), \(dl\)]\)/F \
+\!\(\*SuperscriptBox[\(cm\), \(-2\)]\))\>\""}], "}"}], ",", 
+     RowBox[{"-", "6."}], ",", 
+     RowBox[{"-", "2."}], ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "ROhm", ",", "0", ",", 
+       "\"\<\!\(\*SubscriptBox[\(R\), \(\[CapitalOmega]\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)\>\""}], "}"}], ",", "0", ",", "5.", ",",
+      "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", "Delimiter", ",",
+    "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<angular frequency parameter\>\"", ",", "Bold"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"logwc", ",", 
+       RowBox[{"-", "2"}], ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<log(\[Omega]/rd \>\"", ",", 
+          RowBox[{"Superscript", "[", 
+           RowBox[{"\"\<s\>\"", ",", 
+            RowBox[{"-", "1"}]}], "]"}], ",", "\"\<)\>\""}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"-", "2"}], ",", "7", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"wc2", ",", "False", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Subscript", "[", 
+           RowBox[{"\"\<\[Omega]\>\"", ",", "\"\<c1\>\""}], "]"}], ",", 
+          "\"\< = 1/\>\"", ",", 
+          RowBox[{"Subscript", "[", 
+           RowBox[{"\"\<R\>\"", ",", "\"\<ct\>\""}], "]"}], ",", 
+          RowBox[{"Subscript", "[", 
+           RowBox[{"\"\<C\>\"", ",", "\"\<d1\>\""}], "]"}]}], "}"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"wc1", ",", "False", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Subscript", "[", 
+           RowBox[{"\"\<\[Omega]\>\"", ",", "\"\<c2\>\""}], "]"}], ",", 
+          "\"\< = 2.54/\[Tau]\>\""}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", "True"}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"logwmin", "=", 
+       RowBox[{"-", "2"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"logwmax", "=", "7"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"ims", "=", "230"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Zf", "[", 
+        RowBox[{"Rt_", ",", "Rd_", ",", "tau_", ",", "p_"}], "]"}], ":=", 
+       RowBox[{"Rt", "+", 
+        RowBox[{"Rd", 
+         FractionBox[
+          RowBox[{"Tanh", "[", 
+           SqrtBox[
+            RowBox[{"tau", " ", "p"}]], "]"}], 
+          SqrtBox[
+           RowBox[{"tau", " ", "p"}]]]}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Z", "[", 
+        RowBox[{"Cdl_", ",", "Rt_", ",", "Rd_", ",", "tau_", ",", "p_"}], 
+        "]"}], ":=", 
+       FractionBox[
+        RowBox[{"Zf", "[", 
+         RowBox[{"Rt", ",", "Rd", ",", "tau", ",", "p"}], "]"}], 
+        RowBox[{"1", "+", 
+         RowBox[{
+          RowBox[{"Zf", "[", 
+           RowBox[{"Rt", ",", "Rd", ",", "tau", ",", "p"}], "]"}], " ", "Cdl",
+           " ", "p"}]}]]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"trfin", "=", "0.6"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tr", "=", "1.2"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"trepais", "=", "1.8"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Res", "[", 
+        RowBox[{"xO_", ",", "yO_", ",", "L_", ",", "l_"}], "]"}], ":=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"AbsoluteThickness", "[", "trfin", "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xO", ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}]}], ",", "yO"}], "}"}]}], "}"}], "]"}],
+           ",", "\n", "\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"3", 
+                 RowBox[{"L", "/", "2"}]}]}], ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"2", "L"}]}], ",", "yO"}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"AbsoluteThickness", "[", "tr", "]"}], ",", "\n", "\t\t\t", 
+          
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}], "+", "L"}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}], "+", "L"}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}], "+", "L"}], ",", 
+               RowBox[{"yO", "+", "l", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}], "+", "L"}], ",", 
+               RowBox[{"yO", "+", "l", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}]}], ",", 
+               RowBox[{"yO", "+", "l", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}]}], ",", 
+               RowBox[{"yO", "+", "l", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"L", "/", "2"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Warbdelta", "[", 
+        RowBox[{"xO_", ",", "yO_", ",", "L_", ",", "l_"}], "]"}], ":=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"AbsoluteThickness", "[", "trfin", "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xO", ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "10"}]}], ",", "yO"}], "}"}]}], "}"}], 
+           "]"}], ",", "\n", "\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "10"}]}], ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"2", "L"}]}], ",", "yO"}], "}"}]}], "}"}], "]"}], ",",
+           "\n", "\t\t\t\t", 
+          RowBox[{"AbsoluteThickness", "[", "tr", "]"}], ",", "\n", "\t\t\t", 
+          
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "10"}]}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", "\n",
+           "\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L"}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", "\n",
+           "\t\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L"}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", "\n",
+           "\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "10"}]}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Text", "[", 
+           RowBox[{"\"\<\[Delta]\>\"", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"xO", "+", 
+               RowBox[{"1.2", "L"}]}], ",", 
+              RowBox[{"yO", "-", 
+               RowBox[{"l", "/", "2"}]}]}], "}"}]}], "]"}]}], "}"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Cap", "[", 
+        RowBox[{"xO_", ",", "yO_", ",", "L_", ",", "l_"}], "]"}], ":=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"AbsoluteThickness", "[", "trfin", "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"xO", ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "20"}]}], ",", "yO"}], "}"}]}], "}"}], 
+           "]"}], ",", "\n", "\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "20"}]}], ",", "yO"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", 
+                RowBox[{"2", "L"}]}], ",", "yO"}], "}"}]}], "}"}], "]"}], ",",
+           "\n", "\t\t\t\t", 
+          RowBox[{"AbsoluteThickness", "[", "trepais", "]"}], ",", "\n", 
+          "\t\t\t", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "-", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "-", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xO", "+", "L", "+", 
+                RowBox[{"L", "/", "20"}]}], ",", 
+               RowBox[{"yO", "+", 
+                RowBox[{"l", "/", "2"}]}]}], "}"}]}], "}"}], "]"}]}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"L", "=", "1"}], ";", 
+      RowBox[{"l", "=", "0.4"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"gZRandlesWd", "=", 
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"Res", "[", 
+          RowBox[{"0", ",", "0", ",", "L", ",", "l"}], "]"}], ",", 
+         RowBox[{"Res", "[", 
+          RowBox[{
+           RowBox[{"2", " ", "L"}], ",", "0", ",", "L", ",", "l"}], "]"}], 
+         ",", 
+         RowBox[{"Warbdelta", "[", 
+          RowBox[{
+           RowBox[{"3.5", "L"}], ",", "0", ",", "L", ",", "l"}], "]"}], ",", 
+         RowBox[{"Cap", "[", 
+          RowBox[{
+           RowBox[{"2.5", "L"}], ",", "L", ",", "L", ",", "l"}], "]"}], ",", 
+         RowBox[{"Graphics", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"3", 
+                  RowBox[{"L", "/", "2"}]}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"2", "L"}], ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"2", "L"}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"2", "L"}], ",", "L"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"2", "L"}], ",", "L"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"3", "L"}], ",", "L"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"4", "L"}], ",", "L"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"5", "L"}], ",", "L"}], "}"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Line", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"5", "L"}], ",", "L"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"5", "L"}], ",", "0"}], "}"}]}], "}"}], "]"}]}], 
+           "}"}], "]"}], ",", "\n", "\t\t", 
+         RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"Epilog", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<\[CapitalOmega]\>\""}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"1", "L"}], ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<ct\>\""}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"3", "L"}], ",", "0"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<C\>\"", ",", "Italic"}], "]"}], ",", 
+                "\"\<d1\>\""}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"3.5", "L"}], ",", 
+                RowBox[{"1.5", " ", "L"}]}], "}"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "5.5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.5"}], ",", "1.7"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]}]}], ")"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.4915895949222536`*^9, {3.491599826795403*^9, 
+   3.49159988506283*^9}, 3.4916015175359416`*^9, {3.49160335177304*^9, 
+   3.491603420375367*^9}, {3.4916036759772882`*^9, 3.491603704405242*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`logCdl$$ = -4., $CellContext`logwc$$ = -2, \
+$CellContext`Rd$$ = 2., $CellContext`ROhm$$ = 0, $CellContext`Rt$$ = 
+    1, $CellContext`tau$$ = 1, $CellContext`wc1$$ = 
+    False, $CellContext`wc2$$ = False, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Randles equivalent circuit for a", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["redox reaction at an RDE.", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Show[$CellContext`gZRandlesWd]]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["circuit parameter values", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`Rt$$], 1, 
+       "\!\(\*SubscriptBox[\(R\), \(ct\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)"}, 1., 10., 1.}, {{
+       Hold[$CellContext`Rd$$], 2., 
+       "\!\(\*SubscriptBox[\(R\), \(d\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)"}, 0, 10., 0.1}, {{
+       Hold[$CellContext`tau$$], 1, "\[Tau]/s"}, 0.1, 3., 0.1}, {{
+       Hold[$CellContext`logCdl$$], -4., 
+       "log(\!\(\*SubscriptBox[\(C\), \(dl\)]\)/F \
+\!\(\*SuperscriptBox[\(cm\), \(-2\)]\))"}, -6., -2., 0.1}, {{
+       Hold[$CellContext`ROhm$$], 0, 
+       "\!\(\*SubscriptBox[\(R\), \(\[CapitalOmega]\)]\)/\[CapitalOmega] \!\(\
+\*SuperscriptBox[\(cm\), \(2\)]\)"}, 0, 5., 0.1}, {
+      Hold[
+       Style["angular frequency parameter", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`logwc$$], -2, 
+       Row[{"log(\[Omega]/rd ", 
+         Superscript["s", -1], ")"}]}, -2, 7, 0.1}, {{
+       Hold[$CellContext`wc2$$], False, 
+       Row[{
+         Subscript["\[Omega]", "c1"], " = 1/", 
+         Subscript["R", "ct"], 
+         Subscript["C", "d1"]}]}, {False, True}}, {{
+       Hold[$CellContext`wc1$$], False, 
+       Row[{
+         Subscript["\[Omega]", "c2"], " = 2.54/\[Tau]"}]}, {False, True}}}, 
+    Typeset`size$$ = {254., {233., 237.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`Rt$110730$$ = 0, $CellContext`Rd$110731$$ = 
+    0, $CellContext`tau$110732$$ = 0, $CellContext`logCdl$110733$$ = 
+    0, $CellContext`ROhm$110734$$ = 0, $CellContext`logwc$110735$$ = 
+    0, $CellContext`wc2$110736$$ = False, $CellContext`wc1$110737$$ = False}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`logCdl$$ = -4., $CellContext`logwc$$ = -2, \
+$CellContext`Rd$$ = 2., $CellContext`ROhm$$ = 0, $CellContext`Rt$$ = 
+        1, $CellContext`tau$$ = 1, $CellContext`wc1$$ = 
+        False, $CellContext`wc2$$ = False}, "ControllerVariables" :> {
+        Hold[$CellContext`Rt$$, $CellContext`Rt$110730$$, 0], 
+        Hold[$CellContext`Rd$$, $CellContext`Rd$110731$$, 0], 
+        Hold[$CellContext`tau$$, $CellContext`tau$110732$$, 0], 
+        Hold[$CellContext`logCdl$$, $CellContext`logCdl$110733$$, 0], 
+        Hold[$CellContext`ROhm$$, $CellContext`ROhm$110734$$, 0], 
+        Hold[$CellContext`logwc$$, $CellContext`logwc$110735$$, 0], 
+        Hold[$CellContext`wc2$$, $CellContext`wc2$110736$$, False], 
+        Hold[$CellContext`wc1$$, $CellContext`wc1$110737$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`Cdl = 
+        10^$CellContext`logCdl$$; $CellContext`Rbf = $CellContext`ROhm$$ + \
+$CellContext`Rt$$ + $CellContext`Rd$$; $CellContext`lw = {
+         2.54/$CellContext`tau$$, 1/($CellContext`Rt$$ $CellContext`Cdl)}; 
+       GraphicsColumn[{
+          ParametricPlot[{{$CellContext`ROhm$$ + Re[
+                $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 10^$CellContext`logw]], -Im[
+                $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 
+                 10^$CellContext`logw]]}/$CellContext`Rbf, \
+{$CellContext`ROhm$$ + Re[
+                $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I 10^$CellContext`logw]], -Im[
+                $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I 
+                 10^$CellContext`logw]]}/$CellContext`Rbf}, \
+{$CellContext`logw, $CellContext`logwmin, $CellContext`logwmax}, 
+           PlotStyle -> {{Purple, 
+              AbsoluteThickness[1]}, {Blue, 
+              AbsoluteThickness[1.5]}}, PlotRange -> {{0, 1.02}, {0, 0.6}}, 
+           Frame -> True, FrameLabel -> {
+             Row[{"Re ", 
+               Style["Z", Italic], "/(", 
+               Subscript[
+                Style["R", Italic], "\[CapitalOmega]"], " + ", 
+               Style[
+                Subscript["R", "p"], Italic], ")"}], 
+             Row[{"- Im ", 
+               Style["Z", Italic], "/(", 
+               Subscript[
+                Style["R", Italic], "\[CapitalOmega]"], " + ", 
+               Style["R", Italic], ")"}]}, 
+           FrameTicks -> {{0, 0.5, 1}, {0, 0.5}, None, None}, Epilog -> {
+             AbsolutePointSize[5], 
+             Point[{$CellContext`ROhm$$ + Re[
+                  $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I 10^$CellContext`logwc$$]], -Im[
+                  $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I 10^$CellContext`logwc$$]]}/$CellContext`Rbf], 
+             Point[{$CellContext`ROhm$$ + Re[
+                  $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 10^$CellContext`logwc$$]], -Im[
+                  $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 
+                   10^$CellContext`logwc$$]]}/$CellContext`Rbf], 
+             If[
+              And[$CellContext`wc1$$, $CellContext`Rd$$ != 0], {Red, 
+               Point[{$CellContext`ROhm$$ + Re[
+                    $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I Part[$CellContext`lw, 1]]], -Im[
+                    $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 
+                    Part[$CellContext`lw, 1]]]}/$CellContext`Rbf], 
+               Point[{$CellContext`ROhm$$ + Re[
+                    $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I Part[$CellContext`lw, 1]]], -Im[
+                    $CellContext`Zf[$CellContext`Rt$$, $CellContext`Rd$$, \
+$CellContext`tau$$, I Part[$CellContext`lw, 1]]]}/$CellContext`Rbf]}, {}], 
+             If[$CellContext`wc2$$, {Red, 
+               Point[{$CellContext`ROhm$$ + Re[
+                    $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I Part[$CellContext`lw, 2]]], -Im[
+                    $CellContext`Z[$CellContext`Cdl, $CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 
+                    Part[$CellContext`lw, 2]]]}/$CellContext`Rbf]}, {}], 
+             Purple, 
+             Text[
+              Style["Z", Italic], 
+              Scaled[{0.1, 0.9}]], Blue, 
+             Text[
+              Style[
+               Subscript["Z", "f"], Italic], 
+              Scaled[{0.1, 0.755}]]}, ImageSize -> $CellContext`ims], 
+          Plot[{
+            Log[
+            10, Abs[$CellContext`ROhm$$ + $CellContext`Z[$CellContext`Cdl, \
+$CellContext`Rt$$, $CellContext`Rd$$, $CellContext`tau$$, I 
+                 10^$CellContext`logw]]/$CellContext`Rbf], 
+            Log[
+            10, Abs[$CellContext`ROhm$$ + $CellContext`Zf[$CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 
+                 10^$CellContext`logw]]/$CellContext`Rbf]}, \
+{$CellContext`logw, $CellContext`logwmin, $CellContext`logwmax}, 
+           PlotStyle -> {{Purple, 
+              AbsoluteThickness[1]}, {Blue, 
+              AbsoluteThickness[1.5]}}, 
+           PlotRange -> {{$CellContext`logwmin, $CellContext`logwmax}, {
+             2 - ($CellContext`logwmax - $CellContext`logwmin), 1}}, Frame -> 
+           True, FrameTicks -> {{-2, 0, 2, 4, 6}, {-4, -6, -2, 0}, None, 
+             None}, Axes -> None, FrameLabel -> {
+             Row[{"log(\[Omega]/(rd ", 
+               Superscript[
+                Style["s", Italic], -1], ")"}], 
+             Row[{"log |Z/(", 
+               Subscript[
+                Style["R", Italic], "\[CapitalOmega]"], " + ", 
+               Style["R", Italic], ")|"}]}, Epilog -> {
+             AbsoluteDashing[{2, 2}], 
+             
+             Line[{{$CellContext`logwc$$, 
+                2 - ($CellContext`logwmax - $CellContext`logwmin)}, \
+{$CellContext`logwc$$, 1}}], 
+             If[
+              And[$CellContext`wc1$$, $CellContext`Rd$$ != 0], {Red, 
+               Line[{{
+                  Log[10, 
+                   Part[$CellContext`lw, 1]], 
+                  2 - ($CellContext`logwmax - $CellContext`logwmin)}, {
+                  Log[10, 
+                   Part[$CellContext`lw, 1]], 1}}]}, {}], 
+             If[$CellContext`wc2$$, {Red, 
+               Line[{{
+                  Log[10, 
+                   Part[$CellContext`lw, 2]], 
+                  2 - ($CellContext`logwmax - $CellContext`logwmin)}, {
+                  Log[10, 
+                   Part[$CellContext`lw, 2]], 1}}]}, {}], Purple, 
+             Text[
+              Style["Z", Italic], 
+              Scaled[{0.1, 0.3}]], Blue, 
+             Text[
+              Style[
+               Subscript["Z", "f"], Italic], 
+              Scaled[{0.1, 0.15}]]}, ImageSize -> $CellContext`ims], 
+          Plot[{
+           Arg[$CellContext`ROhm$$ + $CellContext`Z[$CellContext`Cdl, \
+$CellContext`Rt$$, $CellContext`Rd$$, $CellContext`tau$$, I 
+                10^$CellContext`logw]]/Degree, 
+            Arg[$CellContext`ROhm$$ + $CellContext`Zf[$CellContext`Rt$$, \
+$CellContext`Rd$$, $CellContext`tau$$, I 10^$CellContext`logw]]/
+            Degree}, {$CellContext`logw, $CellContext`logwmin, \
+$CellContext`logwmax}, PlotStyle -> {{Purple, 
+              AbsoluteThickness[1]}, {Blue, 
+              AbsoluteThickness[1.5]}}, 
+           PlotRange -> {{$CellContext`logwmin, $CellContext`logwmax}, {-90, 
+             10}}, Frame -> True, 
+           FrameTicks -> {{-2, 0, 2, 4, 6}, {-90, -45, 0}, None, None}, Axes -> 
+           None, FrameLabel -> {
+             Row[{"log(\[Omega]/(rd ", 
+               Superscript[
+                Style["s", Italic], -1], ")"}], 
+             Row[
+              Subscript["\[CapitalOmega]", 
+               Style["Z", Italic]], "/\[Degree]"]}, Epilog -> {
+             AbsoluteDashing[{2, 2}], 
+             Line[{{$CellContext`logwc$$, -90}, {$CellContext`logwc$$, 10}}], 
+             
+             If[
+              And[$CellContext`wc1$$, $CellContext`Rd$$ != 0], {Red, 
+               Line[{{
+                  Log[10, 
+                   Part[$CellContext`lw, 1]], -90}, {
+                  Log[10, 
+                   Part[$CellContext`lw, 1]], 10}}]}, {}], 
+             If[$CellContext`wc2$$, {Red, 
+               Line[{{
+                  Log[10, 
+                   Part[$CellContext`lw, 2]], -90}, {
+                  Log[10, 
+                   Part[$CellContext`lw, 2]], 10}}]}, {}], Purple, 
+             Text[
+              Style["Z", Italic], 
+              Scaled[{0.1, 0.3}]], Blue, 
+             Text[
+              Style[
+               Subscript["Z", "f"], Italic], 
+              Scaled[{0.1, 0.15}]]}, ImageSize -> $CellContext`ims]}]), 
+      "Specifications" :> {
+        Style["Randles equivalent circuit for a", Bold], 
+        Style["redox reaction at an RDE.", Bold], 
+        Dynamic[
+         Show[$CellContext`gZRandlesWd]], Delimiter, 
+        Style[
+        "circuit parameter values", 
+         Bold], {{$CellContext`Rt$$, 1, 
+          "\!\(\*SubscriptBox[\(R\), \(ct\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)"}, 1., 10., 1., Appearance -> "Labeled",
+          ImageSize -> 
+         Tiny}, {{$CellContext`Rd$$, 2., 
+          "\!\(\*SubscriptBox[\(R\), \(d\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)"}, 0, 10., 0.1, Appearance -> "Labeled",
+          ImageSize -> Tiny}, {{$CellContext`tau$$, 1, "\[Tau]/s"}, 0.1, 3., 
+         0.1, Appearance -> "Labeled", ImageSize -> 
+         Tiny}, {{$CellContext`logCdl$$, -4., 
+          "log(\!\(\*SubscriptBox[\(C\), \(dl\)]\)/F \
+\!\(\*SuperscriptBox[\(cm\), \(-2\)]\))"}, -6., -2., 0.1, Appearance -> 
+         "Labeled", ImageSize -> 
+         Tiny}, {{$CellContext`ROhm$$, 0, 
+          "\!\(\*SubscriptBox[\(R\), \(\[CapitalOmega]\)]\)/\[CapitalOmega] \
+\!\(\*SuperscriptBox[\(cm\), \(2\)]\)"}, 0, 5., 0.1, Appearance -> "Labeled", 
+         ImageSize -> Tiny}, Delimiter, Delimiter, 
+        Style[
+        "angular frequency parameter", Bold], {{$CellContext`logwc$$, -2, 
+          Row[{"log(\[Omega]/rd ", 
+            Superscript["s", -1], ")"}]}, -2, 7, 0.1, Appearance -> "Labeled",
+          ImageSize -> Tiny}, {{$CellContext`wc2$$, False, 
+          Row[{
+            Subscript["\[Omega]", "c1"], " = 1/", 
+            Subscript["R", "ct"], 
+            Subscript["C", "d1"]}]}, {
+         False, True}}, {{$CellContext`wc1$$, False, 
+          Row[{
+            Subscript["\[Omega]", "c2"], " = 2.54/\[Tau]"}]}, {False, True}}},
+       "Options" :> {ControlPlacement -> Left, TrackedSymbols -> True}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{502., {262., 267.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(($CellContext`logwmin = -2; $CellContext`logwmax = 
+       7; $CellContext`ims = 230; $CellContext`Zf[
+         Pattern[$CellContext`Rt, 
+          Blank[]], 
+         Pattern[$CellContext`Rd, 
+          Blank[]], 
+         Pattern[$CellContext`tau, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]]] := $CellContext`Rt + $CellContext`Rd (
+          Tanh[($CellContext`tau $CellContext`p)^
+            Rational[1, 2]]/($CellContext`tau $CellContext`p)^
+          Rational[1, 2]); $CellContext`Z[
+         Pattern[$CellContext`Cdl, 
+          Blank[]], 
+         Pattern[$CellContext`Rt, 
+          Blank[]], 
+         Pattern[$CellContext`Rd, 
+          Blank[]], 
+         Pattern[$CellContext`tau, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          
+          Blank[]]] := $CellContext`Zf[$CellContext`Rt, $CellContext`Rd, \
+$CellContext`tau, $CellContext`p]/(
+        1 + ($CellContext`Zf[$CellContext`Rt, $CellContext`Rd, \
+$CellContext`tau, $CellContext`p] $CellContext`Cdl) $CellContext`p); \
+$CellContext`trfin = 0.6; $CellContext`tr = 1.2; $CellContext`trepais = 
+       1.8; $CellContext`Res[
+         Pattern[$CellContext`xO, 
+          Blank[]], 
+         Pattern[$CellContext`yO, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`l, 
+          Blank[]]] := Graphics[{
+          AbsoluteThickness[$CellContext`trfin], 
+          
+          Line[{{$CellContext`xO, $CellContext`yO}, {$CellContext`xO + \
+$CellContext`L/2, $CellContext`yO}}], 
+          
+          Line[{{$CellContext`xO + 
+             3 ($CellContext`L/2), $CellContext`yO}, {$CellContext`xO + 
+             2 $CellContext`L, $CellContext`yO}}], 
+          AbsoluteThickness[$CellContext`tr], 
+          
+          Line[{{$CellContext`xO + $CellContext`L/
+              2, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L/
+              2 + $CellContext`L, $CellContext`yO - $CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L/
+              2 + $CellContext`L, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L/
+              
+              2 + $CellContext`L, $CellContext`yO + $CellContext`l - \
+$CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L/
+              2 + $CellContext`L, $CellContext`yO + $CellContext`l - \
+$CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L/
+              2, $CellContext`yO + $CellContext`l - $CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L/
+              2, $CellContext`yO + $CellContext`l - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L/
+              2, $CellContext`yO - $CellContext`l/
+             2}}]}]; $CellContext`Warbdelta[
+         Pattern[$CellContext`xO, 
+          Blank[]], 
+         Pattern[$CellContext`yO, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`l, 
+          Blank[]]] := Graphics[{
+          AbsoluteThickness[$CellContext`trfin], 
+          
+          Line[{{$CellContext`xO, $CellContext`yO}, {$CellContext`xO + \
+$CellContext`L - $CellContext`L/10, $CellContext`yO}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L + $CellContext`L/
+              10, $CellContext`yO}, {$CellContext`xO + 
+             2 $CellContext`L, $CellContext`yO}}], 
+          AbsoluteThickness[$CellContext`tr], 
+          
+          Line[{{$CellContext`xO + $CellContext`L - $CellContext`L/
+             20, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L - $CellContext`L/
+             10, $CellContext`yO + $CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L - $CellContext`L/
+             20, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L, $CellContext`yO + \
+$CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L, $CellContext`yO + \
+$CellContext`l/2}, {$CellContext`xO + $CellContext`L + $CellContext`L/
+              20, $CellContext`yO - $CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L + $CellContext`L/
+              20, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L + $CellContext`L/
+              10, $CellContext`yO + $CellContext`l/2}}], 
+          Text[
+          "\[Delta]", {$CellContext`xO + 
+            1.2 $CellContext`L, $CellContext`yO - $CellContext`l/2}]}]; Cap[
+         Pattern[$CellContext`xO, 
+          Blank[]], 
+         Pattern[$CellContext`yO, 
+          Blank[]], 
+         Pattern[$CellContext`L, 
+          Blank[]], 
+         Pattern[$CellContext`l, 
+          Blank[]]] := Graphics[{
+          AbsoluteThickness[$CellContext`trfin], 
+          
+          Line[{{$CellContext`xO, $CellContext`yO}, {$CellContext`xO + \
+$CellContext`L - $CellContext`L/20, $CellContext`yO}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L + $CellContext`L/
+              20, $CellContext`yO}, {$CellContext`xO + 
+             2 $CellContext`L, $CellContext`yO}}], 
+          AbsoluteThickness[$CellContext`trepais], 
+          
+          Line[{{$CellContext`xO + $CellContext`L - $CellContext`L/
+             20, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L - $CellContext`L/
+             20, $CellContext`yO + $CellContext`l/2}}], 
+          
+          Line[{{$CellContext`xO + $CellContext`L + $CellContext`L/
+              20, $CellContext`yO - $CellContext`l/
+             2}, {$CellContext`xO + $CellContext`L + $CellContext`L/
+              20, $CellContext`yO + $CellContext`l/2}}]}]; $CellContext`L = 
+       1; $CellContext`l = 0.4; $CellContext`gZRandlesWd = Show[
+         $CellContext`Res[0, 0, $CellContext`L, $CellContext`l], 
+         $CellContext`Res[
+         2 $CellContext`L, 0, $CellContext`L, $CellContext`l], 
+         $CellContext`Warbdelta[
+         3.5 $CellContext`L, 0, $CellContext`L, $CellContext`l], 
+         Cap[
+         2.5 $CellContext`L, $CellContext`L, $CellContext`L, $CellContext`l], 
+         
+         Graphics[{
+           Line[{{3 ($CellContext`L/2), 0}, {2 $CellContext`L, 0}}], 
+           Line[{{2 $CellContext`L, 0}, {2 $CellContext`L, $CellContext`L}}], 
+           
+           
+           Line[{{2 $CellContext`L, $CellContext`L}, {
+             3 $CellContext`L, $CellContext`L}}], 
+           
+           Line[{{4 $CellContext`L, $CellContext`L}, {
+             5 $CellContext`L, $CellContext`L}}], 
+           Line[{{5 $CellContext`L, $CellContext`L}, {
+             5 $CellContext`L, 0}}]}], AspectRatio -> Automatic, Epilog -> {
+           Text[
+            Subscript[
+             Style["R", Italic], "\[CapitalOmega]"], {1 $CellContext`L, 0}], 
+           Text[
+            Subscript[
+             Style["R", Italic], "ct"], {3 $CellContext`L, 0}], 
+           Text[
+            Subscript[
+             Style["C", Italic], "d1"], {
+            3.5 $CellContext`L, 1.5 $CellContext`L}]}, 
+         PlotRange -> {{0, 5.5}, {-0.5, 1.7}}, ImageSize -> 200]); 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->260037532],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration plots Faradaic (",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Z", 
+    StyleBox["f",
+     FontSize->9.001907348632812,
+     FontSlant->"Plain"]], TraditionalForm]], "InlineMath"],
+ ") and electrode impedance (",
+ Cell[BoxData[
+  FormBox["Z", TraditionalForm]], "InlineMath"],
+ ") for the equivalent circuit (Randles circuit) of the electrochemical ",
+ "redox ",
+ "reaction (",
+ Cell[BoxData[
+  FormBox["E", TraditionalForm]], "InlineMath"],
+ ") at a rotating disk electrode (RDE) in the Nyquist and Bode (modulus and \
+phase) planes."
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "This Demonstration gives Faradaic (",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Z", 
+    StyleBox["f",
+     FontSize->9.001907348632812,
+     FontSlant->"Plain"]], TraditionalForm]], "InlineMath"],
+ ") and electrode impedance (",
+ StyleBox["Z",
+  FontFamily->"Times",
+  FontSlant->"Italic"],
+ ") for the equivalent circuit (Randles circuit) of the electrochemical redox \
+reaction (",
+ Cell[BoxData[
+  FormBox["E", TraditionalForm]], "InlineMath"],
+ ") at a rotating disk electrode (RDE), taking into account the series ohmic \
+resistance ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["R", "\[CapitalOmega]"], TraditionalForm]], "InlineMath"],
+ ", with"
+}], "Text"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["Z",
+     FontFamily->"Times",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontFamily->"Times"], 
+    StyleBox["=",
+     FontFamily->"Times"], 
+    StyleBox[" ",
+     FontFamily->"Times"], 
+    RowBox[{
+     FormBox[
+      RowBox[{
+       SubscriptBox["R", "\[CapitalOmega]"], "+"}],
+      TraditionalForm], 
+     FormBox[
+      FractionBox[
+       SubscriptBox["Z", 
+        StyleBox["f",
+         FontSize->9.001907348632812,
+         FontSlant->"Plain"]], 
+       RowBox[{"1", "+", 
+        RowBox[{
+         SubscriptBox["Z", 
+          StyleBox["f",
+           FontSize->9.001907348632812,
+           FontSlant->"Plain"]], 
+         SubscriptBox["C", "dl"], "j", 
+         StyleBox["  ",
+          FontSize->9.001907348632812], "\[Omega]"}]}]],
+      TraditionalForm]}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["Z", 
+     StyleBox["f",
+      FontSize->9.001907348632812,
+      FontSlant->"Plain"]], "=", 
+    RowBox[{
+     SubscriptBox["R", "ct"], 
+     StyleBox[" ",
+      FontFamily->"Times"], 
+     StyleBox["+",
+      FontFamily->"Times"], 
+     StyleBox[" ",
+      FontFamily->"Times"], 
+     RowBox[{
+      SubscriptBox["R", 
+       StyleBox["d",
+        FontSize->9.001907348632812,
+        FontSlant->"Plain"]], 
+      FractionBox[
+       RowBox[{"tanh", 
+        SqrtBox[
+         RowBox[{"\[Tau]", " ", "j", " ", "\[Omega]"}]]}], 
+       SqrtBox[
+        RowBox[{"\[Tau]", " ", "j", 
+         StyleBox["  ",
+          FontSize->9.001907348632812,
+          FontSlant->"Plain"], "\[Omega]"}]]]}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ StyleBox[", ",
+  FontFamily->"Times"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{
+     SubscriptBox["R", 
+      StyleBox["p",
+       FontSize->9.001907348632812,
+       FontSlant->"Plain"]], "=", 
+     RowBox[{
+      SubscriptBox["R", "ct"], "+", " ", 
+      SubscriptBox["R", 
+       StyleBox["d",
+        FontSize->9.001907348632812,
+        FontSlant->"Plain"]]}]}]}], TraditionalForm]], "InlineMath"],
+ ",",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", "j"}], TraditionalForm]], "InlineMath"],
+ " ",
+ StyleBox["=",
+  FontFamily->"Times"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    SqrtBox[
+     RowBox[{"-", "1"}]]}], TraditionalForm]], "InlineMath"],
+ ","
+}], "Text"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox["\[Omega]", TraditionalForm]], "InlineMath"],
+ " is the angular frequency. ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["R", "ct"], TraditionalForm]], "InlineMath"],
+ " is the charge transfer resistance, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["R", 
+    StyleBox["d",
+     FontSize->9.001907348632812,
+     FontSlant->"Plain"]], TraditionalForm]], "InlineMath"],
+ " the mass transport resistance, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", "dl"], TraditionalForm]], "InlineMath"],
+ " the interfacial double capacitance, ",
+ Cell[BoxData[
+  FormBox["\[Tau]", TraditionalForm]], "InlineMath"],
+ " the time constant of the mass transport, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", 
+    SubscriptBox["c", "1"]], TraditionalForm]], "InlineMath"],
+ " the characteristic frequency of charge transfer, and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Omega]", 
+    SubscriptBox["C", "2"]], TraditionalForm]], "InlineMath"],
+ " the characteristic frequency of mass transport."
+}], "Text"],
+
+Cell["References", "Text"],
+
+Cell[TextData[{
+ "[1] J.-P. Diard, C. Montella, and B. Le Gorrec, ",
+ StyleBox["Cin\[EAcute]tique Electrochimique",
+  FontSlant->"Italic"],
+ ", Paris: Hermann, 1996."
+}], "Text"],
+
+Cell[TextData[{
+ "[2] C. Montella, J.-P. Diard, and B. Le Gorrec, ",
+ StyleBox["Exercices de Cin\[EAcute]tique Electochimique, II M\[EAcute]thodes \
+d'imp\[EAcute]dance",
+  FontSlant->"Italic"],
+ ", Paris: Hermann, 2005."
+}], "Text"],
+
+Cell[TextData[{
+ "[3] M. E. Orazem and B. Tribollet, ",
+ StyleBox["Electrochemical Impedance Spectroscopy",
+  FontSlant->"Italic"],
+ ", Hoboken, NJ: John Wiley & Sons, 2008."
+}], "Text"],
+
+Cell[TextData[{
+ "[4] Interactive Faradaic Impedance Library, ",
+ ButtonBox["http://www.bio-logic.info/potentiostat/notesifil.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.bio-logic.info/potentiostat/notesifil.html"], None},
+  ButtonNote->"http://www.bio-logic.info/potentiostat/notesifil.html"],
+ ". "
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Impedance of the Randles Circuit: Redox Reaction (E) at a \
+Rotating Disk Electrode (RDE)",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Jean-Paul Diard",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Jean-Paul+\
+Diard"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Jean-Paul+Diard"],
+ " and ",
+ ButtonBox["Claude Montella",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Claude+\
+Montella"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Claude+Montella"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+ImpedanceOfTheRandlesCircuitRedoxReactionEAtARotatingDiskEle"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Impedance of the Randles Circuit: Redox Reaction (E) at a \
+Rotating Disk Electrode (RDE) - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[679, 24, 289, 7, 70, "Section"],
+Cell[971, 33, 43409, 1092, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44417, 1130, 21443, 460, 70, "Output",
+ CellID->260037532],
+Cell[CellGroupData[{
+Cell[65885, 1594, 199, 4, 70, "Section"],
+Cell[66087, 1600, 583, 18, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66718, 1624, 199, 4, 70, "Section"],
+Cell[66920, 1630, 683, 22, 70, "Text"],
+Cell[67606, 1654, 2372, 94, 70, "Text"],
+Cell[69981, 1750, 1061, 33, 70, "Text"],
+Cell[71045, 1785, 26, 0, 70, "Text"],
+Cell[71074, 1787, 178, 5, 70, "Text"],
+Cell[71255, 1794, 233, 6, 70, "Text"],
+Cell[71491, 1802, 186, 5, 70, "Text"],
+Cell[71680, 1809, 337, 8, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[72053, 1822, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[72429, 1833, 1184, 32, 70, "Text"],
+Cell[73616, 1867, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[73956, 1878, 702, 22, 70, "Text"],
+Cell[CellGroupData[{
+Cell[74683, 1904, 847, 24, 70, "Text"],
+Cell[75533, 1930, 1236, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature qSNwORiwCoVfJAT@o8k6GQyD *)

@@ -1,0 +1,972 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     34818,        962]
+NotebookOptionsPosition[     33331,        908]
+NotebookOutlinePosition[     33953,        932]
+CellTagsIndexPosition[     33910,        929]
+WindowTitle->Packing a Circle with Circles - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["      "], "Input",
+ CellID->236400862],
+
+Cell[CellGroupData[{
+
+Cell["Packing a Circle with Circles", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "gen", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"gen", "[", "0", "]"}], "=", 
+     RowBox[{"{", "}"}]}], ";", 
+    RowBox[{"r", "=", 
+     RowBox[{"Norm", "[", "mp", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gen", "[", "1", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"mp", ",", 
+          RowBox[{"1", "-", "r"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"mp", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             FractionBox["1", "r"]}], ")"}]}], ",", "r"}], "}"}]}], "}"}], 
+      "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"glsak", "[", "k_", "]"}], ":=", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}]}], "-", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "+", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}], ".", 
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "\[Equal]", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"rad", "+", 
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], ")"}], 
+           "2"]}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}]}], "-", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "+", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}], ".", 
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "\[Equal]", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"rad", "+", 
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], ")"}], 
+           "2"]}], ",", 
+         RowBox[{
+          RowBox[{"Norm", "[", 
+           RowBox[{"{", 
+            RowBox[{"mpx", ",", "mpy"}], "}"}], "]"}], "\[Equal]", 
+          RowBox[{"1", "-", "rad"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"mpx", ",", "mpy", ",", "rad"}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"equations", " ", "for", " ", "outer", " ", "circles"}], ",", 
+      " ", 
+      RowBox[{
+      "which", " ", "touch", " ", "the", " ", "unit", " ", "circle"}]}], 
+     "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"glsik", "[", "k_", "]"}], ":=", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}]}], "-", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "+", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}], ".", 
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "\[Equal]", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"rad", "+", 
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], ")"}], 
+           "2"]}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}]}], "-", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "+", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}], ".", 
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "\[Equal]", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"rad", "+", 
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], ")"}], 
+           "2"]}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"3", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+            RowBox[{"k", "\[LeftDoubleBracket]", 
+             RowBox[{"3", ",", "1"}], "\[RightDoubleBracket]"}]}], "-", 
+           RowBox[{"2", 
+            RowBox[{
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"3", ",", "1"}], "\[RightDoubleBracket]"}], ".", 
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "+", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}], ".", 
+            RowBox[{"{", 
+             RowBox[{"mpx", ",", "mpy"}], "}"}]}]}], "\[Equal]", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"rad", "+", 
+             RowBox[{"k", "\[LeftDoubleBracket]", 
+              RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], ")"}], 
+           "2"]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"mpx", ",", "mpy", ",", "rad"}], "}"}]}], "]"}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{"equations", " ", "for", " ", "inner", " ", "circles"}], "*)"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"iv", "[", "m_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "#", "]"}], "\[Equal]", "2"}], ",", 
+         RowBox[{"lsgak", "[", "#", "]"}], ",", 
+         RowBox[{"lsgik", "[", "#", "]"}]}], "]"}], "&"}], "/@", "m"}]}], ";",
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"lsgik", "[", "t_", "]"}], ":=", " ", 
+     RowBox[{"Module", " ", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"lsgliste", "=", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}], ",", "rad"}], "}"}], "/.", 
+           RowBox[{"glsik", "[", "t", "]"}]}]}], ",", 
+         RowBox[{"u", "=", 
+          RowBox[{
+          "t", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"v", "=", 
+          RowBox[{
+          "t", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"w", "=", 
+          RowBox[{
+          "t", "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]}], ",", 
+         "z"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"lsgliste", "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], ">", "0"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"lsgliste", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], ">", "0"}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"lsgliste", "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], " ", "<", 
+               " ", 
+               RowBox[{"lsgliste", "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], ",", 
+              " ", 
+              RowBox[{"z", "=", " ", 
+               RowBox[{
+               "lsgliste", "\[LeftDoubleBracket]", "1", 
+                "\[RightDoubleBracket]"}]}], ",", 
+              RowBox[{"z", "=", " ", 
+               RowBox[{
+               "lsgliste", "\[LeftDoubleBracket]", "2", 
+                "\[RightDoubleBracket]"}]}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"z", "=", 
+             RowBox[{
+             "lsgliste", "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}]}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"z", "=", 
+           RowBox[{
+           "lsgliste", "\[LeftDoubleBracket]", "2", 
+            "\[RightDoubleBracket]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"u", ",", "v", ",", "z"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"v", ",", "w", ",", "z"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"u", ",", "w", ",", "z"}], "}"}]}], "}"}]}]}], "]"}]}], 
+    ";", 
+    RowBox[{"(*", 
+     RowBox[{"solutions", " ", "for", " ", "inner", " ", "circles"}], "*)"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"lsgak", "[", "p_", "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"lsgliste", "=", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"mpx", ",", "mpy"}], "}"}], ",", "rad"}], "}"}], "/.", 
+           RowBox[{"glsak", "[", "p", "]"}]}]}], ",", 
+         RowBox[{"u", "=", 
+          RowBox[{
+          "p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], ",", 
+         
+         RowBox[{"v", "=", 
+          RowBox[{
+          "p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], ",", 
+         "y", ",", "z"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"y", "=", 
+         RowBox[{
+         "lsgliste", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}],
+         ";", 
+        RowBox[{"z", "=", 
+         RowBox[{
+         "lsgliste", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}],
+         ";", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"u", ",", "y"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"v", ",", "y"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"u", ",", "v", ",", "y"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"u", ",", "z"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"v", ",", "z"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"u", ",", "v", ",", "z"}], "}"}]}], "}"}]}]}], "]"}]}], 
+    ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"pairs", " ", "are", " ", "outer", " ", "circles"}], ",", " ", 
+      RowBox[{"triples", " ", "are", " ", "inner", " ", "ones"}]}], "*)"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gen", "[", "n_", "]"}], ":=", 
+     RowBox[{"DeleteDuplicates", "[", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"iv", "[", 
+         RowBox[{"gen", "[", 
+          RowBox[{"n", "-", "1"}], "]"}], "]"}], ",", "1"}], "]"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"graph", "[", "m_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "liste", "}"}], ",", 
+       RowBox[{
+        RowBox[{"liste", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"m", ",", "1"}], "]"}]}], ";", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Circle", "[", "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Circle", "[", 
+               RowBox[{
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+                ",", 
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}],
+                "]"}], "&"}], "/@", "liste"}]}], "}"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "500"}]}], "]"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"graph", "[", 
+     RowBox[{"gen", "[", "n", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mp", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.5"}], ",", "0"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.7"}], ",", 
+       RowBox[{"-", "0.7"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0.7", ",", "0.7"}], "}"}], ",", "Locator"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "\"\<generation\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}], 
+     ",", 
+     RowBox[{"ControlType", "\[Rule]", "SetterBar"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "mp"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.495897933145137*^9, 3.495897939679579*^9}, {
+   3.4958982961813297`*^9, 3.4958982970520773`*^9}, {3.496055896253745*^9, 
+   3.496055974919611*^9}, {3.496056097939912*^9, 3.496056101290247*^9}, {
+   3.4960561832674437`*^9, 3.4960561834504623`*^9}, {3.496056217710888*^9, 
+   3.4960562182079377`*^9}, {3.496056419225037*^9, 3.4960564276068754`*^9}, 
+   3.496226449826788*^9, {3.496226492369773*^9, 3.496226501440462*^9}, 
+   3.496226659864818*^9, {3.4962267446190166`*^9, 3.4962267563069963`*^9}, {
+   3.4962268582688103`*^9, 3.496226864546606*^9}, 3.4962269617873917`*^9, {
+   3.496227167209482*^9, 3.496227192992113*^9}, {3.496227263740212*^9, 
+   3.496227269207219*^9}, {3.496227431733925*^9, 3.496227463897225*^9}, {
+   3.496227939203404*^9, 3.496227994368655*^9}, {3.496230007779428*^9, 
+   3.4962300134995413`*^9}, {3.496230052686298*^9, 3.496230097024914*^9}, {
+   3.4962359272581863`*^9, 3.496235933782256*^9}, 3.496236098215049*^9, 
+   3.49641320138918*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`mp$$ = {0.3689999999999999, 
+    0.025999999999999912`}, $CellContext`n$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`mp$$], {-0.5, 0}}, {-0.7, -0.7}, {0.7, 0.7}}, {{
+       Hold[$CellContext`n$$], 1, "generation"}, {0, 1, 2, 3, 4, 5}}}, 
+    Typeset`size$$ = {500., {247., 252.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`mp$11979$$ = {0, 0}, $CellContext`n$11980$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`mp$$ = {-0.5, 0}, $CellContext`n$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`mp$$, $CellContext`mp$11979$$, {0, 0}], 
+        Hold[$CellContext`n$$, $CellContext`n$11980$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`gen[0] = {}; $CellContext`r = 
+        Norm[$CellContext`mp$$]; $CellContext`gen[
+         1] = {{{$CellContext`mp$$, 
+            1 - $CellContext`r}, {$CellContext`mp$$ (1 - 
+             1/$CellContext`r), $CellContext`r}}}; $CellContext`glsak[
+          Pattern[$CellContext`k, 
+           Blank[]]] := Solve[{Dot[
+              Part[$CellContext`k, 1, 1], 
+              Part[$CellContext`k, 1, 1]] - 2 Dot[
+              
+              Part[$CellContext`k, 1, 
+               1], {$CellContext`mpx, $CellContext`mpy}] + 
+            Dot[{$CellContext`mpx, $CellContext`mpy}, {$CellContext`mpx, \
+$CellContext`mpy}] == ($CellContext`rad + Part[$CellContext`k, 1, 2])^2, Dot[
+              Part[$CellContext`k, 2, 1], 
+              Part[$CellContext`k, 2, 1]] - 2 Dot[
+              Part[$CellContext`k, 2, 
+               1], {$CellContext`mpx, $CellContext`mpy}] + 
+            Dot[{$CellContext`mpx, $CellContext`mpy}, {$CellContext`mpx, \
+$CellContext`mpy}] == ($CellContext`rad + Part[$CellContext`k, 2, 2])^2, 
+           Norm[{$CellContext`mpx, $CellContext`mpy}] == 
+           1 - $CellContext`rad}, {$CellContext`mpx, $CellContext`mpy, \
+$CellContext`rad}]; $CellContext`glsik[
+          Pattern[$CellContext`k, 
+           Blank[]]] := Solve[{Dot[
+              Part[$CellContext`k, 1, 1], 
+              Part[$CellContext`k, 1, 1]] - 2 Dot[
+              
+              Part[$CellContext`k, 1, 
+               1], {$CellContext`mpx, $CellContext`mpy}] + 
+            Dot[{$CellContext`mpx, $CellContext`mpy}, {$CellContext`mpx, \
+$CellContext`mpy}] == ($CellContext`rad + Part[$CellContext`k, 1, 2])^2, Dot[
+              Part[$CellContext`k, 2, 1], 
+              Part[$CellContext`k, 2, 1]] - 2 Dot[
+              
+              Part[$CellContext`k, 2, 
+               1], {$CellContext`mpx, $CellContext`mpy}] + 
+            Dot[{$CellContext`mpx, $CellContext`mpy}, {$CellContext`mpx, \
+$CellContext`mpy}] == ($CellContext`rad + Part[$CellContext`k, 2, 2])^2, Dot[
+              Part[$CellContext`k, 3, 1], 
+              Part[$CellContext`k, 3, 1]] - 2 Dot[
+              
+              Part[$CellContext`k, 3, 
+               1], {$CellContext`mpx, $CellContext`mpy}] + 
+            Dot[{$CellContext`mpx, $CellContext`mpy}, {$CellContext`mpx, \
+$CellContext`mpy}] == ($CellContext`rad + 
+             Part[$CellContext`k, 3, 
+               2])^2}, {$CellContext`mpx, $CellContext`mpy, \
+$CellContext`rad}]; $CellContext`iv[
+          Pattern[$CellContext`m, 
+           Blank[]]] := Map[If[Length[#] == 2, 
+           $CellContext`lsgak[#], 
+           $CellContext`lsgik[#]]& , $CellContext`m]; $CellContext`lsgik[
+          Pattern[$CellContext`t, 
+           Blank[]]] := 
+        Module[{$CellContext`lsgliste = 
+           ReplaceAll[{{$CellContext`mpx, $CellContext`mpy}, \
+$CellContext`rad}, 
+             $CellContext`glsik[$CellContext`t]], $CellContext`u = 
+           Part[$CellContext`t, 1], $CellContext`v = 
+           Part[$CellContext`t, 2], $CellContext`w = 
+           Part[$CellContext`t, 3], $CellContext`z}, 
+          If[Part[$CellContext`lsgliste, 1, 2] > 0, 
+            If[Part[$CellContext`lsgliste, 2, 2] > 0, 
+             If[
+             Part[$CellContext`lsgliste, 1, 2] < 
+              Part[$CellContext`lsgliste, 2, 2], $CellContext`z = 
+              Part[$CellContext`lsgliste, 1], $CellContext`z = 
+              Part[$CellContext`lsgliste, 2]], $CellContext`z = 
+             Part[$CellContext`lsgliste, 1]], $CellContext`z = 
+            Part[$CellContext`lsgliste, 
+              2]]; {{$CellContext`u, $CellContext`v, $CellContext`z}, \
+{$CellContext`v, $CellContext`w, $CellContext`z}, {$CellContext`u, \
+$CellContext`w, $CellContext`z}}]; $CellContext`lsgak[
+          Pattern[$CellContext`p, 
+           Blank[]]] := 
+        Module[{$CellContext`lsgliste = 
+           ReplaceAll[{{$CellContext`mpx, $CellContext`mpy}, \
+$CellContext`rad}, 
+             $CellContext`glsak[$CellContext`p]], $CellContext`u = 
+           Part[$CellContext`p, 1], $CellContext`v = 
+           Part[$CellContext`p, 
+             2], $CellContext`y, $CellContext`z}, $CellContext`y = 
+           Part[$CellContext`lsgliste, 1]; $CellContext`z = 
+           Part[$CellContext`lsgliste, 
+             2]; {{$CellContext`u, $CellContext`y}, {$CellContext`v, \
+$CellContext`y}, {$CellContext`u, $CellContext`v, $CellContext`y}, \
+{$CellContext`u, $CellContext`z}, {$CellContext`v, $CellContext`z}, \
+{$CellContext`u, $CellContext`v, $CellContext`z}}]; $CellContext`gen[
+          Pattern[$CellContext`n, 
+           Blank[]]] := DeleteDuplicates[
+          Flatten[
+           $CellContext`iv[
+            $CellContext`gen[$CellContext`n - 1]], 1]]; $CellContext`graph[
+          Pattern[$CellContext`m, 
+           Blank[]]] := 
+        Module[{$CellContext`liste}, $CellContext`liste = 
+           Flatten[$CellContext`m, 1]; Graphics[{
+             Circle[], 
+             Map[Circle[
+               Part[#, 1], 
+               Part[#, 2]]& , $CellContext`liste]}, ImageSize -> 
+            500]]; $CellContext`graph[
+         $CellContext`gen[$CellContext`n$$]]), 
+      "Specifications" :> {{{$CellContext`mp$$, {-0.5, 0}}, {-0.7, -0.7}, {
+         0.7, 0.7}, ControlType -> 
+         Locator}, {{$CellContext`n$$, 1, "generation"}, {0, 1, 2, 3, 4, 5}, 
+         ControlType -> SetterBar}}, 
+      "Options" :> {TrackedSymbols :> {$CellContext`n$$, $CellContext`mp$$}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{551., {293., 298.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->530232335],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "Two circles with a radius initially set to ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "2"], TraditionalForm]], "InlineMath"],
+ " are placed in the unit circle. When you drag the locator, the centers and \
+radii of the circles change. The rule for the iteration is to construct the \
+largest possible circles in the curvilinear triangles. "
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "The packing shown in this Demonstration is similar to that in \"",
+ ButtonBox["The Circles of Descartes",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/TheCirclesOfDescartes/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/TheCirclesOfDescartes/"],
+ "\" Demonstration, but uses a different mathematical approach than the \
+Descartes circle theorem to find the solution of the inscribed circle ",
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]], "InlineMath"],
+ " of three mutually tangent circles."
+}], "Text"],
+
+Cell[TextData[{
+ "Let the inscribed circle ",
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]], "InlineMath"],
+ " meet the three given circles at ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["A",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["B",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["C",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ ". Then the equation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       OverscriptBox["a", "\[RightVector]"], "-", 
+       SubscriptBox[
+        OverscriptBox["m", "\[RightVector]"], 
+        StyleBox["A",
+         FontSlant->"Plain"]]}], ")"}], "2"], "=", 
+    SuperscriptBox[
+     SubscriptBox["r", 
+      StyleBox["A",
+       FontSlant->"Plain"]], "2"]}], TraditionalForm]], "InlineMath"],
+ " reflects the fact that the point ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["A",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " lies on the circle with center ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    StyleBox["M",
+     FontSlant->"Plain"], 
+    StyleBox["A",
+     FontSlant->"Plain"]], TraditionalForm]], "InlineMath"],
+ " and radius ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["r", 
+    StyleBox["A",
+     FontSlant->"Plain"]], TraditionalForm]], "InlineMath"],
+ ". For ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["B",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["C",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " the equations are similar and for ",
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]], "InlineMath"],
+ " the equation is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       OverscriptBox["x", "\[RightVector]"], "-", 
+       OverscriptBox["m", "\[RightVector]"]}], ")"}], "2"], "=", 
+    SuperscriptBox["r", "2"]}], TraditionalForm]], "InlineMath"],
+ ". Because ",
+ Cell[BoxData[
+  FormBox["\[Gamma]", TraditionalForm]], "InlineMath"],
+ " is tangent to one of the three circles at ",
+ Cell[BoxData[
+  FormBox[Cell["A", "InlineMath"], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     OverscriptBox["a", "\[RightVector]"], "-", 
+     SubscriptBox[
+      OverscriptBox["m", "\[RightVector]"], 
+      StyleBox["A",
+       FontSlant->"Plain"]]}], "=", 
+    RowBox[{
+     FractionBox[
+      SubscriptBox["r", 
+       StyleBox["A",
+        FontSlant->"Plain"]], 
+      RowBox[{
+       SubscriptBox["r", 
+        StyleBox["A",
+         FontSlant->"Plain"]], "+", "r"}]], 
+     RowBox[{"(", 
+      RowBox[{
+       OverscriptBox["m", "\[RightVector]"], "-", 
+       SubscriptBox[
+        OverscriptBox["m", "\[RightVector]"], 
+        StyleBox["A",
+         FontSlant->"Plain"]]}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ " and hence ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       OverscriptBox["m", "\[RightVector]"], "-", 
+       SubscriptBox[
+        OverscriptBox["m", "\[RightVector]"], 
+        StyleBox["A",
+         FontSlant->"Plain"]]}], ")"}], "2"], "=", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["r", 
+        StyleBox["A",
+         FontSlant->"Plain"]], "+", "r"}], ")"}], "2"]}], TraditionalForm]], 
+  "InlineMath"],
+ ". "
+}], "Text"],
+
+Cell[TextData[{
+ "The coordinates of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["M",
+    FontSlant->"Plain"], TraditionalForm]], "InlineMath"],
+ " and the value for ",
+ Cell[BoxData[
+  FormBox["r", TraditionalForm]], "InlineMath"],
+ " are three unknowns, but there are three equations, so the solutions are \
+well determined. There are two solutions because the equations are quadratic \
+but not all of them are valid."
+}], "Text"],
+
+Cell[TextData[{
+ "For the solution circles that are tangent to the unit circle, one of the \
+equations reduces to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", 
+    OverscriptBox["m", "\[RightVector]"], "|", 
+    RowBox[{"=", 
+     RowBox[{"1", "-", " ", "r"}]}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Packing a Circle with Circles",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PackingACircleWithCircles/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/PackingACircleWithCircles/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/PackingACircleWithCircles/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PackingACircleWithCircles/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PackingACircleWithCircles/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Hans-Joachim Domke",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Hans-Joachim+\
+Domke"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Hans-Joachim+Domke"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PackingACircleWithCircles"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Packing a Circle with Circles - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[597, 21, 52, 1, 70, "Input",
+ CellID->236400862],
+Cell[CellGroupData[{
+Cell[674, 26, 221, 4, 70, "Section"],
+Cell[898, 32, 15337, 393, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16272, 430, 7151, 144, 70, "Output",
+ CellID->530232335],
+Cell[CellGroupData[{
+Cell[23448, 578, 199, 4, 70, "Section"],
+Cell[23650, 584, 375, 8, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24073, 598, 199, 4, 70, "Section"],
+Cell[24275, 604, 585, 12, 70, "Text"],
+Cell[24863, 618, 3476, 129, 70, "Text"],
+Cell[28342, 749, 429, 12, 70, "Text"],
+Cell[28774, 763, 315, 10, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[29125, 778, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[29501, 789, 935, 25, 70, "Text"],
+Cell[30439, 816, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[30779, 827, 448, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[31252, 845, 847, 24, 70, "Text"],
+Cell[32102, 871, 1201, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature fTNkxM4SrBqbKAp8F#9dVAKD *)

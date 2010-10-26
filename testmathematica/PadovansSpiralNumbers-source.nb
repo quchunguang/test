@@ -1,0 +1,2183 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     79483,       2173]
+NotebookOptionsPosition[     76585,       2072]
+NotebookOutlinePosition[     77202,       2096]
+CellTagsIndexPosition[     77159,       2093]
+WindowTitle->Padovan's Spiral Numbers - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Padovan's Spiral Numbers", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"2", "D", " ", "version"}], " ", "*)"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4908894573854337`*^9, 3.4908894612810354`*^9}},
+ CellID->130294894],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "down", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextSquare", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"bigRect", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_"}], "}"}]}], "}"}], "]"}], ",", "1", ",", 
+      RowBox[{"newSquare", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_"}], "}"}]}], "}"}], "]"}]}], "}"}], "]"}], 
+   ":=", "\[IndentingNewLine]", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"bx1", "-", "bx0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bigRect", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", 
+            RowBox[{"by0", "-", "side"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1"}], "}"}]}], "}"}], "]"}], ",", "2", ",", 
+       
+       RowBox[{"newSquare", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", 
+            RowBox[{"y0", "-", "side"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by0"}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.49028273438865*^9, 3.4902829173216944`*^9}, {
+   3.4902830325373664`*^9, 3.490283061629198*^9}, {3.490283092513608*^9, 
+   3.4902831092176275`*^9}, {3.490283143356717*^9, 3.490283148243744*^9}, {
+   3.4902834419761105`*^9, 3.4902834441392207`*^9}, {3.490283497325699*^9, 
+   3.490283497405814*^9}, 3.490285313527269*^9, {3.490285686243208*^9, 
+   3.4902856879756994`*^9}, {3.490288461083232*^9, 3.490288468073283*^9}, {
+   3.490880341036768*^9, 3.490880455060726*^9}, {3.4908813488659554`*^9, 
+   3.4908813711379805`*^9}, {3.4908815717063837`*^9, 
+   3.4908815964018946`*^9}, {3.490889339325672*^9, 3.4908893683073454`*^9}},
+ CellID->552643247],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "left", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextSquare", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"bigRect", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_"}], "}"}]}], "}"}], "]"}], ",", "2", ",", 
+      RowBox[{"newSquare", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_"}], "}"}]}], "}"}], "]"}]}], "}"}], "]"}], 
+   ":=", "\[IndentingNewLine]", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"by1", "-", "by0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bigRect", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"bx0", "-", "side"}], ",", "by0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1"}], "}"}]}], "}"}], "]"}], ",", "3", ",", 
+       
+       RowBox[{"newSquare", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x0", "-", "side"}], ",", "by0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x0", ",", "by1"}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.490283163776078*^9, 3.4902832349684477`*^9}, {
+   3.4902832822063727`*^9, 3.4902833052795506`*^9}, {3.4902833378764224`*^9, 
+   3.4902833618308673`*^9}, {3.4902834490763197`*^9, 3.4902834512694736`*^9}, 
+   3.490283484547325*^9, {3.490285258498141*^9, 3.4902852618229218`*^9}, {
+   3.4902856924020643`*^9, 3.4902856947955055`*^9}, {3.490288461083232*^9, 
+   3.4902884738115344`*^9}, {3.490880731568325*^9, 3.490880791965171*^9}, {
+   3.4908893410181055`*^9, 3.4908893696092176`*^9}},
+ CellID->333029554],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "up", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextSquare", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"bigRect", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_"}], "}"}]}], "}"}], "]"}], ",", "3", ",", 
+      RowBox[{"newSquare", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_"}], "}"}]}], "}"}], "]"}]}], "}"}], "]"}], 
+   ":=", "\[IndentingNewLine]", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"bx1", "-", "bx0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bigRect", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", 
+            RowBox[{"by1", "+", "side"}]}], "}"}]}], "}"}], "]"}], ",", "4", 
+       ",", 
+       RowBox[{"newSquare", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "y1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", 
+            RowBox[{"y1", "+", "side"}]}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.490283512227126*^9, 3.4902835747169824`*^9}, {
+   3.490283609857512*^9, 3.4902836581870065`*^9}, 3.4902842805419087`*^9, {
+   3.490285267641288*^9, 3.49028527019496*^9}, {3.490285699992979*^9, 
+   3.490285701465096*^9}, {3.490286010829941*^9, 3.4902860109200706`*^9}, 
+   3.4902860718376656`*^9, {3.490288461083232*^9, 3.4902884811821327`*^9}, {
+   3.4908803569296207`*^9, 3.490880357009736*^9}, {3.490880799105438*^9, 
+   3.490880849998619*^9}, {3.490889342139718*^9, 3.4908893709010754`*^9}},
+ CellID->770837669],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "right", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextSquare", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"bigRect", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_"}], "}"}]}], "}"}], "]"}], ",", "4", ",", 
+      RowBox[{"newSquare", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_"}], "}"}]}], "}"}], "]"}]}], "}"}], "]"}], 
+   ":=", "\[IndentingNewLine]", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"by1", "-", "by0"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bigRect", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"bx1", "+", "side"}], ",", "by1"}], "}"}]}], "}"}], "]"}],
+        ",", "1", ",", 
+       RowBox[{"newSquare", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"x1", ",", "by0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x1", "+", "side"}], ",", "by1"}], "}"}]}], "}"}], 
+        "]"}]}], "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.49028273438865*^9, 3.4902829173216944`*^9}, {
+   3.4902830325373664`*^9, 3.490283061629198*^9}, {3.490283092513608*^9, 
+   3.4902831092176275`*^9}, {3.490283143356717*^9, 3.490283148243744*^9}, {
+   3.4902834419761105`*^9, 3.4902834441392207`*^9}, {3.490283497325699*^9, 
+   3.490283497405814*^9}, {3.490283687298867*^9, 3.4902838048679233`*^9}, {
+   3.4902852784768686`*^9, 3.4902852813309727`*^9}, {3.4902857048399487`*^9, 
+   3.490285707203347*^9}, {3.490288461083232*^9, 3.4902884874811907`*^9}, {
+   3.4908803588323565`*^9, 3.4908803592830048`*^9}, {3.490880719110411*^9, 
+   3.4908807222349043`*^9}, {3.4908808578999805`*^9, 
+   3.4908809053682365`*^9}, {3.490881651120576*^9, 3.490881666813141*^9}, 
+   3.490883132881243*^9, {3.4908831661891375`*^9, 3.4908831662392097`*^9}, {
+   3.4908893432212734`*^9, 3.49088937232312*^9}},
+ CellID->425238465],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"squareFigure", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"_", ",", "n_", ",", 
+      RowBox[{"newSquare", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_"}], "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+    "op_", ",", "th_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"EdgeForm", "[", 
+       RowBox[{"{", 
+        RowBox[{"Thin", ",", "Gray"}], "}"}], "]"}], ",", 
+      RowBox[{"Opacity", "[", "op", "]"}], ",", 
+      RowBox[{
+       RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}], "[", 
+       RowBox[{"n", "/", "4.0"}], "]"}], ",", 
+      RowBox[{"Rectangle", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x0", ",", "y0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x1", ",", "y1"}], "}"}]}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"Black", ",", 
+      RowBox[{"Thickness", "[", "th", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Switch", "[", 
+       RowBox[{"n", ",", "\[IndentingNewLine]", "1", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "2", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y0"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "3", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "4", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1"}], "}"}]}], "}"}], "]"}]}], "]"}]}], 
+     "}"}]}], "}"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.49088091074597*^9, 3.490880924295453*^9}, {
+   3.490881701813469*^9, 3.490881704617501*^9}, {3.490881756672352*^9, 
+   3.490881780035947*^9}, {3.4908825710734034`*^9, 3.4908825734868736`*^9}, {
+   3.490882941275728*^9, 3.490882962205824*^9}, {3.490882995333459*^9, 
+   3.490882995413574*^9}, {3.490883041650059*^9, 3.4908830514241133`*^9}, {
+   3.490883194960509*^9, 3.490883228508749*^9}, {3.4908835393957825`*^9, 
+   3.4908835399565887`*^9}, {3.490887462727256*^9, 3.4908874667730737`*^9}, {
+   3.49088749737708*^9, 3.4908874977175694`*^9}, {3.490887559576518*^9, 
+   3.4908875606280303`*^9}, {3.4908876888323793`*^9, 
+   3.4908877268169985`*^9}, {3.4908877917603827`*^9, 3.490887803196827*^9}, {
+   3.490889399962864*^9, 3.4908894417028832`*^9}, {3.490889641530221*^9, 
+   3.4908896436532736`*^9}, 3.490889727864363*^9},
+ CellID->101247739],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"3", "D", " ", "version"}], " ", "*)"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4908894654970975`*^9, 3.4908894690121517`*^9}},
+ CellID->1210829],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "down", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "1", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"by1", "-", "by0"}], ",", 
+          RowBox[{"bx1", "-", "bx0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", 
+            RowBox[{"bz0", "-", "side"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", "bz1"}], "}"}]}], "}"}], "]"}], 
+       ",", "2", ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", 
+            RowBox[{"z0", "-", "side"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", "z0"}], "}"}]}], "}"}], "]"}]}], 
+      "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->464329591],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "left", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "2", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"by1", "-", "by0"}], ",", 
+          RowBox[{"bz1", "-", "bz0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"bx0", "-", "side"}], ",", "by0", ",", "bz0"}], "}"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", "bz1"}], "}"}]}], "}"}], "]"}], 
+       ",", "3", ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x0", "-", "side"}], ",", "by0", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x0", ",", "by1", ",", "bz1"}], "}"}]}], "}"}], "]"}]}], 
+      "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->190301056],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "back", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "3", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"bx1", "-", "bx0"}], ",", 
+          RowBox[{"bz1", "-", "bz0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", 
+            RowBox[{"by1", "+", "side"}], ",", "bz1"}], "}"}]}], "}"}], "]"}],
+        ",", "4", ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "y1", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", 
+            RowBox[{"y1", "+", "side"}], ",", "bz1"}], "}"}]}], "}"}], 
+        "]"}]}], "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->373933912],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "up", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "4", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"by1", "-", "by0"}], ",", 
+          RowBox[{"bx1", "-", "bx0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", 
+            RowBox[{"bz1", "+", "side"}]}], "}"}]}], "}"}], "]"}], ",", "5", 
+       ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", "z1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", 
+            RowBox[{"z1", "+", "side"}]}], "}"}]}], "}"}], "]"}]}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->309442704],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "right", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "5", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"by1", "-", "by0"}], ",", 
+          RowBox[{"bz1", "-", "bz0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", "by0", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"bx1", "+", "side"}], ",", "by1", ",", "bz1"}], "}"}]}], 
+         "}"}], "]"}], ",", "6", ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"x1", ",", "by0", ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x1", "+", "side"}], ",", "by1", ",", "bz1"}], "}"}]}], 
+         "}"}], "]"}]}], "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->534395227],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "front", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nextBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"wholeBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"bx0_", ",", "by0_", ",", "bz0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"bx1_", ",", "by1_", ",", "bz1_"}], "}"}]}], "}"}], "]"}], 
+      ",", "6", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"side", "=", 
+       RowBox[{"Min", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"bx1", "-", "bx0"}], ",", 
+          RowBox[{"bz1", "-", "bz0"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"wholeBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", 
+            RowBox[{"by0", "-", "side"}], ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "by1", ",", "bz1"}], "}"}]}], "}"}], "]"}], 
+       ",", "1", ",", 
+       RowBox[{"newBlock", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"bx0", ",", 
+            RowBox[{"y0", "-", "side"}], ",", "bz0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"bx1", ",", "y0", ",", "bz1"}], "}"}]}], "}"}], "]"}]}], 
+      "}"}]}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellID->299278641],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"blockFigure", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"_", ",", "n_", ",", 
+      RowBox[{"newBlock", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0_", ",", "y0_", ",", "z0_"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1_", ",", "y1_", ",", "z1_"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}], ",", "op_", ",", "th_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"Black", ",", 
+      RowBox[{"Thickness", "[", "th", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Switch", "[", 
+       RowBox[{"n", ",", "\[IndentingNewLine]", "1", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0", ",", "z0"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "2", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0", ",", "z1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y0", ",", "z0"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "3", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0", ",", "z0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1", ",", "z0"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "4", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y0", ",", "z0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1", ",", "z1"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "5", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1", ",", "z0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}]}], "}"}], "]"}], ",", 
+        "\[IndentingNewLine]", "6", ",", 
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x0", ",", "y1", ",", "z1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y0", ",", "z1"}], "}"}]}], "}"}], "]"}]}], 
+       "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Opacity", "[", "op", "]"}], ",", 
+      RowBox[{
+       RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}], "[", 
+       RowBox[{"n", "/", "6.0"}], "]"}], ",", 
+      RowBox[{"Cuboid", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x0", ",", "y0", ",", "z0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}]}], "}"}], "]"}]}], 
+     "}"}]}], "}"}]}]], "Input",
+ InitializationCell->True,
+ CellID->5659208],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"wholeBlockDims", "[", 
+   RowBox[{"wholeBlock", "[", 
+    RowBox[{"{", 
+     RowBox[{"B0_List", ",", "B1_List"}], "}"}], "]"}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"dims", "=", 
+      RowBox[{"Sort", "[", 
+       RowBox[{"B1", "-", "B0"}], "]"}]}], "}"}], ",", 
+    RowBox[{"StringForm", "[", 
+     RowBox[{"\"\<large box dimensions are ``\[Times]``\[Times]``\>\"", ",", 
+      RowBox[{"dims", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"dims", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", 
+      RowBox[{"dims", "[", 
+       RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4905587087440414`*^9, 3.490558762260995*^9}},
+ CellID->126627080],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"dimensions", "\[Equal]", "\"\<2D\>\""}], ",", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"squareFigure", "[", 
+            RowBox[{"#", ",", "op", ",", "th"}], "]"}], "&"}], ",", 
+          RowBox[{"NestList", "[", 
+           RowBox[{"nextSquare", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"bigRect", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}], "}"}], "]"}], ",", "1", 
+              ",", 
+              RowBox[{"newSquare", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+            ",", "n"}], "]"}]}], "]"}], "}"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"blockFigure", "[", 
+            RowBox[{"#", ",", "op", ",", "th"}], "]"}], "&"}], ",", 
+          RowBox[{"NestList", "[", 
+           RowBox[{"nextBlock", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"wholeBlock", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], "]"}], 
+              ",", "1", ",", 
+              RowBox[{"newBlock", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], "]"}]}], 
+             "}"}], ",", "n"}], "]"}]}], "]"}], "}"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+       RowBox[{"Lighting", "\[Rule]", 
+        RowBox[{"{", "White", "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dimensions", ",", "\"\<2D\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<2D\>\"", ",", "\"\<3D\>\""}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "0", ",", "\"\<iterations\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"op", ",", "0.2", ",", "\"\<box opacity\>\""}], "}"}], ",", 
+     "0.1", ",", "1.0", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"th", ",", "0.01", ",", "\"\<spiral line thickness\>\""}], 
+      "}"}], ",", "0.0001", ",", "0.02", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4905587818591757`*^9, 3.4905588628155856`*^9}, {
+   3.4905600621701727`*^9, 3.490560066736739*^9}, {3.4905601420249987`*^9, 
+   3.490560146271104*^9}, {3.4907045453303585`*^9, 3.4907045770316973`*^9}, {
+   3.490889498474517*^9, 3.490889675859584*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`dimensions$$ = "3D", $CellContext`n$$ = 
+    5, $CellContext`op$$ = 0.2, $CellContext`th$$ = 0.01, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`dimensions$$], "2D"}, {"2D", "3D"}}, {{
+       Hold[$CellContext`n$$], 8, "iterations"}, 0, 50, 1}, {{
+       Hold[$CellContext`op$$], 0.2, "box opacity"}, 0.1, 1.}, {{
+       Hold[$CellContext`th$$], 0.01, "spiral line thickness"}, 0.0001, 
+      0.02}}, Typeset`size$$ = {400., {198., 202.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`dimensions$2201$$ = False, $CellContext`n$2202$$ = 
+    0, $CellContext`op$2203$$ = 0, $CellContext`th$2204$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`dimensions$$ = "2D", $CellContext`n$$ = 
+        8, $CellContext`op$$ = 0.2, $CellContext`th$$ = 0.01}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`dimensions$$, $CellContext`dimensions$2201$$, 
+         False], 
+        Hold[$CellContext`n$$, $CellContext`n$2202$$, 0], 
+        Hold[$CellContext`op$$, $CellContext`op$2203$$, 0], 
+        Hold[$CellContext`th$$, $CellContext`th$2204$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      If[$CellContext`dimensions$$ == "2D", 
+        Graphics[{
+          
+          Map[$CellContext`squareFigure[#, $CellContext`op$$, \
+$CellContext`th$$]& , 
+           NestList[$CellContext`nextSquare, {
+             $CellContext`bigRect[{{0, 0}, {1, 1}}], 1, 
+             $CellContext`newSquare[{{0, 0}, {1, 1}}]}, $CellContext`n$$]]}, 
+         ImageSize -> {400, 400}], 
+        Graphics3D[{
+          
+          Map[$CellContext`blockFigure[#, $CellContext`op$$, \
+$CellContext`th$$]& , 
+           NestList[$CellContext`nextBlock, {
+             $CellContext`wholeBlock[{{0, 0, 0}, {1, 1, 1}}], 1, 
+             $CellContext`newBlock[{{0, 0, 0}, {1, 1, 
+              1}}]}, $CellContext`n$$]]}, Boxed -> False, Lighting -> {White},
+          ImageSize -> {400, 400}]], 
+      "Specifications" :> {{{$CellContext`dimensions$$, "2D"}, {
+         "2D", "3D"}}, {{$CellContext`n$$, 8, "iterations"}, 0, 50, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`op$$, 0.2, "box opacity"}, 
+         0.1, 1., Appearance -> 
+         "Labeled"}, {{$CellContext`th$$, 0.01, "spiral line thickness"}, 
+         0.0001, 0.02, Appearance -> "Labeled"}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{445., {282., 287.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>(({$CellContext`squareFigure[{
+           Blank[], 
+           Pattern[$CellContext`n, 
+            Blank[]], 
+           $CellContext`newSquare[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]]}}]}, 
+          Pattern[$CellContext`op, 
+           Blank[]], 
+          Pattern[$CellContext`th, 
+           Blank[]]] := {{
+           EdgeForm[{Thin, Gray}], 
+           Opacity[$CellContext`op], 
+           ColorData["Rainbow"][$CellContext`n/4.], 
+           
+           Rectangle[{$CellContext`x0, $CellContext`y0}, {$CellContext`x1, \
+$CellContext`y1}]}, {Black, 
+           Thickness[$CellContext`th], 
+           CapForm["Butt"], 
+           Switch[$CellContext`n, 1, 
+            
+            Line[{{$CellContext`x0, $CellContext`y1}, {$CellContext`x1, \
+$CellContext`y0}}], 2, 
+            
+            Line[{{$CellContext`x1, $CellContext`y1}, {$CellContext`x0, \
+$CellContext`y0}}], 3, 
+            
+            Line[{{$CellContext`x1, $CellContext`y0}, {$CellContext`x0, \
+$CellContext`y1}}], 4, 
+            
+            Line[{{$CellContext`x0, $CellContext`y0}, {$CellContext`x1, \
+$CellContext`y1}}]]}}, $CellContext`nextSquare[{
+           $CellContext`bigRect[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]]}}], 1, 
+           $CellContext`newSquare[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]]}}]}] := 
+        With[{$CellContext`side = $CellContext`bx1 - $CellContext`bx0}, {
+           $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0 - \
+$CellContext`side}, {$CellContext`bx1, $CellContext`by1}}], 2, 
+           $CellContext`newSquare[{{$CellContext`bx0, $CellContext`y0 - \
+$CellContext`side}, {$CellContext`bx1, $CellContext`by0}}]}], \
+$CellContext`nextSquare[{
+           $CellContext`bigRect[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]]}}], 2, 
+           $CellContext`newSquare[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]]}}]}] := 
+        With[{$CellContext`side = $CellContext`by1 - $CellContext`by0}, {
+           $CellContext`bigRect[{{$CellContext`bx0 - $CellContext`side, \
+$CellContext`by0}, {$CellContext`bx1, $CellContext`by1}}], 3, 
+           $CellContext`newSquare[{{$CellContext`x0 - $CellContext`side, \
+$CellContext`by0}, {$CellContext`x0, $CellContext`by1}}]}], \
+$CellContext`nextSquare[{
+           $CellContext`bigRect[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]]}}], 3, 
+           $CellContext`newSquare[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]]}}]}] := 
+        With[{$CellContext`side = $CellContext`bx1 - $CellContext`bx0}, {
+           $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0}, \
+{$CellContext`bx1, $CellContext`by1 + $CellContext`side}}], 4, 
+           $CellContext`newSquare[{{$CellContext`bx0, $CellContext`y1}, \
+{$CellContext`bx1, $CellContext`y1 + $CellContext`side}}]}], \
+$CellContext`nextSquare[{
+           $CellContext`bigRect[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]]}}], 4, 
+           $CellContext`newSquare[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]]}}]}] := 
+        With[{$CellContext`side = $CellContext`by1 - $CellContext`by0}, {
+           $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0}, \
+{$CellContext`bx1 + $CellContext`side, $CellContext`by1}}], 1, 
+           $CellContext`newSquare[{{$CellContext`x1, $CellContext`by0}, \
+{$CellContext`x1 + $CellContext`side, $CellContext`by1}}]}], \
+$CellContext`blockFigure[{
+           Blank[], 
+           Pattern[$CellContext`n, 
+            Blank[]], 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}, 
+          Pattern[$CellContext`op, 
+           Blank[]], 
+          Pattern[$CellContext`th, 
+           Blank[]]] := {{Black, 
+           Thickness[$CellContext`th], 
+           Switch[$CellContext`n, 1, 
+            
+            Line[{{$CellContext`x1, $CellContext`y1, $CellContext`z1}, \
+{$CellContext`x1, $CellContext`y0, $CellContext`z0}}], 2, 
+            
+            Line[{{$CellContext`x1, $CellContext`y0, $CellContext`z1}, \
+{$CellContext`x0, $CellContext`y0, $CellContext`z0}}], 3, 
+            
+            Line[{{$CellContext`x1, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x0, $CellContext`y1, $CellContext`z0}}], 4, 
+            
+            Line[{{$CellContext`x0, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x0, $CellContext`y1, $CellContext`z1}}], 5, 
+            
+            Line[{{$CellContext`x0, $CellContext`y1, $CellContext`z0}, \
+{$CellContext`x1, $CellContext`y1, $CellContext`z1}}], 6, 
+            
+            Line[{{$CellContext`x0, $CellContext`y1, $CellContext`z1}, \
+{$CellContext`x1, $CellContext`y0, $CellContext`z1}}]]}, {
+           Opacity[$CellContext`op], 
+           ColorData["Rainbow"][$CellContext`n/6.], 
+           
+           Cuboid[{{$CellContext`x0, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x1, $CellContext`y1, $CellContext`z1}}]}}, \
+$CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 1, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bx1 - \
+$CellContext`bx0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0 - $CellContext`side}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 2, 
+           $CellContext`newBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`z0 - $CellContext`side}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`z0}}]}], $CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 2, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0 - $CellContext`side, \
+$CellContext`by0, $CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 3, 
+           $CellContext`newBlock[{{$CellContext`x0 - $CellContext`side, \
+$CellContext`by0, $CellContext`bz0}, {$CellContext`x0, $CellContext`by1, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 3, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`bx1 - $CellContext`bx0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`by1 + $CellContext`side, \
+$CellContext`bz1}}], 4, 
+           $CellContext`newBlock[{{$CellContext`bx0, $CellContext`y1, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`y1 + $CellContext`side, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 4, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bx1 - \
+$CellContext`bx0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, $CellContext`bz1 + \
+$CellContext`side}}], 5, 
+           $CellContext`newBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`z1}, {$CellContext`bx1, $CellContext`by1, $CellContext`z1 + \
+$CellContext`side}}]}], $CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 5, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1 + $CellContext`side, $CellContext`by1, \
+$CellContext`bz1}}], 6, 
+           $CellContext`newBlock[{{$CellContext`x1, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`x1 + $CellContext`side, $CellContext`by1, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+           $CellContext`wholeBlock[{{
+              Pattern[$CellContext`bx0, 
+               Blank[]], 
+              Pattern[$CellContext`by0, 
+               Blank[]], 
+              Pattern[$CellContext`bz0, 
+               Blank[]]}, {
+              Pattern[$CellContext`bx1, 
+               Blank[]], 
+              Pattern[$CellContext`by1, 
+               Blank[]], 
+              Pattern[$CellContext`bz1, 
+               Blank[]]}}], 6, 
+           $CellContext`newBlock[{{
+              Pattern[$CellContext`x0, 
+               Blank[]], 
+              Pattern[$CellContext`y0, 
+               Blank[]], 
+              Pattern[$CellContext`z0, 
+               Blank[]]}, {
+              Pattern[$CellContext`x1, 
+               Blank[]], 
+              Pattern[$CellContext`y1, 
+               Blank[]], 
+              Pattern[$CellContext`z1, 
+               Blank[]]}}]}] := 
+        Module[{$CellContext`side = 
+           Min[{$CellContext`bx1 - $CellContext`bx0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+           $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0 - \
+$CellContext`side, $CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 1, 
+           $CellContext`newBlock[{{$CellContext`bx0, $CellContext`y0 - \
+$CellContext`side, $CellContext`bz0}, {$CellContext`bx1, $CellContext`y0, \
+$CellContext`bz1}}]}]}; Typeset`initDone$$ = True); ReleaseHold[
+       HoldComplete[{Null, $CellContext`nextSquare[{
+            $CellContext`bigRect[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]]}}], 1, 
+            $CellContext`newSquare[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]]}}]}] := 
+         With[{$CellContext`side = $CellContext`bx1 - $CellContext`bx0}, {
+            $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0 - \
+$CellContext`side}, {$CellContext`bx1, $CellContext`by1}}], 2, 
+            $CellContext`newSquare[{{$CellContext`bx0, $CellContext`y0 - \
+$CellContext`side}, {$CellContext`bx1, $CellContext`by0}}]}], \
+$CellContext`nextSquare[{
+            $CellContext`bigRect[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]]}}], 2, 
+            $CellContext`newSquare[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]]}}]}] := 
+         With[{$CellContext`side = $CellContext`by1 - $CellContext`by0}, {
+            $CellContext`bigRect[{{$CellContext`bx0 - $CellContext`side, \
+$CellContext`by0}, {$CellContext`bx1, $CellContext`by1}}], 3, 
+            $CellContext`newSquare[{{$CellContext`x0 - $CellContext`side, \
+$CellContext`by0}, {$CellContext`x0, $CellContext`by1}}]}], \
+$CellContext`nextSquare[{
+            $CellContext`bigRect[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]]}}], 3, 
+            $CellContext`newSquare[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]]}}]}] := 
+         With[{$CellContext`side = $CellContext`bx1 - $CellContext`bx0}, {
+            $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0}, \
+{$CellContext`bx1, $CellContext`by1 + $CellContext`side}}], 4, 
+            $CellContext`newSquare[{{$CellContext`bx0, $CellContext`y1}, \
+{$CellContext`bx1, $CellContext`y1 + $CellContext`side}}]}], \
+$CellContext`nextSquare[{
+            $CellContext`bigRect[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]]}}], 4, 
+            $CellContext`newSquare[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]]}}]}] := 
+         With[{$CellContext`side = $CellContext`by1 - $CellContext`by0}, {
+            $CellContext`bigRect[{{$CellContext`bx0, $CellContext`by0}, \
+{$CellContext`bx1 + $CellContext`side, $CellContext`by1}}], 1, 
+            $CellContext`newSquare[{{$CellContext`x1, $CellContext`by0}, \
+{$CellContext`x1 + $CellContext`side, $CellContext`by1}}]}], \
+$CellContext`squareFigure[{
+            Blank[], 
+            Pattern[$CellContext`n, 
+             Blank[]], 
+            $CellContext`newSquare[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]]}}]}, 
+           Pattern[$CellContext`op, 
+            Blank[]], 
+           Pattern[$CellContext`th, 
+            Blank[]]] := {{
+            EdgeForm[{Thin, Gray}], 
+            Opacity[$CellContext`op], 
+            ColorData["Rainbow"][$CellContext`n/4.], 
+            
+            Rectangle[{$CellContext`x0, $CellContext`y0}, {$CellContext`x1, \
+$CellContext`y1}]}, {Black, 
+            Thickness[$CellContext`th], 
+            Switch[$CellContext`n, 1, 
+             
+             Line[{{$CellContext`x0, $CellContext`y1}, {$CellContext`x1, \
+$CellContext`y0}}], 2, 
+             
+             Line[{{$CellContext`x1, $CellContext`y1}, {$CellContext`x0, \
+$CellContext`y0}}], 3, 
+             
+             Line[{{$CellContext`x1, $CellContext`y0}, {$CellContext`x0, \
+$CellContext`y1}}], 4, 
+             
+             Line[{{$CellContext`x0, $CellContext`y0}, {$CellContext`x1, \
+$CellContext`y1}}]]}}, Null, $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 1, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bx1 - \
+$CellContext`bx0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0 - $CellContext`side}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 2, 
+            $CellContext`newBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`z0 - $CellContext`side}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`z0}}]}], $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 2, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0 - $CellContext`side, \
+$CellContext`by0, $CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 3, 
+            $CellContext`newBlock[{{$CellContext`x0 - $CellContext`side, \
+$CellContext`by0, $CellContext`bz0}, {$CellContext`x0, $CellContext`by1, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 3, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`bx1 - $CellContext`bx0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`by1 + $CellContext`side, \
+$CellContext`bz1}}], 4, 
+            $CellContext`newBlock[{{$CellContext`bx0, $CellContext`y1, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`y1 + $CellContext`side, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 4, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bx1 - \
+$CellContext`bx0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, $CellContext`bz1 + \
+$CellContext`side}}], 5, 
+            $CellContext`newBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`z1}, {$CellContext`bx1, $CellContext`by1, $CellContext`z1 + \
+$CellContext`side}}]}], $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 5, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`by1 - $CellContext`by0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`bx1 + $CellContext`side, $CellContext`by1, \
+$CellContext`bz1}}], 6, 
+            $CellContext`newBlock[{{$CellContext`x1, $CellContext`by0, \
+$CellContext`bz0}, {$CellContext`x1 + $CellContext`side, $CellContext`by1, \
+$CellContext`bz1}}]}], $CellContext`nextBlock[{
+            $CellContext`wholeBlock[{{
+               Pattern[$CellContext`bx0, 
+                Blank[]], 
+               Pattern[$CellContext`by0, 
+                Blank[]], 
+               Pattern[$CellContext`bz0, 
+                Blank[]]}, {
+               Pattern[$CellContext`bx1, 
+                Blank[]], 
+               Pattern[$CellContext`by1, 
+                Blank[]], 
+               Pattern[$CellContext`bz1, 
+                Blank[]]}}], 6, 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}] := 
+         Module[{$CellContext`side = 
+            Min[{$CellContext`bx1 - $CellContext`bx0, $CellContext`bz1 - \
+$CellContext`bz0}]}, {
+            $CellContext`wholeBlock[{{$CellContext`bx0, $CellContext`by0 - \
+$CellContext`side, $CellContext`bz0}, {$CellContext`bx1, $CellContext`by1, \
+$CellContext`bz1}}], 1, 
+            $CellContext`newBlock[{{$CellContext`bx0, $CellContext`y0 - \
+$CellContext`side, $CellContext`bz0}, {$CellContext`bx1, $CellContext`y0, \
+$CellContext`bz1}}]}], $CellContext`blockFigure[{
+            Blank[], 
+            Pattern[$CellContext`n, 
+             Blank[]], 
+            $CellContext`newBlock[{{
+               Pattern[$CellContext`x0, 
+                Blank[]], 
+               Pattern[$CellContext`y0, 
+                Blank[]], 
+               Pattern[$CellContext`z0, 
+                Blank[]]}, {
+               Pattern[$CellContext`x1, 
+                Blank[]], 
+               Pattern[$CellContext`y1, 
+                Blank[]], 
+               Pattern[$CellContext`z1, 
+                Blank[]]}}]}, 
+           Pattern[$CellContext`op, 
+            Blank[]], 
+           Pattern[$CellContext`th, 
+            Blank[]]] := {{Black, 
+            Thickness[$CellContext`th], 
+            Switch[$CellContext`n, 1, 
+             
+             Line[{{$CellContext`x1, $CellContext`y1, $CellContext`z1}, \
+{$CellContext`x1, $CellContext`y0, $CellContext`z0}}], 2, 
+             
+             Line[{{$CellContext`x1, $CellContext`y0, $CellContext`z1}, \
+{$CellContext`x0, $CellContext`y0, $CellContext`z0}}], 3, 
+             
+             Line[{{$CellContext`x1, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x0, $CellContext`y1, $CellContext`z0}}], 4, 
+             
+             Line[{{$CellContext`x0, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x0, $CellContext`y1, $CellContext`z1}}], 5, 
+             
+             Line[{{$CellContext`x0, $CellContext`y1, $CellContext`z0}, \
+{$CellContext`x1, $CellContext`y1, $CellContext`z1}}], 6, 
+             
+             Line[{{$CellContext`x0, $CellContext`y1, $CellContext`z1}, \
+{$CellContext`x1, $CellContext`y0, $CellContext`z1}}]]}, {
+            Opacity[$CellContext`op], 
+            ColorData["Rainbow"][$CellContext`n/6.], 
+            
+            Cuboid[{{$CellContext`x0, $CellContext`y0, $CellContext`z0}, \
+{$CellContext`x1, $CellContext`y1, $CellContext`z1}}]}}, \
+$CellContext`wholeBlockDims[
+           $CellContext`wholeBlock[{
+             Pattern[$CellContext`B0, 
+              Blank[List]], 
+             Pattern[$CellContext`B1, 
+              Blank[List]]}]] := 
+         With[{$CellContext`dims = Sort[$CellContext`B1 - $CellContext`B0]}, 
+           StringForm["large box dimensions are ``\[Times]``\[Times]``", 
+            Part[$CellContext`dims, 1], 
+            Part[$CellContext`dims, 2], 
+            Part[$CellContext`dims, 3]]]}]]; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->133125082],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "In two dimensions, start with two vertically adjacent ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "\[Times]", "1"}], TraditionalForm]], "InlineMath"],
+ " squares. Next, draw a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", "\[Times]", "2"}], TraditionalForm]], "InlineMath"],
+ " square to the left of the figure, creating a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"2", "\[Times]", "3"}], TraditionalForm]], "InlineMath"],
+ " rectangle. Repeat the process by placing a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"3", "\[Times]", "3"}], TraditionalForm]], "InlineMath"],
+ " square above the rectangle, then a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"5", "\[Times]", "5"}], TraditionalForm]], "InlineMath"],
+ " square to the right of the resulting rectangle, and so on, continuing \
+around the figure, placing a square with side length matching the current \
+edge of the figure. At each stage, the rectangle lengths ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   "1", ",", "1", ",", "2", ",", "3", ",", "5", ",", "8", ",", "13", ",", 
+    "\[Ellipsis]"}], TraditionalForm]], "InlineMath"],
+ " are the Fibonacci numbers, which can be calculated recursively using the \
+relation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "n", ")"}], "=", 
+    RowBox[{
+     RowBox[{"f", "(", 
+      RowBox[{"n", "-", "1"}], ")"}], "+", 
+     RowBox[{"f", "(", 
+      RowBox[{"n", "-", "2"}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ " with initial conditions ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "1", ")"}], "=", 
+    RowBox[{
+     RowBox[{"f", "(", "2", ")"}], "=", "1"}]}], TraditionalForm]], 
+  "InlineMath"],
+ ". The rectangles approximate the golden rectangle, and one can connect \
+opposite corners of each new square to approximate the golden spiral."
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[TextData[{
+ "A similar process can be carried out in three dimensions, beginning with \
+two ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "\[Times]", "1"}], TraditionalForm]], "InlineMath"],
+ " cubes: continue around the figure, repeatedly placing cuboids to the left, \
+back, top, right, front, and bottom of the resulting figure. At each stage, \
+the large cuboid sides form a sequence called Padovan's spiral numbers, and \
+connecting corners of one side of each new block creates an approximation to \
+a logarithmic spiral. The sequence begins with the terms ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+   "1", ",", "1", ",", "1", ",", "2", ",", "2", ",", "3", ",", "4", ",", "5", 
+    ",", "7", ",", "9", ",", "12", ",", "16", ",", "21", ",", "28", ",", "37",
+     ",", "49", ",", "65", ",", "86", ",", "114", ",", "\[Ellipsis]"}], 
+   TraditionalForm]], "InlineMath"],
+ "; terms can be computed recursively using the relation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", "n", ")"}], "=", 
+    RowBox[{
+     RowBox[{"p", "(", 
+      RowBox[{"n", "-", "2"}], ")"}], "+", 
+     RowBox[{"p", "(", 
+      RowBox[{"n", "-", "3"}], ")"}]}]}], TraditionalForm]], "InlineMath"],
+ ", with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", "1", ")"}], "=", 
+    RowBox[{
+     RowBox[{"p", "(", "2", ")"}], "=", 
+     RowBox[{
+      RowBox[{"p", "(", "3", ")"}], "=", "1"}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Details", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[TextData[{
+ "Snapshots 1 and 2: just as the ratios of each rectangle's sides approach \
+the golden ratio ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Phi]", "\[TildeTilde]", "1.61803"}], TraditionalForm]], 
+  "InlineMath"],
+ ", the ratios of successive long cuboid sides approach a constant ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Psi]", "\[TildeTilde]", "1.32472"}], TraditionalForm]], 
+  "InlineMath"]
+}], "Text"],
+
+Cell["\<\
+Snapshot 3: both the 2D and 3D spirals maintain a similar \"shape\" at \
+different scales\
+\>", "Text"],
+
+Cell["References", "Text"],
+
+Cell[TextData[{
+ "[1] M. Gardner, ",
+ StyleBox["The Second Scientific American Book of Mathematical Puzzles and \
+Diversions",
+  FontSlant->"Italic"],
+ ", Chicago: The University of Chicago Press, 1987, p.\[NonBreakingSpace]93."
+}], "Text"],
+
+Cell[TextData[{
+ "[2] N. J. A. Sloane: A134816 in the Online Encyclopedia of Integer \
+Sequences. ",
+ ButtonBox["http://www.research.att.com/~njas/sequences/A134816",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.research.att.com/~njas/sequences/A134816"], None},
+  ButtonNote->"http://www.research.att.com/~njas/sequences/A134816"],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "[3] I. Stewart, ",
+ StyleBox["Math Hysteria: Fun and Games with Mathematics",
+  FontSlant->"Italic"],
+ ", New York: Oxford University Press, 2004, \
+pp.\[NonBreakingSpace]87\[Dash]92."
+}], "Text"],
+
+Cell[TextData[{
+ "[4] S. R. Finch, ",
+ StyleBox["Mathematical Constants",
+  FontSlant->"Italic"],
+ ", New York: Cambridge University Press, 2003, \
+pp.\[NonBreakingSpace]6\[Dash]9."
+}], "Text"]
+}, Close]],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Padovan's Spiral Numbers",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PadovansSpiralNumbers/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PadovansSpiralNumbers/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/PadovansSpiralNumbers/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PadovansSpiralNumbers/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/PadovansSpiralNumbers/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Robert Dickau",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Robert+Dickau"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Robert+Dickau"]
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PadovansSpiralNumbers"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Padovan's Spiral Numbers - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[614, 23, 216, 4, 70, "Section"],
+Cell[833, 29, 236, 6, 70, "Input",
+ InitializationCell->True,
+ CellID->130294894],
+Cell[1072, 37, 2186, 57, 70, "Input",
+ InitializationCell->True,
+ CellID->552643247],
+Cell[3261, 96, 2021, 55, 70, "Input",
+ InitializationCell->True,
+ CellID->333029554],
+Cell[5285, 153, 2030, 55, 70, "Input",
+ InitializationCell->True,
+ CellID->770837669],
+Cell[7318, 210, 2399, 60, 70, "Input",
+ InitializationCell->True,
+ CellID->425238465],
+Cell[9720, 272, 3197, 81, 70, "Input",
+ InitializationCell->True,
+ CellID->101247739],
+Cell[12920, 355, 234, 6, 70, "Input",
+ InitializationCell->True,
+ CellID->1210829],
+Cell[13157, 363, 1790, 54, 70, "Input",
+ InitializationCell->True,
+ CellID->464329591],
+Cell[14950, 419, 1772, 54, 70, "Input",
+ InitializationCell->True,
+ CellID->190301056],
+Cell[16725, 475, 1763, 53, 70, "Input",
+ InitializationCell->True,
+ CellID->373933912],
+Cell[18491, 530, 1786, 54, 70, "Input",
+ InitializationCell->True,
+ CellID->309442704],
+Cell[20280, 586, 1767, 53, 70, "Input",
+ InitializationCell->True,
+ CellID->534395227],
+Cell[22050, 641, 1762, 53, 70, "Input",
+ InitializationCell->True,
+ CellID->299278641],
+Cell[23815, 696, 3020, 84, 70, "Input",
+ InitializationCell->True,
+ CellID->5659208],
+Cell[26838, 782, 833, 23, 70, "Input",
+ InitializationCell->True,
+ CellID->126627080],
+Cell[27674, 807, 3998, 104, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31709, 916, 35339, 855, 70, "Output",
+ CellID->133125082],
+Cell[CellGroupData[{
+Cell[67073, 1775, 199, 4, 70, "Section"],
+Cell[67275, 1781, 1811, 50, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[69112, 1835, 1458, 39, 70, "Text"],
+Cell[CellGroupData[{
+Cell[70595, 1878, 199, 4, 70, "Section"],
+Cell[70797, 1884, 421, 12, 70, "Text"],
+Cell[71221, 1898, 113, 3, 70, "Text"],
+Cell[71337, 1903, 26, 0, 70, "Text"],
+Cell[71366, 1905, 240, 6, 70, "Text"],
+Cell[71609, 1913, 366, 9, 70, "Text"],
+Cell[71978, 1924, 214, 6, 70, "Text"],
+Cell[72195, 1932, 193, 6, 70, "Text"]
+}, Close]],
+Cell[CellGroupData[{
+Cell[72424, 1943, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[72800, 1954, 906, 24, 70, "Text"],
+Cell[73709, 1980, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[74049, 1991, 436, 14, 70, "Text"],
+Cell[CellGroupData[{
+Cell[74510, 2009, 847, 24, 70, "Text"],
+Cell[75360, 2035, 1197, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature AQztKjI6uvJyNDpTse6qwp0B *)

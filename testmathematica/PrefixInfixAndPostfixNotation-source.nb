@@ -1,0 +1,920 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     37473,        910]
+NotebookOptionsPosition[     36171,        862]
+NotebookOutlinePosition[     36799,        886]
+CellTagsIndexPosition[     36756,        883]
+WindowTitle->Prefix, Infix, and Postfix Notation - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Prefix, Infix, and Postfix Notation", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Switch", "[", 
+     RowBox[{"exp", ",", "\[IndentingNewLine]", "1", ",", 
+      RowBox[{
+       RowBox[{"tree", "=", "tree1"}], ";", 
+       RowBox[{"vLabels", "=", "vertexLabels1"}], ";", 
+       RowBox[{"expression", "=", "expression1"}]}], ",", 
+      "\[IndentingNewLine]", "2", ",", 
+      RowBox[{
+       RowBox[{"tree", "=", "tree2"}], ";", 
+       RowBox[{"vLabels", "=", "vertexLabels2"}], ";", 
+       RowBox[{"expression", "=", "expression2"}]}], ",", 
+      "\[IndentingNewLine]", "3", ",", 
+      RowBox[{
+       RowBox[{"tree", "=", "tree3"}], ";", 
+       RowBox[{"vLabels", "=", "vertexLabels3"}], ";", 
+       RowBox[{"expression", "=", "expression3"}]}], ",", 
+      "\[IndentingNewLine]", "4", ",", 
+      RowBox[{
+       RowBox[{"tree", "=", "tree4"}], ";", 
+       RowBox[{"vLabels", "=", "vertexLabels4"}], ";", 
+       RowBox[{"expression", "=", "expression4"}]}], ",", 
+      "\[IndentingNewLine]", "5", ",", 
+      RowBox[{
+       RowBox[{"tree", "=", "tree5"}], ";", 
+       RowBox[{"vLabels", "=", "vertexLabels5"}], ";", 
+       RowBox[{"expression", "=", "expression5"}]}]}], "\[IndentingNewLine]", 
+     "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"preForm", "=", 
+     RowBox[{
+      RowBox[{"Combinatorica`DepthFirstTraversal", "[", 
+       RowBox[{"tree", ",", "1"}], "]"}], "/.", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"i", "\[Rule]", 
+         RowBox[{"vLabels", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "vLabels", "]"}]}], "}"}]}], "]"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"While", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", "preForm", "]"}], ">", "3"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"partitionedPreForm", "=", 
+        RowBox[{"intoThrees", "[", "preForm", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"locations", "=", 
+        RowBox[{"prefixFormPositions", "[", "partitionedPreForm", "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"len", "=", 
+        RowBox[{"Length", "[", "locations", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"grouper", "=", 
+        RowBox[{
+         RowBox[{"Drop", "[", 
+          RowBox[{
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{
+              RowBox[{"locations", "[", 
+               RowBox[{"[", 
+                RowBox[{"-", "1"}], "]"}], "]"}], "\[Rule]", "  ", 
+              RowBox[{"partitionedPreForm", "[", 
+               RowBox[{"[", 
+                RowBox[{"locations", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"-", "1"}], "]"}], "]"}], "]"}], "]"}]}]}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"locations", "[", 
+               RowBox[{"[", 
+                RowBox[{"-", "1"}], "]"}], "]"}], "+", "1"}], ",", 
+             RowBox[{
+              RowBox[{"locations", "[", 
+               RowBox[{"[", 
+                RowBox[{"-", "1"}], "]"}], "]"}], "+", "2"}]}], "}"}]}], 
+          "]"}], "&"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"k", "=", "1"}], ",", 
+         RowBox[{"k", "\[LessEqual]", "len"}], ",", 
+         RowBox[{"k", "++"}], ",", 
+         RowBox[{
+          RowBox[{"preForm", "=", 
+           RowBox[{"grouper", "[", "preForm", "]"}]}], ";", 
+          RowBox[{"locations", "=", 
+           RowBox[{"Drop", "[", 
+            RowBox[{"locations", ",", 
+             RowBox[{"-", "1"}]}], "]"}]}]}]}], "]"}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"postForm", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"rotator", ",", "preForm", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "Infinity"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"inForm", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"swapper", ",", "preForm", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "Infinity"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"prefixDisplay", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"Text", "@", 
+        RowBox[{"StringReplace", "[", 
+         RowBox[{
+          RowBox[{"ToString", "[", "preForm", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<{\>\"", "\[Rule]", "\"\<\>\""}], ",", 
+            RowBox[{"\"\<,\>\"", "\[Rule]", "\"\<\>\""}], ",", 
+            RowBox[{"\"\<}\>\"", "\[Rule]", "\"\<\>\""}]}], "}"}]}], "]"}]}], 
+       ",", "24"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"postfixDisplay", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"Text", "@", 
+        RowBox[{"StringReplace", "[", 
+         RowBox[{
+          RowBox[{"ToString", "[", "postForm", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<{\>\"", "\[Rule]", "\"\<\>\""}], ",", 
+            RowBox[{"\"\<,\>\"", "\[Rule]", "\"\<\>\""}], ",", 
+            RowBox[{"\"\<}\>\"", "\[Rule]", "\"\<\>\""}]}], "}"}]}], "]"}]}], 
+       ",", "24"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"infixDisplay", "=", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"Text", "@", 
+        RowBox[{"StringDrop", "[", 
+         RowBox[{
+          RowBox[{"StringDrop", "[", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{
+              RowBox[{"ToString", "[", "inForm", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<{\>\"", "\[Rule]", "\"\<(\>\""}], ",", 
+                RowBox[{"\"\<,\>\"", "\[Rule]", "\"\<\>\""}], ",", 
+                RowBox[{"\"\<}\>\"", "\[Rule]", "\"\<)\>\""}]}], "}"}]}], 
+             "]"}], ",", "1"}], "]"}], ",", 
+          RowBox[{"-", "1"}]}], "]"}]}], ",", "24"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Switch", "[", 
+     RowBox[{"not", ",", "\[IndentingNewLine]", "1", ",", 
+      RowBox[{
+       RowBox[{"display", "=", 
+        RowBox[{"Invisible", "[", "prefixDisplay", "]"}]}], ";", 
+       RowBox[{"form", "=", 
+        RowBox[{"Invisible", "[", "\"\<prefix\>\"", "]"}]}]}], ",", 
+      "\[IndentingNewLine]", "2", ",", 
+      RowBox[{
+       RowBox[{"display", "=", "prefixDisplay"}], ";", " ", 
+       RowBox[{"form", "=", " ", "\"\<prefix\>\""}]}], ",", 
+      "\[IndentingNewLine]", "3", ",", 
+      RowBox[{
+       RowBox[{"display", "=", "infixDisplay"}], ";", " ", 
+       RowBox[{"form", "=", " ", "\"\<infix\>\""}]}], ",", 
+      "\[IndentingNewLine]", "4", ",", 
+      RowBox[{
+       RowBox[{"display", "=", "postfixDisplay"}], ";", 
+       RowBox[{"form", "=", "\"\<postfix\>\""}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Column", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"TreePlot", "[", 
+        RowBox[{"tree", ",", 
+         RowBox[{"VertexRenderingFunction", "\[Rule]", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"White", ",", 
+              RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+              RowBox[{"Disk", "[", 
+               RowBox[{"#", ",", ".16"}], "]"}], ",", "Black", ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{
+                RowBox[{"Text", "[", 
+                 RowBox[{
+                  RowBox[{"vLabels", "[", 
+                   RowBox[{"[", "#2", "]"}], "]"}], ",", "#1"}], "]"}], ",", 
+                "16"}], "]"}]}], "}"}], "&"}], ")"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"400", ",", 
+            RowBox[{"50", "*", 
+             RowBox[{"Depth", "[", "expression", "]"}]}]}], "}"}]}]}], "]"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"Column", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"not", "\[Equal]", "1"}], ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Text", "@", 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", "\"\<\>\"", "}"}], "]"}]}], ",", "24"}], "]"}], 
+             ",", 
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Text", "@", 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                  "\"\<The \>\"", ",", "form", ",", 
+                   "\"\< form for the expression is\>\""}], "}"}], "]"}]}], 
+               ",", "24"}], "]"}]}], "]"}], ",", "\[IndentingNewLine]", 
+           "\"\<\>\"", ",", "\[IndentingNewLine]", "display"}], 
+          "\[IndentingNewLine]", "}"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}], "       ", 
+      "}"}], "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"exp", ",", "1", ",", "\"\<expression\>\""}], "}"}], ",", 
+     RowBox[{"Dynamic", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "\[Rule]", "expression1"}], ",", 
+         RowBox[{"2", "\[Rule]", "expression2"}], ",", 
+         RowBox[{"3", "\[Rule]", "expression3"}], ",", 
+         RowBox[{"4", "\[Rule]", "expression4"}], ",", 
+         RowBox[{"5", "\[Rule]", "expression5"}]}], "}"}], ",", 
+       RowBox[{"SynchronousUpdating", "\[Rule]", "False"}]}], "]"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "PopupMenu"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"not", ",", "1", ",", "\"\<notation\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<none\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<prefix\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<infix\>\""}], ",", 
+       RowBox[{"4", "\[Rule]", "\"\<postfix\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "RadioButtonBar"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"form", ",", "\"\<prefix\>\""}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ContentSize", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"420", ",", "450"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SynchronousInitialization", "\[Rule]", "False"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Get", "[", "\"\<Combinatorica`\>\"", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"ops", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<+\>\"", ",", "\"\<-\>\"", ",", "\"\<\[Divide]\>\"", ",", 
+         "\"\<\[Times]\>\"", ",", "\"\<^\>\""}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vertexStyler", "=", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"#", ",", "18"}], "]"}], "&"}]}], ";", "\[IndentingNewLine]",
+       "\[IndentingNewLine]", 
+      RowBox[{"tree1", "=", 
+       RowBox[{"Combinatorica`CompleteBinaryTree", "[", "3", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vertexLabels1", "=", 
+       RowBox[{"{", 
+        RowBox[{"\"\<+\>\"", ",", "\"\<4\>\"", ",", "\"\<3\>\""}], "}"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"expression1", "=", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{"4", "+", "3"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tree2", "=", 
+       RowBox[{"Combinatorica`CompleteBinaryTree", "[", "5", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vertexLabels2", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<+\>\"", ",", "\"\<\[Times]\>\"", ",", "\"\<3\>\"", ",", 
+         "\"\<4\>\"", ",", "\"\<8\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"expression2", "=", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{
+         RowBox[{"4", "\[Times]", "8"}], "+", "3"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tree3", "=", 
+       RowBox[{"Combinatorica`DeleteVertices", "[", 
+        RowBox[{
+         RowBox[{"Combinatorica`CompleteBinaryTree", "[", "7", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "5"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vertexLabels3", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\[Times]\>\"", ",", "\"\<4\>\"", ",", "\"\<+\>\"", ",", 
+         "\"\<8\>\"", ",", "\"\<3\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"expression3", "=", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{"4", "\[Times]", 
+         RowBox[{"(", 
+          RowBox[{"8", "+", "3"}], ")"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"tree4", "=", 
+       RowBox[{"Combinatorica`DeleteVertices", "[", 
+        RowBox[{
+         RowBox[{"Combinatorica`CompleteBinaryTree", "[", "11", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "9"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vertexLabels4", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<+\>\"", ",", "\"\<\[Divide]\>\"", ",", "\"\<^\>\"", ",", 
+         "\"\<4\>\"", ",", "\"\<+\>\"", ",", "\"\<5\>\"", ",", "\"\<9\>\"", 
+         ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<7\>\""}], "}"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"expression4", "=", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"4", "\[Divide]", 
+           RowBox[{"(", 
+            RowBox[{"3", "+", "6"}], ")"}]}], ")"}], "+", 
+         SuperscriptBox["5", "9"]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tree5", "=", 
+       RowBox[{"Combinatorica`DeleteVertices", "[", 
+        RowBox[{
+         RowBox[{"Combinatorica`CompleteBinaryTree", "[", "31", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "8", ",", "9", ",", "16", ",", "17", ",", "18", ",", "19", ",", 
+           "22", ",", "23", ",", "12", ",", "13", ",", "24", ",", "25", ",", 
+           "26", ",", "27", ",", "28", ",", "29", ",", "30", ",", "31"}], 
+          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"vertexLabels5", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\[Times]\>\"", ",", "\"\<+\>\"", ",", "\"\<-\>\"", ",", 
+         "\"\<7\>\"", ",", "\"\<^\>\"", ",", "\"\<4\>\"", ",", 
+         "\"\<\[Divide]\>\"", ",", "\"\<\[Times]\>\"", ",", "\"\<5\>\"", ",", 
+         "\"\<8\>\"", ",", "\"\<3\>\"", ",", "\"\<6\>\"", ",", "\"\<2\>\"", 
+         ",", "\"\<9\>\""}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"expression5", "=", 
+       RowBox[{"HoldForm", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"7", "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"6", "\[Times]", "2"}], ")"}], "5"]}], ")"}], "\[Times]", 
+         RowBox[{"(", 
+          RowBox[{"4", "-", 
+           RowBox[{"(", 
+            RowBox[{"8", "\[Divide]", "3"}], ")"}]}], ")"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"intoThrees", "=", 
+       RowBox[{
+        RowBox[{"Partition", "[", 
+         RowBox[{"#", ",", "3", ",", "1"}], "]"}], "&"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"prefixForm", "=", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MemberQ", "[", 
+           RowBox[{"ops", ",", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "#", "]"}]}], "}"}]}], "]"}], "&"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"prefixFormPositions", "=", 
+       RowBox[{
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Position", "[", 
+          RowBox[{
+           RowBox[{"prefixForm", "/@", "#"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"True", ",", "False", ",", "False"}], "}"}]}], "]"}], 
+         "]"}], "&"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"rotator", "=", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "#", "]"}], "\[Equal]", "3"}], ",", 
+          RowBox[{"RotateLeft", "[", "#", "]"}], ",", "#"}], "]"}], "&"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"swapper", "=", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Length", "[", "#", "]"}], "\[Equal]", "3"}], ",", 
+          RowBox[{"Drop", "[", 
+           RowBox[{
+            RowBox[{"Prepend", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], "   ", "]"}], ",", 
+            RowBox[{"{", "3", "}"}]}], "]"}], ",", "#"}], "]"}], "&"}]}]}], 
+     ")"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.488307262453125*^9, 3.488307266578125*^9}, {
+   3.48830769446875*^9, 3.488307733359375*^9}, {3.488308584578125*^9, 
+   3.488308601578125*^9}, {3.488308644625*^9, 3.488308655796875*^9}, {
+   3.488308839609375*^9, 3.488308887609375*^9}, {3.488308944375*^9, 
+   3.48830896109375*^9}, {3.488309021484375*^9, 3.48830907171875*^9}, {
+   3.4883091618125*^9, 3.48830916265625*^9}, {3.488309439625*^9, 
+   3.488309445875*^9}, {3.488309485375*^9, 3.488309543015625*^9}, {
+   3.488309617109375*^9, 3.48830964353125*^9}, {3.48831007278125*^9, 
+   3.48831013434375*^9}, {3.488481515203125*^9, 3.488481614203125*^9}, {
+   3.488481977859375*^9, 3.48848198378125*^9}, {3.488482027390625*^9, 
+   3.488482053140625*^9}, {3.488482084890625*^9, 3.48848218578125*^9}, 
+   3.488482279015625*^9, {3.48848238628125*^9, 3.488482454421875*^9}, {
+   3.48848994203125*^9, 3.488489978578125*^9}, {3.48849002278125*^9, 
+   3.48849006034375*^9}, {3.488492203375*^9, 3.488492262234375*^9}, {
+   3.48849255690625*^9, 3.4884926456875*^9}, {3.488492830890625*^9, 
+   3.48849287434375*^9}, {3.48849296559375*^9, 3.488492993828125*^9}, 
+   3.488547561828125*^9, {3.488547636640625*^9, 3.488547739671875*^9}, {
+   3.488547771765625*^9, 3.48854778725*^9}, {3.488547824390625*^9, 
+   3.4885478350625*^9}, {3.488551434625*^9, 3.488551719578125*^9}, {
+   3.48855175059375*^9, 3.488551778890625*^9}, {3.488551893171875*^9, 
+   3.488551919546875*^9}, {3.488551958859375*^9, 3.488551967015625*^9}, {
+   3.488552012765625*^9, 3.488552026203125*^9}, {3.48855227346875*^9, 
+   3.48855230353125*^9}, 3.48855234503125*^9, {3.4885523845*^9, 
+   3.488552473390625*^9}, {3.48855269390625*^9, 3.488553026203125*^9}, {
+   3.488553088328125*^9, 3.488553128625*^9}, {3.48855324353125*^9, 
+   3.488553280421875*^9}, {3.48855342084375*^9, 3.488553459125*^9}, {
+   3.4885535505625*^9, 3.488553553015625*^9}, {3.488553835609375*^9, 
+   3.488553906234375*^9}, {3.488553938421875*^9, 3.48855406771875*^9}, {
+   3.488554108828125*^9, 3.488554171046875*^9}, {3.488554216109375*^9, 
+   3.488554234078125*^9}, {3.488554289484375*^9, 3.488554289984375*^9}, {
+   3.48855433459375*^9, 3.488554422390625*^9}, {3.48855475109375*^9, 
+   3.488554757765625*^9}, {3.48855490609375*^9, 3.488554937203125*^9}, {
+   3.48855500275*^9, 3.488555007015625*^9}, {3.488555113578125*^9, 
+   3.488555145*^9}, {3.488555398765625*^9, 3.488555419234375*^9}, 
+   3.48855559590625*^9, {3.48855570934375*^9, 3.488555730390625*^9}, {
+   3.488561296203125*^9, 3.48856131084375*^9}, 3.488561350734375*^9, {
+   3.488561409671875*^9, 3.488561522046875*^9}, {3.488561554703125*^9, 
+   3.4885615680625*^9}, {3.488561716921875*^9, 3.48856172571875*^9}, {
+   3.488561817984375*^9, 3.48856183671875*^9}, {3.4885618724375*^9, 
+   3.488561898765625*^9}, {3.488561936359375*^9, 3.488561951484375*^9}, {
+   3.48856198953125*^9, 3.488562088453125*^9}, {3.488562126265625*^9, 
+   3.4885624050625*^9}, {3.48856252778125*^9, 3.4885625649375*^9}, {
+   3.488562756921875*^9, 3.48856283171875*^9}, {3.488562885765625*^9, 
+   3.488562900515625*^9}, {3.4885629631875*^9, 3.4885629659375*^9}, {
+   3.488563214359375*^9, 3.4885632474375*^9}, {3.488563279390625*^9, 
+   3.48856329396875*^9}, {3.488563376125*^9, 3.488563376984375*^9}, {
+   3.488563646953125*^9, 3.48856365359375*^9}, {3.48856390978125*^9, 
+   3.48856391003125*^9}, {3.4885648836875*^9, 3.488564931578125*^9}, {
+   3.48856496509375*^9, 3.488564967328125*^9}, {3.488565159296875*^9, 
+   3.48856516190625*^9}, {3.4885652506875*^9, 3.488565320953125*^9}, {
+   3.488628299233159*^9, 3.488628311135777*^9}, {3.4886284110837607`*^9, 
+   3.488628412959173*^9}, {3.4886284564987497`*^9, 3.4886284780381756`*^9}, {
+   3.4886285086962414`*^9, 3.4886285750338745`*^9}},
+ CellID->279150542]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`exp$$ = 1, $CellContext`form$$ = Invisible[
+    "prefix"], $CellContext`not$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`exp$$], 1, "expression"}, 
+      Dynamic[{
+       1 -> $CellContext`expression1, 2 -> $CellContext`expression2, 
+        3 -> $CellContext`expression3, 4 -> $CellContext`expression4, 
+        5 -> $CellContext`expression5}, SynchronousUpdating -> False]}, {{
+       Hold[$CellContext`not$$], 1, "notation"}, {
+      1 -> "none", 2 -> "prefix", 3 -> "infix", 4 -> "postfix"}}, {{
+       Hold[$CellContext`form$$], 
+       Invisible["prefix"]}}}, Typeset`size$$ = Automatic, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`not$215499$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`exp$$ = 1, $CellContext`form$$ = 
+        Invisible["prefix"], $CellContext`not$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`not$$, $CellContext`not$215499$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> (
+       Switch[$CellContext`exp$$, 
+         1, $CellContext`tree = $CellContext`tree1; $CellContext`vLabels = \
+$CellContext`vertexLabels1; $CellContext`expression = \
+$CellContext`expression1, 
+         2, $CellContext`tree = $CellContext`tree2; $CellContext`vLabels = \
+$CellContext`vertexLabels2; $CellContext`expression = \
+$CellContext`expression2, 
+         3, $CellContext`tree = $CellContext`tree3; $CellContext`vLabels = \
+$CellContext`vertexLabels3; $CellContext`expression = \
+$CellContext`expression3, 
+         4, $CellContext`tree = $CellContext`tree4; $CellContext`vLabels = \
+$CellContext`vertexLabels4; $CellContext`expression = \
+$CellContext`expression4, 
+         5, $CellContext`tree = $CellContext`tree5; $CellContext`vLabels = \
+$CellContext`vertexLabels5; $CellContext`expression = \
+$CellContext`expression5]; $CellContext`preForm = ReplaceAll[
+          Combinatorica`DepthFirstTraversal[$CellContext`tree, 1], 
+          
+          Table[$CellContext`i -> 
+           Part[$CellContext`vLabels, $CellContext`i], {$CellContext`i, 1, 
+            Length[$CellContext`vLabels]}]]; 
+       While[Length[$CellContext`preForm] > 
+         3, $CellContext`partitionedPreForm = \
+$CellContext`intoThrees[$CellContext`preForm]; $CellContext`locations = \
+$CellContext`prefixFormPositions[$CellContext`partitionedPreForm]; \
+$CellContext`len = Length[$CellContext`locations]; $CellContext`grouper = Drop[
+            
+            ReplacePart[#, Part[$CellContext`locations, -1] -> 
+             Part[$CellContext`partitionedPreForm, 
+               Part[$CellContext`locations, -1]]], {
+            Part[$CellContext`locations, -1] + 1, 
+             Part[$CellContext`locations, -1] + 2}]& ; 
+         For[$CellContext`k = 1, $CellContext`k <= $CellContext`len, 
+           
+           Increment[$CellContext`k], $CellContext`preForm = \
+$CellContext`grouper[$CellContext`preForm]; $CellContext`locations = 
+            Drop[$CellContext`locations, -1]]]; $CellContext`postForm = 
+        Map[$CellContext`rotator, $CellContext`preForm, {
+          0, Infinity}]; $CellContext`inForm = 
+        Map[$CellContext`swapper, $CellContext`preForm, {
+          0, Infinity}]; $CellContext`prefixDisplay = Style[
+          Text[
+           StringReplace[
+            ToString[$CellContext`preForm], {
+            "{" -> "", "," -> "", "}" -> ""}]], 
+          24]; $CellContext`postfixDisplay = Style[
+          Text[
+           StringReplace[
+            ToString[$CellContext`postForm], {
+            "{" -> "", "," -> "", "}" -> ""}]], 
+          24]; $CellContext`infixDisplay = Style[
+          Text[
+           StringDrop[
+            StringDrop[
+             StringReplace[
+              ToString[$CellContext`inForm], {
+              "{" -> "(", "," -> "", "}" -> ")"}], 1], -1]], 24]; 
+       Switch[$CellContext`not$$, 
+         1, $CellContext`display = 
+          Invisible[$CellContext`prefixDisplay]; $CellContext`form$$ = 
+          Invisible["prefix"], 
+         2, $CellContext`display = $CellContext`prefixDisplay; \
+$CellContext`form$$ = "prefix", 
+         3, $CellContext`display = $CellContext`infixDisplay; \
+$CellContext`form$$ = "infix", 
+         4, $CellContext`display = $CellContext`postfixDisplay; \
+$CellContext`form$$ = "postfix"]; Column[{
+          TreePlot[$CellContext`tree, VertexRenderingFunction -> ({White, 
+             EdgeForm[Black], 
+             Disk[#, 0.16], Black, 
+             Style[
+              Text[
+               Part[$CellContext`vLabels, #2], #], 16]}& ), 
+           ImageSize -> {400, 50 Depth[$CellContext`expression]}], 
+          Column[{
+            If[$CellContext`not$$ == 1, 
+             Style[
+              Text[
+               Row[{""}]], 24], 
+             Style[
+              Text[
+               
+               Row[{"The ", $CellContext`form$$, 
+                 " form for the expression is"}]], 24]], 
+            "", $CellContext`display}, Alignment -> Center]}]), 
+      "Specifications" :> {{{$CellContext`exp$$, 1, "expression"}, 
+         Dynamic[{
+          1 -> $CellContext`expression1, 2 -> $CellContext`expression2, 
+           3 -> $CellContext`expression3, 4 -> $CellContext`expression4, 
+           5 -> $CellContext`expression5}, SynchronousUpdating -> False], 
+         ControlType -> PopupMenu}, {{$CellContext`not$$, 1, "notation"}, {
+         1 -> "none", 2 -> "prefix", 3 -> "infix", 4 -> "postfix"}, 
+         ControlType -> RadioButtonBar}, {{$CellContext`form$$, 
+          Invisible["prefix"]}, ControlType -> None}}, 
+      "Options" :> {
+       ContentSize -> {420, 450}, SynchronousInitialization -> False, 
+        AutorunSequencing -> {2}, TrackedSymbols -> True}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{436., {265., 270.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>((
+      Get["Combinatorica`"]; $CellContext`ops = {
+        "+", "-", "\[Divide]", "\[Times]", "^"}; $CellContext`vertexStyler = 
+       Style[#, 18]& ; $CellContext`tree1 = 
+       Combinatorica`CompleteBinaryTree[3]; $CellContext`vertexLabels1 = {
+        "+", "4", "3"}; $CellContext`expression1 = 
+       HoldForm[4 + 3]; $CellContext`tree2 = 
+       Combinatorica`CompleteBinaryTree[5]; $CellContext`vertexLabels2 = {
+        "+", "\[Times]", "3", "4", "8"}; $CellContext`expression2 = 
+       HoldForm[4 8 + 3]; $CellContext`tree3 = Combinatorica`DeleteVertices[
+         Combinatorica`CompleteBinaryTree[7], {4, 
+         5}]; $CellContext`vertexLabels3 = {
+        "\[Times]", "4", "+", "8", "3"}; $CellContext`expression3 = 
+       HoldForm[4 (8 + 3)]; $CellContext`tree4 = 
+       Combinatorica`DeleteVertices[
+         Combinatorica`CompleteBinaryTree[11], {8, 
+         9}]; $CellContext`vertexLabels4 = {
+        "+", "\[Divide]", "^", "4", "+", "5", "9", "3", "6", 
+         "7"}; $CellContext`expression4 = 
+       HoldForm[4/(3 + 6) + 5^9]; $CellContext`tree5 = 
+       Combinatorica`DeleteVertices[
+         Combinatorica`CompleteBinaryTree[31], {8, 9, 16, 17, 18, 19, 22, 23, 
+         12, 13, 24, 25, 26, 27, 28, 29, 30, 
+         31}]; $CellContext`vertexLabels5 = {
+        "\[Times]", "+", "-", "7", "^", "4", "\[Divide]", "\[Times]", "5", 
+         "8", "3", "6", "2", "9"}; $CellContext`expression5 = 
+       HoldForm[(7 + (6 2)^5) (4 - 8/3)]; $CellContext`intoThrees = 
+       Partition[#, 3, 1]& ; $CellContext`prefixForm = Table[
+         MemberQ[$CellContext`ops, 
+          Part[#, $CellContext`i]], {$CellContext`i, 1, 
+          Length[#]}]& ; $CellContext`prefixFormPositions = Flatten[
+         Position[
+          Map[$CellContext`prefixForm, #], {
+          True, False, False}]]& ; $CellContext`rotator = If[Length[#] == 3, 
+         RotateLeft[#], #]& ; $CellContext`swapper = If[Length[#] == 3, 
+         Drop[
+          Prepend[#, 
+           Part[#, 2]], {3}], #]& ); Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->79467230],
+
+Cell[CellGroupData[{
+
+Cell["Caption", "Section",
+ CellFrameColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108],
+ FontColor->RGBColor[
+  0.6449835965514611, 0.758632791638056, 0.2516823071641108]],
+
+Cell["\<\
+For various arithmetic expressions, this Demonstration displays the binary \
+expression tree as well as the prefix, infix, and postfix notation for the \
+expressions. \
+\>", "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell["\<\
+In contrast to traditional notation, which is essentially infix notation, \
+prefix notation places the binary operator before the two symbols on which it \
+acts. Similarly, in postfix notation, the operator is placed after the \
+symbols. \
+\>", "Text"],
+
+Cell["\<\
+These notations correspond to the preorder, inorder, and postorder traversals \
+of the tree, respectively. Parentheses are sometimes required for infix \
+notation (see snapshots 1 and 2), but prefix and postfix notation are \
+unambiguous and require no parentheses (compare snapshots 3 and 4).\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["Prefix, Infix, and Postfix Notation",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PrefixInfixAndPostfixNotation/"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/PrefixInfixAndPostfixNotation/"],
+ "\"",
+ " from ",
+ ButtonBox["The Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/PrefixInfixAndPostfixNotation/",
+  
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/PrefixInfixAndPostfixNotation/"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/PrefixInfixAndPostfixNotation/"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[" ", "Text",
+ CellFrame->{{0, 0}, {0, 1}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.691905, 0.790311, 0.300252],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.691905, 0.790311, 0.300252]],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Marc Brodie",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Marc+Brodie"], 
+    None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Marc+Brodie"],
+ " (Wheeling Jesuit University)"
+}], "Text",
+ CellDingbat->"\[FilledSmallSquare]",
+ CellMargins->{{66, 48}, {2, 4}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system (Version 6 or higher) is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.865507, 0.90634, 0.680751],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[0.986023, 0.991363, 0.969818]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["The Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+PrefixInfixAndPostfixNotation"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{710, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"Prefix, Infix, and Postfix Notation - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[625, 23, 227, 4, 70, "Section"],
+Cell[855, 29, 21231, 483, 70, "Input",
+ CellID->279150542]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22123, 517, 8728, 176, 70, "Output",
+ CellID->79467230],
+Cell[CellGroupData[{
+Cell[30876, 697, 199, 4, 70, "Section"],
+Cell[31078, 703, 191, 4, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[31295, 711, 262, 5, 70, "Text"],
+Cell[31560, 718, 317, 5, 70, "Text"],
+Cell[CellGroupData[{
+Cell[31902, 727, 373, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[32278, 738, 978, 29, 70, "Text"],
+Cell[33259, 769, 337, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[33599, 780, 464, 15, 70, "Text"],
+Cell[CellGroupData[{
+Cell[34088, 799, 847, 24, 70, "Text"],
+Cell[34938, 825, 1205, 33, 70, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature nRNoWfgWls1M0Cp6LJkKsOmt *)
