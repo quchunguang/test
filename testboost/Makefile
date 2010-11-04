@@ -1,7 +1,7 @@
 # Before run `make test`, this may be required:
 # $ export LD_LIBRARY_PATH=$(BOOST_LIBRARY)
 
-BOOST_INCLUDE=~/dev/prj/boost_1_44_0
+BOOST_INCLUDE=~/dev/prj/boost
 BOOST_LIBRARY=$(BOOST_INCLUDE)/stage/lib
 PROJECTS=lambda regex
 
