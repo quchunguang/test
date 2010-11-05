@@ -17,5 +17,6 @@ regex: 		regex.cc
 foreach: 	foreach.cc
 	g++ -I $(BOOST_INCLUDE) -o $@ $<
 
-test: 		regex
+test: 		regex foreach
 	./regex < ./jayne.txt
+	./foreach
