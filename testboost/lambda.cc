@@ -1,4 +1,3 @@
-// $ echo 1 2 3 | ./lambda
 #include <boost/lambda/lambda.hpp>
 #include <iostream>
 #include <iterator>
@@ -11,4 +10,5 @@ int main()
 
     std::for_each(
         in(std::cin), in(), std::cout << (_1 * 3) << " " );
+    std::cout << std::endl;
 }
