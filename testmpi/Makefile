@@ -3,8 +3,7 @@
 ##  $ mpdboot -n 2
 ##  $ mpdtrace
 ## After test,
-##
-##
+##  $ mpdallexit
 
 PRJS=cpi cxxpi
 all:		$(PRJS)
@@ -14,9 +13,9 @@ cpi:		cpi.c
 	mpicc -o cpi cpi.c
 cxxpi:		cxxpi.cxx
 	mpic++ -o cxxpi cxxpi.cxx
-testcpi:
+testcpi:	cpi
 	mpiexec -n 1 ./cpi
 	mpiexec -n 2 ./cpi
-testcxxpi:
+testcxxpi:	cxxpi
 	mpiexec -n 1 ./cxxpi
 	mpiexec -n 2 ./cxxpi
