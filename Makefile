@@ -11,6 +11,7 @@ all:
 	cd bookdbg && $(MAKE)
 	cd testtex && $(MAKE)
 	cd testpy && $(MAKE)
+	cd testpostgresql && $(MAKE)
 clean:
 	cd testbison && $(MAKE) clean
 	cd testcore && $(MAKE) clean
@@ -24,3 +25,4 @@ clean:
 	cd bookdbg && $(MAKE) clean
 	cd testtex && $(MAKE) clean
 	cd testpy && $(MAKE) clean
+	cd testpostgresql && $(MAKE) clean
