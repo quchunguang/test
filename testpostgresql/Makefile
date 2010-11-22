@@ -19,3 +19,7 @@ queue: 		basics_queue.sql
 	psql -U $(DB_USER_NAME) $(OPTIONS) -f $< $(DB_NAME)
 drop: 		basics_drop.sql
 	psql -U $(DB_USER_NAME) $(OPTIONS) -f $< $(DB_NAME)
+arg: 		arg.sql
+	psql -U $(DB_USER_NAME) $(OPTIONS) -f $< -v city="'San Francisco'" $(DB_NAME)
+arg2: 		arg2.sql
+	psql -U $(DB_USER_NAME) $(OPTIONS) -f $< -v city="'San Francisco'" $(DB_NAME)
