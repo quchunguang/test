@@ -5,6 +5,6 @@
 int main()
 {
 	printf("uid = %d, euid = %d ", getuid(), geteuid());
-	printf("uid = %d, euid = %d ", getuid(), geteuid());
+	printf("\n");
 	return 0;
 }
