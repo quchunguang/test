@@ -46,10 +46,11 @@ projects 	= testuid \
 all: 		$(objects) $(modules) $(projects)
 clean: 		
 	rm -f $(modules) $(projects) *~ *.o *.d *.gcno *.gcda
+	rm -f libfoo.so
 
 cleanall:
 	rm -rf result/
-	rm *~ *.o *.d *.gcda *.gcno cscope.* *.log *.bak tags filenametags
+	rm -f *~ *.o *.d *.gcda *.gcno cscope.* *.log *.bak tags filenametags
 
 # objects
 sinclude $(sources:.c=.d)
@@ -65,8 +66,19 @@ $(modules): \
 
 # projects
 #################Start add######################
-testuid: 		testuid.o
-	$(CC) $(ADDFLAGS) -o $@ $<
+
+# testuid - /usr/lib/libfoo.so.0 -> ./libfoo.so is needed
+foo.o: 			foo.c
+	$(CC) -fPIC -o $@ -c $<
+bar.o: 			bar.c
+	$(CC) -fPIC -o $@ -c $<
+libfoo.so: 		foo.o bar.o
+	$(CC) -shared -Wl,-soname,$@.0 -o $@ foo.o bar.o
+linkdata.o: 		linkdata.jpg
+	objcopy -I binary -O elf32-i386 -B i386 $< $@
+testuid: 		testuid.o linkdata.o libfoo.so
+	$(CC) $(ADDFLAGS) -o $@ $< linkdata.o -lfoo -L.
+
 amicable-numbers: 	amicable-numbers.o
 	$(CC) $(ADDFLAGS) -lm -o $@ $<
 testio:  		testio.o
