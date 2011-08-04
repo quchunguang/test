@@ -1,0 +1,19 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\ramdisk.obj \
+ $(OBJ_PATH)\$O\forward_progress.obj \
+
+
+_RES_FILE=$(OBJ_PATH)\$O\ramdisk.res
+
+
+
+# lowercased
+BASEDIR=c:\winddk\7600.16385.1
+OBJECT_ROOT=c:\winddk\7600.16385.1
+MAKEDIR_LOWERCASE=c:\winddk\7600.16385.1\src\storage\ramdisk
+MAKEDIR_RELATIVE_TO_BASEDIR=src\storage\ramdisk
+OBJ_PATH=c:\winddk\7600.16385.1\src\storage\ramdisk
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0
