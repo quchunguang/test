@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+E:\reposes\crypto\hardware\sample_26_hw.uv2
+Project File Date:  07/12/2011
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling sample_26_hw.c...
+linking...
+Program Size: data=25.0 xdata=557 code=2665
+creating hex file from "sample_26_hw"...
+"sample_26_hw" - 0 Error(s), 0 Warning(s).

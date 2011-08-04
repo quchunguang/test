@@ -1,0 +1,18 @@
+LIBRARY	"living1"
+EXPORTS
+	LIV_open
+	LIV_close
+	LIV_passwd
+	LIV_read
+	LIV_write
+	LIV_encrypt
+	LIV_decrypt
+	LIV_set_passwd
+	LIV_change_passwd
+	LIV_get_hardware_info
+	LIV_get_software_info
+	LIV_hmac
+	LIV_hmac_software
+	LIV_update
+	LIV_set_key
+	LIV_gen_update_pkg

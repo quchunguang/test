@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioUserFile
+	ProjectType="Visual C++"
+	Version="9.00"
+	ShowAllFiles="false"
+	>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments="&quot;vFcIvAL+vy936Mr+LJbRIXybu5DIRuMwQeFh0iLtxWwIYLip4d9P0X7pyI+cFEwMkrcgJDewxOOEkNmj13VH1JGrvHm+RT38GsGaz5fVJhCkR0cXJu8s0CRwDb/p9LgUd3p2RHzdK8R4LA0Wt8JCuEK8GTukOG2IeCwNFrfCQrhSHAsLPl/OgSZiM0Jys5Ip/wWO9Jdx+9AD1/a6cCPXja6xKHpytI16dnpN2pxxpcVG+nm1lz9HQ9Wdt4TWBZmuSn4rJMtUdnw=&quot; &quot;1234567890123456&quot; &quot;1234567890abcdef&quot;"
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="KEVIN2"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor="0"
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="KEVIN2"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+	</Configurations>
+</VisualStudioUserFile>
