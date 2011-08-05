@@ -164,9 +164,10 @@ extern "C"  _declspec(dllexport) unsigned long TestEIV(unsigned char * buff)
 	
 	return 0;
 }
-extern "C"  _declspec(dllexport) int crypto(int type, /* 0=encryptpgraphy, 1=decryptography */
-		  unsigned char fromText[],
-		  unsigned char toText[]
+extern "C"  _declspec(dllexport) int crypto(
+			int type, /* 0=encryptpgraphy, 1=decryptography */
+			unsigned char fromText[],
+			unsigned char toText[]
 		  )
 /*extern "C" __declspec(dllexport) int crypto(int type,
 		  unsigned char fromText[],
@@ -219,9 +220,10 @@ extern "C"  _declspec(dllexport) int crypto(int type, /* 0=encryptpgraphy, 1=dec
 	return S4_SUCCESS;
 }
 
-extern "C"  _declspec(dllexport) int crypto2(int type, /* 0=encryptpgraphy, 1=decryptography */
-		  unsigned char fromText[],
-		  unsigned char toText[]
+extern "C"  _declspec(dllexport) int crypto2(
+			int type, /* 0=encryptpgraphy, 1=decryptography */
+			unsigned char fromText[],
+			unsigned char toText[]
 		  )
 /*extern "C" __declspec(dllexport) int crypto(int type,
 		  unsigned char fromText[],
@@ -272,6 +274,38 @@ extern "C"  _declspec(dllexport) int crypto2(int type, /* 0=encryptpgraphy, 1=de
 	ResetAndCloseS4(&stS4Ctx);
 
 	return S4_SUCCESS;
+}
+
+char char2hex(char c)
+{
+	if (c < 0x0A) {
+		return c + 0x30;
+	}
+	else if (c >= 0x0A && c <= 0x0F) {
+		return c + 0x41 - 0x0A;
+	}
+	else {
+		return 'x';
+	}
+}
+
+/* using crypto2() encrypt random pass from server */
+extern "C"  _declspec(dllexport) void encryptrand(
+			unsigned char random[],		/* 16 byte chars like: dasf98723478fd7a */
+			unsigned char encrypt_hex[]		/* 32 byte hex chars like: 00010203040506070809f0f1f2f3f4f5 */
+		  )
+{
+	int i;
+	char a, b;
+	unsigned char encrypt[200];
+	memset(encrypt, 0, 200);
+	crypto2(0, random, encrypt);
+	for (i=0; i<16; i++){
+		a = (encrypt[i] & 0xF0) >> 4;
+		b = encrypt[i] & 0x0F;
+		encrypt_hex[2 * i] = char2hex(a);
+		encrypt_hex[2 * i + 1] = char2hex(b);
+	}
 }
 
 BOOL APIENTRY DllMain( HANDLE hModule, 

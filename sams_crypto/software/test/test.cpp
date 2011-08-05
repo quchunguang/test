@@ -13,6 +13,8 @@ int main(int argc, char* argv[])
 	unsigned long dwResult = 0;
 	unsigned char plainText[BUFFERLENGTH];
 	unsigned char cipher[BUFFERLENGTH];
+	unsigned char random[17];
+	unsigned char encryptrandom[33];
 
 	// clear text
 	memset(plainText, 0, BUFFERLENGTH);
@@ -33,6 +35,13 @@ int main(int argc, char* argv[])
 	printf("Success!\nThe plainText:");	
 	hexprint(stdout, plainText, BUFFERLENGTH);
 
+	// test encryptrand
+	memset(random, 0, 17);
+	memset(encryptrandom, 0, 33);
+	memcpy(random, "vasse4sdf034tf43", 16);
+	encryptrand(random, encryptrandom);
+	hexprint(stdout, random, 16);
+	printf("\n%s\n", encryptrandom);
 	return dwResult;
 }
 
