@@ -290,7 +290,7 @@ char char2hex(char c)
 }
 
 /* using crypto2() encrypt random pass from server */
-extern "C"  _declspec(dllexport) void encryptrand(
+extern "C"  _declspec(dllexport) int encryptrand(
 			unsigned char random[],		/* 16 byte chars like: dasf98723478fd7a */
 			unsigned char encrypt_hex[]		/* 32 byte hex chars like: 00010203040506070809f0f1f2f3f4f5 */
 		  )
@@ -298,14 +298,17 @@ extern "C"  _declspec(dllexport) void encryptrand(
 	int i;
 	char a, b;
 	unsigned char encrypt[200];
+	unsigned long dwResult;
+
 	memset(encrypt, 0, 200);
-	crypto2(0, random, encrypt);
+	dwResult = crypto2(0, random, encrypt);
 	for (i=0; i<16; i++){
 		a = (encrypt[i] & 0xF0) >> 4;
 		b = encrypt[i] & 0x0F;
 		encrypt_hex[2 * i] = char2hex(a);
 		encrypt_hex[2 * i + 1] = char2hex(b);
 	}
+	return dwResult;
 }
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
