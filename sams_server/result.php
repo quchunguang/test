@@ -2,6 +2,10 @@
 <body>
 <?php
 $db = mysql_connect("localhost", "root", "qu-cg123");
+if (!$db) {
+	die('Could not connect: ' . mysql_error());
+}
+
 mysql_select_db("sams", $db);
 $sql = "insert into customer (product_id, ukey_id, functions, version, username, tel, email, contact) values('" .
 $_POST["product_id"] . "','" .
@@ -22,6 +26,7 @@ while ($myrow = mysql_fetch_array($result)) {
 		$myrow["product_id"], $myrow["ukey_id"], $myrow["functions"], $myrow["version"], $myrow["username"], $myrow["tel"], $myrow["email"], $myrow["contact"] );
 }
 echo "</table>\n";
+mysql_close($db);
 ?>
 </body>
 </html>
