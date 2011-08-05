@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	// test encryptrand
 	memset(random, 0, 17);
 	memset(encryptrandom, 0, 33);
-	memcpy(random, "0123456789abcdef", 16);
+	memcpy(random, "vasse4sdf034tf43", 16);
 	encryptrand(random, encryptrandom);
 	hexprint(stdout, random, 16);
 	printf("\n%s\n", encryptrandom);
