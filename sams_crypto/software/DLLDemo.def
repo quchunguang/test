@@ -3,3 +3,4 @@ EXPORTS
 	TestEIV
 	crypto
 	crypto2
+	encryptrand
