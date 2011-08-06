@@ -15,6 +15,9 @@ if ($myrow = mysql_fetch_array($result)) {
 		if ($ret == 0) {
 			$sql = "update customer set status=2 where product_id='" . $_POST["product_id"] . "'";
 			$result = mysql_query($sql, $db);
+			if(!$result) {
+				echo "{'code':6}"; # update status error
+			}
 		}
 		echo "{'code':" . $ret . "}";
 	} else {

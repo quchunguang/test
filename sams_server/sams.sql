@@ -51,8 +51,41 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('1','qazxswedcvfrtgbn','main','1.0.2012','qcg','4234-324234','324@fjdk.com','sdfghsdfghsdgf',0,'123456'),('2','qazxswedcvfrtgbn','func1,func2','1.0.2012','qcg','4234-324234','324@fjdk.com','sdfghsdfghsdgf',0,'12345667'),('3','qazxswedcvfrtgbn','func1,func2','1.0.2012','qcg','4234-324234','324@fjdk.com','sdfghsdfghsdgf',1,'123456');
+INSERT INTO `customer` VALUES ('E0A3C368-9CF3-4EE7-99ED-881C29501998','7gio49f023rkgfdr','1,2','1.0','qcg','1111111','11@sk.com','sd',0,'vasse4sdf034tf43');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `functions`
+--
+
+DROP TABLE IF EXISTS `functions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `functions` (
+  `id` int(255) NOT NULL,
+  `a1` varchar(255) CHARACTER SET gbk NOT NULL,
+  `a2` varchar(255) NOT NULL,
+  `bh` varchar(255) NOT NULL,
+  `parent` varchar(255) NOT NULL,
+  `a5` varchar(255) NOT NULL,
+  `a6` int(11) NOT NULL,
+  `a7` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  `isLeaf` int(11) NOT NULL,
+  `showindex` int(11) NOT NULL,
+  `a8` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `functions`
+--
+
+LOCK TABLES `functions` WRITE;
+/*!40000 ALTER TABLE `functions` DISABLE KEYS */;
+INSERT INTO `functions` VALUES (1,'采购管理','Tp0101','101','1','01/p0101.htm',1,1,1,0,1,0),(2,'采购返利管理','Tp0102','102','1','01/p0102.htm',1,1,1,0,1,0);
+/*!40000 ALTER TABLE `functions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -64,4 +97,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-08-02 16:45:40
+-- Dump completed on 2011-08-06 13:51:00

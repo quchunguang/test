@@ -15,6 +15,9 @@ if ($myrow = mysql_fetch_array($result)) {
 		echo "{'code':0,'random':'" . $random . "'}"; # random code
 		$sql = "update customer set status=1,random='" . $random . "' where product_id='" . $_POST["product_id"] . "'";
 		$result = mysql_query($sql, $db);
+		if(!$result) {
+			echo "{'code':6}"; # update status error
+		}
 	} else {
 		echo "{'code':2}"; # status error
 	}
