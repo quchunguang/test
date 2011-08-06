@@ -12,11 +12,17 @@ $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	if ($myrow["status"] == 2){
 		# xml  = encrypt($ukey_id, generate_xml($myrow["functions"]));
-		$xml = "encrypted.xml";
 		$installer = "installer.exe";
-		$url_xml = "download/" . $myrow["random"] . "/" . $xml;
 		$url_installer = "download/" . $myrow["random"] . "/" . $installer;
-		echo "{'code':0,'url_xml':'" . $url_xml . "','url_installer':'" . $url_installer . "'}"; # download urls
+		echo "{'code':0,'url_installer':'" . $url_installer . "','functions':";
+		$sql = "select a1,a2,bh,parent,a5,a6,a7,level,isLeaf,showindex,a8 from functions where id in (". $myrow["functions"] .")";
+		$result = mysql_query($sql, $db);
+		$rows = array();
+		while($r = mysql_fetch_assoc($result)) {
+			    $rows[] = $r;
+		}
+		echo json_encode($rows);
+		echo "}";
 		$sql = "update customer set status=0 where product_id='" . $_POST["product_id"] . "'";
 		$result = mysql_query($sql, $db);
 	} else {
