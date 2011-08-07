@@ -21,22 +21,26 @@ USE `sams`;
 DROP TABLE IF EXISTS `customer`;
 
 CREATE TABLE `customer` (
+  `device_id` varchar(8) NOT NULL,
   `product_id` varchar(36) NOT NULL,
+  `revision` int(11) DEFAULT NULL,
   `ukey_id` varchar(16) NOT NULL,
   `functions` varchar(1024) NOT NULL,
-  `version` varchar(12) NOT NULL,
-  `username` varchar(10) NOT NULL,
-  `tel` varchar(12) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `contact` varchar(50) NOT NULL,
+  `username` varchar(10) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `tel` varchar(12) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `contact` varchar(50) DEFAULT NULL,
+  `last_update` datetime DEFAULT NULL,
+  `last_ensure` datetime DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
-  `random` varchar(16) NOT NULL,
+  `random` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `customer` */
 
-insert  into `customer`(`product_id`,`ukey_id`,`functions`,`version`,`username`,`tel`,`email`,`contact`,`status`,`random`) values ('E0A3C368-9CF3-4EE7-99ED-881C29501998','7gio49f023rkgfdr','1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73','1.0','qcg','1111111','11@sk.com','sd',0,'fSru3OrM9OniLUlY');
+insert  into `customer`(`device_id`,`product_id`,`revision`,`ukey_id`,`functions`,`username`,`password`,`tel`,`email`,`contact`,`last_update`,`last_ensure`,`status`,`random`) values ('3f95mdig','E0A3C368-9CF3-4EE7-99ED-881C29501998',2388,'7gio49f023rkgfdr','1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73','qcg',NULL,'1111111','11@sk.com','sd',NULL,NULL,0,'fSru3OrM9OniLUlY');
 
 /*Table structure for table `functions` */
 
@@ -67,16 +71,17 @@ insert  into `functions`(`id`,`a1`,`a2`,`bh`,`parent`,`a5`,`a6`,`a7`,`level`,`is
 DROP TABLE IF EXISTS `version`;
 
 CREATE TABLE `version` (
-  `product_id` varchar(36) NOT NULL,
+  `revision` int(11) NOT NULL,
   `version_major` int(11) NOT NULL,
   `version_minner` int(11) NOT NULL,
-  `revision` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`)
+  `release_date` datetime DEFAULT NULL,
+  `release_notes` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`revision`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `version` */
 
-insert  into `version`(`product_id`,`version_major`,`version_minner`,`revision`) values ('E0A3C368-9CF3-4EE7-99ED-881C29501998',1,0,2388);
+insert  into `version`(`revision`,`version_major`,`version_minner`,`release_date`,`release_notes`) values (2388,1,0,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
