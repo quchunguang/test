@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="ukeycrypto"
+	Name="senseCrypt"
 	ProjectGUID="{47D83912-D86D-4067-92AE-E33E61C5F055}"
 	RootNamespace="ukeycrypto"
 	Keyword="Win32Proj"

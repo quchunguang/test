@@ -11,7 +11,7 @@
 			<DebugSettings
 				Command="$(TargetPath)"
 				WorkingDirectory=""
-				CommandArguments="&quot;vFcIvAL+vy936Mr+LJbRIXybu5DIRuMwQeFh0iLtxWwIYLip4d9P0X7pyI+cFEwMkrcgJDewxOOEkNmj13VH1JGrvHm+RT38GsGaz5fVJhCkR0cXJu8s0CRwDb/p9LgUd3p2RHzdK8R4LA0Wt8JCuEK8GTukOG2IeCwNFrfCQrhSHAsLPl/OgSZiM0Jys5Ip/wWO9Jdx+9AD1/a6cCPXja6xKHpytI16dnpN2pxxpcVG+nm1lz9HQ9Wdt4TWBZmuSn4rJMtUdnw=&quot; &quot;1234567890123456&quot; &quot;1234567890abcdef&quot;"
+				CommandArguments="&quot;0F032EBDB34AF3FF6D7ABCAEB59A6415&quot; &quot;7gio49f023rkgfdr&quot; &quot;vasse4sdf034tf43&quot;"
 				Attach="false"
 				DebuggerType="3"
 				Remote="1"
