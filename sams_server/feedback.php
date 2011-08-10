@@ -6,8 +6,11 @@ if (!$db) {
 	die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("sams", $db);
-
-if ( $_FILES["file"]["size"] > 300000 ) {
+$sql = "select status from customer where product_id='" . $_POST["product_id"] . "'";
+$result = mysql_query($sql, $db);
+if (mysql_num_rows($result) <= 0) {
+	echo "{'code':4}"; // no such product
+} else if ( $_FILES["file"]["size"] > 300000 ) {
 	echo "{'code':1}"; // file too big
 } else if ($_FILES["file"]["error"] > 0) {
 	echo "{'code':2}"; // transfer error
