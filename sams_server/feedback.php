@@ -20,10 +20,10 @@ if (mysql_num_rows($result) <= 0) {
 	|| ($_FILES["file"]["type"] == "image/jpeg")
 	|| ($_FILES["file"]["type"] == "image/pjpeg")) {
 	if (($_FILES["file"]["type"] == "image/jpeg")
-		|| ($_FILE["file"]["type"] == "image/pjpeg")) {
+		|| ($_FILES["file"]["type"] == "image/pjpeg")) {
 		$ext = ".jpg";
-	} else if (($_FILE["file"]["type"] == "image/png")
-		|| ($_FILE["file"]["type"] == "image/x-png")) {
+	} else if (($_FILES["file"]["type"] == "image/png")
+		|| ($_FILES["file"]["type"] == "image/x-png")) {
 		$ext = ".png";
 	}
 	$filename = randString(12) . $ext;
