@@ -12,7 +12,16 @@ if (mysql_num_rows($result) <= 0) {
 	echo "{'code':4}"; // no such product
 } else if ( $_FILES["file"]["size"] > 300000 ) {
 	echo "{'code':1}"; // file too big
-} else if ($_FILES["file"]["error"] > 0) {
+} else if ( $_FILES["file"]["error"] == 4 ) {
+	$sql = "SET CHARACTER_SET_CONNECTION=utf8";
+	$result = mysql_query($sql, $db);
+	$sql = "SET CHARACTER_SET_CLIENT=utf8";
+	$result = mysql_query($sql, $db);
+	$sql = "insert into feedback (filename, feedback) values('<none>','" .
+$_POST["feedback"] . "');";
+	$result = mysql_query($sql, $db);
+	echo "{'code':0}";
+} else if ( $_FILES["file"]["error"] > 0 ) {
 	echo "{'code':2}"; // transfer error
 } else if (($_FILES["file"]["type"] == "image/gif")
 	|| ($_FILES["file"]["type"] == "image/png")
