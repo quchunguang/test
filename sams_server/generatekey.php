@@ -29,6 +29,7 @@ $f001 = str_replace($from, $to1, $file);
 $f002 = str_replace($from, $to2, $file);
 
 echo "{'device_id':'" . $device_id . "','f001':'" . $f001 . "','f002':'" . $f002 . "'}";
+mysql_close($db);
 
 function randString($len)
 {

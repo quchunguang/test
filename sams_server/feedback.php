@@ -49,6 +49,7 @@ $_POST["feedback"] . "');";
 } else {
 	echo "{'code':3}"; // not support file type
 }
+mysql_close($db);
 
 function randString($len)
 {
