@@ -23,7 +23,7 @@
 #   readlink("/proc/3125/fd/3", "/tmp/foo", 4096) = 8
 #   $ ls -l /proc/14432/fd | grep foo
 
-CFLAGS 		= -Wall -ansi -g
+CFLAGS 		= -Wall -g
 ADDFLAGS 	= -fprofile-arcs -ftest-coverage # for Coverage Test
 CFLAGS 	       += $(ADDFLAGS)
 
@@ -40,7 +40,8 @@ projects 	= testuid \
 		  testio \
 		  randomgraph \
 		  testlsof \
-		  testsyscall
+		  testsyscall \
+		  testgdb
 
 .PHONY: 	all clean
 all: 		$(objects) $(modules) $(projects)
@@ -82,13 +83,15 @@ testuid: 		testuid.o linkdata.o libfoo.so
 amicable-numbers: 	amicable-numbers.o
 	$(CC) $(ADDFLAGS) -lm -o $@ $<
 testio:  		testio.o
-	$(CC) $(ADDFLAGS) -o $@ $<
+	$(CC) -std=c99 $(ADDFLAGS) -o $@ $<
 randomgraph: 		randomgraph.o
 	$(CC) $(ADDFLAGS) -o $@ $<
 testlsof: 		testlsof.o
 	$(CC) $(ADDFLAGS) -o $@ $<
 testsyscall: 		testsyscall.o
 	$(CC) $(ADDFLAGS) -o $@ $<
+testgdb: 		testgdb.c
+	$(CC) -std=c99 $(ADDFLAGS) -o $@ $<
 
 #################End add########################
 
