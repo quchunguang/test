@@ -50,16 +50,18 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` varchar(36) NOT NULL DEFAULT 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
-  `datetime` timestamp NULL DEFAULT NULL,
+  `datetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `feedback` varchar(4096) DEFAULT NULL,
   `filename1` varchar(16) DEFAULT NULL,
   `filename2` varchar(16) DEFAULT NULL,
   `filename3` varchar(16) DEFAULT NULL,
   `filename4` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `feedback` */
+
+insert  into `feedback`(`id`,`product_id`,`datetime`,`feedback`,`filename1`,`filename2`,`filename3`,`filename4`) values (1,'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX','2011-08-17 16:07:38',NULL,NULL,NULL,NULL,NULL),(2,'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX','2011-08-17 16:08:55',NULL,NULL,NULL,NULL,NULL),(3,'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX','2011-08-17 16:08:55',NULL,NULL,NULL,NULL,NULL),(4,'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX','2011-08-17 16:08:57',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `functions` */
 
