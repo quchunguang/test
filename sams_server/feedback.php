@@ -9,53 +9,31 @@ mysql_select_db("sams", $db);
 $sql = "select status from customer where product_id='" . $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
 if (mysql_num_rows($result) <= 0) {
-	//echo "{'code':4}"; // no such product
 	echo makeRetHtml("数据提交失败！您的产品序列号不正确。", false);
-} else if ( $_FILES["file"]["size"] > 300000 ) {
-	//echo "{'code':1}"; // file too big
-	echo makeRetHtml("数据提交失败！图片太大，请修改图片大小。", true);
-} else if ( $_FILES["file"]["error"] == 4 ) {
-	$sql = "SET CHARACTER_SET_CONNECTION=utf8";
-	$result = mysql_query($sql, $db);
-	$sql = "SET CHARACTER_SET_CLIENT=utf8";
-	$result = mysql_query($sql, $db);
-	$sql = "insert into feedback (filename, feedback) values('<none>','" .
-$_POST["feedback"] . "');";
-	$result = mysql_query($sql, $db);
-	//echo "{'code':0}";
-	echo makeRetHtml("数据提交成功！感谢您的支持！", false);
-} else if ( $_FILES["file"]["error"] > 0 ) {
-	//echo "{'code':2}"; // transfer error
-	echo makeRetHtml("数据提交失败！数据传输错误，请返回重试。", true);
-} else if (($_FILES["file"]["type"] == "image/gif")
-	|| ($_FILES["file"]["type"] == "image/png")
-	|| ($_FILES["file"]["type"] == "image/x-png")
-	|| ($_FILES["file"]["type"] == "image/jpeg")
-	|| ($_FILES["file"]["type"] == "image/pjpeg")) {
-	if (($_FILES["file"]["type"] == "image/jpeg")
-		|| ($_FILES["file"]["type"] == "image/pjpeg")) {
-		$ext = ".jpg";
-	} else if (($_FILES["file"]["type"] == "image/png")
-		|| ($_FILES["file"]["type"] == "image/x-png")) {
-		$ext = ".png";
-	}
-	$filename = randString(12) . $ext;
-	move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-	$sql = "SET CHARACTER_SET_CONNECTION=utf8";
-	$result = mysql_query($sql, $db);
-	$sql = "SET CHARACTER_SET_CLIENT=utf8";
-	$result = mysql_query($sql, $db);
-	$sql = "insert into feedback (filename, feedback) values('" .
-$filename . "','" .
-$_POST["feedback"] . "');";
-	$result = mysql_query($sql, $db);
-	//echo "{'code':0}";
-	echo makeRetHtml("数据提交成功！感谢您的支持！", false);
-} else {
-	//echo "{'code':3}"; // not support file type
-	echo makeRetHtml("数据提交失败！上传截图仅支持PNG/JPG/GIF格式。", true);
+	die(1);
 }
+
+$filename1 = processFile($_FILES["file1"]["error"], $_FILES["file1"]["type"], $_FILES["file1"]["size"], $_FILES["file1"]["tmp_name"]);
+$filename2 = processFile($_FILES["file2"]["error"], $_FILES["file2"]["type"], $_FILES["file2"]["size"], $_FILES["file2"]["tmp_name"]);
+$filename3 = processFile($_FILES["file3"]["error"], $_FILES["file3"]["type"], $_FILES["file3"]["size"], $_FILES["file3"]["tmp_name"]);
+$filename4 = processFile($_FILES["file4"]["error"], $_FILES["file4"]["type"], $_FILES["file4"]["size"], $_FILES["file4"]["tmp_name"]);
+
+$sql = "SET CHARACTER_SET_CONNECTION=utf8";
+$result = mysql_query($sql, $db);
+$sql = "SET CHARACTER_SET_CLIENT=utf8";
+$result = mysql_query($sql, $db);
+$sql = "insert into feedback (product_id, filename1, filename2, filename3, filename4, feedback) values('" .
+$_POST["product_id"] . "','" .
+$filename1 . "','" .
+$filename2 . "','" .
+$filename3 . "','" .
+$filename4 . "','" .
+$_POST["feedback"] . "');";
+$result = mysql_query($sql, $db);
+echo makeRetHtml("数据提交成功！感谢您的支持！", false);
+
 mysql_close($db);
+
 function randString($len)
 {
 	$chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz'; // characters to build the password from
@@ -67,7 +45,8 @@ function randString($len)
 	return $string;
 }
 
-function makeRetHtml($strMsg, $bRetBak){
+function makeRetHtml($strMsg, $bRetBak)
+{
 	$strRet = "<div id=\"divFeedBack\" style=\"margin: 0 auto; padding:10px; font-size:12px; color:#996600;\">";
 	$strRet .= $strMsg;
 	$strRet .= "</div>";
@@ -77,6 +56,40 @@ function makeRetHtml($strMsg, $bRetBak){
 		//$strRet .= '<div><a href="javascript:history.back()" ><<返回</a></div>';
 	}
 	return $strRet;	
+}
+
+function generateFilename($filetype)
+{
+	if (($filetype == "image/jpeg")
+		|| ($filetype == "image/pjpeg")) {
+		$ext = ".jpg";
+	} else if (($filetype == "image/png")
+		|| ($filetype == "image/x-png")) {
+		$ext = ".png";
+	}
+	return randString(12) . $ext;
+}
+
+function processFile($error, $type, $size, $tmp_name)
+{
+	if($error == 4){
+		return "<none>";
+	}
+	if($size > 300000) {
+		echo makeRetHtml("数据提交失败！图片超过300KB，请修改图片大小。", true);
+		die(2);
+	}
+	if ( ($type == "image/png")
+	|| ($type == "image/x-png")
+	|| ($type == "image/jpeg")
+	|| ($type == "image/pjpeg") ) {
+		$filename = generateFilename($type);
+		move_uploaded_file($tmp_name, "upload/" . $filename);
+		return $filename;
+	} else {
+		echo makeRetHtml("数据提交失败！上传截图仅支持PNG/JPG格式。", true);
+		die(3);
+	}
 }
 
 ?>
