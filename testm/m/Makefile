@@ -7,7 +7,7 @@ obj-m += hello-4.o
 obj-m += hello-5.o
 obj-m += startstop.o
 startstop-objs := start.o stop.o
-obj-m += chardev.o
+#obj-m += chardev.o
 obj-m += chardev-2.o
 obj-m += procfs.o
 # usage: insmod irq=14 interface=testqrq
@@ -17,12 +17,12 @@ obj-m += testtasklet.o
 obj-m += testworkqueue.o
 # usage: see testmm.c
 # obj-m += testmm.o
-obj-m += testsem.o
+#obj-m += testsem.o
 obj-m += testcompletion.o
-obj-m += testproducer.o
+#obj-m += testproducer.o
 
 clean:
-	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c modules.order .tmp_versions
+	rm -rf *.o .*.o.d *~ core .depend .*.cmd *.ko *.mod.c modules.order .tmp_versions
 all:
 	make -C /usr/src/linux SUBDIRS=`pwd` modules
 
