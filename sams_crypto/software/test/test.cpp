@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 
 	// clear text
 	memset(plainText, 0, BUFFERLENGTH);
-	memcpy(plainText, "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890", BUFFERLENGTH);
+	memcpy(plainText, "select * from t0a12 where", BUFFERLENGTH);
 
 	// test encrypt
 	printf("Begin encrypt in TDES_ECB mode...\n");
@@ -34,6 +34,7 @@ int main(int argc, char* argv[])
 	crypto(1, cipher, plainText);
 	printf("Success!\nThe plainText:");	
 	hexprint(stdout, plainText, BUFFERLENGTH);
+	printf("%s",plainText);
 
 	// test encryptrand
 	memset(random, 0, 17);

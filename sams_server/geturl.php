@@ -28,7 +28,7 @@ if ($myrow = mysql_fetch_array($result)) {
 		$result3 = mysql_query($sql, $db);
 		$sqls = array();
 		while($r3 = mysql_fetch_assoc($result3)) {
-			$sqls[] = $r3;
+			$sqls[] = $r3["alter_sql"];
 		}
 		echo ",'sqls':";
 		echo json_encode($sqls);
