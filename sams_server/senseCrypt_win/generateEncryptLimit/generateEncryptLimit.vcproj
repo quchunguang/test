@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="senseCrypt"
-	ProjectGUID="{47D83912-D86D-4067-92AE-E33E61C5F055}"
-	RootNamespace="ukeycrypto"
+	Name="senseCryptBase64"
+	ProjectGUID="{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}"
+	RootNamespace="generateEncryptLimit"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="0"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -60,6 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				OutputFile="$(OutDir)\senseCryptBase64.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -171,6 +172,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\senseCryptBase64.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -190,16 +195,16 @@
 					/>
 				</FileConfiguration>
 			</File>
-			<File
-				RelativePath=".\ukeycrypto.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\base64.h"
+				>
+			</File>
 			<File
 				RelativePath=".\crypt2.h"
 				>

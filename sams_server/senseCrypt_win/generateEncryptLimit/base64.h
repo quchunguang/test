@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <string.h>
 
 // base64 tables 
 static char basis_64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"; 
