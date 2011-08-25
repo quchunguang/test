@@ -31,7 +31,7 @@ int  main(int argc, char* argv[])
 	//process arguments
 	if(argc != 5) {
 		printf("Usage: $prog_name type key(16) from from_len(<200)\n");
-		printf("Example:\nc:\> senseCryptBase64 0 \"NsZnUpqehTUZwCkb\" \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\" 36");
+		printf("Example:\nc:\\> senseCryptBase64 0 \"NsZnUpqehTUZwCkb\" \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\" 36");
 		return 1;					// 1: error number of arguments
 	}
 
