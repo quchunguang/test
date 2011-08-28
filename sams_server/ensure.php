@@ -17,6 +17,7 @@ if ($myrow = mysql_fetch_array($result)) {
 			$result = mysql_query($sql, $db);
 			if(!$result) {
 				echo "{'code':6}"; # update status error
+				die();
 			}
 		}
 		echo "{'code':" . $ret . "}";
