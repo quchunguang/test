@@ -12,11 +12,12 @@ $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	if ($myrow["status"] == 0){
 		$random = randString(16);
-		echo "{'code':0,'random':'" . $random . "'}"; # random code
 		$sql = "update customer set status=1,random='" . $random . "' where product_id='" . $_POST["product_id"] . "'";
 		$result = mysql_query($sql, $db);
 		if(!$result) {
 			echo "{'code':6}"; # update status error
+		} else {
+			echo "{'code':0,'random':'" . $random . "'}"; # random code
 		}
 	} else {
 		echo "{'code':2}"; # status error
