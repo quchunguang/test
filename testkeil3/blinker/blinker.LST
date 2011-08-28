@@ -1,0 +1,43 @@
+C51 COMPILER V7.10   BLINKER                                                               08/28/2011 22:52:28 PAGE 1   
+
+
+C51 COMPILER V7.10, COMPILATION OF MODULE BLINKER
+OBJECT MODULE PLACED IN blinker.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\c51.exe blinker.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <regx52.h>
+   2          
+   3          void msdelay(unsigned int a);
+   4          
+   5          void main()
+   6          {
+   7   1      while(1) {
+   8   2      P1=0xff;
+   9   2      msdelay(200);
+  10   2      P1=0x00;
+  11   2      msdelay(200);
+  12   2      }
+  13   1      }
+  14          
+  15          void msdelay(unsigned int a)
+  16          {
+  17   1      unsigned int i,j;
+  18   1      for(i=0;i<a;i++)
+  19   1      for(j=0;j<1275;j++);
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     53    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
