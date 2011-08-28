@@ -19,7 +19,7 @@ if ($myrow = mysql_fetch_array($result)) {
 	$result = mysql_query($sql, $db);
 
 	if ($myrow2 = mysql_fetch_array($result)) {
-		exec("d:\\qcg\\PHPnow\\htdocs\\sams_server\\senseCryptBase64.exe 0 '" . $myrow["ukey_id"] . " " . $_POST["product_id"] . " 36", $lines, $ret);
+		exec('d:\\qcg\\PHPnow\\htdocs\\sams_server\\senseCryptBase64.exe 0 "' . $myrow["ukey_id"] . '" "' . $_POST["product_id"] . '" 36', $lines, $ret);
 		if ($ret == 0) {
 			$sql = "update customer set encrypt_limit='" . $lines[0] . "' where product_id='" . $_POST["product_id"] . "'";
 			$result = mysql_query($sql, $db);

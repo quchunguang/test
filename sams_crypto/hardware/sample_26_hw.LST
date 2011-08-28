@@ -1,4 +1,4 @@
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 1   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 1   
 
 
 C51 COMPILER V7.10, COMPILATION OF MODULE SAMPLE_26_HW
@@ -62,7 +62,7 @@ line level    source
   53   1      }
   54          /*
   55                  This function do DES/TDES en/decryption in ECB mode .
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 2   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 2   
 
   56                  
   57                  Parameters:
@@ -126,7 +126,7 @@ line level    source
  115   1              if (ret != SES_SUCCESS)
  116   1              {
  117   2                      last_ses_error = ret;
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 3   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 3   
 
  118   2                      return ERR_SES;
  119   2              }
@@ -190,7 +190,7 @@ line level    source
  176   3                              ret = _mem_set((tmp_buf + inlen + 1), 0x00, inlen%8-1);
  177   3                              if (ret != SES_SUCCESS)
  178   3                              {
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 4   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 4   
 
  179   4                                      last_ses_error = ret;
  180   4                                      return ERR_SES;
@@ -254,7 +254,7 @@ line level    source
  238   1              ret = _mem_set (tmp_buf, 0, sizeof (tmp_buf));
  239   1              if (ret != SES_SUCCESS)
  240   1              {
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 5   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 5   
 
  241   2                      last_ses_error = ret;
  242   2                      return ERR_SES;
@@ -318,7 +318,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----      16
-C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 6   
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 16:02:34 PAGE 6   
 
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -7,17 +7,25 @@ if (!$db) {
 }
 mysql_select_db("sams", $db);
 
-$device_id = randString(8);
-$encrypt_id = randString(16);
-$ukey_id = randString(16);
-$sql = "insert into customer (device_id, product_id, revision, encrypt_id, ukey_id) values('" .
-	$device_id . "','" .
-	$_POST["product_id"] . "','" .
-	$_POST["revision"] . "','" .
-	$encrypt_id . "','" .
-	$ukey_id . "');";
+$sql = "select device_id,encrypt_id,ukey_id from customer where product_id='" . $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
-
+if ($myrow = mysql_fetch_array($result)) {
+	// target product already exist
+	$device_id = $myrow["device_id"];
+	$encrypt_id = $myrow["encrypt_id"];
+	$ukey_id = $myrow["ukey_id"];
+} else {
+	$device_id = randString(8);
+	$encrypt_id = randString(16);
+	$ukey_id = randString(16);
+	$sql = "insert into customer (device_id, product_id, revision, encrypt_id, ukey_id) values('" .
+		$device_id . "','" .
+		$_POST["product_id"] . "','" .
+		$_POST["revision"] . "','" .
+		$encrypt_id . "','" .
+		$ukey_id . "');";
+	$result = mysql_query($sql, $db);
+}
 #$file_tmpl = "D:\\qcg\\PHPnow\\htdocs\\sams_server\\f001.hex";
 #$file = file_get_contents($file_tmpl);
 #$from = ":100A4600000102030405060708090A0B0C0D0E0F28";
@@ -30,7 +38,7 @@ $result = mysql_query($sql, $db);
 $f001='#define UKEY_ID "' . $encrypt_id . '"';
 $f002='#define UKEY_ID "' . $ukey_id . '"';
 
-echo "{'device_id':'" . $device_id . "','f001':'" . $f001 . "','f002':'" . $f002 . "'}";
+echo "{'code':0,'device_id':'" . $device_id . "','f001':'" . $f001 . "','f002':'" . $f002 . "'}";
 mysql_close($db);
 
 function randString($len)
