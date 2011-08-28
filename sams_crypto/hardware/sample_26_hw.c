@@ -9,6 +9,7 @@
 #include <string.h>
 #include "ses_v3.h"
 #include "..\inc\sample_26.h"
+#include "key.h"
 
 #define _DEBUG
 
@@ -251,7 +252,7 @@ void main()
 	unsigned char length = 0;
 	// use "idata" to avoid key stored in "share memory" being revealed by other EXF
 	//unsigned char idata key[16] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F};
-	unsigned char idata key[16] = "7gio49f023rkgfdr";
+	unsigned char idata key[16] = UKEY_ID;
 	DATA_BLOCK *dblk = NULL;
 	switch(input->tag)
 	{

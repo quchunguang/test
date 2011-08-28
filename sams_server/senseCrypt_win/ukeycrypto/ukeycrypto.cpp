@@ -99,7 +99,7 @@ int  main(int argc, char* argv[])
 	memcpy(ukey, argv[2], 16);
 	memcpy(urandom, argv[3], 16);
 
-	TDES(ukey, 1, uencode, urandom, BUFFERLENGTH);
+	TDES(ukey, 1, uencode, urandom, 16);
 	hex2bin(client_hex, uclient);
 
 	return (memcmp(uencode, uclient, 16) == 0 ? 0 : 5);		// 1: error compare
