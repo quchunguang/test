@@ -1,0 +1,5 @@
+"STARTUP.obj",
+"sample_26_hw.obj",
+".\Ses51L.LIB" 
+TO "sample_26_hw" 
+RAMSIZE(256) 

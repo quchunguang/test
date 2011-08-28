@@ -1,0 +1,327 @@
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 1   
+
+
+C51 COMPILER V7.10, COMPILATION OF MODULE SAMPLE_26_HW
+OBJECT MODULE PLACED IN sample_26_hw.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\c51.exe sample_26_hw.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*
+   2            Copyright (c) 2011, Ciho Software Technology CO.,Ltd
+   3            All rights reserved.
+   4            
+   5            File£ºsample_26_hw.c
+   6              
+   7          */
+   8          
+   9          #include <string.h>
+  10          #include "ses_v3.h"
+  11          #include "..\inc\sample_26.h"
+  12          #include "key.h"
+  13          
+  14          #define _DEBUG
+  15          
+  16          /* global variable defination. */
+  17          unsigned char last_ses_error = 0; /* last SES error */
+  18          IO_PACKAGE out_pkg;  /* output package */
+  19          IO_PACKAGE *output = &out_pkg; 
+  20          IO_PACKAGE *input = (IO_PACKAGE *)pbInBuff; /* input package */
+  21          unsigned char tmp_buf[MAX_IO_DATA_SIZE];
+  22          
+  23          /*
+  24                  Exit upon an error.
+  25            
+  26                  Parameters:
+  27                          errcode[in]: error code
+  28                          msg[in]: additional error message
+  29                          msglen[in]: message length
+  30            
+  31                  Return:
+  32                          none.
+  33          
+  34                  Remarks:
+  35                          none.
+  36          */
+  37          void error_exit(unsigned char errcode, unsigned char *msg, int msglen)
+  38          {
+  39   1              output->tag = errcode;
+  40   1              output->len = 0;
+  41   1              
+  42   1              /* for debug purpose only */
+  43   1      #ifdef  _DEBUG
+  44   1              if (msglen != 0 && msg != NULL)
+  45   1              {
+  46   2                      memcpy(output->buff, msg, msglen);
+  47   2                      output->len = msglen;
+  48   2              }
+  49   1      #endif
+  50   1      
+  51   1              _set_response(2+output->len, (unsigned char *)output);
+  52   1              _exit();
+  53   1      }
+  54          /*
+  55                  This function do DES/TDES en/decryption in ECB mode .
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 2   
+
+  56                  
+  57                  Parameters:
+  58                          cmd[in]: command 
+  59                          key[in]: secret key
+  60                          in[in]:  input data
+  61                          inlen[in]: input data length
+  62                          out[out]: output data
+  63                          outlen[in,out]: [in]out buffer size &&[out]output length 
+  64                  Return: 
+  65                          If the function succeeds, it will return ERR_SUCCESS, otherwise 
+  66                          it returns corresponding error code.
+  67          
+  68                  Remarks:
+  69                          External buffer required, defined as tmp_buf
+  70          */
+  71          
+  72          int enc_dec_ecb(unsigned char cmd, unsigned char *key, unsigned char *in,  unsigned char inlen, 
+  73                                             unsigned char *out, unsigned char *outlen)
+  74          {
+  75   1              unsigned char ret = 0;
+  76   1              unsigned char length = 0;
+  77   1              if ((inlen > 248)||(inlen < 1))
+  78   1              {
+  79   2                      return ERR_INVALID_PARAMETER;
+  80   2              } 
+  81   1              length = ((inlen+7)>>3)<<3;
+  82   1              if (*outlen < length) /* insufficient buffer size */
+  83   1              {
+  84   2                      return ERR_INVALID_PARAMETER;
+  85   2              } 
+  86   1              ret = _mem_copy(tmp_buf, in, inlen);
+  87   1              if (ret != SES_SUCCESS)
+  88   1              {
+  89   2                      last_ses_error = ret;
+  90   2                      return ERR_SES;
+  91   2              }
+  92   1              switch(cmd)
+  93   1              {
+  94   2                      case DES_ENC_ECB:
+  95   2                              ret = _des_enc(key, inlen, tmp_buf);                    
+  96   2                      break;
+  97   2                      case DES_DEC_ECB:
+  98   2                              ret = _des_dec(key, inlen, tmp_buf);                                            
+  99   2                      break;
+ 100   2                      case TDES_ENC_ECB:
+ 101   2                              ret = _tdes_enc(key, inlen, tmp_buf);                   
+ 102   2                      break;
+ 103   2                      case TDES_DEC_ECB:
+ 104   2                              ret = _tdes_dec(key, inlen, tmp_buf);                   
+ 105   2                      break;          
+ 106   2                      default:
+ 107   2                              return ERR_INVALID_PARAMETER;
+ 108   2              }
+ 109   1              if (ret != SES_SUCCESS)
+ 110   1              {
+ 111   2                      last_ses_error = ret;
+ 112   2                      return ERR_SES;
+ 113   2              }
+ 114   1              ret = _mem_copy(out, tmp_buf, length);
+ 115   1              if (ret != SES_SUCCESS)
+ 116   1              {
+ 117   2                      last_ses_error = ret;
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 3   
+
+ 118   2                      return ERR_SES;
+ 119   2              }
+ 120   1              *outlen = length;
+ 121   1              return ERR_SUCCESS;
+ 122   1      }
+ 123          
+ 124          /*
+ 125                  This function do DES/TDES en/decryption in CBC mode .
+ 126                  
+ 127                  Parameters:
+ 128                          cmd[in]: command 
+ 129                          key[in]: secret key
+ 130                          iv[in]:  initial vector
+ 131                          in[in]:  input data
+ 132                          inlen[in]: input data length
+ 133                          out[out]: output data
+ 134                          outlen[in,out]: [in]out buffer size &&[out]output length 
+ 135                  Return: 
+ 136                          If the function succeeds, it will return ERR_SUCCESS, otherwise 
+ 137                          it returns corresponding error code.
+ 138          
+ 139                  Remarks:
+ 140                          External buffer required, defined as tmp_buf
+ 141          */
+ 142          int enc_dec_cbc(unsigned char cmd, unsigned char *key, unsigned char *iv, unsigned char *in,  unsigned cha
+             -r inlen, 
+ 143                                            unsigned char *out, unsigned char *outlen)
+ 144          {
+ 145   1              unsigned char ret = 0;
+ 146   1              unsigned char length = 0;
+ 147   1              unsigned char tmp_iv[8];
+ 148   1              unsigned char inputBlock[8];
+ 149   1              unsigned int i = 0;
+ 150   1              unsigned int j = 0;
+ 151   1      
+ 152   1              length = ((inlen+7)>>3)<<3;
+ 153   1              if (*outlen < length) /* insufficient buffer size */
+ 154   1              {
+ 155   2                      return ERR_INVALID_PARAMETER;
+ 156   2              } 
+ 157   1              ret = _mem_copy(tmp_buf, in, inlen);
+ 158   1              if (ret != SES_SUCCESS)
+ 159   1              {
+ 160   2                      last_ses_error = ret;
+ 161   2                      return ERR_SES;
+ 162   2              }
+ 163   1              ret = _mem_copy(tmp_iv, iv, sizeof(tmp_iv));
+ 164   1              if (ret != SES_SUCCESS)
+ 165   1              {
+ 166   2                      last_ses_error = ret;
+ 167   2                      return ERR_SES;
+ 168   2              }
+ 169   1              
+ 170   1              if (inlen % 8)
+ 171   1              {
+ 172   2                      //tmp_buf[inlen] = 0x80;
+ 173   2                      tmp_buf[inlen] = 0x00;
+ 174   2                      if (inlen % 8 > 1)
+ 175   2                      {
+ 176   3                              ret = _mem_set((tmp_buf + inlen + 1), 0x00, inlen%8-1);
+ 177   3                              if (ret != SES_SUCCESS)
+ 178   3                              {
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 4   
+
+ 179   4                                      last_ses_error = ret;
+ 180   4                                      return ERR_SES;
+ 181   4                              }
+ 182   3                      }
+ 183   2              }
+ 184   1              for (i = 0; i < length/8; i++) 
+ 185   1              {
+ 186   2                  /* Chain if encrypting.
+ 187   2                   */
+ 188   2                  if (cmd == DES_ENC_CBC || cmd == TDES_ENC_CBC)
+ 189   2                      {
+ 190   3                              for (j = 0; j < 8; j++)
+ 191   3                              {
+ 192   4                                      tmp_buf[i*8+j] ^= tmp_iv[j]; 
+ 193   4                              }
+ 194   3                              if (cmd == DES_ENC_CBC)
+ 195   3                              {
+ 196   4                                      ret = _des_enc(key, 8, &tmp_buf[i*8]);
+ 197   4                              }
+ 198   3                              else
+ 199   3                              {
+ 200   4                                      ret = _tdes_enc(key, 8, &tmp_buf[i*8]);
+ 201   4                              }
+ 202   3                              ret = _mem_copy(tmp_iv, &tmp_buf[i*8], 8);
+ 203   3              
+ 204   3                      }
+ 205   2                      else
+ 206   2                      {
+ 207   3                              ret = _mem_copy(inputBlock, &tmp_buf[i*8], 8);
+ 208   3                              if (cmd == DES_DEC_CBC)
+ 209   3                              {
+ 210   4                                      ret = _des_dec(key, 8, &tmp_buf[i*8]);
+ 211   4                              }
+ 212   3                              else
+ 213   3                              {
+ 214   4                                      ret = _tdes_dec(key, 8, &tmp_buf[i*8]);
+ 215   4                              }
+ 216   3                              for (j = 0; j < 8; j++)
+ 217   3                              {
+ 218   4                                      tmp_buf[i*8+j] ^= tmp_iv[j]; 
+ 219   4                              }
+ 220   3                              ret = _mem_copy(tmp_iv, inputBlock, 8);
+ 221   3                      }
+ 222   2              
+ 223   2              }  
+ 224   1      
+ 225   1              if (ret != SES_SUCCESS)
+ 226   1              {
+ 227   2                      last_ses_error = ret;
+ 228   2                      return ERR_SES;
+ 229   2              }
+ 230   1              ret = _mem_copy(out, tmp_buf, length);
+ 231   1              if (ret != SES_SUCCESS)
+ 232   1              {
+ 233   2                      last_ses_error = ret;
+ 234   2                      return ERR_SES;
+ 235   2              }
+ 236   1              /* Zeroize sensitive information.
+ 237   1              */
+ 238   1              ret = _mem_set (tmp_buf, 0, sizeof (tmp_buf));
+ 239   1              if (ret != SES_SUCCESS)
+ 240   1              {
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 5   
+
+ 241   2                      last_ses_error = ret;
+ 242   2                      return ERR_SES;
+ 243   2              }
+ 244   1      
+ 245   1              *outlen = length;
+ 246   1              return ERR_SUCCESS;
+ 247   1      }
+ 248          
+ 249          void main()
+ 250          {
+ 251   1              int ret = 0;
+ 252   1              unsigned char length = 0;
+ 253   1              // use "idata" to avoid key stored in "share memory" being revealed by other EXF
+ 254   1              //unsigned char idata key[16] = {0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x
+             -0E,0x0F};
+ 255   1              unsigned char idata key[16] = UKEY_ID;
+ 256   1              DATA_BLOCK *dblk = NULL;
+ 257   1              switch(input->tag)
+ 258   1              {
+ 259   2                      case DES_ENC_ECB:
+ 260   2                      case DES_DEC_ECB:
+ 261   2                      case TDES_ENC_ECB:
+ 262   2                      case TDES_DEC_ECB:
+ 263   2                              length = sizeof(tmp_buf);
+ 264   2                              ret = enc_dec_ecb(input->tag, key, input->buff, input->len, &output->buff, &length);
+ 265   2                      break;
+ 266   2                      case DES_ENC_CBC:
+ 267   2                      case DES_DEC_CBC:
+ 268   2                      case TDES_ENC_CBC:
+ 269   2                      case TDES_DEC_CBC:
+ 270   2                              dblk = (DATA_BLOCK *)input->buff;
+ 271   2                              length = sizeof(tmp_buf);                       
+ 272   2                              ret = enc_dec_cbc(input->tag, key, dblk->iv, dblk->buff, dblk->len, &output->buff, &length);
+ 273   2                      break;
+ 274   2                      default:
+ 275   2                              error_exit(ERR_INVALID_PARAMETER, NULL, 0);
+ 276   2              }
+ 277   1              if (ret != ERR_SUCCESS)
+ 278   1              {
+ 279   2                      if (ret == ERR_SES)
+ 280   2                      {
+ 281   3                              error_exit(ret , &last_ses_error, 1);
+ 282   3                      }
+ 283   2                      else
+ 284   2                      {
+ 285   3                              error_exit(ret, NULL, 0);
+ 286   3                      }
+ 287   2              }
+ 288   1              output->tag = ERR_SUCCESS;
+ 289   1              output->len = length;
+ 290   1              _set_response(IO_PACKAGE_HEADER_SIZE+output->len, (unsigned char *)output);
+ 291   1              _exit();  
+ 292   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1977    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =    505      66
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----      16
+C51 COMPILER V7.10   SAMPLE_26_HW                                                          08/28/2011 13:09:11 PAGE 6   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
