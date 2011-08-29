@@ -66,6 +66,8 @@ function generateFilename($filetype)
 	} else if (($filetype == "image/png")
 		|| ($filetype == "image/x-png")) {
 		$ext = ".png";
+	} else if ($filetype == "image/gif") {
+		$ext = ".gif";
 	}
 	return randString(12) . $ext;
 }
@@ -81,13 +83,14 @@ function processFile($error, $type, $size, $tmp_name)
 	}
 	if ( ($type == "image/png")
 	|| ($type == "image/x-png")
+	|| ($type == "image/gif")
 	|| ($type == "image/jpeg")
 	|| ($type == "image/pjpeg") ) {
 		$filename = generateFilename($type);
 		move_uploaded_file($tmp_name, "upload/" . $filename);
 		return $filename;
 	} else {
-		echo makeRetHtml("数据提交失败！上传截图仅支持PNG/JPG格式。", true);
+		echo makeRetHtml("数据提交失败！上传截图仅支持PNG/JPG/GIF格式。", true);
 		die(3);
 	}
 }
