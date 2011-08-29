@@ -23,13 +23,17 @@ if ($myrow = mysql_fetch_array($result)) {
 		# generate limit and encrypt_limit
 		echo ",'encrypt_limit':'" . $myrow["encrypt_limit"] . "'";
 
-		# generate sql list as sqls[]
-		$sql = "select alter_sql from version where revision > " . $myrow["revision"] . " and alter_sql is not null order by revision asc;";
+		# generate revision list as revisions[], sql list as sqls[]
+		$sql = "select revision,alter_sql from version where revision > " . $myrow["revision"] . " and alter_sql is not null order by revision asc;";
 		$result3 = mysql_query($sql, $db);
 		$sqls = array();
+		$revisions = array();
 		while($r3 = mysql_fetch_assoc($result3)) {
+			$revisions[] = $r3["revision"];
 			$sqls[] = $r3["alter_sql"];
 		}
+		echo ",'revisions':";
+		echo json_encode($revisions);
 		echo ",'sqls':";
 		echo json_encode($sqls);
 
