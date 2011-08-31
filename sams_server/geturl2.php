@@ -1,6 +1,6 @@
 <?php
 # Call by method post
-# productid=pid&version_major=major&version_minner=minner
+# productid=pid&version_major=major&version_minner=minner&revision=revision
 $db = mysql_connect("localhost", "root", "qu-cg123");
 if (!$db) {
 	die('Could not connect: ' . mysql_error());
@@ -12,6 +12,7 @@ $sql = "select status,functions,random,revision,encrypt_limit from customer wher
 $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	if ($myrow["status"] == 0) {
+		# update status to cumtomer
 		$sql = "update customer set status=0 where product_id='" . $_POST["product_id"] . "'";
 		$result = mysql_query($sql, $db);
 		if(!$result) {
@@ -19,6 +20,9 @@ if ($myrow = mysql_fetch_array($result)) {
 			mysql_close($db);
 			die();
 		}
+
+		# check revision
+		$revision = $_POST["revision"] == 0 ? $myrow["revision"] : $_POST["revision"];
 
 		# generate code
 		echo "{'code':0";
@@ -28,7 +32,7 @@ if ($myrow = mysql_fetch_array($result)) {
 
 		# generate revision list as revisions[], sql list as sqls[]
 		$sql = "select revision,version_major,version_minner,alter_sql from version where revision > "
-			. $myrow["revision"]
+			. $revision
 		       	. " and alter_sql is not null order by revision asc;";
 		$result3 = mysql_query($sql, $db);
 		$sqls = array();
