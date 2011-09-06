@@ -7,6 +7,11 @@ if (!$db) {
 }
 
 mysql_select_db("sams", $db);
+
+# change charactor set for select
+$sql = "SET CHARACTER_SET_RESULTS=utf8";
+$result2 = mysql_query($sql, $db);
+
 $sql = "select status,functions,random,revision,encrypt_limit from customer where product_id='"
        	. $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
@@ -61,8 +66,6 @@ if ($myrow = mysql_fetch_array($result)) {
 		echo ",'url_installer':'" . $url_installer . "'";
 
 		# generate function list
-		$sql = "SET CHARACTER_SET_RESULTS=utf8";
-		$result2 = mysql_query($sql, $db);
 		$sql = "select a1,a2,bh,parent,a5,a6,a7,level,isLeaf,showindex,a8 from functions where id in ("
 			. $myrow["functions"] .")";
 		$result2 = mysql_query($sql, $db);

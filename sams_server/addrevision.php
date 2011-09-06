@@ -14,6 +14,10 @@ if (mysql_num_rows($result) > 0) {
 	die();
 }
 
+$sql = "SET CHARACTER_SET_CONNECTION=utf8";
+$result = mysql_query($sql, $db);
+$sql = "SET CHARACTER_SET_CLIENT=utf8";
+$result = mysql_query($sql, $db);
 $sql = "insert into version (revision, version_major, version_minner, release_notes, alter_sql, u500, u1000, unlimit) values(" .
 $_POST["revision"] . "," .
 $_POST["version_major"] . "," .
