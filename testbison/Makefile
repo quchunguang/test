@@ -13,7 +13,7 @@ clean:
 	cd rpncalc && $(MAKE) clean
 	cd testflex && $(MAKE) clean
 
-testlex: 	testfle.l
+testlex: 	testlex.l
 	flex -o testlex.c testlex.l
 	gcc -Wall -ansi -o testlex testlex.c
 nl: 		nl.l
