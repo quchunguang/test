@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.widgets#Label">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2 #//@objectsToAttach.3"/>
+    </value>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/org.eclipse.swt.widgets#Label/text">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="text"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaClass java:/java.lang#String"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" implicitlySetBits="2161727821137838094" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false">
+    <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="org.eclipse.ve.sweet.stylebits" value="implicit,[7][]{[4]{&quot;wrap&quot;,&quot;wrap&quot;,false,[3]{&quot;WRAP&quot;,&quot;org.eclipse.swt.SWT.WRAP&quot;,64}},[4]{&quot;orientation&quot;,&quot;orientation&quot;,false,[6]{&quot;HORIZONTAL&quot;,&quot;org.eclipse.swt.SWT.HORIZONTAL&quot;,256,&quot;VERTICAL&quot;,&quot;org.eclipse.swt.SWT.VERTICAL&quot;,512}},[4]{&quot;shadow&quot;,&quot;shadow&quot;,false,[9]{&quot;IN&quot;,&quot;org.eclipse.swt.SWT.SHADOW_IN&quot;,4,&quot;OUT&quot;,&quot;org.eclipse.swt.SWT.SHADOW_OUT&quot;,8,&quot;NONE&quot;,&quot;org.eclipse.swt.SWT.SHADOW_NONE&quot;,32}},[4]{&quot;textAlignment&quot;,&quot;textAlignment&quot;,false,[9]{&quot;LEFT&quot;,&quot;org.eclipse.swt.SWT.LEFT&quot;,16384,&quot;RIGHT&quot;,&quot;org.eclipse.swt.SWT.RIGHT&quot;,131072,&quot;CENTER&quot;,&quot;org.eclipse.swt.SWT.CENTER&quot;,16777216}},[4]{&quot;controlOrientation&quot;,&quot;controlOrientation&quot;,true,[6]{&quot;LEFT_TO_RIGHT&quot;,&quot;org.eclipse.swt.SWT.LEFT_TO_RIGHT&quot;,33554432,&quot;RIGHT_TO_LEFT&quot;,&quot;org.eclipse.swt.SWT.RIGHT_TO_LEFT&quot;,67108864}},[4]{&quot;border&quot;,&quot;border&quot;,false,[3]{&quot;BORDER&quot;,&quot;org.eclipse.swt.SWT.BORDER&quot;,2048}},[4]{&quot;separator&quot;,&quot;separator&quot;,false,[3]{&quot;SEPARATOR&quot;,&quot;org.eclipse.swt.SWT.SEPARATOR&quot;,2}}}"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The receiver's text, which will be an empty string if it has never been set or if the receiver is a SEPARATOR label." implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.getText(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.setText(java.lang.String"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="alignment" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="A value which describes the position of the text or image in the receiver." expert="true" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.getAlignment(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.setAlignment(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[9]{&quot;LEFT&quot;,16384,&quot;org.eclipse.swt.SWT.LEFT&quot;,&quot;CENTER&quot;,16777216,&quot;org.eclipse.swt.SWT.CENTER&quot;,&quot;RIGHT&quot;,131072,&quot;org.eclipse.swt.SWT.RIGHT&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="image" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Image" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The receiver's image if it has one, or null if it does not." implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.getImage(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Label.setImage(org.eclipse.swt.graphics.Image"/>
+  </objectsToAttach>
+</change:ChangeDescription>

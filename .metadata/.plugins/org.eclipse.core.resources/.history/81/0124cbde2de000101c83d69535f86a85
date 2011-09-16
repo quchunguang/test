@@ -1,0 +1,3 @@
+src/main.d src/main.o: ../src/main.c ../src/doublylinkedlist.h
+
+../src/doublylinkedlist.h:

@@ -1,0 +1,19 @@
+/*
+ ============================================================================
+ Name        : testc.c
+ Author      : Kevin Qu
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <asm-generic/errno.h>
+
+int main(void) {
+	printf("Hi, \n");
+	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	return EXIT_SUCCESS;
+}

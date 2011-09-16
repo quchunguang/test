@@ -11,7 +11,8 @@ DB_USER_NAME=qcg
 #OPTIONS=-A -t  # run without table header and extra spaces
 OPTIONS=-s 	# run step by step
 
-all: 		create queue drop
+all: 		create queue
+clean: 		drop
 
 create: 	basics_create.sql
 	psql -U $(DB_USER_NAME) $(OPTIONS) -f $< $(DB_NAME)

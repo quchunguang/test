@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1294830589673
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1294830589673
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1294830589673
+java.vm.specification.version,sysinfo,,,"1.0",1294830589673
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1294830589673
+java.vm.version,sysinfo,,,"16.0-b13",1294830589673
+activated,view,org.eclipse.ui.navigator.resources,3.4.1.M20090826-0800,"org.eclipse.ui.navigator.ProjectExplorer",1294830591029
+activated,view,org.eclipse.ui.navigator.resources,3.4.1.M20090826-0800,"org.eclipse.ui.navigator.ProjectExplorer",1294830591036
+closed,view,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.internal.introview",1294830591065
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1294830605038
+started,bundle,org.eclipse.debug.core,3.5.0.v20090526-1600,"org.eclipse.debug.core",1294830852306
+started,bundle,org.eclipse.jdt.launching,3.5.0.v20090527,"org.eclipse.jdt.launching",1294830852333
+started,bundle,org.eclipse.jst.jee.ui,1.0.201.v200908270924,"org.eclipse.jst.jee.ui",1294830901075
+started,bundle,org.eclipse.jst.servlet.ui,1.1.301.v200908101600,"org.eclipse.jst.servlet.ui",1294830901105
+started,bundle,org.eclipse.jst.j2ee.navigator.ui,1.1.300.v200903120000,"org.eclipse.jst.j2ee.navigator.ui",1294830901670
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1294830913889
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1294830922658
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1294830923412
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1294830932945
+started,bundle,org.eclipse.jdt.apt.core,3.3.201.R35x_v20090818-0235,"org.eclipse.jdt.apt.core",1294830984794
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.201.R35x_v20090818-0225,"org.eclipse.jdt.apt.pluggable.core",1294830984864
+started,bundle,org.eclipse.ui.views.log,1.0.100.v20090731,"org.eclipse.ui.views.log",1294831003295
+started,bundle,org.eclipse.pde.ui,3.5.0.v20090821,"org.eclipse.pde.ui",1294831003307
+opened,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1294831003438
+opened,view,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.views.ProblemView",1294831003561

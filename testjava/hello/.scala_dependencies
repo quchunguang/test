@@ -1,0 +1,5 @@
+/home/qcg/workspace/hello/bin:/home/qcg/share/eclipse/configuration/org.eclipse.osgi/bundles/763/1/.cp/lib/scala-library.jar:/home/qcg/share/eclipse/configuration/org.eclipse.osgi/bundles/763/1/.cp/lib/scala-dbc.jar:/home/qcg/share/eclipse/configuration/org.eclipse.osgi/bundles/763/1/.cp/lib/scala-swing.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/resources.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/rt.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/jsse.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/jce.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/charsets.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/ext/sunjce_provider.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/ext/sunpkcs11.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/ext/localedata.jar:/home/qcg/share/jdk1.6.0_21/jre/lib/ext/dnsns.jar
+-------
+-------
+/home/qcg/workspace/hello/src/hello/HelloWorld.scala -> /home/qcg/workspace/hello/bin/hello/HelloWorld.class
+/home/qcg/workspace/hello/src/hello/HelloWorld.scala -> /home/qcg/workspace/hello/bin/hello/HelloWorld$.class

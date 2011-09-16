@@ -1,0 +1,4 @@
+src/doublylinkedlist.d src/doublylinkedlist.o: ../src/doublylinkedlist.c \
+ ../src/doublylinkedlist.h
+
+../src/doublylinkedlist.h:

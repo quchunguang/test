@@ -1,0 +1,992 @@
+!SESSION 2011-09-16 10:47:47.208 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY org.eclipse.ui 4 4 2011-09-16 10:48:25.293
+!MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.
+
+!ENTRY org.eclipse.ui 4 4 2011-09-16 10:48:25.300
+!MESSAGE Plugin org.eclipse.linuxtools.callgraph, extension org.eclipse.ui.perspectiveExtensions, id org.eclipse.linuxtools.callgraph.callgraphview: Attribute 'relative' not defined.  This attribute is required when relationship="stack".
+
+!ENTRY org.eclipse.ui 4 4 2011-09-16 10:48:25.300
+!MESSAGE Unable to process element: view in perspective extension: null
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-09-16 10:50:00.265
+!MESSAGE Indexed 'testc' (1 sources, 44 headers) in 1.90 sec: 1,414 declarations; 1,662 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-09-16 11:09:59.933
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/technology/epp/packages/indigo/compositeArtifacts.jar.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:359)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:205)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.getLocalFile(CompositeArtifactRepositoryFactory.java:68)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:91)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:474)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:171)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:95)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:116)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:160)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactRepositories(ProvisioningContext.java:143)
+	at org.eclipse.equinox.internal.p2.engine.phases.Sizing.completePhase(Sizing.java:91)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:216)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:239)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.getSize(ProvUI.java:230)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.SizeComputingWizardPage$1.run(SizeComputingWizardPage.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1116)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:1973)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1735)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1098)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer$GzipGetMethod.execute(HttpClientRetrieveFileTransfer.java:117)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:398)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1142)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:710)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:889)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:576)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:349)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:295)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:80)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:130)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:333)
+	... 28 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2011-09-16 11:09:59.960
+!MESSAGE Unable to read repository at http://download.eclipse.org/technology/epp/packages/indigo/compositeArtifacts.jar.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1116)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:1973)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1735)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1098)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer$GzipGetMethod.execute(HttpClientRetrieveFileTransfer.java:117)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:398)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1142)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:710)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:889)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:576)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:349)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:295)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:80)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:130)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.updateCache(CacheManager.java:333)
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:205)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.getLocalFile(CompositeArtifactRepositoryFactory.java:68)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:91)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:474)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:171)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:95)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:116)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:160)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactRepositories(ProvisioningContext.java:143)
+	at org.eclipse.equinox.internal.p2.engine.phases.Sizing.completePhase(Sizing.java:91)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:216)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:239)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.getSize(ProvUI.java:230)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.SizeComputingWizardPage$1.run(SizeComputingWizardPage.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-09-16 11:14:05.290
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/indigo/201106220900/artifacts.xml.
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:189)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.getLocalFile(SimpleArtifactRepositoryFactory.java:65)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepositoryFactory.load(SimpleArtifactRepositoryFactory.java:76)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.load(CompositeArtifactRepository.java:474)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.addChild(CompositeArtifactRepository.java:171)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.<init>(CompositeArtifactRepository.java:95)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepositoryFactory.load(CompositeArtifactRepositoryFactory.java:116)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.factoryLoad(ArtifactRepositoryManager.java:69)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:100)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:96)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getLoadedArtifactRepositories(ProvisioningContext.java:160)
+	at org.eclipse.equinox.p2.engine.ProvisioningContext.getArtifactRepositories(ProvisioningContext.java:143)
+	at org.eclipse.equinox.internal.p2.engine.phases.Sizing.completePhase(Sizing.java:91)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:216)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:239)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.internal.p2.ui.ProvUI.getSize(ProvUI.java:230)
+	at org.eclipse.equinox.internal.p2.ui.dialogs.SizeComputingWizardPage$1.run(SizeComputingWizardPage.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1116)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:1973)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1735)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1098)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:398)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:227)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1002 2011-09-16 11:14:05.291
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/indigo/201106220900/artifacts.xml.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1116)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:1973)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1735)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1098)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:398)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:227)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2011-09-16 11:14:05.442
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2011-09-16 11:14:05.442
+!MESSAGE session context was:(profile=epp.package.linuxtools, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.highlighter,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.memory,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.misc,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.queries,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.snowball,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.apache.lucene.spellchecker,2.9.1.v20100421-0704
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk,3.0.0.v20101209
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.console,3.0.0.v20101211-0412
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.console.ui,3.0.0.v20101212-1106
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.442
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.core,3.0.0.v20110609-1525
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.dltk.core,3.0.0.v20101211-0331-7l--ED-z0UkgZToe6HfMg
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.core.index,3.0.0.v20110429
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.dltk.core.index,3.0.0.v20101026-0553-79--9oA5885GAJ
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.core.index.sql,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.core.index.sql.h2,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.core.manipulation,3.0.0.v20110609-1525
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.debug,3.0.0.v20101211-0412
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.debug.ui,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.formatter,3.0.0.v20110609-1525
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.launching,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.logconsole,3.0.0.v20110424
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.logconsole.ui,3.0.0.v20110424
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.testing,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.ui,3.0.0.v20110609-1525
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.validators.core,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.validators.externalchecker,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.dltk.validators.ui,3.0.0.v20110423
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.emf.common.ui,2.7.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.emf.ecore.change,2.7.0.v20110408-2116
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.emf.ecore.edit,2.7.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.emf.ecore,2.7.0.v20110605-0747
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.emf.edit,2.7.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.emf.edit.ui,2.7.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.443
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.gef,3.7.0.v20110407-2050
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.jem.util,2.1.100.v201103021400
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.core,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.core.parser,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.core.parser.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.core.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.core,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.core.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.daemon,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.daemon.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.ui,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.debug.ui.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.php,3.0.0.v20110516-1100-7V--F8NcJTTK4UE9TTJJ
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.help,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.help.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.php.sdk,3.0.0.v20110516-1100-77--84_23JBVgSVXO7XGJz0VLa9O
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.server.core,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.server.core.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.server.ui,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.server.ui.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.php.source,3.0.0.v20110516-1100-7V--F8NcJTTK4UE9TTJJ
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.ui,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.php.ui.source,3.0.0.v20110516-1100
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.444
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.core,1.2.0.v200908252030
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.emf,1.2.100.v201101101900
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.emfworkbench.integration,1.2.100.v201011172300
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.environment,1.0.400.v200912181832
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.frameworks,1.2.100.v201105122000
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.frameworks.ui,1.2.100.v201105122000
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.infopop,1.0.300.v201004280700
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.modulecore,1.2.100.v201105191800
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.modulecore.ui,1.0.100.v201105171430
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.project.facet.core,1.4.200.v201103170332
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.snippets,1.2.100.v201103281740
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.ui,1.1.500.v200911190730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.common.uriresolver,1.1.401.v201004280700
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.445
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.common_core.feature,3.3.0.v201102150115-7B7DFO0F7RZHOdJnS2RvQJ
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.common_ui.feature,3.3.0.v201102150115-7C79FUJEdhO_pfmgAnVhkeKoT3SwRK
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.css.core,1.1.500.v201104191926
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.css.ui,1.0.600.v201103022054
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.dtd.core,1.1.500.v201103300335
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.dtd.ui,1.0.600.v201103171359
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.dtd.ui.infopop,1.0.400.v201008112018
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.dtdeditor.doc.user,1.0.700.v201008112018
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.html.core,1.1.500.v201104191551
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.html.ui,1.0.600.v201104211436
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.446
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.internet.cache,1.0.400.v201004280700
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.internet.monitor.core,1.0.505.v20110419
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.core,1.1.100.v201104272153
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.core,2.0.100.v201103232243
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.rhino,1.0.100.v201103080228
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.rhino.debugger,1.0.200.v201103080228
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.rhino.ui,1.0.0.v201103232243
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.transport,1.0.0.v201008101442
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.debug.ui,1.0.100.v201103232243
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.doc,1.0.400.v201011052052
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.447
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.jsdt.feature,1.3.0.v201103031824-7F78FXPFBBoPbXRIcIgs0z0
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.manipulation,1.0.300.v201104272153
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.support.firefox,1.0.400.v201008112000
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.support.ie,1.0.400.v201008112000
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.ui,1.1.100.v201105041953
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.web.core,1.0.400.v201104190230
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.jsdt.web.ui,1.0.400.v201103080228
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.server.core,1.1.302.v20110518
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.server_core.feature,3.3.0.v201102200555-30FBb8s73553C5K
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.sse.core,1.1.600.v201105162116
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.sse.doc.user,1.1.100.v201005192212
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.sse.ui,1.3.0.v201105101529
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.sse.ui.infopop,1.0.300.v201004150328
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.standard.schemas,1.0.400.v201105121540
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.validation,1.2.300.v201104190230
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.validation.infopop,1.0.300.v200806041506
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.validation.ui,1.2.204.v201004150700
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.web,1.1.500.v201104251400
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.web_core.feature,3.3.0.v201102200555-7E7EFMRAJun8Zsu50NSIthQz0YNBBGnk
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xml.core,1.1.600.v201104251227
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xml.ui,1.1.200.v201105111835
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xml.ui.infopop,1.0.400.v201004292007
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.xml_core.feature,3.3.0.v201102071641-7C7OFeGF7RZHQNHrQz-MmTh
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.xml_ui.feature,3.3.0.v201103310011-7H7EFZ-DxumTla66ahfUnHfpsz0u5Z92pU4TxSL
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wst.xml_userdoc.feature,3.3.0.v201102071641-50FYwAkF7B77UBZFDBL
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xmleditor.doc.user,1.0.700.v201005192212
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xsd.core,1.1.600.v201104070312
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xsd.ui,1.2.404.v201105050216
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wst.xsdeditor.doc.user,1.0.800.v201005192212
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.xsd,2.7.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.448
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.xsd.edit,2.6.0.v20110606-0949
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 11:14:05.449
+!MESSAGE No repository found containing: osgi.bundle,org.h2,1.1.117.v201105142352
+!SESSION 2011-09-16 11:42:45.195 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY org.eclipse.osgi 2 1 2011-09-16 11:44:18.260
+!MESSAGE NLS unused message: CodeAssistPreferencePage_showStub in: org.eclipse.php.internal.ui.PHPUIMessages
+
+!ENTRY org.eclipse.ui 4 4 2011-09-16 11:44:56.417
+!MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.
+
+!ENTRY org.eclipse.ui 4 4 2011-09-16 11:44:56.419
+!MESSAGE Unable to find Action Set: org.eclipse.wst.server.ui.internal.webbrowser.actionSet
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-09-16 11:45:00.202
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-09-16 11:45:00.202
+!MESSAGE Conflict for 'org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu':
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@78338d,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@9e3632),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@16afdea)),sourcePriority=1064960)
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@18086d7,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@9e3632),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@16afdea)),sourcePriority=1064960)
+
+!ENTRY org.eclipse.jface 2 0 2011-09-16 11:45:00.210
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-09-16 11:45:00.210
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.dltk.ui.edit.text.script.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.dltk.ui.category.refactoring,Refactor - DLTK,DLTK Refactoring Actions,true),
+		ActionHandler(org.eclipse.dltk.internal.ui.actions.refactoring.RenameAction@1fdd48f),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.dltk.ui.context.views,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.php.ui.edit.text.rename.element,Rename - Refactoring ,
+		Renames the selected element,
+		Category(org.eclipse.php.ui.category.refactoring,Refactor - PHP,PHP Refactoring Actions,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.php.internal.ui.actions.RenameAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.php.ui.contexts.window,,,system)
+!SESSION 2011-09-16 13:04:25.441 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY org.eclipse.osgi 2 1 2011-09-16 13:04:47.712
+!MESSAGE NLS unused message: CodeAssistPreferencePage_showStub in: org.eclipse.php.internal.ui.PHPUIMessages
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-09-16 13:13:39.662
+!MESSAGE Indexed 'testc' (1 sources, 46 headers) in 1.09 sec: 1,414 declarations; 1,665 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-09-16 13:16:08.164
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-09-16 13:16:08.164
+!MESSAGE Conflict for 'org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu':
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@1f098a6,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@2c4623),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@25044e)),sourcePriority=1064960)
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@b5c58a,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@2c4623),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@25044e)),sourcePriority=1064960)
+
+!ENTRY org.eclipse.jface 2 0 2011-09-16 13:16:08.168
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-09-16 13:16:08.168
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.dltk.ui.edit.text.script.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.dltk.ui.category.refactoring,Refactor - DLTK,DLTK Refactoring Actions,true),
+		ActionHandler(org.eclipse.dltk.internal.ui.actions.refactoring.RenameAction@bedacd),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.dltk.ui.context.views,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.php.ui.edit.text.rename.element,Rename - Refactoring ,
+		Renames the selected element,
+		Category(org.eclipse.php.ui.category.refactoring,Refactor - PHP,PHP Refactoring Actions,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.php.internal.ui.actions.RenameAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.php.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.help.base 4 4 2011-09-16 13:33:51.204
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2011-09-16 13:33:51.204
+!MESSAGE Help document /org.eclipse.linuxtools.systemtap.ui.doc/doc/notices.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2011-09-16 13:33:51.204
+!MESSAGE Parse error occurred while adding document /org.eclipse.linuxtools.systemtap.ui.ide/documentation/html/gettingstarted/IDETutorial/lesson2.html to search index /home/qcg/share/eclipse_cdt-3.7/configuration/org.eclipse.help.base/index/zh_CN.
+!STACK 0
+org.apache.lucene.demo.html.ParseException: Encountered "<EOF>" at line 70, column 1.
+Was expecting:
+    <CloseQuote2> ...
+    
+	at org.apache.lucene.demo.html.HTMLParser.generateParseException(HTMLParser.java:692)
+	at org.apache.lucene.demo.html.HTMLParser.jj_consume_token(HTMLParser.java:573)
+	at org.apache.lucene.demo.html.HTMLParser.ArgValue(HTMLParser.java:330)
+	at org.apache.lucene.demo.html.HTMLParser.Tag(HTMLParser.java:263)
+	at org.apache.lucene.demo.html.HTMLParser.HTMLDocument(HTMLParser.java:190)
+	at org.apache.lucene.demo.html.HTMLParser.parse(HTMLParser.java:93)
+	at org.eclipse.help.internal.search.HTMLDocParser.openDocument(HTMLDocParser.java:86)
+	at org.eclipse.help.internal.search.HTMLSearchParticipant.addDocument(HTMLSearchParticipant.java:58)
+	at org.eclipse.help.internal.search.SearchIndex.addDocument(SearchIndex.java:230)
+	at org.eclipse.help.internal.search.IndexingOperation.addDocuments(IndexingOperation.java:252)
+	at org.eclipse.help.internal.search.IndexingOperation.addNewDocuments(IndexingOperation.java:159)
+	at org.eclipse.help.internal.search.IndexingOperation.execute(IndexingOperation.java:106)
+	at org.eclipse.help.internal.search.LocalSearchManager.updateIndex(LocalSearchManager.java:670)
+	at org.eclipse.help.internal.search.LocalSearchManager.ensureIndexUpdated(LocalSearchManager.java:644)
+	at org.eclipse.help.internal.search.federated.IndexerJob.run(IndexerJob.java:31)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.help.base 4 4 2011-09-16 13:33:51.205
+!MESSAGE Parse error occurred while adding document /org.eclipse.linuxtools.systemtap.ui.ide/documentation/html/gettingstarted/IDETutorial/lesson1.html to search index /home/qcg/share/eclipse_cdt-3.7/configuration/org.eclipse.help.base/index/zh_CN.
+!STACK 0
+org.apache.lucene.demo.html.ParseException: Encountered "<EOF>" at line 30, column 59.
+Was expecting:
+    <CloseQuote2> ...
+    
+	at org.apache.lucene.demo.html.HTMLParser.generateParseException(HTMLParser.java:692)
+	at org.apache.lucene.demo.html.HTMLParser.jj_consume_token(HTMLParser.java:573)
+	at org.apache.lucene.demo.html.HTMLParser.ArgValue(HTMLParser.java:330)
+	at org.apache.lucene.demo.html.HTMLParser.Tag(HTMLParser.java:263)
+	at org.apache.lucene.demo.html.HTMLParser.HTMLDocument(HTMLParser.java:190)
+	at org.apache.lucene.demo.html.HTMLParser.parse(HTMLParser.java:93)
+	at org.eclipse.help.internal.search.HTMLDocParser.openDocument(HTMLDocParser.java:86)
+	at org.eclipse.help.internal.search.HTMLSearchParticipant.addDocument(HTMLSearchParticipant.java:58)
+	at org.eclipse.help.internal.search.SearchIndex.addDocument(SearchIndex.java:230)
+	at org.eclipse.help.internal.search.IndexingOperation.addDocuments(IndexingOperation.java:252)
+	at org.eclipse.help.internal.search.IndexingOperation.addNewDocuments(IndexingOperation.java:159)
+	at org.eclipse.help.internal.search.IndexingOperation.execute(IndexingOperation.java:106)
+	at org.eclipse.help.internal.search.LocalSearchManager.updateIndex(LocalSearchManager.java:670)
+	at org.eclipse.help.internal.search.LocalSearchManager.ensureIndexUpdated(LocalSearchManager.java:644)
+	at org.eclipse.help.internal.search.federated.IndexerJob.run(IndexerJob.java:31)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.help.base 4 4 2011-09-16 13:33:51.206
+!MESSAGE Help document /org.eclipse.linuxtools.systemtap.ui.doc/Linux_Tools_Project/SystemTapGUI/User_Guide/User-Guide.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2011-09-16 13:33:51.206
+!MESSAGE Parse error occurred while adding document /org.eclipse.linuxtools.systemtap.ui.ide/documentation/html/gettingstarted/IDETutorial/lesson3.html to search index /home/qcg/share/eclipse_cdt-3.7/configuration/org.eclipse.help.base/index/zh_CN.
+!STACK 0
+org.apache.lucene.demo.html.ParseException: Encountered "<EOF>" at line 59, column 59.
+Was expecting:
+    <CloseQuote2> ...
+    
+	at org.apache.lucene.demo.html.HTMLParser.generateParseException(HTMLParser.java:692)
+	at org.apache.lucene.demo.html.HTMLParser.jj_consume_token(HTMLParser.java:573)
+	at org.apache.lucene.demo.html.HTMLParser.ArgValue(HTMLParser.java:330)
+	at org.apache.lucene.demo.html.HTMLParser.Tag(HTMLParser.java:263)
+	at org.apache.lucene.demo.html.HTMLParser.HTMLDocument(HTMLParser.java:190)
+	at org.apache.lucene.demo.html.HTMLParser.parse(HTMLParser.java:93)
+	at org.eclipse.help.internal.search.HTMLDocParser.openDocument(HTMLDocParser.java:86)
+	at org.eclipse.help.internal.search.HTMLSearchParticipant.addDocument(HTMLSearchParticipant.java:58)
+	at org.eclipse.help.internal.search.SearchIndex.addDocument(SearchIndex.java:230)
+	at org.eclipse.help.internal.search.IndexingOperation.addDocuments(IndexingOperation.java:252)
+	at org.eclipse.help.internal.search.IndexingOperation.addNewDocuments(IndexingOperation.java:159)
+	at org.eclipse.help.internal.search.IndexingOperation.execute(IndexingOperation.java:106)
+	at org.eclipse.help.internal.search.LocalSearchManager.updateIndex(LocalSearchManager.java:670)
+	at org.eclipse.help.internal.search.LocalSearchManager.ensureIndexUpdated(LocalSearchManager.java:644)
+	at org.eclipse.help.internal.search.federated.IndexerJob.run(IndexerJob.java:31)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-16 13:37:46.228
+!MESSAGE An internal error occurred during: "Install download1".
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.ComparableTimSort.mergeHi(ComparableTimSort.java:835)
+	at java.util.ComparableTimSort.mergeAt(ComparableTimSort.java:453)
+	at java.util.ComparableTimSort.mergeForceCollapse(ComparableTimSort.java:392)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:191)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:146)
+	at java.util.Arrays.sort(Arrays.java:472)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.hasValidMirror(MirrorSelector.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:636)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:569)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-16 13:38:15.686
+!MESSAGE An internal error occurred during: "Install download0".
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.ComparableTimSort.mergeHi(ComparableTimSort.java:835)
+	at java.util.ComparableTimSort.mergeAt(ComparableTimSort.java:453)
+	at java.util.ComparableTimSort.mergeForceCollapse(ComparableTimSort.java:392)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:191)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:146)
+	at java.util.Arrays.sort(Arrays.java:472)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.hasValidMirror(MirrorSelector.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:577)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-16 13:45:37.788
+!MESSAGE An internal error occurred during: "Install download1".
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.ComparableTimSort.mergeHi(ComparableTimSort.java:835)
+	at java.util.ComparableTimSort.mergeAt(ComparableTimSort.java:453)
+	at java.util.ComparableTimSort.mergeForceCollapse(ComparableTimSort.java:392)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:191)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:146)
+	at java.util.Arrays.sort(Arrays.java:472)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.hasValidMirror(MirrorSelector.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:577)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2011-09-16 13:49:32.883
+!MESSAGE An error occurred while committing the engine session for profile: epp.package.linuxtools.
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2011-09-16 13:49:32.883
+!MESSAGE An error occurred while undoing the org.eclipse.equinox.internal.p2.engine.phases.Collect phase.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.getProfileDataDirectory(EngineSession.java:78)
+	at org.eclipse.equinox.internal.p2.engine.Phase.prePerform(Phase.java:95)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollBackPhase(EngineSession.java:221)
+	at org.eclipse.equinox.internal.p2.engine.EngineSession.rollback(EngineSession.java:178)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:84)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:174)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:79)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 2 2 2011-09-16 13:49:32.969
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.equinox.p2.operations.ProfileModificationJob
+!SESSION 2011-09-16 13:49:39.390 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY org.eclipse.osgi 2 1 2011-09-16 13:50:01.661
+!MESSAGE NLS unused message: CodeAssistPreferencePage_showStub in: org.eclipse.php.internal.ui.PHPUIMessages
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2011-09-16 13:51:39.241
+!MESSAGE Connection to http://www.eclipse.org/downloads/download.php?file=/eclipse/updates/3.7/R-3.7-201106131736&format=xml&countryCode=cn&timeZone=8&format=xml failed on Connection reset. Retry attempt 0 started
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:254)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1116)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:1973)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1735)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1098)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer$GzipGetMethod.execute(HttpClientRetrieveFileTransfer.java:117)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:398)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1142)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:710)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:889)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:576)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:349)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.read(FileReader.java:213)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.stream(RepositoryTransport.java:146)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.computeMirrors(MirrorSelector.java:207)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.initMirrors(MirrorSelector.java:269)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.selectMirror(MirrorSelector.java:328)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.getMirrorLocation(MirrorSelector.java:247)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getMirror(SimpleArtifactRepository.java:651)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:568)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.artifact.repository 4 0 2011-09-16 13:51:41.100
+!MESSAGE Error processing mirrors URL: http://www.eclipse.org/downloads/download.php?file=/eclipse/updates/3.7/R-3.7-201106131736&format=xml&countryCode=cn&timeZone=8&format=xml
+!STACK 0
+java.io.IOException: Pipe closed
+	at java.io.PipedInputStream.checkStateForReceive(PipedInputStream.java:261)
+	at java.io.PipedInputStream.receive(PipedInputStream.java:227)
+	at java.io.PipedOutputStream.write(PipedOutputStream.java:149)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.handleReceivedData(AbstractRetrieveFileTransfer.java:284)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:173)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-09-16 14:01:36.422
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-09-16 14:01:36.422
+!MESSAGE Conflict for 'org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu':
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@23e08,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@1f83227),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1602a95)),sourcePriority=1064960)
+HandlerActivation(commandId=org.eclipse.dltk.ui.edit.text.script.refactor.quickMenu,
+	handler=org.eclipse.dltk.internal.ui.actions.refactoring.RefactorActionGroup$3@1368b88,
+	expression=AndExpression(ActivePartExpression(org.eclipse.php.internal.ui.explorer.PHPExplorerPart@1f83227),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1602a95)),sourcePriority=1064960)
+
+!ENTRY org.eclipse.jface 2 0 2011-09-16 14:01:36.424
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2011-09-16 14:01:36.424
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.dltk.ui.edit.text.script.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.dltk.ui.category.refactoring,Refactor - DLTK,DLTK Refactoring Actions,true),
+		ActionHandler(org.eclipse.dltk.internal.ui.actions.refactoring.RenameAction@17016ee),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.dltk.ui.context.views,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.php.ui.edit.text.rename.element,Rename - Refactoring ,
+		Renames the selected element,
+		Category(org.eclipse.php.ui.category.refactoring,Refactor - PHP,PHP Refactoring Actions,true),
+		ActionDelegateHandlerProxy(null,org.eclipse.php.internal.ui.actions.RenameAction),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.php.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ecf.provider.filetransfer 4 0 2011-09-16 14:20:44.712
+!MESSAGE org.eclipse.core.runtime.Status[plugin=org.eclipse.ecf.provider.filetransfer;code=4;message=hardClose;severity4;exception=java.net.SocketTimeoutException: Read timed out;children=[]]
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:150)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:275)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:170)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:184)
+	at org.apache.commons.httpclient.ChunkedInputStream.exhaustInputStream(ChunkedInputStream.java:369)
+	at org.apache.commons.httpclient.ContentLengthInputStream.close(ContentLengthInputStream.java:118)
+	at java.io.FilterInputStream.close(FilterInputStream.java:181)
+	at org.apache.commons.httpclient.AutoCloseInputStream.notifyWatcher(AutoCloseInputStream.java:194)
+	at org.apache.commons.httpclient.AutoCloseInputStream.close(AutoCloseInputStream.java:158)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:185)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-16 14:21:10.903
+!MESSAGE An internal error occurred during: "Install download1".
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.ComparableTimSort.mergeHi(ComparableTimSort.java:835)
+	at java.util.ComparableTimSort.mergeAt(ComparableTimSort.java:453)
+	at java.util.ComparableTimSort.mergeForceCollapse(ComparableTimSort.java:392)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:191)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:146)
+	at java.util.Arrays.sort(Arrays.java:472)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.hasValidMirror(MirrorSelector.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:577)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-09-16 14:24:09.420
+!MESSAGE Indexed 'testlinkedlist' (0 sources, 34 headers) in 1.38 sec: 657 declarations; 788 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.ui 4 0 2011-09-16 14:27:33.563
+!MESSAGE Error in CDT UI during reconcile
+!STACK 1
+C Model Exception: C Model Status [Element main.c does not exist.]
+	at org.eclipse.cdt.internal.core.model.CElement.newNotPresentException(CElement.java:487)
+	at org.eclipse.cdt.internal.core.model.TranslationUnit.makeConsistent(TranslationUnit.java:538)
+	at org.eclipse.cdt.internal.core.model.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:62)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.execute(CModelOperation.java:339)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.run(CModelOperation.java:602)
+	at org.eclipse.cdt.internal.core.model.CModelOperation.runOperation(CModelOperation.java:630)
+	at org.eclipse.cdt.internal.core.model.WorkingCopy.reconcile(WorkingCopy.java:403)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:88)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.initialReconcile(CReconcilingStrategy.java:132)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:112)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.initialReconcile(CCompositeReconcilingStrategy.java:108)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.initialProcess(CReconciler.java:394)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+!SUBENTRY 1 org.eclipse.cdt.core 4 969 2011-09-16 14:27:33.590
+!MESSAGE Element main.c does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-09-16 14:27:34.915
+!MESSAGE Indexed 'testdoublylinkedlist' (2 sources, 45 headers) in 1.08 sec: 1,472 declarations; 1,825 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2011-09-16 14:30:32.592
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2011-09-16 14:30:32.592
+!MESSAGE session context was:(profile=epp.package.linuxtools, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2011-09-16 14:30:32.592
+!MESSAGE Comparison method violates its general contract!
+!STACK 0
+java.lang.IllegalArgumentException: Comparison method violates its general contract!
+	at java.util.ComparableTimSort.mergeLo(ComparableTimSort.java:714)
+	at java.util.ComparableTimSort.mergeAt(ComparableTimSort.java:451)
+	at java.util.ComparableTimSort.mergeCollapse(ComparableTimSort.java:376)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:182)
+	at java.util.ComparableTimSort.sort(ComparableTimSort.java:146)
+	at java.util.Arrays.sort(Arrays.java:472)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorSelector.hasValidMirror(MirrorSelector.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:577)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:680)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:260)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:235)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:191)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:122)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:664)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifacts(SimpleArtifactRepository.java:735)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.getArtifacts(CompositeArtifactRepository.java:341)
+	at org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository.getArtifacts(CompositeArtifactRepository.java:341)
+	at org.eclipse.equinox.internal.p2.engine.DownloadManager.fetch(DownloadManager.java:110)
+	at org.eclipse.equinox.internal.p2.engine.DownloadManager.start(DownloadManager.java:99)
+	at org.eclipse.equinox.internal.p2.engine.phases.Collect.completePhase(Collect.java:76)
+	at org.eclipse.equinox.internal.p2.engine.Phase.postPerform(Phase.java:216)
+	at org.eclipse.equinox.internal.p2.engine.Phase.perform(Phase.java:84)
+	at org.eclipse.equinox.internal.p2.engine.PhaseSet.perform(PhaseSet.java:44)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:75)
+	at org.eclipse.equinox.internal.p2.engine.Engine.perform(Engine.java:44)
+	at org.eclipse.equinox.p2.operations.ProvisioningSession.performProvisioningPlan(ProvisioningSession.java:174)
+	at org.eclipse.equinox.p2.operations.ProfileModificationJob.runModal(ProfileModificationJob.java:79)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.core 4 104 2011-09-16 14:33:37.560
+!MESSAGE The program file specified in the launch configuration does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/qcg/dev/prj/test/testdoublylinkedlist/Debug/testc not found
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:653)
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:669)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:84)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.core 4 104 2011-09-16 14:34:09.097
+!MESSAGE The program file specified in the launch configuration does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/qcg/dev/prj/test/testdoublylinkedlist/Debug/testc not found
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:653)
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:669)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:84)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.cdt.debug.core 4 104 2011-09-16 14:35:13.961
+!MESSAGE The program file specified in the launch configuration does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/qcg/dev/prj/test/testdoublylinkedlist/Debug/testc not found
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:653)
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:669)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:84)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:928)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1132)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

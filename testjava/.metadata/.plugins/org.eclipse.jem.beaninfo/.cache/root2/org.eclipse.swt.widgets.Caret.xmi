@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.widgets#Caret">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1 #//@objectsToAttach.2 #//@objectsToAttach.3 #//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6 #//@objectsToAttach.7"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" implicitDecoratorFlag="IMPLICIT_DECORATOR"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="bounds" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Rectangle" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getBounds(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setBounds(org.eclipse.swt.graphics.Rectangle"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="visible" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getVisible(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setVisible(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="location" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Point" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getLocation(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setLocation(org.eclipse.swt.graphics.Point"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="font" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Font" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getFont(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setFont(org.eclipse.swt.graphics.Font"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="parent" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.widgets#Canvas" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getParent("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="image" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Image" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getImage(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setImage(org.eclipse.swt.graphics.Image"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="size" eType="org.eclipse.jem.java:JavaClass java:/org.eclipse.swt.graphics#Point" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.getSize(" writeMethod="org.eclipse.jem.java:Method java:/org.eclipse.swt.widgets#Caret.setSize(org.eclipse.swt.graphics.Point"/>
+  </objectsToAttach>
+</change:ChangeDescription>
