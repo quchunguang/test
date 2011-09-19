@@ -82,7 +82,7 @@ public class Main {
 		testBineryFile();
 		testLog4j();
 		testXQuery();
-		//testJSch();
+		testJSch();
 	}
 
 	private static void testJSch() {

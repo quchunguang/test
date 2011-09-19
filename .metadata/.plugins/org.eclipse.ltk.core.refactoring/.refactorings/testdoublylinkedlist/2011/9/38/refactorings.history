@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Create method print_message" description="Extract Method Refactoring" fileName="file:/home/qcg/dev/prj/test/testc/src/testc.c" flags="4" id="org.eclipse.cdt.internal.ui.refactoring.extractfunction.ExtractFunctionRefactoring" name="print_message" replaceDuplicates="false" selection="395,77" stamp="1316150137965" visibility="private"/>
-</session>

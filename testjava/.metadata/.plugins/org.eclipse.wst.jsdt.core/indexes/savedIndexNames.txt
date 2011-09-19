@@ -1,7 +1,0 @@
-INDEX VERSION 1.122+/home/qcg/dev/prj/test/testjava/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2833866747.index
-2940617386.index
-2105920551.index
-1303911086.index
-2136573579.index
-2826198512.index

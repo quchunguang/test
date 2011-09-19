@@ -1,5 +1,0 @@
-1301116319184	Extract method 'createTabItem'
-1301118475818	Convert local variable 'text' to field
-1301118523775	Convert local variable 'btnOK' to field
-1301123529250	Extract method 'createText'
-1301123560808	Extract method 'createMenu'
