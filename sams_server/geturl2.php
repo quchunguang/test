@@ -1,6 +1,6 @@
 <?php
 # Call by method post
-# productid=pid&version_major=major&version_minner=minner&revision=revision
+# productid=pid&version_major=major&version_minner=minner&revision=revision&functions=functions&encrypt_limit=encrypt_limit
 $db = mysql_connect("localhost", "root", "qu-cg123");
 if (!$db) {
 	die('Could not connect: ' . mysql_error());
@@ -12,13 +12,13 @@ mysql_select_db("sams", $db);
 $sql = "SET CHARACTER_SET_RESULTS=utf8";
 $result2 = mysql_query($sql, $db);
 
-$sql = "select status,functions,random,revision,encrypt_limit from customer where product_id='"
+$sql = "select device_id,status,functions,random,version_major,revision,encrypt_limit from product where product_id='"
        	. $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	if ($myrow["status"] == 0) {
 		# update status to cumtomer
-		$sql = "update customer set status=0 where product_id='" . $_POST["product_id"] . "'";
+		$sql = "update product set status=0 where product_id='" . $_POST["product_id"] . "'";
 		$result = mysql_query($sql, $db);
 		if(!$result) {
 			echo "{'code':6}"; # update status error
@@ -26,8 +26,11 @@ if ($myrow = mysql_fetch_array($result)) {
 			die();
 		}
 
-		# check revision
+		# check args
 		$revision = $_POST["revision"] == 0 ? $myrow["revision"] : $_POST["revision"];
+		$version_major = $myrow["version_major"] > $_POST["version_major"] ? $myrow["version_major"] : $_POST["version_major"];
+		$functions = isset($_POST["functions"]) ? $_POST["functions"] : "";
+		$encrypt_limit = isset($_POST["encrypt_limit"]) ? $_POST["encrypt_limit"] : "";
 
 		# generate code
 		echo "{'code':0";
@@ -38,7 +41,8 @@ if ($myrow = mysql_fetch_array($result)) {
 		# generate revision list as revisions[], sql list as sqls[]
 		$sql = "select revision,version_major,version_minner,alter_sql from version where revision > "
 			. $revision
-		       	. " and alter_sql is not null order by revision asc;";
+			. " and version_major=" . $version_major
+		       	. " order by revision asc";
 		$result3 = mysql_query($sql, $db);
 		$sqls = array();
 		$revisions = array();
@@ -66,7 +70,7 @@ if ($myrow = mysql_fetch_array($result)) {
 		echo ",'url_installer':'" . $url_installer . "'";
 
 		# generate function list
-		$sql = "select a1,a2,bh,parent,a5,a6,a7,level,isLeaf,showindex,a8 from functions where id in ("
+		$sql = "select id,a1,a2,bh,parent,a5,a6,a7,level,isLeaf,showindex,a8 from functions where id in ("
 			. $myrow["functions"] .")";
 		$result2 = mysql_query($sql, $db);
 		$rows = array();
@@ -76,6 +80,17 @@ if ($myrow = mysql_fetch_array($result)) {
 		echo ",'functions':";
 		echo json_encode($rows);
 		echo "}";
+
+		# log update infomation
+		$sql = "insert into product_detail (device_id,revision_from,revision_to,function_from,function_to,limit_from,limit_to) values(" . 
+			$myrow["device_id"] . "," .
+			$revision . "," .
+			max($revisions) . "," .
+			$functions . "," .
+			$myrow["functions"] . "," .
+			$encrypt_limit . "," .
+			$myrow["encrypt_limit"] . ")";
+		$result3 = mysql_query($sql, $db);
 	} else {
 		echo "{'code':2}"; # status error
 	}

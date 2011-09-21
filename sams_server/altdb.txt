@@ -1,0 +1,84 @@
+== 流程 ==
+1. 停止外网web服务。
+2. 导出数据备份。
+3. 启动外网web服务。
+4. 创建备份数据库。
+5. 在备份数据库上执行迁移操作。（依据altdb.txt迁移记录书进行）
+6. 进行远程确认功能正常。（依据SQLEncoder工具测试式样书进行）
+7. 停止外网web服务。
+8. 交换工作数据库与备份数据库。
+9. 确认期间数据库增量，手工更改。
+10.完成。
+
+== 变更记录 ==
+customer -> product
+
+customer
++customer_id int incr
+-device_id
+-product_id
+-revision
+-encrypt_limit
+-encrypt_id
+-ukey_id
+-functions
+-status
+-random
+-last_update
+-last_ensure
++status default 0
++fname
++lname
++age
++sex
+company
+
+product
+-username
+-password
+-tel
+-email
+-contact
++limit
++customer_id 8
++sales_id 8
++version_major default 1
+-last_update
+-last_ensure
+
+sales
++sales_id int incr
++username
++password 32
++rights
++isSuper bool 0
+
+feedback
++customer_id 8
++sales_id 8
+-product_id
++device_id 8
+
+product_detail
++id int autoincr
++function_from 1024
++function_to 1024
++limit_from 256
++limit_to 256
++status default:100
+
+usecount
++device_id
++functionlist 2048
++addlist 1024
++deletelist 1024
++modifylist 1024
++selectlist 1024
++otherlist 1024
++exportlist 1024
++from_date
++to_date
+
+customer 1--* product 1--* product_detail
+sales 1-----*
+                      1--* feedback

@@ -7,13 +7,17 @@ if (!$db) {
 }
 
 mysql_select_db("sams", $db);
-$sql = "select ukey_id,random,status from customer where product_id='" . $_POST["product_id"] . "'";
+$sql = "select ukey_id,random,status from product where product_id='" . $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	if ($myrow["status"] == 0){
-		exec('d:\\qcg\\PHPnow\\htdocs\\sams_server\\senseCrypt.exe "' . $_POST["encrypt"] . '" "' . $myrow["ukey_id"] . '" "' . $myrow["random"] . '"', $lines, $ret);
+		exec('d:\\qcg\\PHPnow\\htdocs\\sams_server\\senseCrypt.exe "'
+			. $_POST["encrypt"] . '" "'
+			. $myrow["ukey_id"] . '" "'
+			. $myrow["random"] . '"',
+			$lines, $ret);
 		if ($ret == 0) {
-			$sql = "update customer set status=0 where product_id='" . $_POST["product_id"] . "'";
+			$sql = "update product set status=0 where product_id='" . $_POST["product_id"] . "'";
 			$result = mysql_query($sql, $db);
 			if(!$result) {
 				echo "{'code':6}"; # update status error

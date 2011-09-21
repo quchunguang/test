@@ -1,13 +1,17 @@
 <?php
 # Call by method post
 # productid=pid
+# sales_id
+# version_major
+
 $db = mysql_connect("localhost", "root", "qu-cg123");
 if (!$db) {
+	echo "{'code':100}"; // can not connect db
 	die('Could not connect: ' . mysql_error());
 }
 mysql_select_db("sams", $db);
 
-$sql = "select device_id,encrypt_id,ukey_id from customer where product_id='" . $_POST["product_id"] . "'";
+$sql = "select device_id,encrypt_id,ukey_id from product where product_id='" . $_POST["product_id"] . "'";
 $result = mysql_query($sql, $db);
 if ($myrow = mysql_fetch_array($result)) {
 	// target product already exist
@@ -18,13 +22,20 @@ if ($myrow = mysql_fetch_array($result)) {
 	$device_id = randString(8);
 	$encrypt_id = randString(16);
 	$ukey_id = randString(16);
-	$sql = "insert into customer (device_id, product_id, revision, encrypt_id, ukey_id) values('" .
+	$sql = "insert into product (device_id, product_id, customer_id, sales_id, version_major, revision, encrypt_id, ukey_id) values('" .
 		$device_id . "','" .
+		$_POST["product_id"] . "','" .
+		$_POST["sales_id"] . "','" .
+		$_POST["version_major"] . "','" .
 		$_POST["product_id"] . "','" .
 		$_POST["revision"] . "','" .
 		$encrypt_id . "','" .
 		$ukey_id . "');";
-	$result = mysql_query($sql, $db);
+	if (!mysql_query($sql, $db)) {
+		echo "{'code':1}"; # error: insert product error
+		mysql_close($db);
+		die();
+	}
 }
 #$file_tmpl = "D:\\qcg\\PHPnow\\htdocs\\sams_server\\f001.hex";
 #$file = file_get_contents($file_tmpl);
