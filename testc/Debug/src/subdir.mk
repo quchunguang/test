@@ -5,6 +5,8 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/alarm.c \
+../src/binarytree.c \
+../src/bst.c \
 ../src/daemon.c \
 ../src/dump.c \
 ../src/execve.c \
@@ -24,6 +26,7 @@ C_SRCS += \
 ../src/sigmask.c \
 ../src/testc.c \
 ../src/testmmap.c \
+../src/teststr.c \
 ../src/udp_server.c \
 ../src/unix_socket.c \
 ../src/waitpid.c \
@@ -31,6 +34,8 @@ C_SRCS += \
 
 OBJS += \
 ./src/alarm.o \
+./src/binarytree.o \
+./src/bst.o \
 ./src/daemon.o \
 ./src/dump.o \
 ./src/execve.o \
@@ -50,6 +55,7 @@ OBJS += \
 ./src/sigmask.o \
 ./src/testc.o \
 ./src/testmmap.o \
+./src/teststr.o \
 ./src/udp_server.o \
 ./src/unix_socket.o \
 ./src/waitpid.o \
@@ -57,6 +63,8 @@ OBJS += \
 
 C_DEPS += \
 ./src/alarm.d \
+./src/binarytree.d \
+./src/bst.d \
 ./src/daemon.d \
 ./src/dump.d \
 ./src/execve.d \
@@ -76,6 +84,7 @@ C_DEPS += \
 ./src/sigmask.d \
 ./src/testc.d \
 ./src/testmmap.d \
+./src/teststr.d \
 ./src/udp_server.d \
 ./src/unix_socket.d \
 ./src/waitpid.d \

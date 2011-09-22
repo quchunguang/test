@@ -141,7 +141,7 @@ int server() {
 	clifd = serv_accept(fd, uidptr);
 	return 0;
 }
-
+/*
 int main(int argc, char* argv[]) {
 	if (argc != 2) {
 		// server: no argument
@@ -152,4 +152,4 @@ int main(int argc, char* argv[]) {
 	}
 	return 0;
 }
-
+*/
