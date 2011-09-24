@@ -177,7 +177,7 @@ void testconst() {
 	//printf(str2);
 	printf("abcd");
 }
-
+/*
 int main(int argc, char *argv[]) {
 	testmemmove();
 	teststrtok(); // not thread safe
@@ -194,3 +194,4 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
+*/

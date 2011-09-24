@@ -3,6 +3,8 @@
 msg:
 	.ascii "Hello, world!\n"# our dear string
 	len = . - msg 		# length of our dear string
+source:
+	.long 1,2,3,4,5
 
 .text 				# section declaration
 
@@ -21,7 +23,14 @@ _start:
 	int 	$0x80 		# call kernel
 
 # and exit
+	movl 	$source,%eax    # $ means pointer or address
+	#movl 	(%eax),%ebx
+	movl 	12(%eax),%ebx
+	#movl 	source,%ebx
 
-	movl 	$0,%ebx 	# first argument: exit code
+	#movl 	$4,%edi
+	#movl 	source(,%edi,4),%ebx
+
+	#movl 	$0,%ebx 	# first argument: exit code
 	movl 	$1,%eax 	# system call number (sys_exit)
 	int 	$0x80 		# call kernel
