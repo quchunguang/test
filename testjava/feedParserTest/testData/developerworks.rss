@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="0.91">
+<channel>
+<title>IBM developerWorks</title>
+<link>http://www.ibm.com/developerworks/index.html?ca=drs-tp2004</link>
+<description>The latest content from IBM developerWorks</description>
+<language>en-us</language>
+<copyright>Copyright 2003 IBM Corporation.</copyright>
+<pubDate>Tue, 11 May 2004 11:25:23 -0400</pubDate>
+<image>
+<title>IBM developerWorks</title>
+<url>http://www-106.ibm.com/developerworks/i/dwlogo-small.gif</url>
+<link>http://www.ibm.com/developerworks/index.html?ca=drs-tp2004</link>
+</image>
+<item>
+<title>Build installation packages with solution installation and deployment technologies</title>
+<description>The solution installation and deployment technologies in the Autonomic Computing Toolkit is the set of tools for installing, updating, and removing software packages. It provides a common technology across all supported platforms to allow developers to check for installation software and hardware dependencies, and specify where the package components are installed. The system administrator no longer has to do all the dependency research before installation; the developer has automated it for them, although the advanced system administrator retains the ability to customize their installation.  This tutorial is about creating solution installation and deployment packages. Two examples are given: a minimal, one file "Hello World" installation and a more complex scenario. The complex example looks at the IBM supplied solution installation and deployment scenario for InstallAnywhere that installs the WebSphere Application Server (WAS Express 5.0). It has dependency checks (both built-in and external), it installs individual files or directories of files, and in most desktop environments, it installs desktop shortcuts.</description>
+<link>http://www.ibm.com/developerworks/edu/ac-dw-ac-sinstall-i.html?ca=drs-tp2004</link>
+</item>
+<item>
+<title>Implement Bayesian inference using PHP, Part 3</title>
+<description>In this third article on Bayesian inference, Paul Meagher examines how to use PHP and Bayes methods to solve classification problems in medical diagnostic testing and Web survey analysis. Learn how Bayesian and conditional probability concepts are applicable to both building classifier systems and analyzing the accuracy of their output.</description>
+<link>http://www.ibm.com/developerworks/web/library/wa-bayes3/index.html?ca=drs-tp2004</link>
+</item>
+<item>
+<title>Get started with XPath</title>
+<description>This tutorial introduces XPath and covers most aspects of it. It is aimed at people who do not know XPath or want a refresher. If you plan to use XSLT, you should take this tutorial first. You will learn: What XPath is; the syntax and semantics of the XPath language; how to use XPath location paths; how to use XPath expressions; how to use XPath functions; and how XPath relates to XSLT.  XPath is a W3C standard. This tutorial covers version 1.0.</description>
+<link>http://www.ibm.com/developerworks/edu/x-dw-xxpath-i.html?ca=drs-tp2004</link>
+</item>
+<item>
+<title>Build a grid app with Perl, Part 4: Submission and distribution</title>
+<description>This series looks at building a framework for a grid system while creating a distributed image storage/retrieval system as a sample grid application.  In this fourth part of the series, learn about the issues of submitting information into a resource grid, and how it's stored and prepared for distribution.</description>
+<link>http://www.ibm.com/developerworks/edu/gr-dw-gr-perl4-i.html?ca=drs-tp2004</link>
+</item>
+<item>
+<title>Use shared objects on Linux</title>
+<description>How can you make the C++ object model take advantage of the
+benefits of shared memory? It isn't easy, but it is possible. This
+article by IBMer and C++ guru Sachin O. Agrawal shows how, with detailed
+code samples, output log samples, tips, and caveats.</description>
+<link>http://www.ibm.com/developerworks/library/l-shared.html?ca=drs-tp2004</link>
+</item>
+<item>
+<title>Tutorial: Secure Web services: Encryption</title>
+<description>In this tutorial, you will learn how to create secure communications between cross-platform and cross-language Web services. It shows a scenario of a .NET client that connects to a Java Web service using XML encryption. Along the way, you'll see how to create a service and configure its security certificates and how to create and configure the client. You'll also learn some of the interoperability pitfalls of working with .NET.</description>
+<link>http://www.ibm.com/developerworks/edu/ws-dw-ws-encrypt-i.html?ca=drs-tp2004</link>
+</item>
+</channel>
+</rss>
