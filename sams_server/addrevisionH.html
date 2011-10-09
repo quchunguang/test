@@ -1,61 +1,69 @@
-<html>
+﻿<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Content-Language" content="zh-CN" />
+<style type="text/css">
+.addrevisionh{width:700px; text-align: center; font: 宋体; font-size: 12px;}
+.addrevisionh table{ color:#555;}
+.addrevisionh table input{ width:220px; height:26px; font-size: 12px; font-family: 宋体;}
+.addrevisionh table textarea{font-size:12px; height:200px;}
+.addrevisionh table td{ height:24px;padding:5px;}
+.color_1{color:#F00;}
+</style>
 </head>
 <body>
-<div style="width:700px; text-align: center; font: 宋体; font-size: 12px;">
+<div class="addrevisionh">
 <form action="addrevision.php" method="post" enctype="multipart/form-data">
 <br>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="21%">revision:</td>
-    <td width="51%"><input type="Text" name="revision" width="300px"></td>
+    <td width="21%" align="right">revision:</td>
+    <td width="51%"><input type="Text" name="revision"></td>
     <td width="28%">&nbsp;</td>
   </tr>
   <tr>
-    <td>version_major: </td>
-    <td><input type="Text" name="version_major" width="300px"></td>
+    <td align="right">version_major: </td>
+    <td><input type="Text" name="version_major"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>version_minner: </td>
-    <td><input type="Text" name="version_minner" width="300px"></td>
+    <td align="right">version_minner: </td>
+    <td><input type="Text" name="version_minner"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>release_notes: </td>
+    <td align="right">release_notes: </td>
     <td><textarea name="release_notes" rows="10" cols="50"></textarea></td>
-    <td>版本说明</td>
+    <td class="color_1">版本说明</td>
   </tr>
   <tr>
-    <td>alter_sql: </td>
+    <td align="right">alter_sql: </td>
     <td><textarea name="alter_sql" rows="20" cols="50"></textarea></td>
-    <td>数据更新SQL</td>
+    <td class="color_1">数据更新SQL</td>
   </tr>
   <tr>
-    <td>u500: </td>
-    <td><input name="u500" type="Text" width="300px"></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>u1000: </td>
-    <td><input type="Text" name="u1000" width="300px"></td>
+    <td align="right">u500: </td>
+    <td><input name="u500" type="Text"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>unlimit: </td>
-    <td><input type="Text" name="unlimit" width="300px"></td>
+    <td align="right">u1000: </td>
+    <td><input type="Text" name="u1000"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td align="right">unlimit: </td>
+    <td><input type="Text" name="unlimit"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td align="center" valign="middle"><input type="submit" name="submit" value="提交" /></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="center" valign="middle"><input type="submit" name="submit" style="height:26px; font-size:14px" value="提交" /></td>
     <td>&nbsp;</td>
   </tr>
 </table>

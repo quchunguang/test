@@ -32,11 +32,8 @@ if ($myrow = mysql_fetch_array($result)) {
 		$functions = isset($_POST["functions"]) ? $_POST["functions"] : "";
 		$encrypt_limit = isset($_POST["encrypt_limit"]) ? $_POST["encrypt_limit"] : "";
 
-		# generate code
-		echo "{'code':0";
-
 		# generate limit and encrypt_limit
-		echo ",'encrypt_limit':'" . $myrow["encrypt_limit"] . "'";
+		echo "{'encrypt_limit':'" . $myrow["encrypt_limit"] . "'";
 
 		# generate revision list as revisions[], sql list as sqls[]
 		$sql = "select revision,version_major,version_minner,alter_sql from version where revision > "
@@ -79,18 +76,32 @@ if ($myrow = mysql_fetch_array($result)) {
 		}
 		echo ",'functions':";
 		echo json_encode($rows);
-		echo "}";
+
+		# if current version is already newest
+		if(!$revisions) {
+			echo ",'code':0}";
+			mysql_close($db);
+			die();
+		}
 
 		# log update infomation
-		$sql = "insert into product_detail (device_id,revision_from,revision_to,function_from,function_to,limit_from,limit_to) values(" . 
-			$myrow["device_id"] . "," .
+		$sql = "insert into product_detail (device_id,revision_from,revision_to,function_from,function_to,limit_from,limit_to) values('" . 
+			$myrow["device_id"] . "'," .
 			$revision . "," .
-			max($revisions) . "," .
-			$functions . "," .
-			$myrow["functions"] . "," .
-			$encrypt_limit . "," .
-			$myrow["encrypt_limit"] . ")";
+			max($revisions) . ",'" .
+			$functions . "','" .
+			$myrow["functions"] . "','" .
+			$encrypt_limit . "','" .
+			$myrow["encrypt_limit"] . "')";
 		$result3 = mysql_query($sql, $db);
+		
+		# generate code
+		if($result3) {
+			echo ",'code':0}";
+		} else {
+			echo ",'code':3}";
+		}
+
 	} else {
 		echo "{'code':2}"; # status error
 	}
