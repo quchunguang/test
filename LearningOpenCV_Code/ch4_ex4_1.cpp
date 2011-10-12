@@ -84,6 +84,7 @@ int main(int argc, char* argv[]) {
 	cvReleaseImage(&image);
 	cvReleaseImage(&temp);
 	cvDestroyWindow("Box Example");
+	return 0;
 }
 
 // This is our mouse callback.  If the user
