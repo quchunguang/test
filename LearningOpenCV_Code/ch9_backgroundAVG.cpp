@@ -130,7 +130,7 @@ int main(int argc, char** argv) {
 		}
 		if (isdigit(argv[2][0])) { //End frame of background capture
 			endcapture = atoi(argv[2]);
-			printf("endcapture = %d\n");
+			printf("endcapture = %d\n", endcapture);
 		}
 		if (argc > 4) { //See if parameters are set from command line
 				//FOR AVG MODEL
