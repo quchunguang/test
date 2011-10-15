@@ -4,7 +4,7 @@
  Author      : Kevin Qu
  Version     :
  Copyright   : Copyright by Kevin Qu, All rights reserved.
- Description : Hello World in C, Ansi-style
+ Description : rsa encrypt demo with openssl
  ============================================================================
  */
 #include <stdio.h>
@@ -23,17 +23,13 @@ int generate_key() {
 
 	if ((pfpublickey = fopen(RSA_PUBLIC_KEY_NAME, "wb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				RSA_PUBLIC_KEY_NAME);
+		printf("\nopen file [ %s ] error!\n\n", RSA_PUBLIC_KEY_NAME);
 		return FAIL;
 	}
 
 	if ((pfprivatekey = fopen(RSA_PRIVATE_KEY_NAME, "wb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				RSA_PRIVATE_KEY_NAME);
+		printf("\nopen file [ %s ] error!\n\n", RSA_PRIVATE_KEY_NAME);
 		return FAIL;
 	}
 
@@ -64,16 +60,12 @@ int RSA_Encrypt(char *pszSource_file, char *pszObject_file) {
 
 	if ((pfPlain = fopen(pszSource_file, "rb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszSource_file);
+		printf("\nopen file [ %s ] error!\n\n", pszSource_file);
 		return FAIL;
 	}
 	if ((pfCipher = fopen(pszObject_file, "wb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszObject_file);
+		printf("\nopen file [ %s ] error!\n\n", pszObject_file);
 		return FAIL;
 	}
 	pRsa = RSA_new();
@@ -147,16 +139,12 @@ int RSA_Decrypt(char *pszSource_file, char *pszObject_file) {
 
 	if ((pfPlain = fopen(pszObject_file, "wb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszObject_file);
+		printf("\nopen file [ %s ] error!\n=\n", pszObject_file);
 		return FAIL;
 	}
 	if ((pfCipher = fopen(pszSource_file, "rb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszSource_file);
+		printf("\nopen file [ %s ] error!\n\n", pszSource_file);
 		return FAIL;
 	}
 
@@ -227,9 +215,7 @@ RSA* RSA_read_privatekey(char *pszSource_file) {
 
 	if ((pfkey = fopen(pszSource_file, "rb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszSource_file);
+		printf("\nopen file [ %s ] error!\n\n", pszSource_file);
 		exit(0);
 	}
 
@@ -245,9 +231,7 @@ RSA* RSA_read_publickey(char *pszSource_file) {
 
 	if ((pfkey = fopen(pszSource_file, "rb")) == NULL)
 	{
-		printf(
-				"==============\nopen file [ %s ] error!\n==============\n",
-				pszSource_file);
+		printf("\nopen file [ %s ] error!\n\n", pszSource_file);
 		exit(0);
 	}
 

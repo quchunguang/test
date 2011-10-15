@@ -5,6 +5,7 @@
 
 #include <linux/kernel.h>
 #include <linux/module.h>
+#include <linux/slab.h>
 #include <linux/fs.h>
 #include <asm/uaccess.h>	/* for put_user */
 
@@ -60,14 +61,12 @@ int chardev_init(void)
 				Major);
 		return Major;
 	}
-	/*
 	printk("<6>I was assigned major number %d.  To talk to\n", Major);
 	printk("<6>the driver, create a dev file with\n");
 	printk("'mknod /dev/hello c %d 0'.\n", Major);
 	printk("<6>Try various minor numbers.  Try to cat and echo to\n");
 	printk("the device file.\n");
 	printk("<6>Remove the device file and module when done.\n");
-	*/
 	return 0;
 }
 

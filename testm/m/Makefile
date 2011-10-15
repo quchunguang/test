@@ -7,7 +7,7 @@ obj-m += hello-4.o
 obj-m += hello-5.o
 obj-m += startstop.o
 startstop-objs := start.o stop.o
-#obj-m += chardev.o
+obj-m += chardev.o
 obj-m += chardev-2.o
 obj-m += procfs.o
 # usage: insmod irq=14 interface=testqrq
