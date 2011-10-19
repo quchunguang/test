@@ -228,7 +228,7 @@
 			>
 		</Filter>
 		<File
-			RelativePath=".\CryptST.lib"
+			RelativePath="..\CryptST.lib"
 			>
 		</File>
 		<File

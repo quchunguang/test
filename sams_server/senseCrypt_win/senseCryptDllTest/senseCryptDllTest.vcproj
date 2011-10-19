@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="senseCrypt"
-	ProjectGUID="{47D83912-D86D-4067-92AE-E33E61C5F055}"
-	RootNamespace="ukeycrypto"
+	Name="senseCryptDllTest"
+	ProjectGUID="{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}"
+	RootNamespace="senseCryptDllTest"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -21,7 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="0"
+			CharacterSet="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -45,7 +45,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
@@ -117,7 +117,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -171,27 +171,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\stdafx.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\ukeycrypto.cpp"
+				RelativePath=".\senseCryptDllTest.cpp"
 				>
 			</File>
 		</Filter>
@@ -201,11 +181,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\crypt2.h"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
+				RelativePath=".\senseCryptDll.h"
 				>
 			</File>
 			<File
@@ -220,11 +196,11 @@
 			>
 		</Filter>
 		<File
-			RelativePath="..\CryptST.lib"
+			RelativePath=".\ReadMe.txt"
 			>
 		</File>
 		<File
-			RelativePath=".\ReadMe.txt"
+			RelativePath="..\Release\senseCryptDll.lib"
 			>
 		</File>
 	</Files>

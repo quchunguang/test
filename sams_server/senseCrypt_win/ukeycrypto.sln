@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "senseCrypt", "ukeycrypto\ukeycrypto.vcproj", "{47D83912-D86D-4067-92AE-E33E61C5F055}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "generateEncryptLimit", "generateEncryptLimit\generateEncryptLimit.vcproj", "{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "senseCryptBase64", "generateEncryptLimit\generateEncryptLimit.vcproj", "{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "senseCryptDll", "senseCryptDll\senseCryptDll.vcproj", "{ACE3C45E-E46B-4835-9C34-34561243225B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "senseCryptExe", "senseCryptExe\senseCryptExe.vcproj", "{2FB91025-3F52-4177-98E6-4366CD2A9050}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "senseCryptDllTest", "senseCryptDllTest\senseCryptDllTest.vcproj", "{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +25,18 @@ Global
 		{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}.Debug|Win32.Build.0 = Debug|Win32
 		{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}.Release|Win32.ActiveCfg = Release|Win32
 		{F9AE1BFA-6F3E-44F5-8AA9-50D6840094DC}.Release|Win32.Build.0 = Release|Win32
+		{ACE3C45E-E46B-4835-9C34-34561243225B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACE3C45E-E46B-4835-9C34-34561243225B}.Debug|Win32.Build.0 = Debug|Win32
+		{ACE3C45E-E46B-4835-9C34-34561243225B}.Release|Win32.ActiveCfg = Release|Win32
+		{ACE3C45E-E46B-4835-9C34-34561243225B}.Release|Win32.Build.0 = Release|Win32
+		{2FB91025-3F52-4177-98E6-4366CD2A9050}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2FB91025-3F52-4177-98E6-4366CD2A9050}.Debug|Win32.Build.0 = Debug|Win32
+		{2FB91025-3F52-4177-98E6-4366CD2A9050}.Release|Win32.ActiveCfg = Release|Win32
+		{2FB91025-3F52-4177-98E6-4366CD2A9050}.Release|Win32.Build.0 = Release|Win32
+		{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}.Debug|Win32.Build.0 = Debug|Win32
+		{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}.Release|Win32.ActiveCfg = Release|Win32
+		{3E45E21E-D4D7-4E49-BBE6-F9FD398AE170}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
