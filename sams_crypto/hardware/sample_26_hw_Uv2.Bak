@@ -9,6 +9,7 @@ File 1,2,<.\STARTUP.A51><STARTUP.A51> 0x0
 File 1,1,<.\sample_26_hw.c><sample_26_hw.c> 0x0 
 File 1,4,<.\Ses51L.LIB><Ses51L.LIB> 0x480D7188 
 File 1,5,<.\ses_v3.h><ses_v3.h> 0x0 
+File 1,5,<.\key.h><key.h> 0x0 
 
 
 Options 1,0,0  // Target 'Target 1'

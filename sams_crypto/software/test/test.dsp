@@ -117,11 +117,11 @@ SOURCE=.\ReadMe.txt
 # End Source File
 # Begin Source File
 
-SOURCE=.\Sense4ST.lib
+SOURCE=..\Sense4ST.lib
 # End Source File
 # Begin Source File
 
-SOURCE=.\senseCrypt.lib
+SOURCE=..\senseCrypt.lib
 # End Source File
 # End Target
 # End Project
