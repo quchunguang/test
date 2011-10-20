@@ -7,7 +7,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/stat.h>
@@ -21,7 +20,6 @@ int serv_accept(int listenfd, uid_t *uidptr) {
 	int clifd, len, err, rval;
 	struct sockaddr_un un;
 	struct stat statbuf;
-
 	len = sizeof(un);
 	if ((clifd = accept(listenfd, (struct sockaddr *) &un, &len)) < 0)
 		return (-1); /* often errno=EINTR, if signal caught */
