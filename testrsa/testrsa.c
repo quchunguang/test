@@ -5,6 +5,7 @@
  Version     :
  Copyright   : Copyright by Kevin Qu, All rights reserved.
  Description : rsa encrypt demo with openssl
+ Dependence  : -lcrypt
  ============================================================================
  */
 #include <stdio.h>
