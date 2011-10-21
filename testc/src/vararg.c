@@ -20,7 +20,7 @@ void printlist(int begin, ...)
 	}
 	va_end(ap);
 }
-
+/*
 int main(void) {
 	int a=1, b=1, c;
 	printlist(0, "hello", "world", "foo", "bar", NULL);
@@ -33,3 +33,4 @@ int main(void) {
 	printf("%x\n", sum);
 	return 0;
 }
+*/
