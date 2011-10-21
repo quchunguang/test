@@ -6,10 +6,14 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <syslog.h>
 #include <string.h>
 #include <regex.h>
 #include <dlfcn.h>
+#include <sys/syslog.h>
+
+#include <assert.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 void testlog(char *argv[]) {
 	char *str = "test";
@@ -72,12 +76,39 @@ void teststrtok2() {
 	printf("Total results = %d\n", in);
 }
 
+int compare(const void *pa, const void *pb) {
+	int a, b;
+	a = *((int *) pa);
+	b = *((int *) pb);
+	if (a > b)
+		return 1;
+	else if (a == b)
+		return 0;
+	else
+		return -1;
+}
+
+void testqsort() {
+	int base[7] = { 3, 102, 5, -2, 98, 52, 18 };
+	qsort(base, 7, sizeof(int), compare);
+	int i;
+	for (i = 0; i < 7; i++)
+		printf("%d ", base[i]);
+	printf("\n");
+}
+
+void testassert() {
+	assert(open("/tmp/noexist", O_RDONLY) >= 0);
+}
+
 int main(int argc, char *argv[]) {
 	testlog(argv);
 	testenv();
 	testregex();
 	testdl();
 	teststrtok2();
+	testqsort();
+	testassert();
 
 	return EXIT_SUCCESS;
 }
