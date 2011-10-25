@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "$1" = "-r" ]; then
+	prog="./moneymatchr"
+else
+	prog="./moneymatchd"
+fi
+
+input=$(zenity --file-selection --title="选择待识别文件")
+test "$input" = "" && { zenity --error --title="错误" --text="未选择待识别文件"; exit 1; }
+
+ret=$(${prog} ${input})
+retval=$?
+[ $retval -eq 0 ] && { zenity --info --title="成功" --text="$ret"; exit 0; }
+zenity --error --title="错误" --text="无法识别文件，相似度不足"
+exit 2
