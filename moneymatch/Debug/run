@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if [ "$1" = "-r" ]; then
-	prog="./moneymatchr"
+if [ "$1" = "-v" ]; then
+	prog="./moneymatch -v"
 else
-	prog="./moneymatchd"
+	prog="./moneymatch"
 fi
 
 input=$(zenity --file-selection --title="选择待识别文件")

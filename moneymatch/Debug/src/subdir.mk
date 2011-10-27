@@ -4,16 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/moneymatch.cpp \
-../src/regionrotate.cpp 
+../src/moneymatch.cpp 
 
 OBJS += \
-./src/moneymatch.o \
-./src/regionrotate.o 
+./src/moneymatch.o 
 
 CPP_DEPS += \
-./src/moneymatch.d \
-./src/regionrotate.d 
+./src/moneymatch.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

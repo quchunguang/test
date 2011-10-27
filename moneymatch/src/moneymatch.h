@@ -11,17 +11,17 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 
-#define __DEBUG__
+//#define __DEBUG__
 
-/* moneymatch.cpp */
 extern double MatchTemplate(IplImage* imgSrc, IplImage* imgTemp);
 extern double SameAreaCount(IplImage* imgfrom, IplImage* imgto);
 extern int GetSourceCount(IplImage* imgTemp);
 extern double MatchAreaRate(int nMatchAreaSize, int nMatch);
 extern int ChangeValue(int nMatchAreaSize, int nMatch);
+void display_usage(void);
+extern void getoptions(int argc, char *argv[]);
 
-/* regionretate.cpp */
-extern void FindContours(IplImage *img, CvMemStorage* storage, CvSeq* contours);
+extern IplImage* FindContours(IplImage *img, CvMemStorage* storage, CvSeq* contours);
 extern void RotateImage(IplImage *src, IplImage *dst, CvPoint center, float angle, float factor);
 extern CvBox2D RegionRotate(IplImage *src, IplImage *dst, CvSeq *contour);
 
