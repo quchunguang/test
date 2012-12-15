@@ -1,0 +1,266 @@
+:hybrid7.debian.local NOTICE AUTH :*** Looking up your hostname...
+
+:hybrid7.debian.local NOTICE AUTH :*** Checking Ident
+
+:hybrid7.debian.local NOTICE AUTH :*** Couldn't look up your hostname
+
+NICK IrcRobot
+USER paul 8 *  : Paul Mutton
+:hybrid7.debian.local NOTICE AUTH :*** No Ident response
+
+:hybrid7.debian.local 001 IrcRobot :Welcome to the debian Internet Relay Chat Network IrcRobot
+
+:hybrid7.debian.local 002 IrcRobot :Your host is hybrid7.debian.local[0.0.0.0/6667], running version hybrid-7.2.2.dfsg.2-6
+
+:hybrid7.debian.local 003 IrcRobot :This server was created Oct 14 2011 at 16:20:35
+
+:hybrid7.debian.local 004 IrcRobot hybrid7.debian.local hybrid-7.2.2.dfsg.2-6 DGabcdfgiklnorsuwxyz biklmnopstveIh bkloveIh
+
+:hybrid7.debian.local 005 IrcRobot CALLERID CASEMAPPING=rfc1459 DEAF=D KICKLEN=160 MODES=4 NICKLEN=15 PREFIX=(ohv)@%+ STATUSMSG=@%+ TOPICLEN=350 NETWORK=debian MAXLIST=beI:25 MAXTARGETS=4 CHANTYPES=#& :are supported by this server
+
+:hybrid7.debian.local 005 IrcRobot CHANLIMIT=#&:15 CHANNELLEN=50 CHANMODES=eIb,k,l,imnpst ELIST=CMNTU SAFELIST AWAYLEN=160 KNOCK EXCEPTS=e INVEX=I :are supported by this server
+
+:hybrid7.debian.local 251 IrcRobot :There are 0 users and 3 invisible on 1 servers
+
+:hybrid7.debian.local 254 IrcRobot 1 :channels formed
+
+:hybrid7.debian.local 255 IrcRobot :I have 3 clients and 0 servers
+
+:hybrid7.debian.local 265 IrcRobot :Current local users: 3  Max: 4
+
+:hybrid7.debian.local 266 IrcRobot :Current global users: 3  Max: 4
+
+:hybrid7.debian.local 250 IrcRobot :Highest connection count: 4 (4 clients) (60 connections received)
+
+:hybrid7.debian.local 375 IrcRobot :- hybrid7.debian.local Message of the Day - 
+
+:hybrid7.debian.local 372 IrcRobot :-         _,met$$$$$gg.       ircd-hybrid 7.2.2
+
+:hybrid7.debian.local 372 IrcRobot :-      ,g$$$$$$$$$$$$$$$P.    -----------------
+
+:hybrid7.debian.local 372 IrcRobot :-    ,g$$P""       """Y$$.".  
+
+:hybrid7.debian.local 372 IrcRobot :-   ,$$P'              `$$$.  If you are seeing this, you have
+
+:hybrid7.debian.local 372 IrcRobot :- ',$$P       ,ggs.     `$$b: installed the ircd-hybrid package and
+
+:hybrid7.debian.local 372 IrcRobot :- `d$$'     ,$P"'   .    $$$  you are now connected to your new IRC
+
+:hybrid7.debian.local 372 IrcRobot :-  $$P      d$'     ,    $$P  server -- congratulations.
+
+:hybrid7.debian.local 372 IrcRobot :-  $$:      $$.   -    ,d$$'  
+
+:hybrid7.debian.local 372 IrcRobot :-  $$;      Y$b._   _,d$P'    Since you have just installed the
+
+:hybrid7.debian.local 372 IrcRobot :-  Y$$.    `.`"Y$$$$P"'       package, there are some things you
+
+:hybrid7.debian.local 372 IrcRobot :-  `$$b      "-.__            should do before going any further:
+
+:hybrid7.debian.local 372 IrcRobot :-   `Y$$b                     
+
+:hybrid7.debian.local 372 IrcRobot :-    `Y$$.                    1. Edit /etc/ircd-hybrid/ircd.conf to
+
+:hybrid7.debian.local 372 IrcRobot :-      `$$b.                  suit your needs. Beware some options have
+
+:hybrid7.debian.local 372 IrcRobot :-        `Y$$b.               been removed or moved into other blocks in
+
+:hybrid7.debian.local 372 IrcRobot :-          `"Y$b._            the configuration file since
+
+:hybrid7.debian.local 372 IrcRobot :-             `""""           ircd-hybrid 7.0.3.
+
+:hybrid7.debian.local 372 IrcRobot :- 
+
+:hybrid7.debian.local 372 IrcRobot :-                             2. Edit /etc/ircd-hybrid/ircd.motd (this
+
+:hybrid7.debian.local 372 IrcRobot :-                             MOTD) to suit your needs. You are free
+
+:hybrid7.debian.local 372 IrcRobot :-                             to use this Debian swirl under the
+
+:hybrid7.debian.local 372 IrcRobot :-                             Debian Open Use Logo License. :)
+
+:hybrid7.debian.local 372 IrcRobot :- 
+
+:hybrid7.debian.local 372 IrcRobot :-                             3. Restart the server using invoke-rc.d
+
+:hybrid7.debian.local 372 IrcRobot :-                             ircd-hybrid restart.
+
+:hybrid7.debian.local 372 IrcRobot :- 
+
+:hybrid7.debian.local 372 IrcRobot :-                             -- Joshua Kwan <joshk@triplehelix.org>
+
+:hybrid7.debian.local 372 IrcRobot :-                             -- Aurélien GÉRÔME <ag@roxor.cx>
+
+:hybrid7.debian.local 376 IrcRobot :End of /MOTD command.
+
+:IrcRobot!~paul@101.71.2.72 MODE IrcRobot :+i
+
+JOIN #aa
+:IrcRobot!~paul@101.71.2.72 JOIN :#aa
+
+:hybrid7.debian.local 353 IrcRobot = #aa :IrcRobot lishuhui quchunguang
+
+:hybrid7.debian.local 366 IrcRobot #aa :End of /NAMES list.
+
+PRIVMSG #aa :I am here ...
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :把它弄回来回答问题
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :一会儿会回来
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :回来了
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :welcome
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :fine 
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :3x
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :哈哈
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :你分裂了
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :哈
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :楼
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :loving you?
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :what are you doing?
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :i love you, man!
+
+PRIVMSG #aa :  _______________________
+PRIVMSG #aa :< 我也爱你, 流氓兔，绿毛小乌龟! >
+PRIVMSG #aa :  -----------------------
+PRIVMSG #aa :       \   ^__^
+PRIVMSG #aa :        \  (oo)\_______
+PRIVMSG #aa :           (__)\       )\/\
+PRIVMSG #aa :               ||----w |
+PRIVMSG #aa :               ||     ||
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :you are a little pig！
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :我八百年不用英语了
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :还没把我的人工智能引擎加上
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :能加上吗
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :现在还很蠢，
+
+PING :hybrid7.debian.local
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :很快就加上了
+
+PONG :hybrid7.debian.local
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :很快就加上了
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :你把他变聪明了，然后做成玩具
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :我开个店，你给我供货
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :天啊，吓死我了
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :怎么了
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :你看看22:42:34
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :跳出来咬你了？
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :他突然重复了我的一句话
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :嗯
+
+PING :hybrid7.debian.local
+
+PONG :hybrid7.debian.local
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :我对天发誓，不是我写的
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :我还以为你让他说的呢
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :他自己重复的
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :怎么回事呀
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :难道真的通灵了吗
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :小机器人，我带你出去玩儿
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :可能的原因刚找到，不过真的很慎人
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :什么原因啊
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :为什么会重复你说的话呢
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :一句话讲不清，反正很炫
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :你再说一遍试试
+
+PING :hybrid7.debian.local
+
+PONG :hybrid7.debian.local
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :再说就不回了吧
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :现在还很蠢
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :很快就加上了
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :很快就加上了
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :你说说看
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :不回了把
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :不说了
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :嗯
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :是啊
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :因为我程序里根本没写
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :那是怎么回事
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :难道还有别人在吗
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :灵异事件
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :别吓我
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :你看看签名，不是别人，就是他阿
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :哪里的签名
+
+PING :hybrid7.debian.local
+
+PONG :hybrid7.debian.local
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :每句话前面
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :是你
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :不都有谁讲的
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :只有那一句是他的
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :别人借他的名字讲的
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :赶快骂死他吧
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :你让他消失
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :这东西留着早晚成精
+
+:quchunguang!~qcg@101.71.2.72 PRIVMSG #aa :你来
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :不会留在电脑里不出来吧
+
+PING :hybrid7.debian.local
+
+PONG :hybrid7.debian.local
+
+:lishuhui!webchat@i.love.debian.org PRIVMSG #aa :fuck you
+
+PRIVMSG #aa :你妈妈的骂人，伤心了，闪了~~~
+QUIT
