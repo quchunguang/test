@@ -5,7 +5,7 @@ all:
 	cd testother && $(MAKE)
 	cd bookalp && $(MAKE)
 	cd testgettext && $(MAKE)
-	cd testm && $(MAKE)
+	cd testkernel && $(MAKE)
 	cd testcore && $(MAKE)
 	cd bookdbg && $(MAKE)
 	cd testtex && $(MAKE)
@@ -20,7 +20,7 @@ clean:
 	cd testother && $(MAKE) clean
 	cd bookalp && $(MAKE) clean
 	cd testgettext && $(MAKE) clean
-	cd testm && $(MAKE) clean
+	cd testkernel && $(MAKE) clean
 	cd testcore && $(MAKE) clean
 	cd bookdbg && $(MAKE) clean
 	cd testtex && $(MAKE) clean
