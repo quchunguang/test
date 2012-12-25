@@ -1,0 +1,10 @@
+file.o:
+00000c80 T addroot
+00000b30 T -checkdev
+00000a3c T -checkdupl
+         U -chown
+         U client
+         U close
+funmount.o:
+00000000 T funmount
+         U cerror
