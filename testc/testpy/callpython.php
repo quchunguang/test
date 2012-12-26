@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html> <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Top 10 Express Table Designs - Smashing Magazine Source</title>
+<style type="text/css">
+<!--
+@import url("style.css");
+-->
+</style>
 <style type='text/css'>
  body{
- background:#000;
+ background:#FFFFFF;
  color: #7FFF00;
  font-family:'Lucida Console',sans-serif !important;
  font-size: 12px;
  }
 </style>
-</head><body>
-<pre>
+</head>
+<body>
 <?php
 $param1 = "first";
 $param2 = "second";
@@ -27,7 +34,6 @@ while(!feof($pid))
 }
 pclose($pid);
 ?>
-</pre>
 <script>window.scrollTo(0,99999);</script>
 <br /><br />by Kevin Qu<br /><br />
 </body></html>

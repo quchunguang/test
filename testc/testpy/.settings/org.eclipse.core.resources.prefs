@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding/callpython.py=UTF-8
 encoding/sendmail.py=utf-8
-encoding/test.py=utf-8
+encoding/test.py=UTF-8
 encoding/testdecorator.py=UTF-8

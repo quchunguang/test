@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# -*- coding=utf-8 -*-
+# -*- coding: UTF-8 -*-
 import operator
 from pipe import Pipe, add, where, take_while, select, as_list
 import inspect
