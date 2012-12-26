@@ -1,0 +1,6 @@
+[submodule "byte_of_python"]
+	path = byte_of_python
+	url = git://github.com/swaroopch/byte_of_python.git
+[submodule "diveintopython3"]
+	path = diveintopython3
+	url = git://github.com/diveintomark/diveintopython3.git
