@@ -26,7 +26,7 @@ def test():
     answers = ['lancelot', 'the holy grail', 'blue']
     for q, a in zip(questions, answers):
         print('What is your {0}?  It is {1}.'.format(q, a))
-    sys.stderr.write("Error exists")
+    sys.stderr.write("NO Error exists")
     print(glob.glob("*.py"))
     a=re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
     b=re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
@@ -39,7 +39,7 @@ a list of strings instead of one big string with newlines to separate
 the wrapped lines."""
     print(textwrap.fill(doc, width=40))
 
-    locale.setlocale(locale.LC_ALL, 'English_United States.1252')
+    locale.setlocale(locale.LC_ALL, 'en_US.utf8')  # locale -a
     conv = locale.localeconv()
     x = 1234567.8
     print(locale.format("%d", x, grouping=True))
@@ -68,9 +68,9 @@ the wrapped lines."""
     print(B.decode())
     print(str(B, encoding='ascii'))
     print(re.split(':', 'aa:ss:dd:ff'))
-    print('曲春光'.encode('utf-8').decode('utf-8'))
-    line = input('> ')
-    print(line)
+    print('哈哈哈'.encode('utf-8').decode('utf-8'))
+    #line = input('> ')
+    #print(line)
 
 if __name__ == '__main__':
     test()
