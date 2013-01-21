@@ -17,7 +17,7 @@ class TestKnownValues(unittest.TestCase):
         for from_i, to_i in self.known_pairs:
             result = overload.doublevalue(from_i)
             self.assertEqual(to_i, result)
-            
+
 class TestBadValues(unittest.TestCase):
     def test_doublevalue(self):
         '''Test doublevalue() using bad input'''

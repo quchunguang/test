@@ -12,6 +12,6 @@ try:
 except urllib.error.HTTPError as e:
     print(e.code)
     print(e.read())
-    
+
 response = urllib.request.urlopen('http://python.org/')
 html = response.read()

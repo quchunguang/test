@@ -38,7 +38,7 @@ def test():
 a list of strings instead of one big string with newlines to separate
 the wrapped lines."""
     print(textwrap.fill(doc, width=40))
-    
+
     locale.setlocale(locale.LC_ALL, 'English_United States.1252')
     conv = locale.localeconv()
     x = 1234567.8
@@ -46,7 +46,7 @@ the wrapped lines."""
     print(locale.format_string("%s%.*f",(conv['currency_symbol'],
                                    conv['frac_digits'], x), grouping=True))
     print()
-    
+
     with open("test.zip", "rb") as f:
         data = f.read()
     start = 0

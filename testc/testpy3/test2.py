@@ -13,7 +13,7 @@ class TestThreading(threading.Thread):
     def __init__(self, delay):
         threading.Thread.__init__(self)
         self.delay = delay
-        
+
     def run(self):
         for i in range(3):
             print(time.ctime(time.time()))
