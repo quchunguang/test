@@ -1,0 +1,4 @@
+This string has embedded "double quotes" and 'single quotes' in it, and even "a \'nested example\'".
+This line is recognized.
+# But this line is ignored.
+And this line is processed.
