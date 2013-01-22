@@ -22,7 +22,8 @@ obj-m += testcompletion.o
 #obj-m += testproducer.o
 obj-m += hackthis.o
 
+KDIR = /lib/modules/`uname -r`/build
 all:
-	make -C /lib/modules/`uname -r`/build SUBDIRS=`pwd` modules
+	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
 clean:
 	rm -rf *.o .*.o.d *~ core .depend .*.cmd *.ko *.mod.c modules.order .tmp_versions Module.symvers
