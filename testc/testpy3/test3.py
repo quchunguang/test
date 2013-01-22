@@ -5,7 +5,6 @@ Created on 2013-1-16
 '''
 import time
 import logging
-import getpass
 import html
 
 # test iterator
@@ -32,6 +31,6 @@ logging.debug('This message should go to the log file')
 logging.info('So should this')
 logging.warning('And this, too')
 
-#passwd = getpass.getpass()
-#print(passwd)
+# passwd = getpass.getpass()
+# print(passwd)
 print(html.escape("fds''fk%^&*&"))

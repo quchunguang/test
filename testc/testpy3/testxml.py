@@ -11,7 +11,7 @@ except ImportError:
 tree = etree.parse('feed.xml')
 root = tree.getroot()
 print(root)
-#for item in root:
+# for item in root:
 #    print(item)
 entries = root.findall('{http://www.w3.org/2005/Atom}entry')
 title_element = entries[0].find('{http://www.w3.org/2005/Atom}title')
@@ -20,7 +20,7 @@ if(title_element is not None):
     print('title_element exist')
 
 if(len(title_element) == 0):
-#if(title_element):   NOT GOOD!
+# if(title_element):   NOT GOOD!
     print('title_element has no sub-elements')
 
 all_links_in_all_level = tree.findall('//{http://www.w3.org/2005/Atom}link')

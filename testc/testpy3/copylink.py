@@ -8,7 +8,7 @@ import sys
 import os.path
 from tkinter import Tk
 
-#def addToClipBoard(text):
+# def addToClipBoard(text):
 #    """Only work after vista"""
 #    command = 'echo ' + text.strip() + '| clip'
 #    os.system(command)
@@ -30,6 +30,6 @@ r.withdraw()
 r.clipboard_clear()
 r.clipboard_append(url)
 r.destroy()
-#addToClipBoard(url)
+# addToClipBoard(url)
 
 print(url)

@@ -15,14 +15,14 @@ age = 20
 name = 'quchunguang'
 print("Hi, {}. You are {} years old.".format(name, age))
 
-l=[1,2,3,4,5]
-m=l[:]
+l = [1, 2, 3, 4, 5]
+m = l[:]
 print(l[::-1])
-n=["aa","bb","cc",]
+n = ["aa", "bb", "cc", ]
 print("-*-".join(n))
 print("--".join([str(i) for i in l]))
 for i in l:
-    print("i=",i,end=' ')
+    print("i=", i, end=' ')
 
 ab = {  'Swaroop'   : 'swaroop@swaroopch.com',
         'Larry'     : 'larry@wall.org',
@@ -40,13 +40,15 @@ bric = bri.copy()
 bric.add('china')
 print(bric.issuperset(bri))
 bri.remove('russia')
-print(bri & bric) #print(bri.intersection(bric))
+print(bri & bric)  # print(bri.intersection(bric))
 
 with open('poem.txt') as f:
     for line in f:
         print(line, end='')
-aa=7
+aa = 7
 def test():
     print(aa)
 
 test()
+print(list(map(str, [1, 2, 3])))
+print("=".join(map(str, [1, 2, 3])))

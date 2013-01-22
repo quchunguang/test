@@ -21,7 +21,7 @@ _MESSAGES = {
 def getMessage(key):
     """It read system locale if _LANGUAGE is not set. English will be used if language not found."""
     locallang = locale.getdefaultlocale()[0]
-    print(locallang)
+    # print(locallang)
     if _LANGUAGE in _MESSAGES:
         lang = _LANGUAGE
     elif locallang in _MESSAGES:

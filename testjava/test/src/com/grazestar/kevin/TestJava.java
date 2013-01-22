@@ -27,7 +27,19 @@ public class TestJava {
 		createlist();
 		createapple();
 		output(1);
+		testarray();
+		testenum();
+	}
 
+	private static void testenum() {
+		Spiciness s = Spiciness.YES;
+		s = Spiciness.NO;
+		System.out.println(s);
+		for (Spiciness sp : Spiciness.values())
+			System.out.print(sp.name() + " ");
+	}
+
+	private static void testarray() {
 		Random rand = new Random();
 		int[] a = { 1, 2, 3 };
 		int[] b = a;
@@ -35,11 +47,6 @@ public class TestJava {
 		System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
 		System.out.println(Arrays.toString(c));
-		Spiciness s = Spiciness.YES;
-		s = Spiciness.NO;
-		System.out.println(s);
-		for (Spiciness sp : Spiciness.values())
-			System.out.print(sp.name() + " ");
 	}
 
 	private static void createapple() {

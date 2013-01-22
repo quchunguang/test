@@ -12,4 +12,4 @@ def average(values):
     return sum(values) / len(values)
 
 import doctest
-doctest.testmod()   # automatically validate the embedded tests
+doctest.testmod()  # automatically validate the embedded tests

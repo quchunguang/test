@@ -16,7 +16,7 @@ class TestThreading(threading.Thread):
 
     def run(self):
         for i in range(3):
-            print(time.ctime(time.time()))
+            print(i, time.ctime(time.time()))
             time.sleep(self.delay)
 
 delay = TestThreading(3)
