@@ -20,9 +20,9 @@ obj-m += testworkqueue.o
 #obj-m += testsem.o
 obj-m += testcompletion.o
 #obj-m += testproducer.o
+obj-m += hackthis.o
 
-clean:
-	rm -rf *.o .*.o.d *~ core .depend .*.cmd *.ko *.mod.c modules.order .tmp_versions
 all:
-	make -C /usr/src/linux SUBDIRS=`pwd` modules
-
+	make -C /lib/modules/`uname -r`/build SUBDIRS=`pwd` modules
+clean:
+	rm -rf *.o .*.o.d *~ core .depend .*.cmd *.ko *.mod.c modules.order .tmp_versions Module.symvers
