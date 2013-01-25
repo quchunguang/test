@@ -1,3 +1,4 @@
+# add $GOPATH here and unset $GOBIN before `make`
 all:	install
 install:
 	go install example/hello
