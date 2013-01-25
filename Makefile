@@ -13,6 +13,7 @@ all:
 	cd testasm && $(MAKE)
 	cd testopencv && $(MAKE)
 	cd testpostgresql && $(MAKE)
+	cd testgo && $(MAKE)
 clean:
 	cd testbison && $(MAKE) clean
 	cd testcore && $(MAKE) clean
@@ -28,3 +29,4 @@ clean:
 	cd testasm && $(MAKE) clean
 	cd testopencv && $(MAKE) clean
 	cd testpostgresql && $(MAKE) clean
+	cd testgo && $(MAKE) clean
