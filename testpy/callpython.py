@@ -47,6 +47,8 @@ class mysqldb():
 
 def main():
     obj = mysqldb()
+    # obj.createdb()
+    # obj.insertdb()
     obj.select()
     del obj
 

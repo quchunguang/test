@@ -1,5 +1,9 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
+# Dependence:
+# $ sudo apt-get install pip
+# $ sudo pip install pipe
+
 import operator
 from pipe import Pipe, add, where, take_while, select, as_list
 import inspect
