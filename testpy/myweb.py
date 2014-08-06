@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+# sudo apt-get install python-webkit
 
-import gtk, webkit
+import gtk
+import webkit
 
 win = gtk.Window()
 win.show()

@@ -6,16 +6,16 @@ import datetime
 import getpass
 import commands
 
-s="a string"
+s = "a string"
 print len(s)
 x = 0
 while x <= 10:
-	print x
-	x = x + 1
-#	time.sleep(.2)
+    print x
+    x = x + 1
+#       time.sleep(.2)
 os.system("cat time.py")
-for x in range(1,10):
-	print "x is now", x
+for x in range(1, 10):
+    print "x is now", x
 
 today = datetime.date.today()
 oneday = datetime.timedelta(days=1)

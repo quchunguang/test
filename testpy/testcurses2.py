@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-
-
 from os import system
 import curses
 

@@ -3,11 +3,11 @@ Created on 2012-12-9
 
 @author: qcg
 '''
-shopping=[]
+shopping = []
 lists = ['dd', 'bb', 'cc']
 for item in lists:
     print item,
-    shopping.append(item);
+    shopping.append(item)
 print
 
 print shopping
@@ -28,16 +28,16 @@ name = 'Swaroop'
 print '%s is %d years old' % (name, age)
 print 'Why is %s playing with that python?' % name
 
-ab = {'qcg'   :   'quchunguang@gmail.com',
-      'ynn'   :   'ynn@grazestar.com',
-      'qq'    :   'quqing@sdu.edu.cn',
+ab = {'qcg':   'quchunguang@gmail.com',
+      'ynn':   'ynn@grazestar.com',
+      'qq':   'quqing@sdu.edu.cn',
       }
 print "qcg's mail is", ab['qcg']
 ab['test'] = 'test@test.com'
 del ab['test']
 for name, mail in ab.items():
     print name, mail
-    
+
 shoplist = ['apple', 'mango', 'carrot', 'banana']
 
 # Indexing or 'Subscription' operation
@@ -65,7 +65,7 @@ mylist = shoplist
 mylist = shoplist[:]
 
 
-name = 'Swaroop' # This is a string object
+name = 'Swaroop'  # This is a string object
 if name.startswith('Swa'):
     print 'Yes, the string starts with "Swa"'
 if 'a' in name:

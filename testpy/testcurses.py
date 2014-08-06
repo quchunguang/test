@@ -1,6 +1,4 @@
 #!/usr/bin/python
-
-
 import curses
 
 myscreen = curses.initscr()

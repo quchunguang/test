@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+# sudo pip install python-myqldb
 import MySQLdb
 
 

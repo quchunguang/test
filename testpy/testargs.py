@@ -10,8 +10,8 @@ args = parser.parse_args()
 answer = args.x ** args.y
 
 if args.quiet:
-        print answer
+    print answer
 elif args.verbose:
-        print "{} to the power {} equals {}".format(args.x, args.y, answer)
+    print "{} to the power {} equals {}".format(args.x, args.y, answer)
 else:
-        print "{}^{} == {}".format(args.x, args.y, answer)
+    print "{}^{} == {}".format(args.x, args.y, answer)

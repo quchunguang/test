@@ -19,33 +19,33 @@
 
 # print '-' * 20, '#0', '-' * 20
 # print 2 ** 38
-# 
-# 
+#
+#
 # print '-' * 20, '#1', '-' * 20
 # str = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj."
 # tb = string.maketrans("ygqrplcbjsamweknifzduv", "aistrnedlucoygmpkhbfwx")
 # print str.translate(tb)
 # password = "map"
 # print password.translate(tb)
-# 
-# 
+#
+#
 # print '-' * 20, '#2', '-' * 20
-# #sock = urllib.urlopen("http://www.pythonchallenge.com/pc/def/ocr.html")
-# #source = sock.read()
-# #sock.close()
+# sock = urllib.urlopen("http://www.pythonchallenge.com/pc/def/ocr.html")
+# source = sock.read()
+# sock.close()
 # source = open('ocr.html', 'rU').read()
 # data = re.findall(r'<!--(.+?)-->', source, re.S)
 # charList = re.findall(r'([a-zA-Z])', data[1])
 # print string.join(charList, sep='')
-# 
-# 
+#
+#
 # print '-' * 20, '#3', '-' * 20
 # with open('equality.html', 'rU') as doc:
 #     data = re.findall(r'<!--(.+)-->', doc.read(), re.S)
 #     matches = re.findall(r'[^A-Z][A-Z]{3}([a-z])[A-Z]{3}[^A-Z]', data[0], re.S)
 #     print ''.join(matches)
-# 
-# 
+#
+#
 # print '-' * 20, '#4', '-' * 20
 # number = ['74795']
 # base = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing='
@@ -55,21 +55,21 @@
 #     number = re.findall('([0-9]+)$', data)
 #     print data
 # file.close()
-# 
-# 
+#
+#
 # print '-' * 20, '#5', '-' * 20
 # url = 'http://www.pythonchallenge.com/pc/def/banner.p'
 # data = urllib.urlopen(url)
 # obj = pickle.load(data)
-# 
+#
 # line = ''
 # for row in obj:
 #     for col in row:
 #         line += col[0] * col[1]
 #     print line
 #     line = ''
-# 
-# 
+#
+#
 # print '-' * 20, '#6', '-' * 20
 # number = '90052'
 # while True:
@@ -77,9 +77,9 @@
 #     data = open(url, 'r').read()
 #     print data
 #     number = re.findall(r'([0-9]+)', data)[0]
-# # OR WHATEVER, USING SHELL INSTEAD,
-# # for f in *.txt;do cat $f;echo;done | sed '/Next nothing is [0-9]*/d'
-# 
+# OR WHATEVER, USING SHELL INSTEAD,
+# for f in *.txt;do cat $f;echo;done | sed '/Next nothing is [0-9]*/d'
+#
 # number = ['90052']
 # f = zipfile.ZipFile('/home/qcg/download/channel.zip')
 # print f.comment
@@ -87,12 +87,12 @@
 #     filename = number[0] + '.txt'
 #     print f.getinfo(filename).comment,
 #     number = re.findall(r'([0-9]+)', f.read(filename), re.S)
-# 
+#
 # print '-' * 20, '#7', '-' * 20
 # pic = open('oxygen.png', 'wb')
 # pic.write(urllib.urlopen('http://www.pythonchallenge.com/pc/def/oxygen.png').read())
 # pic.close()
-# 
+#
 # im = Image.open('oxygen.png')
 # print im.format, im.size, im.mode
 # x_max, y_max = im.size
@@ -101,18 +101,18 @@
 # for x in range(1, x_max, 7):
 #     message.append(im.getpixel((x, y))[0])
 # print ''.join(map(chr, message))
-# 
+#
 # message2 = [105, 110, 116, 101, 103, 114, 105, 116, 121]
 # print ''.join(map(chr, message2))
-# 
-# 
+#
+#
 # print '-' * 20, '#8', '-' * 20
 # un = 'BZh91AY&SYA\xaf\x82\r\x00\x00\x01\x01\x80\x02\xc0\x02\x00 \x00!\x9ah3M\x07<]\xc9\x14\xe1BA\x06\xbe\x084'
 # pw = 'BZh91AY&SY\x94$|\x0e\x00\x00\x00\x81\x00\x03$ \x00!\x9ah3M\x13<]\xc9\x14\xe1BBP\x91\xf08'
 # print bz2.decompress(un)
 # print bz2.decompress(pw)
-# 
-# 
+#
+#
 # print '-' * 20, '#9', '-' * 20
 # first = [146, 399, 163, 403, 170, 393, 169, 391, 166, 386, 170, 381, 170, 371, 170, 355, 169, 346, 167, 335, 170, 329, 170, 320, 170,
 #          310, 171, 301, 173, 290, 178, 289, 182, 287, 188, 286, 190, 286, 192, 291, 194, 296, 195, 305, 194, 307, 191, 312, 190, 316,
@@ -141,7 +141,7 @@
 # plt.plot(first[::2], first[1::2])
 # plt.plot(second[::2], second[1::2])
 # plt.show()
-# 
+#
 # print '-' * 20, '#10', '-' * 20
 # def gennext(s):
 #     g = []
@@ -155,8 +155,8 @@
 #     for s in g:
 #         res += str(len(s)) + s[0]
 #     return res
-# 
-# #sample_a = [1, 11, 21, 1211, 111221]
+#
+# sample_a = [1, 11, 21, 1211, 111221]
 # a = []
 # a.append('1')
 # print 'a[0] = ' + a[0]
@@ -164,8 +164,8 @@
 #     a.append(gennext(a[-1]))
 #     print 'a[' + str(i) + '] = ' + a[i]
 # print len(a[30])
-# 
-# 
+#
+#
 # print '-' * 20, '#11', '-' * 20
 # im = Image.open('/home/qcg/download/cave.jpg')
 # print im.size
@@ -179,8 +179,8 @@
 #         if (row + col) % 2 == 0:
 #             odd.putpixel((row, col), im.getpixel((row, col)))
 # odd.show()
-# 
-# 
+#
+#
 # im = Image.open('/home/qcg/download/cave.jpg') # method 2
 # data = list(im.getdata())
 # doit = False
@@ -192,17 +192,17 @@
 #     doit = not doit
 # im.putdata(data)
 # im.show()
-# 
-# 
+#
+#
 # print '-' * 20, '#12', '-' * 20
-# 
-# 
+#
+#
 # def get_challenge(file):
 #     if not os.path.isfile(file):
 #         urllib.urlretrieve('http://www.pythonchallenge.com/pc/return/' + file, file)
 #     return open(file, 'rb')
-# 
-# 
+#
+#
 # f = get_challenge('evil2.gfx')
 # content = f.read()
 # f.close()
@@ -210,7 +210,7 @@
 #     f = open('%d.bin' % i, 'wb')
 #     f.write(content[i::5])
 #     f.close()
-# 
+#
 # print '-' * 20, '#13', '-' * 20
 # proxy = xmlrpclib.ServerProxy('http://www.pythonchallenge.com/pc/phonebook.php')
 # print proxy.system.listMethods()
@@ -218,9 +218,9 @@
 # print proxy.phone('Bert')
 
 # print '-' * 20, '#14', '-' * 20
-# #100*100=(100+99+99+98)+(...
+# 100*100=(100+99+99+98)+(...
 # l = [(i,i-1,i-1,i-2) for i in xrange(100,1,-2)]
-# 
+#
 # im = Image.open('/home/qcg/download/wire.png')
 # imdata = im.getdata()
 # im2 = Image.new(im.mode, (100,100))
@@ -244,19 +244,19 @@
 #         y -= 1
 #         im2data[(x, y)] = imdata[index]
 #         index += 1
-# # print imdata[1]
-# # print im2data[(0,0)]
+# print imdata[1]
+# print im2data[(0,0)]
 # im2.save('res.png')
-# 
+#
 # print '-' * 20, '#15', '-' * 20
-# from calendar import isleap  
-# from datetime import date  
-# TUESDAY = 1  
-# for year in range(1006, 2000, 10):  
-#     t = date(year, 1, 27)  
-#     if isleap(year) and t.weekday() == TUESDAY:  
+# from calendar import isleap
+# from datetime import date
+# TUESDAY = 1
+# for year in range(1006, 2000, 10):
+#     t = date(year, 1, 27)
+#     if isleap(year) and t.weekday() == TUESDAY:
 #         print t.isoformat()
-# 
+#
 # print '-' * 20, '#16', '-' * 20
 # import Image
 # im = Image.open('/home/qcg/download/mozart.gif')
@@ -296,13 +296,13 @@
 #         if im.getpixel((x, y)) == 195 and im.getpixel((x + 4, y)) == 195:
 #             collect.append((x,y))
 # print collect[0:20]
-# 
+#
 # patten = [195, 195, 195, 195, 195, ]
 # bars = []
 # for i in range(len(imdata)):
 #     if imdata[i:i + len(patten)] == patten:
 #         bars.append((i%w, i/w))
-# 
+#
 # shift = Image.new(im.mode, (w * 2, h), 0)
 # shift.palette = im.palette  # share colour table
 # for j in range(h):

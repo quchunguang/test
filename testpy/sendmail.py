@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding=utf-8 -*-
+# sudo apt-get install postfix
 '''
 Created on 2012-12-26
 
