@@ -1,5 +1,10 @@
 package main
 
+/*
+#include <stdio.h>
+
+*/
+import "C" // this MUST be single sentence with magic omments above !!!
 import (
 	"bufio"
 	"bytes"
@@ -1441,46 +1446,13 @@ func Echo(c net.Conn) {
 func testcgo() {
 	testgo.Seed(1)
 	fmt.Println(testgo.Random())
+
+	C.puts(C.CString("Hello, 世界\n"))
+	fmt.Println("hi")
 }
 
 ///////////////
 func main() {
-	// testcgo()
-	// echoserver()
-	// uniq()
-	// wc()
-	// psgrp()
-	// testhttp()
-	// testnet()
-	// testexec()
-	// testio3()
-	// testio2()
-	// testio()
-	// testgoroutine2()
-	// testintrospection()
-	// testinterface_recurve()
-	// testsort()
-	// testtype2()
-	// testmap3()
-	// testcustomtype()
-	// testpointer()
-	// commonpkg()
-	// testtest()
-	// testpackage()
-	// testvararg2()
-	// teststack()
-	// exercise_functions()
-	// testpanic()
-	// testmap()
-	// testfuncvalue()
-	// testvarargs(1, 2, 3)
-	// fmt.Println(testdefer())
-	// testgoto()
-	// testfile()
-	// testtype()
-	// teststring()
-	// testredis()
-
 	// testdefine()
 	// testfor()
 	// testif()
@@ -1514,4 +1486,39 @@ func main() {
 	// testchannel5()
 	// exercise_checktree()
 	// exercise_craw()
+	// testredis()
+	// teststring()
+	// testtype()
+	// testfile()
+	// testgoto()
+	// fmt.Println(testdefer())
+	// testvarargs(1, 2, 3)
+	// testfuncvalue()
+	// testmap()
+	// testpanic()
+	// exercise_functions()
+	// teststack()
+	// testvararg2()
+	// testpackage()
+	// testtest()
+	// commonpkg()
+	// testpointer()
+	// testcustomtype()
+	// testmap3()
+	// testtype2()
+	// testsort()
+	// testinterface_recurve()
+	// testintrospection()
+	// testgoroutine2()
+	// testio()
+	// testio2()
+	// testio3()
+	// testexec()
+	// testnet()
+	// testhttp()
+	// psgrp()
+	// wc()
+	// uniq()
+	// echoserver()
+	// testcgo()
 }
