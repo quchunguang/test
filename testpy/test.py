@@ -37,9 +37,9 @@ def printDoc():
 
 def test_items():
     print '''Th\is's
-	balabal'''
+    balabal'''
     print 'aa\
-	ss'
+    ss'
     print r'aa\nbb'
     print 'aa\nbb'
     print u"中文" 'haha'
@@ -211,6 +211,11 @@ def testinspect():
     print cat.__dict__
     print cat.__class__ == Cat
     print inspect.getmembers(cat)
+
+
+def testdate():
+    from datetime import datetime
+    print datetime.now().strftime('%Y-%m-%d')
 
 
 def main():
