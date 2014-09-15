@@ -220,6 +220,9 @@ def testdate():
 
 def main():
     testinspect()
+    l = [4,5,6]
+    print tuple(l)
+    print [1]+ [2,3]
 
 if __name__ == "__main__":
     main()

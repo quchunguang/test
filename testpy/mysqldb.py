@@ -10,6 +10,8 @@ class mysqldb():
             host='localhost', user='root', passwd='passwd')
         self.cursor = self.conn.cursor()
         self.conn.select_db('test')
+        self.cursor.execute("SET NAMES utf8")
+        self.conn.commit()
 
     def createdb(self):
         """docstring for createdb"""
@@ -24,7 +26,7 @@ class mysqldb():
         self.cursor.execute("""insert into testpy values(%s,%s)""", value)
         values = []
         for i in range(20):
-            values.append((i, 'Hello mysqldb, I am recoder ' + str(i)))
+            values.append((i, '客户' + str(i)))
         self.cursor.executemany("""insert into testpy values(%s,%s)""", values)
 
     def delete(self, identity):
@@ -52,7 +54,7 @@ def main():
     """docstring for main """
     obj = mysqldb()
     # obj.createdb()
-    # obj.insertdb()
+    obj.insertdb()
     obj.delete(19)
     obj.select(5)
     del obj
