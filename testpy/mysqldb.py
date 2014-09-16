@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# -*- coding=utf-8 -*-
+# -*- coding: utf-8 -*-
 import MySQLdb
 
 
@@ -10,7 +10,7 @@ class mysqldb():
             host='localhost', user='root', passwd='passwd')
         self.cursor = self.conn.cursor()
         self.conn.select_db('test')
-        self.cursor.execute("SET NAMES utf8")
+        self.cursor.execute("SET NAMES 'utf8'")
         self.conn.commit()
 
     def createdb(self):

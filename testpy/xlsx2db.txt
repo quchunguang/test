@@ -1,0 +1,37 @@
+tabledate
+
+qdmc y1 渠道名称 <type 'unicode'>
+sdlx y2 商店类型 <type 'unicode'>
+khbm y3 客户编码 <type 'int'>
+sdlxbm y4 商店类型编码 <type 'unicode'>
+khmc y5 客户名称 <type 'unicode'>
+6 客户类型编码 <type 'NoneType'>
+7 客户类型名称 <type 'NoneType'>
+sptm y8 商品条码 <type 'int'>
+xsdb y9 销售代表 <type 'unicode'>
+plmc y10 品类名称 <type 'unicode'>
+ppmc y11 品牌名称 <type 'unicode'>
+mdbm y12 门店编码 <type 'NoneType'>
+mdmc y13 门店名称 <type 'NoneType'>
+jybbm y14 经营部编码 <type 'int'>
+spbm y15 商品编码 <type 'int'>	# varchar
+spmc y16 商品名称 <type 'unicode'>
+yz y17 因子 <type 'int'>
+xs y18 箱数 <type 'int'>
+ps y19 片数 <type 'int'>
+zs y20 总数 <type 'int'>
+hsxse y21 含税销售额 <type 'float'>
+bhsxse y22 不含税销售额 <type 'float'>
+xscb y23 销售成本 <type 'float'>
+ml y24 毛利 <type 'float'>
+mll y25 毛利率(%) <type 'float'>
+xsdbbm y26 销售代表编码 <type 'int'>
+27 销售主管 <type 'unicode'>
+28 考查商品 <type 'unicode'>
+29 配额产品 <type 'unicode'>
+30 新品 <type 'unicode'>
+31 滞销品 <type 'unicode'>
+32 9月促销装 <type 'unicode'>
+
+
+bz
