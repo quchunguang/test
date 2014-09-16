@@ -48,7 +48,7 @@ def convert_utf8(value):
 
 
 def fileindb(conn, curs, filename):
-    """check if filename already inserted"""
+    """Check if filename already inserted"""
     date = getdate(filename)
     curs.execute(
         """select count(id) from imports where date=%s""", date)
@@ -56,7 +56,7 @@ def fileindb(conn, curs, filename):
 
 
 def import_file(conn, curs, filename):
-    """import data to sales in file"""
+    """Import data to sales in file"""
     date = getdate(filename)
 
     if fileindb(conn, curs, filename):
@@ -95,6 +95,7 @@ values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,
 
 
 def delete_by_file(conn, curs, filename):
+    """Delete data from db ever imported from target file"""
     if fileindb(conn, curs, filename) == 0:
         print "[DELETE] Not need to delete: ", filename
         return
@@ -106,6 +107,7 @@ def delete_by_file(conn, curs, filename):
 
 
 def list_imported_file(conn, curs):
+    """List all files have imported to db"""
     print "[LIST  ] Start list imported files"
     print "=DATE=\t\t=FILENAME=\t\t=IMPORT TIME="
     curs.execute("""select date, filename, importtime from imports""")
@@ -114,7 +116,7 @@ def list_imported_file(conn, curs):
 
 
 def export_by_khmc(conn, curs):
-    """get col list"""
+    """Export data to multi xlsx files divide by `khmc`"""
     curs.execute("""select distinct khmc from sales_detail""")
     ret = curs.fetchall()
     for khmc in ret:
@@ -226,6 +228,7 @@ def putvalue(ws, row, column, value, data_type):
 
 
 def import_folder(conn, curs, path):
+    """Import data to db from all files in target folder"""
     for f in os.listdir(path):
         root, ext = os.path.splitext(f)
         if ext == '.xlsx' and getdate(f) != None:
@@ -233,7 +236,7 @@ def import_folder(conn, curs, path):
 
 
 def opendb():
-    """create db connection"""
+    """Create db connection"""
     conn = MySQLdb.connect(host='127.0.0.1',
                            user='root',
                            passwd='passwd',
@@ -245,7 +248,7 @@ def opendb():
 
 
 def closedb(conn, curs):
-    """close db connection"""
+    """Close db connection"""
     curs.close()
     conn.close()
 
