@@ -13,13 +13,13 @@ plmc y10 品类名称 <type 'unicode'>
 ppmc y11 品牌名称 <type 'unicode'>
 mdbm y12 门店编码 <type 'NoneType'>
 mdmc y13 门店名称 <type 'NoneType'>
-jybbm y14 经营部编码 <type 'int'>
+jybbm y14 经营部编码 <type 'int'> # varchar
 spbm y15 商品编码 <type 'int'>	# varchar
 spmc y16 商品名称 <type 'unicode'>
-yz y17 因子 <type 'int'>
-xs y18 箱数 <type 'int'>
-ps y19 片数 <type 'int'>
-zs y20 总数 <type 'int'>
+yz y17 因子 <type 'float'>
+xs y18 箱数 <type 'float'>
+ps y19 片数 <type 'float'>
+zs y20 总数 <type 'float'>
 hsxse y21 含税销售额 <type 'float'>
 bhsxse y22 不含税销售额 <type 'float'>
 xscb y23 销售成本 <type 'float'>
@@ -35,3 +35,5 @@ xsdbbm y26 销售代表编码 <type 'int'>
 
 
 bz
+[2014-09-17]
+mdbm->bigint

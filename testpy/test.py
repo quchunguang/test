@@ -4,9 +4,11 @@
 # $ sudo apt-get install pip
 # $ sudo pip install pipe
 
-import operator
 from pipe import Pipe, add, where, take_while, select, as_list
 import inspect
+import operator
+from collections import defaultdict
+import pprint
 
 
 def print_max(a, b):
@@ -218,11 +220,101 @@ def testdate():
     print datetime.now().strftime('%Y-%m-%d')
 
 
+def testfor():
+    d = {'a': 1, 'c': 2, 'e': 3, 'g': 4}
+    s = 'abcde'
+    for c in s:
+        d[c] = d.get(c, 0) + 1  # !!! not need to check if c in d
+    # d['h'] += 1                # but this will cause key error
+    print d
+
+    data = ((4, 2), (5, 5), (6, 2), (6, 3))
+
+    # equities = {}
+    # for (portfolio, equity) in data:
+    #     equities.setdefault(portfolio, []).append(equity)
+    # print equities
+
+    equities = defaultdict(list)
+    for (portfolio, equity) in data:
+        equities[portfolio].append(equity)
+
+    given = ['John', 'Eric', 'Terry', 'Michael']
+    family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
+    pythons = dict(zip(given, family))
+    pythons.keys()
+    pythons.values()
+
+
+def testpprint():
+    given = ['John', 'Eric', 'Terry', 'Michael']
+    family = ['Cleese', 'Idle', 'Gilliam', 'Palin']
+    pprint.pprint(dict(zip(given, family)))
+    items = 'zero one two three'.split()
+    pprint.pprint(items)
+    print list(enumerate(items))
+
+
+def bad_append(new_item, a_list=[]):
+    a_list.append(new_item)
+    return a_list
+
+
+def good_append(new_item, a_list=None):
+    if a_list is None:
+        a_list = []
+    a_list.append(new_item)
+    return a_list
+
+
+def list_default():
+    print bad_append('one')
+    print bad_append('two')
+    print good_append('one')
+    print good_append('two')
+    name = 'David'
+    messages = 3
+    text = ('Hello %s, you have %i messages' % (name, messages))
+    print text
+    month_codes = dict((fn(i + 1), code)
+                       for i, code in enumerate('FGHJKMNQUVXZ')
+                       for fn in (int, str))
+    pprint.pprint(month_codes)
+
+
+def my_key(item):
+    return (item[1], item[3])
+
+
+def sort_by_key():
+    to_sort = [(1, 4, 3, 4), (1, 1, 3, 3), (1, 1, 3, 2), (1, 2, 3, 1), ]
+    to_sort.sort(key=my_key)
+    print to_sort
+
+
+def my_range_generator(stop):
+    value = 0
+    while value < stop:
+        yield value
+        value += 1
+
+def testgenerator():
+    for i in my_range_generator(10):
+        print i
+
+def testfile():
+    datafile = open('xlsx2db.txt')
+    for line in datafile:
+        print line,
+
 def main():
-    testinspect()
-    l = [4,5,6]
-    print tuple(l)
-    print [1]+ [2,3]
+    # testinspect()
+    # testfor()
+    # testpprint()
+    # sort_by_key()
+    # testgenerator()
+    testfile()
+
 
 if __name__ == "__main__":
     main()
