@@ -1,9 +1,11 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
-"""Read XXX20140101.xlsx ... files to mysql db, and then write out.
+"""Import xlsx files to mysql DB, vice versa.
+Filename should named like XXXyyyymmdd.xlsx (数据表20140701.xlsx for example).
 """
+
 __author__ = 'Kevin Qu <quchunguang@gmail.com>'
-__version__ = '0.3'
+__version__ = '0.4'
 __nonsense__ = '6dffbe62-51c3-4aec-9189-4b46e0e63fdc'
 
 import argparse
@@ -11,6 +13,7 @@ import os
 import os.path
 import re
 import datetime
+import sys
 import MySQLdb
 from openpyxl import load_workbook
 from openpyxl.workbook import Workbook
@@ -105,7 +108,7 @@ def import_file(conn, curs, filename):
     print rows, "record(s) inserted."
 
 
-def delete_by_file(conn, curs, filename):
+def delete_file(conn, curs, filename):
     """Delete data from db ever imported from target file."""
     if not fileindb(conn, curs, filename):
         print "[DELETE] Not need to delete: ", filename
@@ -125,7 +128,7 @@ def list_imported_file(conn, curs):
         print "%s\t%s\t%s" % (i[0], i[1], i[2])
 
 
-def export_by_khmc(conn, curs):
+def export_folder(conn, curs, path):
     """Export data to multi xlsx files divide by `khmc`, months as sheets."""
 
     # contents in echo sheet of one file by following date in `tabledate`
@@ -173,7 +176,9 @@ from sales_detail where khmc=%s and tabledate=%s"""
 
         # create a new file
         dest_filename = khmc[0] + '.xlsx'
-        dest_filename = dest_filename.decode('utf8').encode('gbk')
+        dest_filename = os.path.join(path, dest_filename)
+        if sys.platform == 'win32' or sys.platform == 'cygwin':  # Windows
+            dest_filename = dest_filename.decode('utf8').encode('gbk')
 
         # check and ignore exists files
         if os.path.isfile(dest_filename):
@@ -196,12 +201,12 @@ from sales_detail where khmc=%s and tabledate=%s"""
 
             # create header
             for c, n, t in col_info:
-                putvalue(ws, 1, c, 's')
+                putvalue(ws, 1, c, n, 's')
 
             # fill data
             for i, r in enumerate(ret2):
                 for c, n, t in col_info:
-                    putvalue(ws, i + 2, c,  r[c + 1], t)
+                    putvalue(ws, i + 2, c,  r[c - 1], t)
 
         wb.save(dest_filename)
 
@@ -256,35 +261,33 @@ def closedb(conn, curs):
 
 def parse_args():
     """Parse command line arguments"""
-    parser = argparse.ArgumentParser(description=main.__doc__)
+    parser = argparse.ArgumentParser(description=sys.modules[__name__].__doc__)
+
     parser.add_argument('-l', '--list',
                         action='store_true', default=False,
                         help=list_imported_file.__doc__)
-    parser.add_argument('-i', '--import-folder', help=import_folder.__doc__)
-    parser.add_argument('-d', '--delete-by-file', help=delete_by_file.__doc__)
-    parser.add_argument('-e', '--export-by-khmc',
-                        action='store_true', default=False,
-                        help=export_by_khmc.__doc__)
+    parser.add_argument('-d', '--delete-file', help=delete_file.__doc__)
+    parser.add_argument('-e', '--export-folder', help=export_folder.__doc__)
     parser.add_argument('--import-file', help=import_file.__doc__)
+    parser.add_argument('-i', '--import-folder', help=import_folder.__doc__)
+
     return parser.parse_args()
 
 
 def main():
-    """Import xlsx files to mysql DB, vice versa.
-Filename should like XXXyyyymmdd.xlsx (数据表20140701.xlsx for example)."""
     conn, curs = opendb()
 
     args = parse_args()
-    if args.import_folder:
-        import_folder(conn, curs, args.import_folder)
-    elif args.export_by_khmc:
-        export_by_khmc(conn, curs)
+    if args.list:
+        list_imported_file(conn, curs)
+    elif args.delete_file:
+        delete_file(conn, curs, args.delete_file)
+    elif args.export_folder:
+        export_folder(conn, curs, args.export_folder)
     elif args.import_file:
         import_file(conn, curs, args.import_file)
-    elif args.delete_by_file:
-        delete_by_file(conn, curs, args.delete)
-    elif args.list:
-        list_imported_file(conn, curs)
+    elif args.import_folder:
+        import_folder(conn, curs, args.import_folder)
 
     closedb(conn, curs)
 
