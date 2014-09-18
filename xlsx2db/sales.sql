@@ -66,7 +66,9 @@ CREATE TABLE `sales_detail` (
   `mll` float DEFAULT NULL COMMENT '毛利率',
   `xsdbbm` int(11) DEFAULT NULL COMMENT '销售代表编码',
   `bz` varchar(20) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `tabledate` (`tabledate`),
+  KEY `khmc` (`khmc`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3375969 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -79,4 +81,4 @@ CREATE TABLE `sales_detail` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-18  8:34:19
+-- Dump completed on 2014-09-18 16:18:44
