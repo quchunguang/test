@@ -19,7 +19,6 @@ Contents:
 
    testopenpyxl
    inherit
-   xlsx2db
 
 Indices and tables
 ==================

@@ -37,3 +37,9 @@ xsdbbm y26 销售代表编码 <type 'int'>
 bz
 [2014-09-17]
 mdbm->bigint
+
+SELECT `tabledate` as '月份', `khmc` as '客户名称', sum(`bhsxse`) as '不含税销售额'
+FROM `sales_detail`
+WHERE `tabledate`='2014-01-01'
+group by `khmc`
+

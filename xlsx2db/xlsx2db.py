@@ -3,7 +3,7 @@
 """Read XXX20140101.xlsx ... files to mysql db, and then write out.
 """
 __author__ = 'Kevin Qu <quchunguang@gmail.com>'
-__version__ = '0.2'
+__version__ = '0.3'
 __nonsense__ = '6dffbe62-51c3-4aec-9189-4b46e0e63fdc'
 
 import argparse
@@ -31,10 +31,10 @@ def print_column_type(ws):
 
 
 def getdate(filename):
-    pattern = re.compile(ur'\d\d\d\d\d\d\d\d', re.UNICODE)
+    pattern = re.compile(ur'20\d\d\d\d\d\d', re.UNICODE)
     match = pattern.search(filename)
     if match == None:
-        print "Can not get date from filename: ", filename
+        print "[Error ] File format error: ", filename
         return None
 
     return datetime.datetime.strptime(match.group(), "%Y%m%d").date()
@@ -48,15 +48,17 @@ def convert_utf8(value):
 
 
 def fileindb(conn, curs, filename):
-    """Check if filename already inserted"""
+    """Check if filename already inserted."""
     date = getdate(filename)
+    if not date:
+        return 0
     curs.execute(
         """select count(id) from imports where date=%s""", date)
     return curs.fetchall()[0][0]
 
 
 def import_file(conn, curs, filename):
-    """Import data to sales in file"""
+    """Import data to sales from target file."""
     date = getdate(filename)
 
     if fileindb(conn, curs, filename):
@@ -64,6 +66,7 @@ def import_file(conn, curs, filename):
         return
 
     print "[IMPORT]", filename, "wait ...",
+
     # read data from xmls file
     ws = getws(filename)
     it = ws.iter_rows()
@@ -82,6 +85,7 @@ def import_file(conn, curs, filename):
     # insert data to sales_detail
     rows = 0
     for r in it:
+
         # if khmc is None, not insert!
         if r[4].value == None:
             continue
@@ -103,7 +107,7 @@ def import_file(conn, curs, filename):
 
 def delete_by_file(conn, curs, filename):
     """Delete data from db ever imported from target file."""
-    if fileindb(conn, curs, filename) == 0:
+    if not fileindb(conn, curs, filename):
         print "[DELETE] Not need to delete: ", filename
         return
     print "[DELETE] ", filename
@@ -115,7 +119,6 @@ def delete_by_file(conn, curs, filename):
 
 def list_imported_file(conn, curs):
     """List all files have imported to db."""
-    print "[LIST  ] Start list imported files"
     print "=DATE=\t\t=FILENAME=\t\t=IMPORT TIME="
     curs.execute("""select date, filename, importtime from imports""")
     for i in curs.fetchall():
@@ -251,26 +254,37 @@ def closedb(conn, curs):
     conn.close()
 
 
-def main():
-    # parser = argparse.ArgumentParser(
-    #     description='I/O xlsx files (XXX20140101.xlsx) with mysql db.')
-    # parser.add_argument("echo")
-    # args = parser.parse_args()
-    # print args.echo
+def parse_args():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description=main.__doc__)
+    parser.add_argument('-l', '--list',
+                        action='store_true', default=False,
+                        help=list_imported_file.__doc__)
+    parser.add_argument('-i', '--import-folder', help=import_folder.__doc__)
+    parser.add_argument('-d', '--delete-by-file', help=delete_by_file.__doc__)
+    parser.add_argument('-e', '--export-by-khmc',
+                        action='store_true', default=False,
+                        help=export_by_khmc.__doc__)
+    parser.add_argument('--import-file', help=import_file.__doc__)
+    return parser.parse_args()
 
+
+def main():
+    """Import xlsx files to mysql DB, vice versa.
+Filename should like XXXyyyymmdd.xlsx (数据表20140701.xlsx for example)."""
     conn, curs = opendb()
 
-    # path = r'C:\Python27'
-    path = r'/home/qcg/share/test/xlsx2db'
-    import_folder(conn, curs, path)
-
-    # export_by_khmc(conn, curs)
-
-    # filename = '20140801.xlsx'
-    # import_file(conn, curs, filename)
-
-    # delete_by_file(conn, curs, filename)
-    # list_imported_file(conn, curs)
+    args = parse_args()
+    if args.import_folder:
+        import_folder(conn, curs, args.import_folder)
+    elif args.export_by_khmc:
+        export_by_khmc(conn, curs)
+    elif args.import_file:
+        import_file(conn, curs, args.import_file)
+    elif args.delete_by_file:
+        delete_by_file(conn, curs, args.delete)
+    elif args.list:
+        list_imported_file(conn, curs)
 
     closedb(conn, curs)
 
