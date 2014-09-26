@@ -2,22 +2,28 @@
 # -*- coding: utf-8 -*-
 """Import xlsx files to mysql DB, vice versa.
 Filename should named like XXXyyyymmdd.xlsx (数据表20140701.xlsx for example).
+
+Dependence:
+    `sudo apt-get install mysql-server-5.5 mysql-client-5.5 python-mysqldb`;
+    `sudo pip install openpyxl`;
+    `mysql -uroot -ppasswd -hlocalhost`;
+    create database `sales` with `utf-8 general ci` and import `sales.sql`.
 """
 
 __author__ = 'Kevin Qu <quchunguang@gmail.com>'
 __version__ = '0.4'
 __nonsense__ = '6dffbe62-51c3-4aec-9189-4b46e0e63fdc'
 
-import argparse
-import os
-import os.path
-import re
-import datetime
-import sys
-import MySQLdb
 from openpyxl import load_workbook
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import ExcelWriter
+import argparse
+import datetime
+import MySQLdb
+import os
+import os.path
+import re
+import sys
 
 
 def getws(filename):
@@ -233,7 +239,7 @@ def import_folder(conn, curs, path):
     for f in os.listdir(path):
         root, ext = os.path.splitext(f)
         if ext == '.xlsx' and getdate(f) != None:
-            file_list.append(f)
+            file_list.append(os.path.join(path, f))
 
     file_list.sort()
 

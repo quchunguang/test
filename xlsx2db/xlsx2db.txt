@@ -43,3 +43,7 @@ FROM `sales_detail`
 WHERE `tabledate`='2014-01-01'
 group by `khmc`
 
+
+1   kyokushunkou    B0-65-BD-CE-1B-0D   192.168.1.101   01:51:55
+2   kevin3  50-46-5D-A7-8D-29   192.168.1.103   01:34:13
+3   kevin6  00-21-CC-CC-2F-E6   192.168.1.102   01:06:08
