@@ -1,4 +1,4 @@
-/* 
+/*
  *  procfs.c -  create a "file" in /proc, which allows both input and output.
  */
 #include <linux/kernel.h>	/* We're doing kernel work */
@@ -7,9 +7,9 @@
 #include <asm/uaccess.h>	/* for get_user and put_user */
 #include <linux/sched.h>	/* add by kevin for compile error*/
 
-/* 
+/*
  * Here we keep the last message received, to prove
- * that we can process our input 
+ * that we can process our input
  */
 #define MESSAGE_LENGTH 80
 static char Message[MESSAGE_LENGTH];
@@ -26,33 +26,33 @@ static ssize_t module_output(struct file *filp,	/* see include/linux/fs.h   */
 	int i;
 	char message[MESSAGE_LENGTH + 30];
 
-	/* 
+	/*
 	 * We return 0 to indicate end of file, that we have
 	 * no more information. Otherwise, processes will
-	 * continue to read from us in an endless loop. 
+	 * continue to read from us in an endless loop.
 	 */
 	if (finished) {
 		finished = 0;
 		return 0;
 	}
 
-	/* 
+	/*
 	 * We use put_user to copy the string from the kernel's
 	 * memory segment to the memory segment of the process
 	 * that called us. get_user, BTW, is
-	 * used for the reverse. 
+	 * used for the reverse.
 	 */
 	sprintf(message, "Last input:%s", Message);
 	for (i = 0; i < length && message[i]; i++)
 		put_user(message[i], buffer + i);
 
-	/* 
+	/*
 	 * Notice, we assume here that the size of the message
 	 * is below len, or it will be received cut. In a real
 	 * life situation, if the size of the message is less
 	 * than len then we'd return len and on the second call
 	 * start filling the buffer with the len+1'th byte of
-	 * the message. 
+	 * the message.
 	 */
 	finished = 1;
 
@@ -63,9 +63,9 @@ static ssize_t
 module_input(struct file *filp, const char *buff, size_t len, loff_t * off)
 {
 	int i;
-	/* 
+	/*
 	 * Put the input into Message, where module_output
-	 * will later be able to use it 
+	 * will later be able to use it
 	 */
 	for (i = 0; i < MESSAGE_LENGTH - 1 && i < len; i++)
 		get_user(Message[i], buff + i);
@@ -74,7 +74,7 @@ module_input(struct file *filp, const char *buff, size_t len, loff_t * off)
 	return i;
 }
 
-/* 
+/*
  * This function decides whether to allow an operation
  * (return zero) or not allow it (return a non-zero
  * which indicates why it is not allowed).
@@ -91,24 +91,24 @@ module_input(struct file *filp, const char *buff, size_t len, loff_t * off)
 
 static int module_permission(struct inode *inode, int op)
 {
-	/* 
+	/*
 	 * We allow everybody to read from our module, but
-	 * only root (uid 0) may write to it 
+	 * only root (uid 0) may write to it
 	 */
-	printk(KERN_DEBUG"op=%d current_euid=%d\n", op, current_euid());
-	if (op & MAY_READ || (op & MAY_WRITE && current_euid() == 0))
+	printk(KERN_DEBUG"op=%d current_euid=%d\n", op, __kuid_val(current_euid()));
+	if (op & MAY_READ || (op & MAY_WRITE && __kuid_val(current_euid()) == 0))
 		return 0;
 
-	/* 
-	 * If it's anything else, access is denied 
+	/*
+	 * If it's anything else, access is denied
 	 */
 	return -EACCES;
 }
 
-/* 
+/*
  * The file is opened - we don't really care about
  * that, but it does mean we need to increment the
- * module's reference count. 
+ * module's reference count.
  */
 int module_open(struct inode *inode, struct file *file)
 {
@@ -116,9 +116,9 @@ int module_open(struct inode *inode, struct file *file)
 	return 0;
 }
 
-/* 
+/*
  * The file is closed - again, interesting only because
- * of the reference count. 
+ * of the reference count.
  */
 int module_close(struct inode *inode, struct file *file)
 {
@@ -133,27 +133,28 @@ static struct file_operations File_Ops_4_Our_Proc_File = {
 	.release = module_close,
 };
 
-/* 
+/*
  * Inode operations for our proc file. We need it so
  * we'll have some place to specify the file operations
  * structure we want to use, and the function we use for
  * permissions. It's also possible to specify functions
  * to be called for anything else which could be done to
  * an inode (although we don't bother, we just put
- * NULL). 
+ * NULL).
  */
 
 static struct inode_operations Inode_Ops_4_Our_Proc_File = {
 	.permission = module_permission,	/* check for permissions */
 };
 
-/* 
- * Module initialization and cleanup 
+/*
+ * Module initialization and cleanup
  */
+
 int init_module()
 {
 	int rv = 0;
-	Our_Proc_File = create_proc_entry(PROC_ENTRY_FILENAME, 0644, NULL);
+	Our_Proc_File = create_proc(PROC_ENTRY_FILENAME, 0644, NULL, &File_Ops_4_Our_Proc_File);
 	/*Our_Proc_File->owner = THIS_MODULE;*/
 	Our_Proc_File->proc_iops = &Inode_Ops_4_Our_Proc_File;
 	Our_Proc_File->proc_fops = &File_Ops_4_Our_Proc_File;
