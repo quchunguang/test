@@ -22,31 +22,31 @@ void loop()
 
     //Serial.println(sensorValue);
     if (Serial.available() > 0) {
-    	// read the incoming byte:
-    	char inByte = Serial.read();
-    	if (inByte == '0') {
-    	    digitalWrite(5, LOW);
-    	} else if (inByte == '1') {
-    	    digitalWrite(5, HIGH);
-    	}
+        // read the incoming byte:
+        char inByte = Serial.read();
+        if (inByte == '0') {
+            digitalWrite(5, LOW);
+        } else if (inByte == '1') {
+            digitalWrite(5, HIGH);
+        }
     }
 
     if (sensorValue > 800) {
-	digitalWrite(2, HIGH);
-	digitalWrite(3, HIGH);
-	digitalWrite(4, HIGH);
+        digitalWrite(2, HIGH);
+        digitalWrite(3, HIGH);
+        digitalWrite(4, HIGH);
     } else if (sensorValue > 400) {
-	digitalWrite(2, HIGH);
-	digitalWrite(3, HIGH);
-	digitalWrite(4, LOW);
+        digitalWrite(2, HIGH);
+        digitalWrite(3, HIGH);
+        digitalWrite(4, LOW);
     } else if (sensorValue > 100) {
-	digitalWrite(2, HIGH);
-	digitalWrite(3, LOW);
-	digitalWrite(4, LOW);
+        digitalWrite(2, HIGH);
+        digitalWrite(3, LOW);
+        digitalWrite(4, LOW);
     } else {
-	digitalWrite(2, LOW);
-	digitalWrite(3, LOW);
-	digitalWrite(4, LOW);
+        digitalWrite(2, LOW);
+        digitalWrite(3, LOW);
+        digitalWrite(4, LOW);
     }
 
     delay(100);

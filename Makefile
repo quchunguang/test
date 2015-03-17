@@ -1,5 +1,5 @@
 all:
-	cd testbison && $(MAKE) 
+	cd testbison && $(MAKE)
 	cd testcore && $(MAKE)
 	cd testdb && $(MAKE)
 	cd testother && $(MAKE)
@@ -14,6 +14,7 @@ all:
 	cd testopencv && $(MAKE)
 	cd testpostgresql && $(MAKE)
 	cd testgo && $(MAKE)
+	cd testr && $(MAKE)
 clean:
 	cd testbison && $(MAKE) clean
 	cd testcore && $(MAKE) clean
@@ -30,3 +31,4 @@ clean:
 	cd testopencv && $(MAKE) clean
 	cd testpostgresql && $(MAKE) clean
 	cd testgo && $(MAKE) clean
+	cd testr && $(MAKE) clean
