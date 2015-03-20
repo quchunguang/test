@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd ~/test/testarduino
+mkdir ${1}
+cp templete/Makefile ${1}/
+cp templete/templete.ino ${1}/${1}.ino
+cd ${1}/
+subl ${1}.ino

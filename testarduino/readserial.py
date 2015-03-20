@@ -4,10 +4,8 @@
 # $ sudo apt-get install python-serial
 from __future__ import print_function
 import serial
-import time
-import sys
 
-ser = serial.Serial('/dev/ttyUSB1', 9600)
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 # serial read
 while True:
