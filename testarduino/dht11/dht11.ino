@@ -8,8 +8,8 @@ This example, as difference to the other, make use of the new method acquireAndW
 */
 #include <idDHT11.h>
 
-int idDHT11pin = 2;       //Digital pin for comunications
-int idDHT11intNumber = 0; //interrupt number (must be the one that use the previus defined pin (see table above)
+int idDHT11pin = 2;       //Digital pin for communications
+int idDHT11intNumber = 0; //interrupt number (must be the one that use the previous defined pin (see table above)
 
 //declaration
 void dht11_wrapper();     // must be declared before the lib initialization

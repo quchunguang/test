@@ -5,7 +5,7 @@
 from __future__ import print_function
 import serial
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('/dev/ttyUSB0', 115200)
 
 # serial read
 while True:

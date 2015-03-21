@@ -8,6 +8,11 @@ all:
 	cd irtest && $(MAKE)
 	cd liquidcrystal && $(MAKE)
 	cd tone && $(MAKE)
+	cd lm35 && $(MAKE)
+	cd ledonboard && $(MAKE)
+	cd hmc5883l && $(MAKE)
+	cd pir && $(MAKE)
+	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
 	cd ledflow && $(MAKE) clean
@@ -18,3 +23,8 @@ clean:
 	cd irtest && $(MAKE) clean
 	cd liquidcrystal && $(MAKE) clean
 	cd tone && $(MAKE) clean
+	cd lm35 && $(MAKE) clean
+	cd ledonboard && $(MAKE) clean
+	cd hmc5883l && $(MAKE) clean
+	cd pir && $(MAKE) clean
+	## b7b86095-2263-46c8-a9c6-52e52760265c

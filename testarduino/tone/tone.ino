@@ -1,3 +1,5 @@
+// http://thats-worth.blogspot.com/2014/05/arduino-controlling-piezo.html
+
 int speakerPin = 6;
 // 依照簡譜的順序，填入代表的音符，空白代表休止符
 char notes[] = "ccggaagffeeddc ";
