@@ -18,7 +18,9 @@ void playNote(int OutputPin, char note, unsigned long duration) {
     for (int i = 0; i < 8; i++) {
         if (names[i] == note) {
             tone(OutputPin, tones[i], duration);
-            //下方的 delay() 及 noTone ()，測試過後一定要有這兩行，整體的撥放出來的東西才不會亂掉，可能是因為 Arduino 送出tone () 頻率後會馬上接著執行下個指令，不會等聲音播完，導致撥出的聲音混合而亂掉
+            // 下方的 delay() 及 noTone ()，測試過後一定要有這兩行，整體的撥放出來的
+            // 東西才不會亂掉，可能是因為 Arduino 送出tone () 頻率後會馬上接著執行下
+            // 個指令，不會等聲音播完，導致撥出的聲音混合而亂掉
             delay(duration);
             noTone(OutputPin);
         }
@@ -57,7 +59,8 @@ void loop() {
 //             digitalWrite(tonepin, LOW); //不发声音
 //             delay(1);//延时ms
 //         }
-//         for (i = 0; i < 100; i++) //输出另一个频率的声音,这里的100与前面的80一样，用来控制频率，可以自己调节
+//         // 输出另一个频率的声音,这里的100与前面的80一样，用来控制频率
+//         for (i = 0; i < 100; i++)
 //         {
 //             digitalWrite(speakerPin, HIGH);
 //             delay(2);
