@@ -1,5 +1,5 @@
-s = serial('/dev/ttyUSB0');  %定义串口对象
-set(s,'BaudRate',9600);  %设置波特率s
+s = serial('/dev/ttyUSB1');  %定义串口对象
+set(s,'BaudRate',115200);  %设置波特率s
 fopen(s);  %打开串口对象s
 
 interval = 1000;

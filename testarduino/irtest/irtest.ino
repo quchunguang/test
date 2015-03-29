@@ -1,6 +1,6 @@
 #include <IRremote.h>
 
-int RECV_PIN = 12;       // 使用數位腳位2接收紅外線訊號
+int RECV_PIN = 12;       // 使用數位腳位12接收紅外線訊號
 IRrecv irrecv(RECV_PIN); // 初始化紅外線訊號輸入
 decode_results results;  // 儲存訊號的結構
 
