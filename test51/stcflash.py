@@ -1,0 +1,1 @@
+/home/qcg/share/stcflash/stcflash.py
