@@ -28,4 +28,6 @@ upload: main.bin
 	sudo python stcflash.py main.bin
 
 clean:
-	rm -f *.lk *.map *.rel *.sym *.asm *.ihx *.lst *.mem *.rst *.hex *.bin
+	rm -f $(TARGET).lk  $(TARGET).map $(TARGET).rel $(TARGET).sym \
+	      $(TARGET).asm $(TARGET).ihx $(TARGET).lst $(TARGET).mem \
+	      $(TARGET).rst $(TARGET).hex $(TARGET).bin
