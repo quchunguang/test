@@ -21,6 +21,7 @@ all:
 	cd yl64 && $(MAKE)
 	cd relay && $(MAKE)
 	cd rfid && $(MAKE)
+	cd testuno && $(MAKE)
 	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
@@ -45,4 +46,5 @@ clean:
 	cd yl64 && $(MAKE) clean
 	cd relay && $(MAKE) clean
 	cd rfid && $(MAKE) clean
+	cd testuno && $(MAKE) clean
 	## b7b86095-2263-46c8-a9c6-52e52760265c

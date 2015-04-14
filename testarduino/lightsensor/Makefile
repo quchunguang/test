@@ -1,2 +1,2 @@
-BOARD = nano328
+BOARD = uno
 include ../arduino.mk
