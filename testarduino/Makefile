@@ -22,6 +22,14 @@ all:
 	cd relay && $(MAKE)
 	cd rfid && $(MAKE)
 	cd testuno && $(MAKE)
+	cd sigsource && $(MAKE)
+	cd 74hc595 && $(MAKE)
+	cd servo_mg996r && $(MAKE)
+	cd keypad && $(MAKE)
+	cd ledmatrix && $(MAKE)
+	cd nRF24L01 && $(MAKE)
+	cd rf_send && $(MAKE)
+	cd rf_recv && $(MAKE)
 	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
@@ -47,4 +55,12 @@ clean:
 	cd relay && $(MAKE) clean
 	cd rfid && $(MAKE) clean
 	cd testuno && $(MAKE) clean
+	cd sigsource && $(MAKE) clean
+	cd 74hc595 && $(MAKE) clean
+	cd servo_mg996r && $(MAKE) clean
+	cd keypad && $(MAKE) clean
+	cd ledmatrix && $(MAKE) clean
+	cd nRF24L01 && $(MAKE) clean
+	cd rf_send && $(MAKE) clean
+	cd rf_recv && $(MAKE) clean
 	## b7b86095-2263-46c8-a9c6-52e52760265c
