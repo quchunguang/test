@@ -1,11 +1,12 @@
 #include <cstdlib>
 #include <iostream>
-#include "../../share/rf24libs/RF24/RF24.h"
+#include "RF24/RF24.h"
 
 using namespace std;
 
 // spi device, spi speed, ce gpio pin
 RF24 radio("/dev/spidev0.0", 8000000, 25);
+const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
 
 void setup(void)
 {
@@ -18,7 +19,7 @@ void setup(void)
     radio.setPALevel(RF24_PA_MAX);
     radio.setChannel(76);
     radio.setCRCLength(RF24_CRC_16);
-    radio.openReadingPipe(1, 0xF0F0F0F0E1LL);
+    radio.openReadingPipe(1, pipes[0]);
     radio.startListening();
 }
 
