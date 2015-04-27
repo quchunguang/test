@@ -27,14 +27,15 @@ void setup(void) {
     // optionally, reduce the payload size.  seems to improve reliability
     //radio.setPayloadSize(8);
 
+    // Dump the configuration of the RF unit for debugging
+    radio.printDetails();
+
     // Become the primary transmitter (ping out)
     radio.openWritingPipe(pipes[0]);
     radio.openReadingPipe(1, pipes[1]);
 
     radio.startListening();     // Start listening
 
-    // Dump the configuration of the RF unit for debugging
-    radio.printDetails();
 }
 
 void loop(void) {
