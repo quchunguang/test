@@ -10,15 +10,15 @@ void setup()
 
     // Print a message to the LCD at initial location (0, 0)
     lcd.backlight();
-    lcd.print("abcdefghijk");
+    lcd.print("Morning Call...");
 
     // Set location at column 0, row 1
-    lcd.setCursor(0,1);
-    lcd.print("1234");
+    lcd.setCursor(0, 1);
+    lcd.print("Kevin Qu");
 }
 void loop()
 {
-    lcd.setCursor(0,2);
+    lcd.setCursor(0, 2);
     lcd.print(count++);
     // lcd.clear();
 }

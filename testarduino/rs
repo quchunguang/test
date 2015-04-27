@@ -1,3 +1,0 @@
-#!/bin/bash
-
-jpnevulator --tty /dev/ttyUSB0 --read | xxd -r -p

@@ -14,7 +14,23 @@ all:
 	cd pir && $(MAKE)
 	cd hc_sr04 && $(MAKE)
 	cd led && $(MAKE)
-	cd ledflow && $(MAKE)
+	cd reading_analog && $(MAKE)
+	cd gps6mv2 && $(MAKE)
+	cd p2p_master && $(MAKE)
+	cd p2p_slave && $(MAKE)
+	cd yl64 && $(MAKE)
+	cd relay && $(MAKE)
+	cd rfid && $(MAKE)
+	cd testuno && $(MAKE)
+	cd sigsource && $(MAKE)
+	cd 74hc595 && $(MAKE)
+	cd servo_mg996r && $(MAKE)
+	cd keypad && $(MAKE)
+	cd ledmatrix && $(MAKE)
+	cd nRF24L01 && $(MAKE)
+	cd rf_send && $(MAKE)
+	cd rf_recv && $(MAKE)
+	cd eeprom && $(MAKE)
 	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
@@ -32,5 +48,21 @@ clean:
 	cd pir && $(MAKE) clean
 	cd hc_sr04 && $(MAKE) clean
 	cd led && $(MAKE) clean
-	cd ledflow && $(MAKE) clean
+	cd reading_analog && $(MAKE) clean
+	cd gps6mv2 && $(MAKE) clean
+	cd p2p_master && $(MAKE) clean
+	cd p2p_slave && $(MAKE) clean
+	cd yl64 && $(MAKE) clean
+	cd relay && $(MAKE) clean
+	cd rfid && $(MAKE) clean
+	cd testuno && $(MAKE) clean
+	cd sigsource && $(MAKE) clean
+	cd 74hc595 && $(MAKE) clean
+	cd servo_mg996r && $(MAKE) clean
+	cd keypad && $(MAKE) clean
+	cd ledmatrix && $(MAKE) clean
+	cd nRF24L01 && $(MAKE) clean
+	cd rf_send && $(MAKE) clean
+	cd rf_recv && $(MAKE) clean
+	cd eeprom && $(MAKE) clean
 	## b7b86095-2263-46c8-a9c6-52e52760265c

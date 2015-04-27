@@ -1,2 +1,2 @@
-BOARD = uno
-include ~/test/testarduino/arduino.mk
+BOARD = nano328
+include ../arduino.mk

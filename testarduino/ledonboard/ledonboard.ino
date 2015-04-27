@@ -1,4 +1,5 @@
-int pinLed = 13;
+int pinLed = 12;
+int pinLedOnBoard = 13;
 int timeWaitOn = 100;
 int timeWaitOff = 900;
 
@@ -7,8 +8,10 @@ void setup(){
 }
 
 void loop(){
-    digitalWrite(pinLed, HIGH);
-    delay(timeWaitOn);
+    digitalWrite(pinLedOnBoard, HIGH);
     digitalWrite(pinLed, LOW);
+    delay(timeWaitOn);
+    digitalWrite(pinLedOnBoard, LOW);
+    digitalWrite(pinLed, HIGH);
     delay(timeWaitOff);
 }

@@ -1,4 +1,6 @@
 all:
+	cd test51 && $(MAKE)
+	cd testarduino && $(MAKE)
 	cd testbison && $(MAKE)
 	cd testcore && $(MAKE)
 	cd testdb && $(MAKE)
@@ -16,6 +18,8 @@ all:
 	cd testgo && $(MAKE)
 	cd testr && $(MAKE)
 clean:
+	cd test51 && $(MAKE) clean
+	cd testarduino && $(MAKE) clean
 	cd testbison && $(MAKE) clean
 	cd testcore && $(MAKE) clean
 	cd testdb && $(MAKE) clean

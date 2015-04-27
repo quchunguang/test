@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd ~/test/testarduino
+
+awk -v prj="${1}" '
+/5f2d225e-a770-4c12-b2b3-c230d5818085/{print "\tcd",prj,"&& $(MAKE)"}
+/b7b86095-2263-46c8-a9c6-52e52760265c/{print "\tcd",prj,"&& $(MAKE) clean"}1' \
+Makefile >Makefile.tmp
+
+mv Makefile /tmp/Makefile.bak
+mv Makefile.tmp Makefile
+
+mkdir ${1}
+cp templete/Makefile ${1}/
+cp templete/templete.ino ${1}/${1}.ino
+cd ${1}/
+
+subl Makefile ${1}.ino
