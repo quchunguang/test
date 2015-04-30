@@ -8,8 +8,8 @@ Dependence:
     $ sudo pip install sinaweibopy
     raspsend.ini with section "Auth" with APP_KEY, APP_SECRET, CALL_BACK, ACCESS_TOKEN, EXPIRES_IN
 Usage:
-    $ ./$PROGNAME -m "message contents to be sent"  # send a message
-    $ ./$PROGNAME -a                                # update authorize info
+    $ echo "message contents to be sent" | ./$PROGNAME -m   # send a message
+    $ ./$PROGNAME -a   # update authorize info
 '''
 import weibo
 import ConfigParser
@@ -43,9 +43,10 @@ def auth():
     return client
 
 
-def send_msg(content):
-    ''' send a message to Sina Weibo'''
+def send_msg():
+    ''' send message (from stdin) to Sina Weibo'''
     client = auth()
+    content = sys.stdin.readlines()
     # 调用接口发一条新微薄，status参数就是微博内容
     client.statuses.update.post(status=content)
 
@@ -73,8 +74,8 @@ def update_auth():
 
 
 def main():
-    if sys.argv[1] == '-m' and sys.argv[2]:
-        send_msg(sys.argv[2])
+    if sys.argv[1] == '-m':
+        send_msg()
     elif sys.argv[1] == '-a':
         update_auth()
 
