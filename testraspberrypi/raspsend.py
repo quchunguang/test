@@ -1,14 +1,20 @@
 #!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
-# Function: Send Weibo of Sina
-# Dependence:
-# $ sudo apt-get install pip
-# $ sudo pip install sinaweibopy
-# raspsend.ini with section "Auth" with,
-#    APP_KEY, APP_SECRET, CALL_BACK, ACCESS_TOKEN, EXPIRES_IN
+'''
+Function:
+    Send Weibo of Sina
+Dependence:
+    $ sudo apt-get install pip
+    $ sudo pip install sinaweibopy
+    raspsend.ini with section "Auth" with APP_KEY, APP_SECRET, CALL_BACK, ACCESS_TOKEN, EXPIRES_IN
+Usage:
+    $ ./$PROGNAME -m "message contents to be sent"  # send a message
+    $ ./$PROGNAME -a                                # update authorize info
+'''
 import weibo
 import ConfigParser
 import sys
+import webbrowser
 
 
 def auth():
@@ -21,40 +27,56 @@ def auth():
     access_token，r是返回的授权结果，具体参数参考官方文档：
     http://open.weibo.com/wiki/Oauth2/access_token
     '''
-    Config = ConfigParser.ConfigParser()
-    Config.read("raspsend.ini")
+    cfg = ConfigParser.ConfigParser()
+    cfg.read("raspsend.ini")
     section = "Auth"
-    app_key = Config.get(section, "APP_KEY")
-    app_secret = Config.get(section, "APP_SECRET")
-    call_back = Config.get(section, "CALL_BACK")
-    access_token = Config.get(section, "ACCESS_TOKEN")
-    expirs_in = Config.get(section, "EXPIRES_IN")
+    app_key = cfg.get(section, "APP_KEY")
+    app_secret = cfg.get(section, "APP_SECRET")
+    call_back = cfg.get(section, "CALL_BACK")
+    access_token = cfg.get(section, "ACCESS_TOKEN")
+    expirs_in = cfg.get(section, "EXPIRES_IN")
 
     client = weibo.APIClient(app_key, app_secret, call_back)
-
-    # Open following code to get a new pair of access_token and expires.
-    # auth_url = client.get_authorize_url()
-    # webbrowser.open_new(auth_url)
-    # code = raw_input("input the retured code : ")
-    # r = client.request_access_token(code)
-    # access_token = r.access_token
-    # expirs_in = r.expires_in
 
     # 将access_token和expire_in设置到client对象
     client.set_access_token(access_token, expirs_in)
     return client
 
 
-def sendmsg(client):
-    if sys.argv[1] == '-m' and sys.argv[2]:
-        content = sys.argv[2]
-        # 调用接口发一条新微薄，status参数就是微博内容
-        client.statuses.update.post(status=content)
+def send_msg(content):
+    ''' send a message to Sina Weibo'''
+    client = auth()
+    # 调用接口发一条新微薄，status参数就是微博内容
+    client.statuses.update.post(status=content)
+
+
+def update_auth():
+    ''' get a new pair of access_token and expires and write to ini'''
+    cfg = ConfigParser.ConfigParser()
+    cfg.read("raspsend.ini")
+    section = "Auth"
+    app_key = cfg.get(section, "APP_KEY")
+    app_secret = cfg.get(section, "APP_SECRET")
+    call_back = cfg.get(section, "CALL_BACK")
+    client = weibo.APIClient(app_key, app_secret, call_back)
+
+    auth_url = client.get_authorize_url()
+    webbrowser.open_new(auth_url)
+    code = raw_input("input the retured code : ")
+    r = client.request_access_token(code)
+
+    cfg.set(section, "ACCESS_TOKEN", r.access_token)
+    cfg.set(section, "EXPIRES_IN", r.expires_in)
+    f = open('raspsend.ini', 'w')
+    cfg.write(f)
+    f.close()
 
 
 def main():
-    client = auth()
-    sendmsg(client)
+    if sys.argv[1] == '-m' and sys.argv[2]:
+        send_msg(sys.argv[2])
+    elif sys.argv[1] == '-a':
+        update_auth()
 
 if __name__ == "__main__":
     main()
