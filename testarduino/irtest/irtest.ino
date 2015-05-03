@@ -1,3 +1,7 @@
+// http://yehnan.blogspot.com/2013/05/arduino.html
+// Vout  D12
+// Gnd   Gnd
+// Vcc   5V
 #include <IRremote.h>
 
 int RECV_PIN = 12;       // 使用數位腳位12接收紅外線訊號
