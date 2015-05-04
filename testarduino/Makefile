@@ -36,6 +36,17 @@ all:
 	cd light_pir_light && $(MAKE)
 	cd powerdown_mode && $(MAKE)
 	cd rotary_encoder && $(MAKE)
+	cd filtering01 && $(MAKE)
+	cd filtering02 && $(MAKE)
+	cd filtering03 && $(MAKE)
+	cd filtering04 && $(MAKE)
+	cd filtering05 && $(MAKE)
+	cd filtering06 && $(MAKE)
+	cd filtering07 && $(MAKE)
+	cd filtering08 && $(MAKE)
+	cd filtering09 && $(MAKE)
+	cd filtering10 && $(MAKE)
+	cd filtering11 && $(MAKE)
 	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
@@ -75,4 +86,15 @@ clean:
 	cd light_pir_light && $(MAKE) clean
 	cd powerdown_mode && $(MAKE) clean
 	cd rotary_encoder && $(MAKE) clean
+	cd filtering01 && $(MAKE) clean
+	cd filtering02 && $(MAKE) clean
+	cd filtering03 && $(MAKE) clean
+	cd filtering04 && $(MAKE) clean
+	cd filtering05 && $(MAKE) clean
+	cd filtering06 && $(MAKE) clean
+	cd filtering07 && $(MAKE) clean
+	cd filtering08 && $(MAKE) clean
+	cd filtering09 && $(MAKE) clean
+	cd filtering10 && $(MAKE) clean
+	cd filtering11 && $(MAKE) clean
 	## b7b86095-2263-46c8-a9c6-52e52760265c
