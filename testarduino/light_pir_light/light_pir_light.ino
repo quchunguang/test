@@ -11,10 +11,10 @@
 //      Relay module->Power switcher: COM1->COM2->AC PowerB.
 // Tested on arduino uno (??? arduino nano328 can not drive the relay module)
 #include <IRremote.h>
+#include "../ircode_qcg.h"
 
 #define RELAY_OFF   HIGH // HIGH->turn off light; open in common-open of relay
 #define RELAY_ON    LOW
-#define KEY_TV      0xFF6A95
 
 bool light = RELAY_OFF;
 // int duration = 300;
@@ -60,7 +60,7 @@ void loop() {
 
     // IR received
     if (irrecv.decode(&results)) {
-        if ( results.value == KEY_TV) {
+        if ( results.value == KEY_RED || results.value == KEY_RED_LONG) {
             // switch light
             light = !light;
             digitalWrite(pinRelay1, light);

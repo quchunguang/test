@@ -5,12 +5,12 @@
 #include <IRremote.h>
 
 int RECV_PIN = 12;       // 使用數位腳位12接收紅外線訊號
-IRrecv irrecv(RECV_PIN); // 初始化紅外線訊號輸入
 decode_results results;  // 儲存訊號的結構
+IRrecv irrecv(RECV_PIN); // 初始化紅外線訊號輸入
 
 void setup()
 {
-    Serial.begin(115200);
+    Serial.begin(9600);
     irrecv.blink13(true); // 設為true的話，當收到訊號時，腳位13的LED便會閃爍
     irrecv.enableIRIn();  // 啟動接收
 }
