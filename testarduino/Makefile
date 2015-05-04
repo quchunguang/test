@@ -34,6 +34,7 @@ all:
 	cd l298n && $(MAKE)
 	cd bolier_ctl && $(MAKE)
 	cd light_pir_light && $(MAKE)
+	cd powerdown_mode && $(MAKE)
 	## 5f2d225e-a770-4c12-b2b3-c230d5818085
 clean:
 	cd halleffect && $(MAKE) clean
@@ -71,4 +72,5 @@ clean:
 	cd l298n && $(MAKE) clean
 	cd bolier_ctl && $(MAKE) clean
 	cd light_pir_light && $(MAKE) clean
+	cd powerdown_mode && $(MAKE) clean
 	## b7b86095-2263-46c8-a9c6-52e52760265c
