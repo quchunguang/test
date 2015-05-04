@@ -17,7 +17,6 @@ void loop() {
         tone(pinSound, 523, duration);
         delay(duration);
         noTone(pinSound);
-
     } else {
         digitalWrite(pinLed, LOW);
         delay(duration);

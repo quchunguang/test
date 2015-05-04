@@ -1,12 +1,12 @@
-//initializes/defines the output pin of the LM35 temperature sensor
+// initializes/defines the output pin of the LM35 temperature sensor
 int outputpin = 0;
-//this sets the ground pin to LOW and the input voltage pin to high
+
+// this sets the ground pin to LOW and the input voltage pin to high
 void setup()
 {
     Serial.begin(9600);
 }
 
-//main loop
 void loop()
 {
     int rawvoltage = analogRead(outputpin);
@@ -18,5 +18,4 @@ void loop()
     Serial.print((celsius * 9) / 5 + 32);
     Serial.println(" degrees Fahrenheit");
     delay(1000);
-
 }
