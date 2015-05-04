@@ -5,11 +5,11 @@
 //      http://yehnan.blogspot.com/2013/05/arduino.html
 // Connection
 //      PIR sensor->Arduino: OUT->D7; Vcc->5V; Gnd->Gnd.
-//      VS1838B sensor->Arduino: Vout->D12;  Gnd->Gnd; Vcc->5V.
+//      VS1838B sensor->Arduino: Vout->D8;  Gnd->Gnd; Vcc->5V.
 //      Relay module->Arduino: Gnd->Gnd; In1->D5; In2->D6; Vcc->5V.
 //      Relay module->Power switcher: NO1->AC PowerA1; NO2->AC PowerA2.
 //      Relay module->Power switcher: COM1->COM2->AC PowerB.
-// Tested on arduino uno (??? arduino nano328 can not drive the relay module)
+// Tested on arduino uno/nano328
 #include <IRremote.h>
 #include "../ircode_qcg.h"
 
@@ -20,7 +20,7 @@ bool light = RELAY_OFF;
 // int duration = 300;
 // int pinPir = 7;
 
-int pinIR = 12;             // IR data pin
+int pinIR = 8;             // IR data pin
 IRrecv irrecv(pinIR);       // IR initialize
 decode_results results;     // IR information received
 

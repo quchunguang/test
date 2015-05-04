@@ -1,10 +1,10 @@
 // http://yehnan.blogspot.com/2013/05/arduino.html
-// Vout  D12
+// Vout  D8
 // Gnd   Gnd
 // Vcc   5V
 #include <IRremote.h>
 
-int RECV_PIN = 12;       // 使用數位腳位12接收紅外線訊號
+int RECV_PIN = 8;       // 使用數位腳位12接收紅外線訊號
 decode_results results;  // 儲存訊號的結構
 IRrecv irrecv(RECV_PIN); // 初始化紅外線訊號輸入
 
