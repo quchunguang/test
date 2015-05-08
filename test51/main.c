@@ -7,14 +7,21 @@ __endasm
 NOP; \
 NOP
 
+void delay(int millisecond)
+{
+    while (millisecond--) {
+        int n = 70;
+        while (n--) {
+            THREENOPS;
+        }
+    }
+}
+
 void main(void)
 {
-    int n = 500;
     P1 = 0x02;
-    while(1){
-        while(n--);
-        n = 10000;
+    while (1) {
+        delay(1000);
         P1 = ~P1;
-        THREENOPS;
     }
 }
