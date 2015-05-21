@@ -5,6 +5,8 @@ import sys
 def fun(x, y):
     return x + y
 
+def print_hello():
+    pass
 
 def nature(x):
     return x > 0
