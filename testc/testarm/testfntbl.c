@@ -14,11 +14,11 @@
 
 int main(int argc, char const *argv[])
 {
-        printf("FUNC(x) = %s\n", XSTR(FUNC(x)));
-        printf("\n %10s %25s\n", "x", STR(y = FUNC(x)));
-        printf("-----------------------------------------\n");
-        for (double x = 0.0; x < 2 * PI + STEP / 2; x += STEP)
-                printf("%15f %20f\n", x, FUNC(x));
+	printf("FUNC(x) = %s\n", XSTR(FUNC(x)));
+	printf("\n %10s %25s\n", "x", STR(y = FUNC(x)));
+	printf("-----------------------------------------\n");
+	for (double x = 0.0; x < 2 * PI + STEP / 2; x += STEP)
+		printf("%15f %20f\n", x, FUNC(x));
 
-        return 0;
+	return 0;
 }
