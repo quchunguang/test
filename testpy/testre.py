@@ -22,7 +22,7 @@ def main():
     print p.split('one1two2three3four4')
     print p.findall('one1two2three3four4')
     for m in p.finditer('one1two2three3four4'):
-        print m.group()
+        print m.group(),
 
     p = re.compile(r'(\w+) (\w+)')
     s = 'i say, hello world!'

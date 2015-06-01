@@ -1,11 +1,12 @@
 // Common use as server. Wait for data coming and send response.
 // Reference following link for pin mapping.
 // https://arduino-info.wikispaces.com/Nrf24L01-2.4GHz-HowTo
+// Tested on Raspberry pi 2
 //   1 - GND
 //   2 - VCC 3.3V !!! NOT 5V
-//   3 - CE to Arduino pin 9
-//   4 - CSN to Arduino pin 10
-//   5 - SCK to Arduino pin 13
+//   3 - CE   to Arduino pin  9
+//   4 - CSN  to Arduino pin 10
+//   5 - SCK  to Arduino pin 13
 //   6 - MOSI to Arduino pin 11
 //   7 - MISO to Arduino pin 12
 //   8 - UNUSED
@@ -25,7 +26,7 @@ void setup(void) {
 
     // optionally, increase the delay between retries & # of retries
     radio.setRetries(15, 15);
-    // optionally, reduce the payload size.  seems to improve reliability
+    // optionally, reduce the payload size.  seems to improve reliability, max_payload_size = 32
     //radio.setPayloadSize(8);
 
     radio.openWritingPipe(pipes[1]);

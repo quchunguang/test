@@ -1,0 +1,69 @@
+#ifndef _IRCODE_QCG_H
+#define _IRCODE_QCG_H 1
+
+
+#define KEY_POWER           0xFF18E7
+#define KEY_POWER_LONG      0x3D9AE3F7
+#define KEY_MUTE            0xFF10EF
+#define KEY_MUTE_LONG       0x8C22657B
+#define KEY_RED             0xFF6A95
+#define KEY_RED_LONG        0x930FFB7
+#define KEY_GREEN           0xFFEA15
+#define KEY_GREEN_LONG      0xA6C4637B
+#define KEY_YELLOW          0xFFF807
+#define KEY_YELLOW_LONG     0xE721C0DB
+#define KEY_BLUE            0xFFDA25
+#define KEY_BLUE_LONG       0xB1A7211B
+#define KEY_REWIND          0xFFBA45
+#define KEY_REWIND_LONG     0x44490A7B
+#define KEY_FORWARD         0xFF3AC5
+#define KEY_FORWARD_LONG    0xB3D4B87F
+#define KEY_VOLUMEDOWN      0xFF28D7
+#define KEY_VOLUMEDOWN_LONG 0x13549BDF
+#define KEY_VOLUMEUP        0xFF08F7
+#define KEY_VOLUMEUP_LONG   0x45473C1B
+#define KEY_LEFT            0xFFE21D
+#define KEY_LEFT_LONG       0xEE886D7F
+#define KEY_RIGHT           0xFFA857
+#define KEY_RIGHT_LONG      0xA3C8EDDB
+#define KEY_UP              0xFF629D
+#define KEY_UP_LONG         0x511DBB
+#define KEY_DOWN            0xFF6897
+#define KEY_DOWN_LONG       0xC101E57B
+#define KEY_OK              0xFFAA55
+#define KEY_OK_LONG         0xB5310E1F
+#define KEY_MENU            0xFF20DF
+#define KEY_MENU_LONG       0x51E43D1B
+#define KEY_INFO            0xFFD827
+#define KEY_INFO_LONG       0x86B0E697
+#define KEY_HOME            0xFF609F
+#define KEY_HOME_LONG       0xFF9186B7
+#define KEY_BACK            0xFF02FD
+#define KEY_BACK_LONG       0xD7E84B1B
+#define KEY_1               0xFF2AD5
+#define KEY_1_LONG          0x5B83B61B
+#define KEY_2               0xFF12ED
+#define KEY_2_LONG          0xE35A7437
+#define KEY_3               0xFFE01F
+#define KEY_3_LONG          0xF076C13B
+#define KEY_4               0xFF0AF5
+#define KEY_4_LONG          0xB08CB7DF
+#define KEY_5               0xFF48B7
+#define KEY_5_LONG          0xF377C5B7
+#define KEY_6               0xFF8877
+#define KEY_6_LONG          0x9EF4941F
+#define KEY_7               0xFF32CD
+#define KEY_7_LONG          0xEE4ECCFB
+#define KEY_8               0xFF708F
+#define KEY_8_LONG          0x44C407DB
+#define KEY_9               0xFFB04F
+#define KEY_9_LONG          0xF0C41643
+#define KEY_0               0xFF30CF
+#define KEY_0_LONG          0x9716BE3F
+
+#define KEY_MOUSE           0xFFE817
+#define KEY_MOUSE_LONG      0x5BE75E7F
+#define KEY_DELETE          0xFFD22D
+#define KEY_DELETE_LONG     0xEC213597
+
+#endif  /* !_IRCODE_QCG_H */

@@ -24,8 +24,11 @@ void setup(void) {
     radio.begin();              // Setup and configure RF radio
     // optionally, increase the delay between retries & # of retries
     radio.setRetries(15, 15);
-    // optionally, reduce the payload size.  seems to improve reliability
+    // optionally, reduce the payload size.  seems to improve reliability, max_payload_size = 32
     //radio.setPayloadSize(8);
+
+    // Dump the configuration of the RF unit for debugging
+    radio.printDetails();
 
     // Become the primary transmitter (ping out)
     radio.openWritingPipe(pipes[0]);
@@ -33,8 +36,6 @@ void setup(void) {
 
     radio.startListening();     // Start listening
 
-    // Dump the configuration of the RF unit for debugging
-    radio.printDetails();
 }
 
 void loop(void) {

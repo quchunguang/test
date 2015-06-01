@@ -36,7 +36,7 @@ def distance(lat1, lat2):
 
 
 def monitor():
-    canidates = ['1887', '4175']
+    canidates = ['1264', '4352']
     u = urllib.urlopen(
         'http://ctabustracker.com/bustime/map/getBusesForRoute.jsp?route=22')
     buses = parse(u)
@@ -51,4 +51,4 @@ def monitor():
 import time
 while True:
     monitor()
-    time.sleep(60)
+    time.sleep(20)

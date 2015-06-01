@@ -1,6 +1,6 @@
 # Install:
 # 	sudo apt-get install sdcc python-serial
-# 	cd ~/share && git clone github.com/laborer/stcflash
+# 	cd ~/share && git clone http://github.com/laborer/stcflash
 # 	cd ~/test/test51
 # 	ln -s ~/share/stcflash/stcflash.py
 #

@@ -10,6 +10,7 @@ import operator
 from collections import defaultdict
 import pprint
 
+y=1
 
 def print_max(a, b):
     if a > b:
@@ -303,17 +304,20 @@ def testgenerator():
         print i
 
 def testfile():
-    datafile = open('xlsx2db.txt')
+    datafile = open('poem.txt')
     for line in datafile:
         print line,
 
 def main():
+    # test_items()
     # testinspect()
     # testfor()
     # testpprint()
-    # sort_by_key()
+    sort_by_key()
     # testgenerator()
-    testfile()
+    # testfile()
+    l=[1, 3, 4, 5]
+    print reduce(lambda a,b:a>b, l)
 
 
 if __name__ == "__main__":
