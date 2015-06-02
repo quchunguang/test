@@ -17,6 +17,7 @@ all:
 	cd testpostgresql && $(MAKE)
 	cd testgo && $(MAKE)
 	cd testr && $(MAKE)
+	cd testc && $(MAKE)
 clean:
 	cd test51 && $(MAKE) clean
 	cd testarduino && $(MAKE) clean
@@ -36,3 +37,4 @@ clean:
 	cd testpostgresql && $(MAKE) clean
 	cd testgo && $(MAKE) clean
 	cd testr && $(MAKE) clean
+	cd testc && $(MAKE) clean

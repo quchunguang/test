@@ -6,10 +6,10 @@
 # export PATH=$HOME/share/raspberry/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH
 # source ~/.bashrc
 # arm-linux-gnueabihf-gcc -v
-CC = arm-linux-gnueabihf-gcc
+# CC = arm-linux-gnueabihf-gcc
 
 # Compile on raspberry pi 2 directly
-# CC = gcc
+CC = gcc
 
 RM = rm -f
 CFLAGS = -g -Wall -std=c99
@@ -22,7 +22,7 @@ TARGET := $(basename $(CFILE))
 target:		$(TARGET)
 
 %:	%.c
-	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 all:	target
 
 clean:

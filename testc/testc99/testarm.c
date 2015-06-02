@@ -30,23 +30,23 @@ int main(int argc, char *argv[])
 	char *buffer;
 	buffer = (char *)malloc(80);
 	strncpy(buffer, "haha\ngaga\n", 80);
-	printf(buffer);
+	printf("%s", buffer);
 
 	FILE *pfile = fopen("log.txt", "w");
 	if (!pfile) {
 		printf("error: can not open file\n");
 	}
-	fprintf(pfile, buffer);
+	fprintf(pfile, "%s", buffer);
 	fclose(pfile);
 
-	printf("%d\n", sizeof(buffer));
+	printf("%ld\n", sizeof(buffer));
 	free(buffer);
 
 	char str[] = "The quick brown fox";	// The string to be searched
 	char ch = 'q';		// The character we are looking for
 	char *pGot_char = NULL;	// Pointer initialized to NULL
 	pGot_char = strchr(str, ch);	// Stores address where ch is found
-	printf("%s  %d\n", pGot_char, sizeof(str));
+	printf("%s  %ld\n", pGot_char, sizeof(str));
 
 	char text[] = "Every dog has his day";
 	char word[] = "dog";
