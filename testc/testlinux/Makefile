@@ -1,6 +1,7 @@
 CC = gcc
 RM = rm -f
-CFLAGS = -g -Wall -std=c99
+# -std=gnu11 by default, witch is c11 standard with some gnu extensions.
+CFLAGS = -g -Wall -std=gnu11
 LDFLAGS = -lm
 CFILE := $(wildcard *.c)
 TARGET := $(basename $(CFILE))

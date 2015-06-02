@@ -1,12 +1,15 @@
 #include <errno.h>
 #include <stdio.h>
 #include <unistd.h>
-int main (int argc, char* argv[])
+
+int main (int argc, char *argv[])
 {
 	char target_path[256];
-	char* link_path = argv[1];
+	char *link_path = argv[1];
+
 	/* Attempt to read the target of the symbolic link. */
 	int len = readlink (link_path, target_path, sizeof (target_path));
+
 	if (len == -1) {
 		/* The call failed. */
 		if (errno == EINVAL)
@@ -16,13 +19,13 @@ int main (int argc, char* argv[])
 			/* Some other problem occurred; print the generic message. */
 			perror ("readlink");
 		return 1;
-	}
-	else {
+
+	} else {
 		/* NUL-terminate the target path. */
 		target_path[len] = '\0';
+
 		/* Print it. */
 		printf ("%s\n", target_path);
 		return 0;
 	}
 }
-
