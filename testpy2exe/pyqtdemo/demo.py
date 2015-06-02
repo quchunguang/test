@@ -17,13 +17,16 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+
 class Ui_MainForm(QtGui.QWidget):
+
     def __init__(self):
         QtGui.QWidget.__init__(self)
         self.setupUi(self)
@@ -45,7 +48,8 @@ class Ui_MainForm(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(MainForm)
 
     def retranslateUi(self, MainForm):
-        MainForm.setWindowTitle(_translate("MainForm", "Anaconda Python IDE", None))
+        MainForm.setWindowTitle(
+            _translate("MainForm", "Anaconda Python IDE", None))
         self.btnOpen.setText(_translate("MainForm", "打开", None))
         self.btnExit.setText(_translate("MainForm", "退出", None))
         self.btnOpen.clicked.connect(self.printHam)
