@@ -1,3 +1,4 @@
+# http://www.pythoner.com/111.html
 from distutils.core import setup
 import py2exe
 import sys
