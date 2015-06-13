@@ -1,11 +1,19 @@
-all: 	test
+AS = as
+LD = ld
+RM = rm -f
+
+ASMFILE := $(wildcard *.s)
+TARGET := $(basename $(ASMFILE))
+
+.PHONY: all target clean
+
+target:		$(TARGET)
+
+%:	%.s
+	$(AS) $< -o $@.o
+	$(LD) $@.o -o $@
+
+all:	target
+
 clean:
-	rm -f hello hello.o findmax findmax.o
-findmax: 	findmax.s
-	as -o findmax.o $<
-	ld -o $@ findmax.o
-hello: 	hello.s
-	as -o hello.o $<
-	ld -o $@ hello.o
-test:   hello
-	./hello
+	$(RM) $(TARGET) *.o
