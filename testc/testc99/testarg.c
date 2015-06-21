@@ -13,7 +13,7 @@ double average(double v, ...)
 	while ((vv = va_arg(parg, double)) > EPSINON || vv < -EPSINON) {
 		n++;
 		sum += vv;
-	}
+	} 
 	va_end(parg);
 	return sum / (double)n;
 }
