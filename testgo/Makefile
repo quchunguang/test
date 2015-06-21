@@ -10,5 +10,5 @@ run:	democgo
 	LD_LIBRARY_PATH=. ./democgo
 
 clean:
-	-rm -f democgo libfoo.so
+	-rm -f democgo libfoo.so server client
 .PHONY : all run clean
