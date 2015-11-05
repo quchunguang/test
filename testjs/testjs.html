@@ -1,20 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Paragraph changed.";
-}
-</script>
+  <meta charset="utf-8">
+  <script>
+    function showMsg(){
+      document.getElementById("msg").innerHTML = "After change."
+      var x = document.getElementById("msg")
+      x.firstChild.nodeValue = "ZZZ"
+    }
+
+    function whichButton(event){
+      var btnNum = event.button
+      switch(btnNum){
+        case 0:
+        document.getElementById("event").innerHTML="Left button pressed"
+        break
+        case 1:
+        document.getElementById("event").innerHTML="Middle button pressed"
+        break
+        case 2:
+        document.getElementById("event").innerHTML="Right button pressed"
+        break
+        default:
+        document.getElementById("event").innerHTML="Do not know which button pressed"
+        break
+      }
+    }
+
+    function startTime(){
+      var today=new Date()
+      var h=today.getHours()
+      var m=today.getMinutes()
+      var s=today.getSeconds()
+      m=checkTime(m)
+      s=checkTime(s)
+      document.getElementById('txt').innerHTML=h+":"+m+":"+s
+      t=setTimeout('startTime()',500)
+    }
+
+    function checkTime(i){
+      if (i<10)
+        {i="0" + i}
+      return i
+    }
+
+    function changeImage(){
+      var element=document.getElementById('myimage')
+      if (element.src.match("bulbon"))
+      {
+        element.src="http://www.w3school.com.cn/i/eg_bulboff.gif"
+      }
+      else
+      {
+        element.src="http://www.w3school.com.cn/i/eg_bulbon.gif"
+      }
+    }
+
+    function checkVal(event){
+      var x = document.getElementById("check").value
+      var msg = document.getElementById("checkMsg")
+      if(x == "" || isNaN(x)){
+        msg.innerHTML = "*必须是数值类型"
+      }else{
+        msg.innerHTML = ""
+      }
+    }
+  </script>
 </head>
+<body onmousedown="whichButton(event)" onload="startTime()">
 
-<body>
+<div>
+  <button type="button" onclick="alert('HEHE')">点击弹框</button>
+  <img id="myimage" onclick="changeImage()" src="http://www.w3school.com.cn/i/eg_bulboff.gif">
+</div>
 
-<h1>My Web Page</h1>
+<div>
+  <input type="text" id="check" onchange="checkVal(event)" />
+  <span id="checkMsg" style="color: red"></span>
+</div>
 
-<p id="demo">A Paragraph.</p>
+  <p id="msg">Before change.</p>
+  <button type="button" onclick="showMsg()">Try it</button>
 
-<button type="button" onclick="myFunction()">Try it</button>
+  <div id="d1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+  </div>
 
+  <div id="txt"></div>
+  <div id="event"></div>
+
+  <script>
+    var para=document.createElement("p")
+    var node=document.createTextNode("This is new.")
+    para.appendChild(node)
+
+    var element=document.getElementById("d1")
+    element.appendChild(para)
+
+    var x=document.getElementsByTagName("p")
+    for (i=0;i<x.length;i++){
+      x[i].style.color = "red"
+      document.write(">")
+    }
+  </script>
 </body>
 </html>
