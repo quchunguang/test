@@ -13,7 +13,6 @@ def EloRating(ra, rb, sa, k=16):
 
     Reference
     https://en.wikipedia.org/wiki/Elo_rating_system
-    http://www.douban.com/note/122191956/
     '''
 
     ea = 1/(1+math.pow(10, (rb-ra)/400))
