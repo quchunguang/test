@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("button#first").click(function() {
+            $("p").each(function() {
+                $("#output").append($("<p></p>").text($(this).text()));
+            });
+        });
+    });
+
+    function appendText() {
+        var txt1 = "<p>Create by HTML</p>"; // 以 HTML 创建新元素
+        var txt2 = $("<p></p>").text("Create by jQuery"); // 以 jQuery 创建新元素
+        var txt3 = document.createElement("p"); // 以 DOM 创建新元素
+        txt3.innerHTML = "Create by DOM";
+        $("#output").append(txt1, txt2, txt3); // 追加新元素
+    }
+    </script>
+</head>
+
+<body>
+    <h2>This is a heading</h2>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph 1.</p>
+    <p>This is another paragraph 2.</p>
+    <p>This is another paragraph 3.</p>
+    <p>This is another paragraph 4.</p>
+    <button id="first">Click me</button>
+    <div id="output"></div>
+    <button onclick="appendText()">Append Text</button>
+</body>
+
+</html>
