@@ -2,10 +2,11 @@
 #   $ sudo apt-get install postgresql
 #   $ sudo -u postgres sh
 #   $ createuser -A -D qcg
-#   新角色允许创建其它新的角色吗? (y/n) y
+#
 # Create database $(DB_NAME) before `make`
 #   $ createdb -O qcg mydb
 #   $ exit
+
 DB_NAME=mydb
 DB_USER_NAME=qcg
 #OPTIONS=-A -t  # run without table header and extra spaces

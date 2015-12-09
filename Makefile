@@ -18,6 +18,7 @@ all:
 	cd testgo && $(MAKE)
 	cd testr && $(MAKE)
 	cd testc && $(MAKE)
+	cd testgsl && $(MAKE)
 clean:
 	cd test51 && $(MAKE) clean
 	cd testarduino && $(MAKE) clean
@@ -38,3 +39,4 @@ clean:
 	cd testgo && $(MAKE) clean
 	cd testr && $(MAKE) clean
 	cd testc && $(MAKE) clean
+	cd testgsl && $(MAKE) clean

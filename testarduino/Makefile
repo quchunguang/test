@@ -1,3 +1,5 @@
+# Requare arduino
+# $ sudo apt-get install arduino
 all:
 	cd halleffect && $(MAKE)
 	cd ledflow && $(MAKE)
