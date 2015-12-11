@@ -1,0 +1,8 @@
+table
+=====
+
+国家|挪威|丹麦|英国|德国|瑞典
+颜色|黄|蓝|红|绿|白
+抽烟|Dunhill|Blends|Pall Mall|Prince|Blue Master
+饮料|水|茶|牛奶|咖啡|啤酒
+宠物|猫|马|鸟|鱼|狗
