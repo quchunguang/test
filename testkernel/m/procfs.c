@@ -3,9 +3,11 @@
  */
 #include <linux/kernel.h>	/* We're doing kernel work */
 #include <linux/module.h>	/* Specifically, a module */
+#include <linux/fs.h>		/* Necessary because we use file_operations */
 #include <linux/proc_fs.h>	/* Necessary because we use proc fs */
 #include <asm/uaccess.h>	/* for get_user and put_user */
 #include <linux/sched.h>	/* add by kevin for compile error*/
+
 
 /*
  * Here we keep the last message received, to prove
@@ -89,21 +91,21 @@ module_input(struct file *filp, const char *buff, size_t len, loff_t * off)
  * for referece only, and can be overridden here.
  */
 
-static int module_permission(struct inode *inode, int op)
-{
-	/*
-	 * We allow everybody to read from our module, but
-	 * only root (uid 0) may write to it
-	 */
-	printk(KERN_DEBUG"op=%d current_euid=%d\n", op, __kuid_val(current_euid()));
-	if (op & MAY_READ || (op & MAY_WRITE && __kuid_val(current_euid()) == 0))
-		return 0;
+// static int module_permission(struct inode *inode, int op)
+// {
+// 	/*
+// 	 * We allow everybody to read from our module, but
+// 	 * only root (uid 0) may write to it
+// 	 */
+// 	printk(KERN_DEBUG"op=%d current_euid=%d\n", op, __kuid_val(current_euid()));
+// 	if (op & MAY_READ || (op & MAY_WRITE && __kuid_val(current_euid()) == 0))
+// 		return 0;
 
-	/*
-	 * If it's anything else, access is denied
-	 */
-	return -EACCES;
-}
+// 	/*
+// 	 * If it's anything else, access is denied
+// 	 */
+// 	return -EACCES;
+// }
 
 /*
  * The file is opened - we don't really care about
@@ -143,9 +145,9 @@ static struct file_operations File_Ops_4_Our_Proc_File = {
  * NULL).
  */
 
-static struct inode_operations Inode_Ops_4_Our_Proc_File = {
-	.permission = module_permission,	/* check for permissions */
-};
+// static struct inode_operations Inode_Ops_4_Our_Proc_File = {
+// 	.permission = module_permission,	/* check for permissions */
+// };
 
 /*
  * Module initialization and cleanup
@@ -154,20 +156,27 @@ static struct inode_operations Inode_Ops_4_Our_Proc_File = {
 int init_module()
 {
 	int rv = 0;
-	Our_Proc_File = create_proc(PROC_ENTRY_FILENAME, 0644, NULL, &File_Ops_4_Our_Proc_File);
-	/*Our_Proc_File->owner = THIS_MODULE;*/
-	Our_Proc_File->proc_iops = &Inode_Ops_4_Our_Proc_File;
-	Our_Proc_File->proc_fops = &File_Ops_4_Our_Proc_File;
-	Our_Proc_File->mode = S_IFREG | S_IRUGO | S_IWUSR;
-	Our_Proc_File->uid = 0;
-	Our_Proc_File->gid = 0;
-	Our_Proc_File->size = 80;
+	// Our_Proc_File = create_proc(PROC_ENTRY_FILENAME, 0644, NULL, &File_Ops_4_Our_Proc_File);
+	Our_Proc_File = proc_create(PROC_ENTRY_FILENAME, 0644, NULL, &File_Ops_4_Our_Proc_File);
+	// proc_set_user(Our_Proc_File, 0, 0);
+	proc_set_size(Our_Proc_File, 80);
+
+	/* After 3.10, definition of struct proc_dir_entry moved to fs/proc/internal.h
+	to ensure the modules using the official procfs API.*/
+	// Our_Proc_File->owner = THIS_MODULE;
+	// Our_Proc_File->proc_iops = &Inode_Ops_4_Our_Proc_File;
+	// Our_Proc_File->proc_fops = &File_Ops_4_Our_Proc_File;
+	// Our_Proc_File->mode = S_IFREG | S_IRUGO | S_IWUSR;
+	// Our_Proc_File->uid = 0;
+	// Our_Proc_File->gid = 0;
+	// Our_Proc_File->size = 80;
+
 	printk(KERN_DEBUG"Init module: procfs\n");
 
 	if (Our_Proc_File == NULL) {
 		rv = -ENOMEM;
 		remove_proc_entry(PROC_ENTRY_FILENAME, NULL);
-		printk(KERN_INFO"Error: Could not initialize /proc/test\n");
+		printk(KERN_INFO"Error: Could not initialize /proc/rw_test\n");
 	}
 
 	return rv;
