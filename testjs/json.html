@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+    var myVar = "global";
+
+    function sayHi() {
+        var name = "kevin";
+        var money;
+        var myVar = "local";
+        money = 5.5;
+
+        // document.write("HI");
+        alert(("HI"));
+    }
+
+    function testBool() {
+        var a = true;
+        var b = false;
+        var linebreak = "<br />";
+
+        document.write("(a && b) => ");
+        result = (a && b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(a || b) => ");
+        result = (a || b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("!(a && b) => ");
+        result = (!(a && b));
+        document.write(result);
+        document.write(linebreak);
+    }
+
+    function testBit() {
+        var a = 2; // Bit presentation 10
+        var b = 3; // Bit presentation 11
+        var linebreak = "<br />";
+
+        document.write("(a & b) => ");
+        result = (a & b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(a | b) => ");
+        result = (a | b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(a ^ b) => ");
+        result = (a ^ b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(~b) => ");
+        result = (~b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(a << b) => ");
+        result = (a << b);
+        document.write(result);
+        document.write(linebreak);
+
+        document.write("(a >> b) => ");
+        result = (a >> b);
+        document.write(result);
+        document.write(linebreak);
+    }
+
+    /*
+    Type      | String Returned by typeof
+    ----------|---------------------------
+    Number    | "number"
+    String    | "string"
+    Boolean   | "boolean"
+    Object    | "object"
+    Function  | "function"
+    Undefined | "undefined"
+    Null      | "object"
+     */
+    function testType() {
+        var a = 10;
+        var b = "String";
+        var linebreak = "<br />";
+
+        result = (typeof b == "string" ? "B is String" : "B is Numeric");
+        document.write("Result => ");
+        document.write(result);
+        document.write(linebreak);
+
+        result = (typeof a == "string" ? "A is String" : "A is Numeric");
+        document.write("Result => ");
+        document.write(result);
+        document.write(linebreak);
+    }
+
+    function testCtrl() {
+        var grade = 'A';
+        document.write("Entering switch block<br />");
+        switch (grade) {
+            case 'A':
+                document.write("Good job<br />");
+                break;
+
+            case 'B':
+                document.write("Pretty good<br />");
+                break;
+
+            case 'C':
+                document.write("Passed<br />");
+                break;
+
+            case 'D':
+                document.write("Not so good<br />");
+                break;
+
+            case 'F':
+                document.write("Failed<br />");
+                break;
+
+            default:
+                document.write("Unknown grade<br />")
+        }
+        document.write("Exiting switch block");
+
+        var count;
+        document.write("Starting Loop" + "<br />");
+
+        for (count = 0; count < 10; count++) {
+            document.write("Current Count : " + count);
+            document.write("<br />");
+        }
+
+        document.write("Loop stopped!");
+    }
+
+    function printNavigator() {
+        var prop;
+        for (prop in navigator) {
+            document.write(prop);
+            document.write("<br />");
+        }
+        document.write("Exiting from the loop!");
+    }
+
+/*
+Attribute           | Description
+--------------------|---------------------------------------------------------
+Offline             | Triggers when the document goes offline
+Onabort             | Triggers on an abort event
+onafterprint        | Triggers after the document is printed
+onbeforeonload      | Triggers before the document loads
+onbeforeprint       | Triggers before the document is printed
+onblur              | Triggers when the window loses focus
+oncanplay           | Triggers when media can start play, but might has to stop for buffering
+oncanplaythrough    | Triggers when media can be played to the end, without stopping for buffering
+onchange            | Triggers when an element changes
+onclick             | Triggers on a mouse click
+oncontextmenu       | Triggers when a context menu is triggered
+ondblclick          | Triggers on a mouse double-click
+ondrag              | Triggers when an element is dragged
+ondragend           | Triggers at the end of a drag operation
+ondragenter         | Triggers when an element has been dragged to a valid drop target
+ondragleave         | Triggers when an element is being dragged over a valid drop target
+ondragover          | Triggers at the start of a drag operation
+ondragstart         | Triggers at the start of a drag operation
+ondrop              | Triggers when dragged element is being dropped
+ondurationchange    | Triggers when the length of the media is changed
+onemptied           | Triggers when a media resource element suddenly becomes empty.
+onended             | Triggers when media has reach the end
+onerror             | Triggers when an error occur
+onfocus             | Triggers when the window gets focus
+onformchange        | Triggers when a form changes
+onforminput         | Triggers when a form gets user input
+onhaschange         | Triggers when the document has change
+oninput             | Triggers when an element gets user input
+oninvalid           | Triggers when an element is invalid
+onkeydown           | Triggers when a key is pressed
+onkeypress          | Triggers when a key is pressed and released
+onkeyup             | Triggers when a key is released
+onload              | Triggers when the document loads
+onloadeddata        | Triggers when media data is loaded
+onloadedmetadata    | Triggers when the duration and other media data of a media element is loaded
+onloadstart         | Triggers when the browser starts to load the media data
+onmessage           | Triggers when the message is triggered
+onmousedown         | Triggers when a mouse button is pressed
+onmousemove         | Triggers when the mouse pointer moves
+onmouseout          | Triggers when the mouse pointer moves out of an element
+onmouseover         | Triggers when the mouse pointer moves over an element
+onmouseup           | Triggers when a mouse button is released
+onmousewheel        | Triggers when the mouse wheel is being rotated
+onoffline           | Triggers when the document goes offline
+onoine              | Triggers when the document comes online
+ononline            | Triggers when the document comes online
+onpagehide          | Triggers when the window is hidden
+onpageshow          | Triggers when the window becomes visible
+onpause             | Triggers when media data is paused
+onplay              | Triggers when media data is going to start playing
+onplaying           | Triggers when media data has start playing
+onpopstate          | Triggers when the window's history changes
+onprogress          | Triggers when the browser is fetching the media data
+onratechange        | Triggers when the media data's playing rate has changed
+onreadystatechange  | Triggers when the ready-state changes
+onredo              | Triggers when the document performs a redo
+onresize            | Triggers when the window is resized
+onscroll            | Triggers when an element's scrollbar is being scrolled
+onseeked            | Triggers when a media element's seeking attribute is no longer true, and the seeking has ended
+onseeking           | Triggers when a media element's seeking attribute is true, and the seeking has begun
+onselect            | Triggers when an element is selected
+onstalled           | Triggers when there is an error in fetching media data
+onstorage           | Triggers when a document loads
+onsubmit            | Triggers when a form is submitted
+onsuspend           | Triggers when the browser has been fetching media data, but stopped before the entire media file was fetched
+ontimeupdate        | Triggers when media changes its playing position
+onundo              | Triggers when a document performs an undo
+onunload            | Triggers when the user leaves the document
+onvolumechange      | Triggers when media changes the volume, also when volume is set to "mute"
+onwaiting           | Triggers when media has stopped playing, but is expected to resume
+ */
+    function over() {
+        document.write("Mouse Over");
+    }
+
+    function out() {
+        document.write("Mouse Out");
+    }
+    </script>
+</head>
+
+<body>
+    <input type="button" onclick="sayHi()" value="Say Hi" />
+    <input type="button" onclick="testBool()" value="Test Bool" />
+    <input type="button" onclick="testBit()" value="Test Bit" />
+    <input type="button" onclick="testType()" value="Test Type" />
+    <input type="button" onclick="testCtrl()" value="Test Ctrl" />
+    <p><a href="JavaScript:printNavigator();">Print Navigator</a></p>
+    <div onmouseover="over()">
+        <h2> This is inside the division </h2>
+    </div>
+    <div onmouseout="out()">
+        <h2> This is inside the division </h2>
+    </div>
+</body>
+
+</html>
