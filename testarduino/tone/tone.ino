@@ -2,9 +2,10 @@
 
 int speakerPin = 6;
 // 依照簡譜的順序，填入代表的音符，空白代表休止符
-char notes[] = "ccggaagffeeddc ";
+char notes[] = "ecdAedcdA ";
+// char notes[] = "ccggaagffeeddc ";
 // 決定每個音階的拍子，注意這邊用 unsigned long 所以拍子只能是正整數
-unsigned long beats[] = {1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4};
+unsigned long beats[] = {2, 2, 2, 2, 1, 1, 1, 1, 2, 4};
 // 利用 sizeof()，算出總共要多少音符
 int length = sizeof(notes);
 // 決定一拍多長，這邊一拍 300 ms
@@ -12,8 +13,8 @@ int tempo = 300;
 
 void playNote(int OutputPin, char note, unsigned long duration) {
     // 音符字元與對應的頻率由兩個矩陣表示
-    char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
-    int tones[] = { 261, 294, 330, 349, 392, 440, 494, 523 };
+    char names[] = {'A', 'B', 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C',};
+    int tones[] = {220, 246, 261, 294, 330, 349, 392, 440, 494, 523, };
     // 播放音符對應的頻率
     for (int i = 0; i < 8; i++) {
         if (names[i] == note) {
