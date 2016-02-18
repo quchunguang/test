@@ -6,7 +6,7 @@ from __future__ import print_function
 import serial
 import time
 
-ser = serial.Serial('/dev/ttyUSB0', 115200)
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 ser.setDTR( level=False ) # set the reset signal
 time.sleep(2)             # wait two seconds, an Arduino needs some time to really reset
                           # don't do anything here which might overwrite the Arduino's program

@@ -1,3 +1,16 @@
+// Function
+//      Control LEDs with Light sensor
+// Reference
+//      http://www.geek-workshop.com/thread-1340-1-1.html
+// Connection
+//      Light sensor: Gnd->10KOhm->LS->5V;
+//                               |->A0.
+//      LED: Gnd->330Ohm->ledL->D2;
+//           Gnd->330Ohm->ledM->D2;
+//           Gnd->330Ohm->ledH->D2.
+// Tested
+//      arduino uno/nano328
+
 int sensorValue;
 int baudrate = 9600;
 

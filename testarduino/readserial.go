@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	c := &serial.Config{Name: "/dev/ttyUSB0", Baud: 115200}
+	c := &serial.Config{Name: "/dev/ttyUSB0", Baud: 9600}
 	s, err := serial.OpenPort(c)
 	if err != nil {
 		fmt.Println(err)
