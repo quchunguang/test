@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-from PyQt5.QtWidgets import (QWidget, QGridLayout,
-                             QPushButton, QApplication)
+from PyQt5.QtWidgets import (QWidget, QGridLayout, QPushButton, QApplication)
 
 
 class Example(QWidget):

@@ -3,12 +3,15 @@ Created on 2012-12-11
 
 @author: qcg
 '''
-
-import os, platform, logging
+import os
+import platform
+import logging
 
 
 if platform.platform().startswith('Windows'):
-    logging_file = os.path.join(os.getenv('HOMEDRIVE'), os.getenv('HOMEPATH'), 'test.log')
+    logging_file = os.path.join(os.getenv('HOMEDRIVE'),
+                                os.getenv('HOMEPATH'),
+                                'test.log')
 else:
     logging_file = os.path.join(os.getenv('HOME'), 'test.log')
 logging.basicConfig(

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import sys
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QWidget, QPushButton,QLCDNumber, QSlider,QHBoxLayout,
-                             QVBoxLayout, QApplication)
+from PyQt5.QtWidgets import (QWidget, QPushButton, QLCDNumber, QSlider,
+                             QHBoxLayout, QVBoxLayout, QApplication)
 
 
 class Example(QWidget):

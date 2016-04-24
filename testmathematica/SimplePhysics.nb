@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    105941,       2213]
-NotebookOptionsPosition[    104187,       2151]
-NotebookOutlinePosition[    104554,       2167]
-CellTagsIndexPosition[    104511,       2164]
+NotebookDataLength[    106049,       2216]
+NotebookOptionsPosition[    104254,       2153]
+NotebookOutlinePosition[    104621,       2169]
+CellTagsIndexPosition[    104578,       2166]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2087,31 +2087,27 @@ Cell[BoxData[{
            RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], ",", 
    RowBox[{"{", 
     RowBox[{"t", ",", "0", ",", "20"}], "}"}], ",", 
-   RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"Clear", "[", 
-  RowBox[{
-  "a", ",", "b", ",", "g", ",", "L", ",", "\[CapitalOmega]", ",", "v01", ",", 
-   "v02", ",", "\[Omega]01", ",", "\[Omega]02"}], "]"}]}], "Input",
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.657696267749085*^9, 3.6576963718951674`*^9}, {
   3.657696402893248*^9, 3.657696834907652*^9}, {3.657696870264235*^9, 
   3.657696996640881*^9}, {3.657697943892071*^9, 3.657698009719069*^9}, {
-  3.657698149750016*^9, 3.6576981552138042`*^9}}],
+  3.657698149750016*^9, 3.6576981552138042`*^9}, {3.668211480545289*^9, 
+  3.668211484941066*^9}}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`t$$ = 0.16149294284801513`, Typeset`show$$ =
-     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+   DynamicModuleBox[{$CellContext`t$$ = 4.110546112060547, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`t$$], 0, 20}}, Typeset`size$$ = {450., {139., 149.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`t$70743$$ = 0}, 
+    True, $CellContext`t$93544$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`t$$ = 0}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`t$$, $CellContext`t$70743$$, 0]}, 
+        Hold[$CellContext`t$$, $CellContext`t$93544$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -2146,11 +2142,17 @@ Cell[BoxData[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{
   3.657697000695451*^9, {3.657697989981996*^9, 3.657698011832987*^9}, 
-   3.6576981578039637`*^9}]
-}, Open  ]]
+   3.6576981578039637`*^9, 3.668211491039424*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{
+  "a", ",", "b", ",", "g", ",", "L", ",", "\[CapitalOmega]", ",", "v01", ",", 
+   "v02", ",", "\[Omega]01", ",", "\[Omega]02"}], "]"}]], "Input"]
 },
-WindowSize->{1060, 847},
-WindowMargins->{{243, Automatic}, {47, Automatic}},
+WindowSize->{1053, 847},
+WindowMargins->{{269, Automatic}, {Automatic, 10}},
 Magnification:>1.25 Inherited,
 FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
 StyleDefinitions->"Default.nb"
@@ -2212,9 +2214,10 @@ Cell[96584, 1949, 685, 15, 28, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[97318, 1970, 4497, 128, 468, "Input"],
-Cell[101818, 2100, 2353, 48, 429, "Output"]
-}, Open  ]]
+Cell[97318, 1970, 4348, 124, 443, "Input"],
+Cell[101669, 2096, 2372, 48, 396, "Output"]
+}, Open  ]],
+Cell[104056, 2147, 194, 4, 71, "Input"]
 }
 ]
 *)

@@ -1,6 +1,8 @@
 
 import os
 import operator
+import itertools
+import functools
 
 line_list = ['  line 1\n', 'line 2  \n', 'line 3  \n']
 
@@ -39,7 +41,6 @@ print(next(it))
 it.send(8)
 print(next(it))
 
-import itertools
 itertools.count()
 itertools.cycle([1, 2, 3, 4, 5])
 itertools.repeat('abc')
@@ -66,5 +67,4 @@ itertools.groupby(city_list, get_state)
 itertools.accumulate([1, 2, 3, 4, 5])
 
 
-import functools
 product = functools.reduce(operator.mul, [1, 2, 3], 1)

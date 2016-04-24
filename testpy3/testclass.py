@@ -3,8 +3,11 @@ Created on 2013-1-19
 
 @author: Administrator
 '''
+
+
 class Employee:
     pass
+
 
 john = Employee()  # Create an empty employee record
 

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 # http://zetcode.com/gui/pyqt5/firstprograms/
 import sys
-from PyQt5.QtWidgets import QWidget, QToolTip, QPushButton, QMessageBox, QDesktopWidget, QApplication
+from PyQt5.QtWidgets import (QWidget, QToolTip, QPushButton, QMessageBox,
+                             QDesktopWidget, QApplication)
 from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtGui import QFont, QIcon
 

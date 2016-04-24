@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-from PyQt5.QtWidgets import (QPushButton, QWidget,
-    QLineEdit, QApplication)
+from PyQt5.QtWidgets import (QPushButton, QWidget, QLineEdit, QApplication)
+
 
 class Button(QPushButton):
 

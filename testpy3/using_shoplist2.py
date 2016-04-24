@@ -1,8 +1,7 @@
 #!/usr/bin/python
-
-import sys
 import sqlite3
 import mywrappers
+
 
 conn = sqlite3.connect('example.db')
 c = conn.cursor()
@@ -50,8 +49,9 @@ def selectdata():
     print(c.fetchall())
 
 
-@mywappers.beginend
+@mywrappers.beginend
 def main():
+    # createdb()
     # insertdata()
     selectdata()
 

@@ -4,10 +4,11 @@ Created on 2012-12-11
 
 @author: qcg
 '''
-import sys, warnings
+import sys
+import warnings
 if sys.version_info.major < 3:
     warnings.warn("Need Python 3.0 for this program to run",
-        RuntimeWarning)
+                  RuntimeWarning)
 else:
     print('Proceed as normal')
 
@@ -24,11 +25,11 @@ print("--".join([str(i) for i in l]))
 for i in l:
     print("i=", i, end=' ')
 
-ab = {  'Swaroop'   : 'swaroop@swaroopch.com',
-        'Larry'     : 'larry@wall.org',
-        'Matsumoto' : 'matz@ruby-lang.org',
-        'Spammer'   : 'spammer@hotmail.com'
-    }
+ab = {'Swaroop': 'swaroop@swaroopch.com',
+      'Larry': 'larry@wall.org',
+      'Matsumoto': 'matz@ruby-lang.org',
+      'Spammer': 'spammer@hotmail.com'
+      }
 del ab['Spammer']
 for name, address in ab.items():
     print('Contact {0} at {1}'.format(name, address))
@@ -46,6 +47,8 @@ with open('poem.txt') as f:
     for line in f:
         print(line, end='')
 aa = 7
+
+
 def test():
     print(aa)
 

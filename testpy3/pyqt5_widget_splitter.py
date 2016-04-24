@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 from PyQt5.QtWidgets import (QWidget, QHBoxLayout, QVBoxLayout, QLabel,
-                             QComboBox, QFrame,
-                             QSplitter, QStyleFactory, QApplication)
+                             QComboBox, QFrame, QSplitter, QApplication)
 from PyQt5.QtCore import Qt
 
 

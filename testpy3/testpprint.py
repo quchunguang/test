@@ -6,5 +6,9 @@ Created on 2013-1-19
 import pprint
 
 
-t = [[[['black', 'cyan'], 'white', ['green', 'red']], [['magenta', 'yellow'], 'blue']]]
+t = [[[['black', 'cyan'],
+       'white',
+       ['green', 'red']],
+      [['magenta', 'yellow'],
+       'blue']]]
 pprint.pprint(t, width=30)

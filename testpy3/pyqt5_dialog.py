@@ -17,12 +17,8 @@ class Example(QWidget):
         self.btn.clicked.connect(self.showDialog)
 
         self.le = QLineEdit(self)
-        self.le.move(130, 22)
+        self.le.move(20, 62)
 
-        self.btn = QPushButton('Color', self)
-        self.btn.move(120, 20)
-        self.btn.clicked.connect(self.showDialog)
-        self.frm.setStyleSheet("QWidget { background-color: %s }" % col.name())
         self.setGeometry(300, 300, 290, 150)
         self.setWindowTitle('Input dialog')
         self.show()

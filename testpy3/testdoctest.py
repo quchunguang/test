@@ -3,6 +3,9 @@ Created on 2013-1-19
 
 @author: Administrator
 '''
+import doctest
+
+
 def average(values):
     """Computes the arithmetic mean of a list of numbers.
 
@@ -11,5 +14,4 @@ def average(values):
     """
     return sum(values) / len(values)
 
-import doctest
 doctest.testmod()  # automatically validate the embedded tests

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-import sys, random
+import sys
+import random
 from PyQt5.QtWidgets import QMainWindow, QFrame, QDesktopWidget, QApplication
 from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
 from PyQt5.QtGui import QPainter, QColor
@@ -29,8 +30,8 @@ class Tetris(QMainWindow):
     def center(self):
         screen = QDesktopWidget().screenGeometry()
         size = self.geometry()
-        self.move((screen.width()-size.width())/2,
-            (screen.height()-size.height())/2)
+        self.move((screen.width() - size.width()) / 2,
+                  (screen.height() - size.height()) / 2)
 
 
 class Board(QFrame):
@@ -107,14 +108,15 @@ class Board(QFrame):
                 shape = self.shapeAt(j, Board.BoardHeight - i - 1)
                 if shape != Tetrominoe.NoShape:
                     self.drawSquare(painter,
-                        rect.left() + j * self.squareWidth(),
-                        boardTop + i * self.squareHeight(), shape)
+                                    rect.left() + j * self.squareWidth(),
+                                    boardTop + i * self.squareHeight(), shape)
 
         if self.curPiece.shape() != Tetrominoe.NoShape:
             for i in range(4):
                 x = self.curX + self.curPiece.x(i)
                 y = self.curY - self.curPiece.y(i)
-                self.drawSquare(painter, rect.left() + x * self.squareWidth(),
+                self.drawSquare(
+                    painter, rect.left() + x * self.squareWidth(),
                     boardTop + (Board.BoardHeight - y - 1) * self.squareHeight(),
                     self.curPiece.shape())
 
@@ -220,7 +222,8 @@ class Board(QFrame):
         for i in range(4):
             x = newX + newPiece.x(i)
             y = newY - newPiece.y(i)
-            if x < 0 or x >= Board.BoardWidth or y < 0 or y >= Board.BoardHeight:
+            if x < 0 or x >= Board.BoardWidth or \
+               y < 0 or y >= Board.BoardHeight:
                 return False
             if self.shapeAt(x, y) != Tetrominoe.NoShape:
                 return False
@@ -236,16 +239,18 @@ class Board(QFrame):
 
         color = QColor(colorTable[shape])
         painter.fillRect(x + 1, y + 1, self.squareWidth() - 2,
-            self.squareHeight() - 2, color)
+                         self.squareHeight() - 2, color)
 
         painter.setPen(color.lighter())
         painter.drawLine(x, y + self.squareHeight() - 1, x, y)
         painter.drawLine(x, y, x + self.squareWidth() - 1, y)
 
         painter.setPen(color.darker())
-        painter.drawLine(x + 1, y + self.squareHeight() - 1,
+        painter.drawLine(
+            x + 1, y + self.squareHeight() - 1,
             x + self.squareWidth() - 1, y + self.squareHeight() - 1)
-        painter.drawLine(x + self.squareWidth() - 1,
+        painter.drawLine(
+            x + self.squareWidth() - 1,
             y + self.squareHeight() - 1, x + self.squareWidth() - 1, y + 1)
 
 
@@ -264,18 +269,18 @@ class Tetrominoe(object):
 class Shape(object):
 
     coordsTable = (
-        ((0, 0),     (0, 0),     (0, 0),     (0, 0)),
-        ((0, -1),    (0, 0),     (-1, 0),    (-1, 1)),
-        ((0, -1),    (0, 0),     (1, 0),     (1, 1)),
-        ((0, -1),    (0, 0),     (0, 1),     (0, 2)),
-        ((-1, 0),    (0, 0),     (1, 0),     (0, 1)),
-        ((0, 0),     (1, 0),     (0, 1),     (1, 1)),
-        ((-1, -1),   (0, -1),    (0, 0),     (0, 1)),
-        ((1, -1),    (0, -1),    (0, 0),     (0, 1))
+        ((0, 0), (0, 0), (0, 0), (0, 0)),
+        ((0, -1), (0, 0), (-1, 0), (-1, 1)),
+        ((0, -1), (0, 0), (1, 0), (1, 1)),
+        ((0, -1), (0, 0), (0, 1), (0, 2)),
+        ((-1, 0), (0, 0), (1, 0), (0, 1)),
+        ((0, 0), (1, 0), (0, 1), (1, 1)),
+        ((-1, -1), (0, -1), (0, 0), (0, 1)),
+        ((1, -1), (0, -1), (0, 0), (0, 1))
     )
 
     def __init__(self):
-        self.coords = [[0,0] for i in range(4)]
+        self.coords = [[0, 0] for i in range(4)]
         self.pieceShape = Tetrominoe.NoShape
         self.setShape(Tetrominoe.NoShape)
 

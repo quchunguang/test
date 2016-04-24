@@ -4,9 +4,12 @@ Created on 2013-1-19
 @author: Administrator
 '''
 import unittest
+
+
 def average(values):
     """Computes the arithmetic mean of a list of numbers."""
     return sum(values) / len(values)
+
 
 class TestStatisticalFunctions(unittest.TestCase):
 

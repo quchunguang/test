@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-from PyQt5.QtWidgets import QWidget, QCheckBox, QPushButton, QFrame, QSlider, QLabel, QProgressBar, QCalendarWidget, QLineEdit, QApplication
+from PyQt5.QtWidgets import (QWidget, QCheckBox, QPushButton, QFrame, QSlider,
+                             QLabel, QProgressBar, QCalendarWidget, QLineEdit,
+                             QApplication)
 from PyQt5.QtCore import Qt, QBasicTimer, QDate
 from PyQt5.QtGui import QColor, QPixmap
 
