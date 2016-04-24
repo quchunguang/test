@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bootstrap - 简洁、直观、强悍、移动设备优先的前端开发框架，让web开发更迅速、简单。">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>
+        起步 &middot; Bootstrap v3 中文文档
+    </title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="patch.css" rel="stylesheet">
+    <link href="docs.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico">
+    <script>
+    var _hmt = _hmt || [];
+    </script>
+</head>
+
+<body>
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+        <div class="container"><span class="skiplink-text">Skip to main content</span></div>
+    </a>
+    <!-- 导航栏 -->
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../" class="navbar-brand">Bootstrap</a>
+            </div>
+            <nav id="bs-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="../getting-started/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-起步'])">起步</a>
+                    </li>
+                    <li>
+                        <a href="../css/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-全局CSS样式'])">全局 CSS 样式</a>
+                    </li>
+                    <li>
+                        <a href="../components/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-组件'])">组件</a>
+                    </li>
+                    <li>
+                        <a href="../javascript/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-JavaScript插件'])">JavaScript 插件</a>
+                    </li>
+                    <li>
+                        <a href="../customize/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-定制'])">定制</a>
+                    </li>
+                    <li><a href="http://expo.bootcss.com" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-网站实例'])" target="_blank">网站实例</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.bootcss.com/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-Bootstrap中文网'])" target="_blank">Bootstrap中文网</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- 标题 -->
+    <div class="bs-docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>起步</h1>
+            <p>简要介绍 Bootstrap，以及如何下载、使用，还有基本模版和案例，等等。</p>
+        </div>
+    </div>
+    <div class="container bs-docs-container">
+        <div class="row">
+            <!-- 正文 -->
+            <div class="col-md-9" role="main">
+                <div class="bs-docs-section">
+                    <h1 id="download" class="page-header">下载</h1>
+                    <p class="lead">Bootstrap （当前版本 v3.3.5）提供以下几种方式帮你快速上手，每一种方式针对具有不同技能等级的开发者和不同的使用场景。继续阅读下面的内容，看看哪种方式适合你的需求吧。</p>
+                </div>
+                <div class="row bs-downloads">
+                    <div class="col-sm-4">
+                        <h3 id="download-bootstrap">用于生产环境的 Bootstrap</h3>
+                        <p>编译并压缩后的 CSS、JavaScript 和字体文件。不包含文档和源码文件。</p>
+                        <p>
+                            <a href="http://d.bootcss.com/bootstrap-3.3.5-dist.zip" class="btn btn-lg btn-outline">下载 Bootstrap</a>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3 id="download-source">Bootstrap 源码</h3>
+                        <p>Less、JavaScript 和 字体文件的源码，并且带有文档。<strong>需要 Less 编译器和<a href="#grunt">一些设置工作</a></strong>。</p>
+                        <p>
+                            <a href="http://d.bootcss.com/bootstrap-3.3.5.zip" class="btn btn-lg btn-outline">下载源码</a>
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3 id="download-sass">Sass</h3>
+                        <p><a href="https://github.com/twbs/bootstrap-sass">这是 Bootstrap 从 Less 到 Sass 的源码移植项目</a>，用于快速地在 Rails、Compass 或 只针对 Sass 的项目中引入。</p>
+                        <p>
+                            <a href="http://d.bootcss.com/bootstrap-sass-3.3.5.tar.gz" class="btn btn-lg btn-outline">下载 Sass 项目</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 侧栏 -->
+            <div class="col-md-3" role="complementary">
+                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav bs-docs-sidenav">
+                        <li>
+                            <a href="#download">下载</a>
+                        </li>
+                        <li>
+                            <a href="#whats-included">包含的内容</a>
+                            <ul class="nav">
+                                <li><a href="#whats-included-precompiled">预编译版</a></li>
+                                <li><a href="#whats-included-source">Bootstrap 源码</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#grunt">编译 CSS 和 JavaScript 文件</a>
+                            <ul class="nav">
+                                <li><a href="#grunt-installing">安装 Grunt</a></li>
+                                <li><a href="#grunt-commands">可以使用的 Grunt 命令</a></li>
+                                <li><a href="#grunt-troubleshooting">除错</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#template">基本模板</a>
+                        </li>
+                        <li>
+                            <a href="#examples">实例精选</a>
+                            <ul class="nav">
+                                <li><a href="#examples-framework">Bootstrap 框架的基本用法</a></li>
+                                <li><a href="#examples-navbars">导航条实战</a></li>
+                                <li><a href="#examples-custom">自定义组件</a></li>
+                                <li><a href="#examples-experiments">Experiments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#tools">工具</a>
+                            <ul class="nav">
+                                <li><a href="#tools-bootlint">Bootlint</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#community">社区</a>
+                        </li>
+                        <li>
+                            <a href="#disable-responsive">禁止响应式布局</a>
+                        </li>
+                        <li>
+                            <a href="#migration">从 2.x 版本升级到 3.0 版本</a>
+                        </li>
+                        <li>
+                            <a href="#support">对浏览器和设备的支持情况</a>
+                            <ul class="nav">
+                                <li><a href="#support-browsers">被支持的浏览器</a></li>
+                                <li><a href="#support-ie8-ie9">Internet Explorer 8-9</a></li>
+                                <li><a href="#support-ie8-respondjs">IE8 与 Respond.js</a></li>
+                                <li><a href="#support-ie8-box-sizing">IE8 与 box-sizing 属性</a></li>
+                                <li><a href="#support-ie8-font-face">IE8 and @font-face</a></li>
+                                <li><a href="#support-ie-compatibility-modes">IE 兼容模式</a></li>
+                                <li><a href="#support-chinese-browsers-renderer-modes">国产浏览器高速模式</a></li>
+                                <li><a href="#support-ie10-width">IE10 和 Windows (Phone) 8</a></li>
+                                <li><a href="#support-safari-percentages">Safari 对百分比数字凑整的问题</a></li>
+                                <li><a href="#support-fixed-position-keyboards">模态框、导航条和虚拟键盘</a></li>
+                                <li><a href="#support-browser-zooming">浏览器的缩放功能</a></li>
+                                <li><a href="#support-sticky-hover-mobile">Sticky :hover/:focus on mobile</a></li>
+                                <li><a href="#support-printing">打印</a></li>
+                                <li><a href="#support-android-stock-browser">Android stock browser</a></li>
+                                <li><a href="#support-validators">Validators</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#third-parties">对第三方组件的支持</a>
+                        </li>
+                        <li>
+                            <a href="#accessibility">可访问性</a>
+                        </li>
+                        <li>
+                            <a href="#license-faqs">许可证 FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#translations">文档翻译</a>
+                        </li>
+                    </ul>
+                    <a class="back-to-top" href="#top">返回顶部</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Footer
+================================================== -->
+    <footer class="bs-docs-footer" role="contentinfo">
+        <div class="container">
+            <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
+            <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+            <p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。</p>
+            <ul class="bs-docs-footer-links text-muted">
+                <li>当前版本： v3.3.5</li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/twbs/bootstrap">GitHub 仓库</a></li>
+                <li>&middot;</li>
+                <li><a href="../getting-started/#examples">实例精选</a></li>
+                <li>&middot;</li>
+                <li><a href="http://v2.bootcss.com/">v2.3.2 中文文档</a></li>
+                <li>&middot;</li>
+                <li><a href="../about/">关于</a></li>
+                <li>&middot;</li>
+                <li><a href="http://expo.bootcss.com">优站精选</a></li>
+                <li>&middot;</li>
+                <li><a href="http://blog.getbootstrap.com">官方博客</a></li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
+                <li>&middot;</li>
+                <li><a href="https://github.com/twbs/bootstrap/releases">历史版本</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="docs.min.js"></script>
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fbdb993b828cbe079a7fbc1a951f44726' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F079fac161efc4b2a6f31e80064f14e82' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+</html>
