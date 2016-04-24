@@ -51,8 +51,8 @@ def selectdata():
 
 @mywrappers.beginend
 def main():
-    # createdb()
-    # insertdata()
+    createdb()
+    insertdata()
     selectdata()
 
 
