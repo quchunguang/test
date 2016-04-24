@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <!-- <script src="//cdn.bootcss.com/d3/3.5.16/d3.min.js"></script> -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+<h1>test line</h1>
+<!--     <canvas></canvas>
+    <p>test line 0</p>
+    <p>test line 1</p>
+    <p>test line 2</p>
+    <p>test line 3</p>
+    <p>test line 4</p>
+    <p>test line 5</p> -->
+
+    <script>
+    // var canvas = document.querySelector('canvas'),
+    //     ctx = canvas.getContext('2d');
+    // ctx.fillRect(10, 10, 100, 100);
+
+    // d3.select("body").style("background-color", "black");
+    // d3.selectAll("p").style("color", "red");
+
+    // d3.selectAll("h1").style("color", function() {
+    //     return "hsl(" + Math.random() * 360 + ",100%,50%)";
+    // });
+
+    // d3.selectAll("p")
+    //     .data([4, 8, 12, 16, 26, 32])
+    //     .style("font-size", function(d) {
+    //         return d + "px";
+    //     })
+    //     .style("color", function(d, i) {
+    //         return i % 2 ? "#111" : "#999";
+    //     });
+
+    // d3.select("body").selectAll("p")
+    //     .data([4, 8, 15, 16, 23, 42])
+    //     .enter().append("p")
+    //     .text(function(d) {
+    //         return "I’m number " + d + "!";
+    //     });
+
+    // // Update…
+    // var p = d3.select("body").selectAll("p")
+    //     .data([4, 8, 15])
+    //     .text(function(d) {
+    //         return d;
+    //     });
+
+    // // Enter…
+    // p.enter().append("p")
+    //     .text(function(d) {
+    //         return d;
+    //     });
+
+    // // Exit…
+    // p.exit().remove();
+
+    // d3.select("body").transition()
+    // .style("background-color", "black");
+
+    d3.selectAll("h1").transition()
+    .duration(1000)
+    // .delay(function(d, i) { return i * 10; })
+    .style("color", "red")
+    .style("font-size", "500%")
+    // .attr("r", function(d) { return Math.sqrt(d * scale); });
+    </script>
+</body>
+
+</html>
