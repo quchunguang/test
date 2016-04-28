@@ -3,9 +3,6 @@ import sys
 import os
 
 
-addr = []
-
-
 def output_r(f, r):
     for k in r:
         if r[k] != "":
@@ -50,12 +47,12 @@ def query(arg):
     ret = [r for r in addr if r.get(sps[0], "") == " ".join(sps[1:])]
 
     with open(reports_out, 'a') as f:
-        title = sps[0] + " ".join(sps[1:])
-        f.write("======query " + title + "======" + "\n")
+        title = sps[0] + " = " + " ".join(sps[1:])
+        f.write("[query] " + title + "\n")
         for r in ret:
             output_r(f, r)
             f.write("\n")
-        f.write("======end of query " + title + " Bloggs======" + "\n")
+        f.write("[end]" + "\n\n")
 
 
 def read_addr():
@@ -117,6 +114,7 @@ Usage:
 """)
     sys.exit(1)
 
+addr = []
 contacts_file, instructions_file, results_out, reports_out = sys.argv[1:]
 check_files()
 read_addr()
