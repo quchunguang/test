@@ -1,0 +1,51 @@
+name Posephine Esmerelda Bloggs
+birthday 05-09-1980
+address 102 Smith St, Summer hill, NSW 2130
+
+name Robert Taylor
+birthday 06-04-2000
+address 36 Carrington St, Summer Hill, NSW 2130
+
+name Mary Brown
+birthday 30-11-1990
+address 50 Service Ave, Ashfield, NSW 2131
+phone 549632158
+
+name Posephine Esmerelda Bloggs
+birthday 26-03-1965
+address 102 Smith St, Summer hill, NSW 2130
+
+name Linda Evans
+birthday 22-02-1996
+address 119 Gibbes St, Rockdale, NSW 2216
+email l.evans@gmail.com
+
+name James Smith
+birthday 05-09-1980
+address 60 Morris St, Summer Hill, NSW 2130
+
+name Robert Taylor
+birthday 26-03-1965
+address 36 Carrington St, Summer Hill, NSW 2130
+
+name James Smith
+birthday 15-12-1932
+address 60 Morris St, Summer Hill, NSW 2130
+
+name Patricia Davies
+birthday 25-12-1975
+address 61 Gibbes St, Rockdale, NSW 2216
+phone 13589634
+email p.davis@fanfare.com.au
+
+name Robert Taylor
+birthday 05-09-1980
+address 36 Carrington St, Summer Hill, NSW 2130
+
+name James Smith
+birthday 14-06-1978
+address 60 Morris St, Summer Hill, NSW 2130
+
+name Posephine Esmerelda Bloggs
+birthday 30-10-1960
+address 102 Smith St, Summer hill, NSW 2130

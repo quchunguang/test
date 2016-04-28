@@ -1,0 +1,59 @@
+birthday 23-03-1989
+address 60 Morris St, Summer Hill, NSW 2130
+
+name Jam234es Smith
+birthday 23-03-1989
+address 60 Morris St, Summer Hill, NSW 2130
+
+name John
+birthday 18-09-1968
+address 2 Fairmount St, Dulwich Hill, NSW 2203
+
+name Robert Taylor
+address 38 Carrington St, Summer Hill, NSW 2130
+
+name Robert Taylor
+birthday 03-06-3000
+address 39 Carrington St, Summer Hill, NSW 2130
+
+name Robert Taylor
+birthday 31-06-2008
+address 41 Carrington St, Summer Hill, NSW 2130
+
+name Robert Taylor
+birthday 03-aa-2008
+address 43 Carrington St, Summer Hill, NSW 2130
+
+name Michael Willianm
+birthday 03-9-2008
+address 37 Barton Ave, Haberfield, NSW 2045
+
+name Patricia Davies
+birthday 25-12-1975
+address 61 Gibbes St, Rockdale, NSW 2ab6
+
+name Linda Evans
+birthday 22-02-1996
+address 119 Gibbes St, 
+		Rockdale, 
+		NSW 2216
+
+name Posephine Esmerelda Bloggs
+birthday 11-11-1980
+address 102 Smith St, Summer hill, NSW 2130
+phone 0123456789
+
+name Posephine Esmerelda Bloggs
+birthday 12-11-1980
+address 102 Smith St, Summer hill, NSW 2130
+phone 1654abc9853
+
+name Posephine Esmerelda Bloggs
+birthday 13-11-1980
+address 102 Smith St, Summer hill, NSW 2130
+phone 9876543210
+
+name Posephine Smith
+birthday 13-11-1980
+address 60 Morris St, Summer Hill, NSW 2130
+email j.e.bl@oggs@gmail.com

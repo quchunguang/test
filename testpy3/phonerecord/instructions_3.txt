@@ -1,0 +1,19 @@
+add name Jo Bloggs; birthday 08-07-1900; phone 88884444; address 9001 Chester Crescent, Chatswood, NSW 2057
+
+add email michael@fanfare.com.au; name Michael Willianm; birthday 01-4-1950;   address 37 Barton Ave, Haberfield, NSW 2045; phone 19876245
+
+add name Linda Evans; birthday 22-02-1996;  phone 135625; email l.evans@gmail.com; address 119 Gibbes St, Rockdale, NSW 2216
+
+add address 64 Lennox St, Rockdale, NSW 2216; name Barbara Wilson; birthday 3-01-1988; phone 0469832165; email b.wilson@fanfare.com.au
+
+delete James Smith; 23-3-1989
+delete John Jones; 18-09-1968
+delete Linda Evans; 22-02-1996
+delete Aary-Anne Jones
+delete Robert Taylor; 1-6-2008
+delete Robert Taylor
+
+add name Posephine Esmerelda Bloggs; birthday 13-05-1980; phone 98765432
+add name Jo Bloggs; birthday 08-07-1900
+
+save
