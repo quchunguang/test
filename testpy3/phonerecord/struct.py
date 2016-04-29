@@ -82,11 +82,9 @@ def read_addr():
 def proc_instr():
     lines = []
     with open(instructions_file, 'r') as f:
-        lines = [line.rstrip('\n') for line in f]
+        lines = [line.rstrip('\n') for line in f if not line.isspace()]
 
     for line in lines:
-        if line == '':
-            continue
         sps = line.split(" ")
         globals()[sps[0]](" ".join(sps[1:]))  # calling function
 

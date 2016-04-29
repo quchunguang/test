@@ -23,3 +23,11 @@ for idx, val in enumerate(li):
         del li[idx]
 
 print(li)
+
+s = " "
+if s.isspace():
+    print('"%s" is space' % s)
+else:
+    print('"%s" is not space' % s)
+
+print("%d %d".rjust(20) % (2, 5))
