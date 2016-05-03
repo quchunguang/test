@@ -3,6 +3,7 @@
     This is the details.
 """
 import collections
+import functools
 
 c = collections.defaultdict(str)
 # c["a"] = "a"
@@ -68,19 +69,36 @@ print(vars(info1))
 # msvcrt.printf(b"Hello, World\n")
 # msvcrt.printf(bytes("Hello\n\n".encode("utf-8")))
 
-# with open("myfile.txt", "w", encoding="utf-8") as f:
-    # f.write("阿斯顿\n")
+# with open("foo.txt", "w", encoding="utf-8") as f:
+#     f.write("阿斯顿\n")
+#     s = "a\xac\u1234\u20ac\U00008000"
+#     f.write(s)
 
-# with open("myfile.txt", "r", encoding="utf-8") as f2:
-#     s = f2.read()
-#     print(s, end='')
+# with open("foo.txt", "r", encoding="utf-8") as f:
+#     s = f.read()
+# print(s)  # Error on Windows Chinese for '\xac' can not convert to 'gbk'.
 
 
-# with open("myfile.txt", "wb") as f:
-#     f.write(bytes([0x41, 0x61, 0x0A]))
-#     f.write(bytes([0x41, 0x61, 0x0A]))
-#     f.write(bytes([0x41, 0x61]))
+with open("foo.txt", "wb") as f:
+    f.write(bytes([0x41, 0x61, 0x0A]))
+    f.write(bytes([0x41, 0x61]))
 
-with open("myfile.txt", "rb") as f2:
-    lines = [line.decode("utf-8").rstrip('\n') for line in f2]
+with open("foo.txt", "rb") as f:
+    lines = [line.decode("utf-8").rstrip('\n') for line in f]
     print(lines)
+
+a = [1, 2]
+b = [1, 2]
+for x, y in zip(a, b):
+    print(x, y)
+
+s = "asdadddsd"
+sps = s.split(" ", 1)
+sps.append("")
+print(sps[1])
+
+ret = functools.reduce(lambda a, b: a * b, [1, 2, 3, 4], 1)
+print(ret)
+li = [1, 2, 3, 4]
+li.extend([5, 6])
+print(li)

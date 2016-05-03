@@ -1,2 +1,4 @@
 testjava/.metadata/
 testjava/.recommenders/
+foo.*
+__pycache__/

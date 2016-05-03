@@ -22,15 +22,15 @@ def add(arg):
     print("[add]", arg)
     r = {}
     for seg in arg.split("; "):
-        sps = seg.split(" ")
-        r[sps[0]] = " ".join(sps[1:])
+        k, v = seg.split(" ", 1)
+        r[k] = v
     addr.append(r)
 
 
 def delete(arg):
     global addr
     print("[delete]", arg)
-    sps = arg.split("; ")
+    sps = arg.split("; ", 1)  # name: sps[0], birthday(optional): sps[1]
     if len(sps) == 1:
         # using list.get() with default value to avoid KeyError
         # make addr collections.defaultdict instead will cause empty r["name"]
@@ -43,11 +43,11 @@ def delete(arg):
 
 def query(arg):
     print("[query]", arg)
-    sps = arg.split(" ")  # key, value = sps[0], sps[1:]
-    ret = [r for r in addr if r.get(sps[0], "") == " ".join(sps[1:])]
+    k, v = arg.split(" ", 1)
+    ret = [r for r in addr if r.get(k, "") == v]
 
     with open(reports_out, 'a') as f:
-        title = sps[0] + " = " + " ".join(sps[1:])
+        title = k + " = " + v
         f.write("[query] " + title + "\n")
         for r in ret:
             output_r(f, r)
@@ -63,7 +63,7 @@ def read_addr():
 
     lines.append('')  # last record
     r = {}
-    key = ""
+    key = "BUG"
     for line in lines:
         if line == '':
             if len(r) > 0:
@@ -71,12 +71,11 @@ def read_addr():
                 r = {}
                 key = ""
             continue
-        sps = line.split(" ")
-        if sps[0].startswith("\t"):
+        if line.startswith("\t"):
             r[key] += "\n" + line
         else:
-            key = sps[0]
-            r[key] = " ".join(sps[1:])
+            key, value = line.split(" ", 1)
+            r[key] = value
 
 
 def proc_instr():
@@ -85,8 +84,11 @@ def proc_instr():
         lines = [line.rstrip('\n') for line in f if not line.isspace()]
 
     for line in lines:
-        sps = line.split(" ")
-        globals()[sps[0]](" ".join(sps[1:]))  # calling function
+        sps = line.split(" ", 1)
+        # if the instruction has no arguments, pass ""
+        if len(sps) == 1:
+            sps.append("")
+        globals()[sps[0]](sps[1])  # calling function
 
 
 def check_files():
@@ -107,8 +109,8 @@ def check_files():
 
 if len(sys.argv) != 5:
     print("""
-Usage:
-    python struct.py contacts_file instructions_file results_out reports_out
+Usage Example:
+    python struct.py contacts_4.txt instructions_4.txt results_4.txt reports_4.txt
 """)
     sys.exit(1)
 
