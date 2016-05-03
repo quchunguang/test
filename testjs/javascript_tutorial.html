@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript Tutorial</title>
+    <link rel="stylesheet" href="">
+    <script>
+    function Redirect() {
+        window.location = "http://www.tutorialspoint.com";
+    }
+
+    function sayHi() {
+        alert("Hi. You will be redirected in 10 seconds!");
+        setTimeout('Redirect()', 10000);
+    }
+    var add = new Function("x", "y", "alert(x+y);");
+
+    function validate() {
+        if (document.myForm.Name.value == "") {
+            alert("Please provide your name!");
+            document.myForm.Name.focus();
+            return false;
+        }
+        if (document.myForm.Zip.value == "" ||
+            isNaN(document.myForm.Zip.value) ||
+            document.myForm.Zip.value.length != 5) {
+            alert("Please provide a zip in the format #####.");
+            document.myForm.Zip.focus();
+            return false;
+        }
+        if (document.myForm.Country.value == "-1") {
+            alert("Please provide your country!");
+            document.myForm.Country.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function submit() {
+        alert("submitted");
+    }
+
+    function over() {
+        document.getElementsByName("MouseAction")[0].innerHTML = "Mouse Over";
+    }
+
+    function out() {
+        document.getElementsByName("MouseAction")[0].innerHTML = "Mouse Out";
+    }
+
+    // Chrome ignores cookies from local pages. After I uploaded the page to remote server code magically started to work.
+    function WriteCookie() {
+        if (document.myForm.Name.value == "") {
+            alert("Enter some value!");
+            return;
+        }
+        cookievalue = escape(document.myForm.Name.value) + ";";
+        document.cookie = "name=" + cookievalue;
+
+        var now = new Date();
+        now.setMonth(now.getMonth() + 1);
+        document.cookie = "expires=" + now.toUTCString() + ";"
+        alert(now.toUTCString())
+    }
+
+    function ReadCookie() {
+        var allcookies = document.cookie;
+        document.write("All Cookies : " + allcookies);
+
+        // Get all the cookies pairs in an array
+        cookiearray = allcookies.split(';');
+
+        // Now take key value pair out of this array
+        for (var i = 0; i < cookiearray.length; i++) {
+            name = cookiearray[i].split('=')[0];
+            value = cookiearray[i].split('=')[1];
+            document.write("Key is : " + name + " and Value is : " + value);
+        }
+    }
+
+    function TestVoid() {
+        var a, b, c;
+        a = void(b = 5, c = 7);
+        document.write(a, b, c);
+    }
+
+    function book(title, author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    window.onerror = function(msg, url, line) {
+        // document.write("Message : " + msg + "<br />");
+        // document.write("url : " + url + "<br />");
+        // document.write("Line number : " + line);
+    }
+
+    function checkPlugin() {
+        document.write("<table>")
+        document.write("<th>Name</th>");
+        document.write("<th>Filename</th>");
+        document.write("<th>Description</th>");
+        for (i = 0; i < navigator.plugins.length; i++) {
+            document.write("<tr><td>");
+            document.write(navigator.plugins[i].name);
+            document.write("</td><td>");
+            document.write(navigator.plugins[i].filename);
+            document.write("</td><td>");
+            document.write(navigator.plugins[i].description);
+            document.write("</td></tr>");
+        }
+        document.write("</table>");
+    }
+
+    function usePlugin() {
+        media = navigator.mimeTypes["video/quicktime"];
+        if (media) {
+            document.write("<embed src='quick.mov' height=100 width=100>");
+        } else {
+            document.write("<img src='quick.gif' height=100 width=100>");
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // var s = "Subject"
+        // alert(s.anchor("title"));
+
+        // var array1 = new Array("apple", "orange", "mango");
+        // var array2 = ["apple", "orange", "mango"];
+
+        // var myBook1 = new book("Perl", "Mohtashim");
+        // book.prototype.price = 10; // add property to class (meta-object)
+        // myBook1.price = 100;
+
+        // var myBook = new book("Php", "Kevin");
+        // document.write("Book title is : " + myBook.title + "<br>");
+        // document.write("Book author is : " + myBook.author + "<br>");
+        // document.write("Book price is : " + myBook.price + "<br>");
+
+        // Legacy DOM
+        // for(e in document.forms[0].elements) {
+        //     document.write(e + "<br/>");
+        // }
+
+        // W3C DOM
+        // document.body
+        // document.defaultView (ro)
+        // document.documentElement (ro)
+        // document.implementation (ro
+
+        // var ret = document.getElementsByTagName("title");
+        // alert("Document Title : " + ret[0].text);
+        // var ret = document.getElementById("heading");
+        // alert("Document URL : " + ret.innerHTML);
+
+        // var d = 100;
+        // try {
+        //     throw ("Divide by zero error.");
+        // } catch (e) {
+        //     document.write("Error:" + e);
+        // }
+    });
+
+    function play() {
+        if (!document.demo.IsPlaying()) {
+            document.demo.Play();
+        }
+    }
+
+    function stop() {
+        if (document.demo.IsPlaying()) {
+            document.demo.StopPlay();
+        }
+    }
+
+    function rewind() {
+        if (document.demo.IsPlaying()) {
+            document.demo.StopPlay();
+        }
+        document.demo.Rewind();
+    }
+    </script>
+</head>
+
+<body>
+    <h1 id="heading">JavaScript Tutorial</h1>
+    <form name="myForm" method="POST" action="chart.html" onsubmit="return validate()">
+        <input name="btnSaiHi" type="button" onclick="sayHi()" value="Say Hi" />
+        <input name="btnAdd" type="button" onclick="add(1, 2)" value="Add" />
+        <input name="btnWriteCookie" type="button" value="Set Cookie" onclick="WriteCookie();" />
+        <input name="btnReadCookie" type="button" value="Get Cookie" onclick="ReadCookie()" />
+        <input name="btnTestVoid" type="button" value="Test Void" onclick="TestVoid()" />
+        <input name="btnPrint" type="button" value="Print" onclick="javascrpit:window.print()" />
+        <input name="btnThrowError" type="button" value="Throw Error" onclick="javascrpit:throw ('Throw this error by me.')" />
+        <input name="btnCheckPlugin" type="button" value="Check Plugin" onclick="checkPlugin()" />
+        <p>Name:
+            <input type="text" name="Name" />
+        </p>
+        <p>Zip Code:
+            <input type="text" name="Zip" />
+        </p>
+        <p>
+            <select name="Country">
+                <option value="-1" selected>[choose yours]</option>
+                <option value="1">USA</option>
+                <option value="2">UK</option>
+                <option value="3">INDIA</option>
+            </select>
+        </p>
+        <input type="submit" value="Submit" />
+    </form>
+    <div name="MyDiv" onmouseover="over()" onmouseout="out()">
+        <h2 name="MouseAction"> This is inside the division </h2>
+    </div>
+    <p><a href="javascript:window.location.reload(true)">Refresh Page</a></p>
+    <p><a href="javascript:void document.write('Hello: 0')">No operation</a></p>
+    <!-- <img src="myimage.gif" onerror = "alert('An error occurred loading the image.')" /> -->
+    <embed id="demo" name="demo" src="http://samples.mplayerhq.hu/SWF/test.swf" width="318" height="300" play="false" loop="false" pluginspage="http://www.macromedia.com/go/getflashplayer" swliveconnect="true">
+    </embed>
+    <form name="form" id="form" action="#" method="get">
+        <input type="button" value="Start" onclick="play();" />
+        <input type="button" value="Stop" onclick="stop();" />
+        <input type="button" value="Rewind" onclick="rewind();" />
+    </form>
+</body>
+
+</html>
