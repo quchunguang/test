@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
+import re
 
 
 def output_r(f, r):
@@ -53,6 +54,22 @@ def query(arg):
             output_r(f, r)
             f.write("\n")
         f.write("[end]" + "\n\n")
+
+
+reprs = {
+    "name": '[a-zA-Z ]+',
+    "birthday": '[0-3]?[0-9]\-[01]?[0-9]\-[12][0-9]{3}',
+    "phone": '0*[1-9][0-9]*',
+    "address": '.+',
+    "email": '[^@ ]+@[^@ ]+'
+}
+
+
+def check_format():
+    for r in addr:
+        for k in r:
+            if k not in reprs or not re.fullmatch(reprs[k], r[k]):
+                print(k, r[k])
 
 
 def read_addr():
@@ -118,4 +135,5 @@ addr = []
 contacts_file, instructions_file, results_out, reports_out = sys.argv[1:]
 check_files()
 read_addr()
+check_format()
 proc_instr()
