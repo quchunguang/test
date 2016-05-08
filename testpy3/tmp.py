@@ -2,9 +2,8 @@
 
     This is the details.
 """
-import collections
-import functools
-
+# import collections
+# import functools
 
 
 # c = collections.defaultdict(str)
