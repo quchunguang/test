@@ -123,7 +123,7 @@ def check_files():
         os.remove(reports_out)
 
 
-def check_args():
+def get_args():
     usage = """Usage Example:
 
 python3 struct.py contacts_4.txt instructions_4.txt results_4.txt reports_4.txt
@@ -134,8 +134,7 @@ python3 struct.py contacts_4.txt instructions_4.txt results_4.txt reports_4.txt
     return sys.argv[1:]
 
 
-# check if enough arguments are given and return
-contacts_in, instructions_in, results_out, reports_out = check_args()
+contacts_in, instructions_in, results_out, reports_out = get_args()  # files
 addr = []      # address book, global
 
 check_files()  # check r-files exist and remove w-files if exists
