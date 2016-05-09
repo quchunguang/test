@@ -56,26 +56,25 @@ def query(arg):
         f.write("[end]" + "\n\n")
 
 
-reprs = {
-    "name": '[a-zA-Z ]+',
-    "birthday": '[0-3]?[0-9]\-[01]?[0-9]\-[12][0-9]{3}',
-    "phone": '0*[1-9][0-9]*',
-    "address": '.+',
-    "email": '[^@ ]+@[^@ ]+'
-}
-
-
-def check_format():
-    for r in addr:
-        for k in r:
-            if k not in reprs or not re.fullmatch(reprs[k], r[k]):
-                print(k, r[k])
+def check_addr():
+    reprs = {
+        "name": '[a-zA-Z ]+',
+        "birthday": '[0-3]?[0-9]\-[01]?[0-9]\-[12][0-9]{3}',
+        "phone": '0*[1-9][0-9]*',
+        "address": '.+',
+        "email": '[^@ ]+@[^@ ]+'
+    }
+    with open(reports_out, 'a') as f:
+        for r in addr:
+            for k in r:
+                if k not in reprs or not re.fullmatch(reprs[k], r[k]):
+                    f.write("[format error] {}: {}".format(k, r[k]))
 
 
 def read_addr():
     global addr
     lines = []
-    with open(contacts_file, 'r') as f:
+    with open(contacts_in, 'r') as f:
         lines = [line.rstrip('\n') for line in f]
 
     lines.append('')  # last record
@@ -95,9 +94,9 @@ def read_addr():
             r[key] = value
 
 
-def proc_instr():
+def exec_instr():
     lines = []
-    with open(instructions_file, 'r') as f:
+    with open(instructions_in, 'r') as f:
         lines = [line.rstrip('\n') for line in f if not line.isspace()]
 
     for line in lines:
@@ -109,12 +108,12 @@ def proc_instr():
 
 
 def check_files():
-    if not os.path.isfile(contacts_file):
-        print("[ERROR] contacts_file not exist")
+    if not os.path.isfile(contacts_in):
+        print("[ERROR] contacts_in not exist")
         sys.exit(2)
 
-    if not os.path.isfile(instructions_file):
-        print("[ERROR] instructions_file not exist")
+    if not os.path.isfile(instructions_in):
+        print("[ERROR] instructions_in not exist")
         sys.exit(3)
 
     if os.path.isfile(results_out):
@@ -124,16 +123,22 @@ def check_files():
         os.remove(reports_out)
 
 
-if len(sys.argv) != 5:
-    print("""
-Usage Example:
-    python struct.py contacts_4.txt instructions_4.txt results_4.txt reports_4.txt
-""")
-    sys.exit(1)
+def check_args():
+    usage = """Usage Example:
 
-addr = []
-contacts_file, instructions_file, results_out, reports_out = sys.argv[1:]
-check_files()
-read_addr()
-check_format()
-proc_instr()
+python3 struct.py contacts_4.txt instructions_4.txt results_4.txt reports_4.txt
+"""
+    if len(sys.argv) != 5:
+        print(usage, file=sys.stderr)
+        sys.exit(1)
+    return sys.argv[1:]
+
+
+# check if enough arguments are given and return
+contacts_in, instructions_in, results_out, reports_out = check_args()
+addr = []      # address book, global
+
+check_files()  # check r-files exist and remove w-files if exists
+read_addr()    # read contacts file to addr
+check_addr()   # check addr format and write report if has error
+exec_instr()   # execute instructions in instructions file to reports/results
