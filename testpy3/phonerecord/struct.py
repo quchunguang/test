@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
-import re
+from re import compile as rec
 
 
 def output_r(f, r):
@@ -25,6 +25,19 @@ def add(arg):
     for seg in arg.split("; "):
         k, v = seg.split(" ", 1)
         r[k] = v
+
+    # check keys exist
+    if "name" not in r or "birthday" not in r:
+        return
+
+    # if r already exist in addr, update only
+    while rr in addr:
+        if rr["name"] == r["name"] and rr["birthday"] == r["birthday"]:
+            for k in r:
+                rr[k] = r[k]
+            return
+
+    # else, add it
     addr.append(r)
 
 
@@ -58,17 +71,17 @@ def query(arg):
 
 def check_addr():
     reprs = {
-        "name": '[a-zA-Z ]+',
-        "birthday": '[0-3]?[0-9]\-[01]?[0-9]\-[12][0-9]{3}',
-        "phone": '0*[1-9][0-9]*',
-        "address": '.+',
-        "email": '[^@ ]+@[^@ ]+'
+        "name": rec(r'[a-zA-Z ]+'),
+        "birthday": rec(r'[0-3]?[0-9]\-[01]?[0-9]\-[12][0-9]{3}'),
+        "phone": rec(r'0*[1-9][0-9]*'),
+        "address": rec(r'.+'),
+        "email": rec(r'[^@ ]+@[^@ ]+')
     }
     with open(reports_out, 'a') as f:
         for r in addr:
             for k in r:
-                if k not in reprs or not re.fullmatch(reprs[k], r[k]):
-                    f.write("[format error] {}: {}".format(k, r[k]))
+                if k not in reprs or not reprs[k].fullmatch(r[k]):
+                    f.write("[check] {}: {}".format(k, r[k]))
 
 
 def read_addr():
@@ -81,9 +94,10 @@ def read_addr():
     r = {}
     key = "BUG"
     for line in lines:
-        if line == '':
+        if line.strip() == '':
             if len(r) > 0:
-                addr.append(r)
+                if "name" in r and "birthday" in r:  # check keys exist
+                    addr.append(r)
                 r = {}
                 key = ""
             continue
