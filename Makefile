@@ -20,6 +20,8 @@ all:
 	cd testc && $(MAKE)
 	cd testgsl && $(MAKE)
 	cd testcss && $(MAKE)
+	cd testfortran && $(MAKE)
+	cd testfortran90 && $(MAKE)
 clean:
 	cd test51 && $(MAKE) clean
 	cd testarduino && $(MAKE) clean
@@ -42,3 +44,5 @@ clean:
 	cd testc && $(MAKE) clean
 	cd testgsl && $(MAKE) clean
 	cd testcss && $(MAKE) clean
+	cd testfortran && $(MAKE) clean
+	cd testfortran90 && $(MAKE) clean

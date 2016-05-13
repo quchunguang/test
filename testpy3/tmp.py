@@ -2,12 +2,13 @@
 
     This is the details.
 """
+
 # import collections
 # import functools
 
 
 # c = collections.defaultdict(str)
-# # c["a"] = "a"
+# c["a"] = "a"
 # print(len(c))
 # if c["a"] == "":
 #     print("OK")
@@ -53,7 +54,7 @@
 
 #     def print_name(self):
 #         print(self.name)
-#         # print(globals().keys())
+# print(globals().keys())
 
 
 # info1 = Info()
