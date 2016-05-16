@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2013-1-17
 
 @author: Administrator
-'''
+"""
 from sqlite3 import connect, register_adapter, register_converter, \
     PARSE_DECLTYPES
 from datetime import datetime

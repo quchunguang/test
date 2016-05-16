@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2013-1-19
 
 @author: Administrator
-'''
+"""
 from string import Template
 
 t = Template('${village}folk send $$10 to $cause.')

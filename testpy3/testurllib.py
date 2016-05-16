@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-28
 
 @author: Administrator
-'''
+"""
 import urllib.request
 
 
