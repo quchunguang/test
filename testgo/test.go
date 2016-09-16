@@ -13,7 +13,5 @@ const (
 )
 
 func main() {
-	fmt.Println("OK")
-	fmt.Println("END")
 	fmt.Println(a, b, c, d, e)
 }
