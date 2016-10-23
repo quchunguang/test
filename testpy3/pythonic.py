@@ -21,19 +21,17 @@ dic['workage'] = dic.get('workage', 0) + 1
 def reverse_str(s):
     return s[::-1]
 
-
 print(reverse_str("Hello World!"))
 
 
 strList = ["Python", "is", "good"]
 res = ' '.join(strList)
-
+print(res)
 
 numList = [1, 2, 3, 4, 5]
 s = sum(numList)  # sum = 15
 maxNum = max(numList)  # maxNum = 5
 minNum = min(numList)  # minNum = 1
-
 
 l = [x * x for x in range(10) if x % 3 == 0]
 
@@ -52,10 +50,12 @@ array = [1, 2, 3, 4, 5]
 for i, e in enumerate(array, 0):
     print(i, e)
 
-
 keys = ['Name', 'Sex', 'Age']
 values = ['Tim', 'Male', 23]
 dic = dict(zip(keys, values))
+print(dic)
+
+
 a, (b, c) = 1, (2, 3)
 a, b = b, a
 
@@ -74,7 +74,6 @@ four_nones = [None] * 4
 
 # Create a length-N list of lists
 four_lists = [[] for __ in range(4)]
-
 
 s = {'s', 'p', 'a', 'm'}
 l = ['s', 'p', 'a', 'm']

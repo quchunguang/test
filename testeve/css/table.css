@@ -1,0 +1,18 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+.update {
+    color: #333;
+    margin-right: 5px;
+}
+.remove {
+    color: red;
+    margin-left: 5px;
+}
+.alert {
+    padding: 0 14px;
+    margin-bottom: 0;
+    display: inline-block;
+}

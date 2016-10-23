@@ -2,8 +2,7 @@
 class Tape(object):
     blank_symbol = " "
 
-    def __init__(self,
-                 input=""):
+    def __init__(self, input=""):
         self.__tape = {}
         for i in range(len(input)):
             self.__tape[i] = input[i]
