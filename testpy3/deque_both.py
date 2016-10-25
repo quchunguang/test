@@ -14,7 +14,7 @@ def burn(direction, nextSource):
         else:
             print('{:>8}: {}'.format(direction, next))
             time.sleep(0.1)
-    print('{:>8} done'.format(direction))
+    print('{:>8}: (done)'.format(direction))
     return
 
 left = threading.Thread(target=burn,

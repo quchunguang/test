@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-22
 
 @author: Administrator
-'''
+"""
 import shelve
 import os
 import threading

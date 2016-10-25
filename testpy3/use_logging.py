@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-11
 
 @author: qcg
-'''
+"""
 import os
 import platform
 import logging

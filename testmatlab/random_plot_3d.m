@@ -1,0 +1,10 @@
+x = 6 * rand(100, 1) - 3;
+y = 6 * rand(100, 1) - 3;
+z = peaks(x, y);
+[X, Y] = meshgrid(-3:0.1:3);
+Z = griddata(x, y, z, X, Y, 'cubic');
+mesh(X, Y, Z);
+hold on;
+plot3(x,y,z,'.', 'MarkerSize', 16);
+hold off;
+axis tight;

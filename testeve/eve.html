@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>客整场巡检系统</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="image/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/table.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/ga.js"></script>
+</head>
+
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">客整场巡检系统</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/graph">巡检线路图</a></li>
+                    <li><a href="/report">巡检统计图</a></li>
+                    <li><a href="/xjxx">巡检信息表</a></li>
+                    <li class="active"><a href="/xjgz">巡检规则表</a></li>
+                    <li><a href="/import">数据导入</a></li>
+                </ul>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">{{ username }}</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/signout">退出</a></li>
+                    <!-- <li><a href="#">帮助</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>巡检规则表</h1>
+        <p class="toolbar">
+            <a class="create btn btn-default" href="javascript:">新建规则</a>
+            <span class="alert"></span>
+        </p>
+        <table id="table" data-locale="zh-CN" data-pagination="true" data-page-list="[5, 10, 20, 50, 100, 200]" data-show-refresh="true" data-show-columns="true" data-search="true" data-query-params="queryParams" data-toolbar=".toolbar">
+            <thead>
+                <tr>
+                    <th data-field="firstname" data-sortable="true">First Name</th>
+                    <th data-field="lastname" data-sortable="true">Last Name</th>
+                    <th data-field="action" data-align="center" data-formatter="actionFormatter" data-events="actionEvents">操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary submit">提交</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script>
+    var url = window.location.href;
+    // API_URL = url.replace(":8080", ":3500\/kzc");
+    API_URL = "http://localhost:5000/people";
+
+    var $table = $('#table').bootstrapTable({
+            url: API_URL
+        }),
+        $modal = $('#modal').modal({
+            show: false
+        }),
+        $alert = $('.alert').hide();
+
+    $(function() {
+        // create event
+        $('.create').click(function() {
+            $modal.data('id', '');
+            showModal($(this).text());
+        });
+
+        $modal.find('.submit').click(function() {
+            var row = {};
+
+            $modal.find('input[name]').each(function() {
+                row[$(this).attr('name')] = $(this).val();
+            });
+
+            $.ajax({
+                url: API_URL + ($modal.data('id') ? '/' + $modal.data('id') : ''),
+                type: $modal.data('id') ? 'put' : 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(row),
+                success: function() {
+                    $modal.modal('hide');
+                    $table.bootstrapTable('refresh');
+                    showAlert(($modal.data('id') ? '更新' : '创建') + '条目成功!', 'success');
+                },
+                error: function() {
+                    $modal.modal('hide');
+                    showAlert(($modal.data('id') ? '更新' : '创建') + '条目失败!', 'danger');
+                }
+            });
+        });
+    });
+
+    function queryParams(params) {
+        return {};
+    }
+
+    function actionFormatter(value) {
+        return [
+            '<a class="update" href="javascript:" title="更新规则"><i class="glyphicon glyphicon-edit"></i></a>',
+            '<a class="remove" href="javascript:" title="删除规则"><i class="glyphicon glyphicon-remove-circle"></i></a>',
+        ].join('');
+    }
+
+    // update and delete events
+    window.actionEvents = {
+        'click .update': function(e, value, row) {
+            showModal($(this).attr('title'), row);
+        },
+        'click .remove': function(e, value, row) {
+            if (confirm('确实要删除此项吗?')) {
+                $.ajax({
+                    url: API_URL + '/' + row._id,
+                    type: 'delete',
+                    success: function() {
+                        $table.bootstrapTable('refresh');
+                        showAlert('删除信息成功!', 'success');
+                    },
+                    error: function() {
+                        showAlert('删除信息失败!', 'danger');
+                    }
+                })
+            }
+        }
+    };
+
+    function showModal(title, row) {
+        row = row || {
+            firstname: '',
+            lastname: '',
+        }; // default row value
+
+        $modal.data('id', row._id);
+        $modal.find('.modal-title').text(title);
+        for (var name in row) {
+            $modal.find('input[name="' + name + '"]').val(row[name]);
+        }
+        $modal.modal('show');
+    }
+
+    function showAlert(title, type) {
+        $alert.attr('class', 'alert alert-' + type || 'success')
+            .html('<i class="glyphicon glyphicon-check"></i> ' + title).show();
+        setTimeout(function() {
+            $alert.hide();
+        }, 3000);
+    }
+    </script>
+</body>
+
+</html>

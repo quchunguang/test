@@ -1,3 +1,0 @@
-ALL 1
-ALL 2
-ALL 3

@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-12
 
 @author: qcg
-'''
+"""
 from re import compile as rec
 
 s = "PING dd"

@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-17
 
 @author: Administrator
-'''
+"""
 import urllib.parse
 import sys
 import os.path

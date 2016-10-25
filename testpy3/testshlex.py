@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2013-1-17
 
 @author: Administrator
-'''
+"""
 import shlex
 import sys
 

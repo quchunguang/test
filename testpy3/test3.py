@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2013-1-16
 
 @author: Administrator
-'''
+"""
 import time
 import logging
 import html

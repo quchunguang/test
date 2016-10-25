@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-'''
+"""
 Created on 2013年11月17日
 
 @author: qcg
-'''
+"""
 from os import listdir
 from os.path import isfile, join, split, splitext, abspath 
 import shutil

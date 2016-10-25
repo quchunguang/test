@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-'''
+"""
 Created on 2012-12-11
 
 @author: qcg
-'''
+"""
 import sys
 import warnings
 if sys.version_info.major < 3:
@@ -34,7 +34,7 @@ del ab['Spammer']
 for name, address in ab.items():
     print('Contact {0} at {1}'.format(name, address))
 
-bri = set(['brazil', 'russia', 'india'])
+bri = {'brazil', 'russia', 'india'}
 if 'india' in bri:
     print(''''india' in bri''')
 bric = bri.copy()
