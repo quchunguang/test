@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[top=1.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}%margin
+\usepackage{fontspec}%connent to native fonts
+\usepackage{lipsum}%mass texts for demo
+\usepackage{indentfirst}%first line of section not indent by default, change it
+
+% \setmainfont{方正细珊瑚简体}
+\begin{document}
+\title{Internet Crash}
+\author{Kevin Qu}
+\date{\today}
+\maketitle%create title/author/date
+\thispagestyle{empty}%no page number on cover page
+\setcounter{page}{1}
+\newpage
+
+\tableofcontents
+\pagenumbering{roman}%roman page number on table of contents
+\clearpage
+\pagenumbering{arabic}
+
+\section{TeX Tutorial 1}
+
+\subsection{Your First Document}
+\lipsum
+
+\section{TeX Tutorial 2}
+
+\subsection{Your First Title}
+
+\end{document}
