@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2013-1-19
 
 @author: Administrator
-'''
+"""
 import textwrap
 
 

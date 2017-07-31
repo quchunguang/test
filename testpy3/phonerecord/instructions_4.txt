@@ -1,0 +1,28 @@
+add birthday 23-03-1989; address 60 Morris St, Summer Hill, NSW 2130
+add name Jam234es Smith; birthday 24-03-1989; address 60 Morris St, Summer Hill, NSW 2130
+
+add name John; birthday 18-09-1968; address 2 Fairmount St, Dulwich Hill, NSW 2203
+
+add name Robert Taylor; address 36 Carrington St, Summer Hill, NSW 2130
+add name Robert Taylor; birthday 03-06-3000; address 36 Carrington St, Summer Hill, NSW 2130
+add name Robert Taylor; birthday 31-06-2008; address 36 Carrington St, Summer Hill, NSW 2130
+add name Robert Taylor; birthday 03-aa-2008; address 36 Carrington St, Summer Hill, NSW 2130
+
+add name Patricia Davies; birthday 26-12-1975; address 61 Gibbes St, Rockdale, NSW 2ab6
+
+add name Posephine Esmerelda; birthday 12-11-1980; address 102 Smith St, Summer hill, NSW 2130; phone 1654abc9853
+
+add name Posephine Smith; birthday 13-11-1980; address 60 Morris St, Summer Hill, NSW 2130; email j.e.bl@oggs@gmail.com
+
+add name Posephine Taylor; birthday 14-11-1980; address 36 Carrington St, Summer Hill, NSW 2130
+add name Posephine Willianm; birthday 15-11-1980; address 37 Barton Ave, Haberfield, NSW 2045
+
+delete James Smith; 23-03-1989
+delete John Jones; 28-09-1968
+
+add name Barbara Wilson; birthday 01-02-1988; address 64 Lennox St, Rockdale, NSW 2216
+delete Barbara Wilson; 32-01-1988
+
+add name John Jones; birthday 18-09-1968; email jo@bloggs@gmail@gmail.com
+
+save

@@ -1,0 +1,10 @@
+testjava/.metadata/
+testjava/.recommenders/
+foo.*
+tmp.*
+__pycache__/
+testjs/data.json
+.ropeproject
+sftp-config.json
+testpy/testmnist/MNIST_data/
+.idea/

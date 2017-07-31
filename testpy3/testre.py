@@ -1,10 +1,14 @@
-'''
+"""
 Created on 2012-12-12
 
 @author: qcg
-'''
-import re
+"""
+from re import compile as rec
 
-s = '100 BROAD ROAD APT. 3'
-t = re.sub(r'\bROAD\b', 'RD.', s)
-print(t)
+s = "PING dd"
+r = rec(r"PING.*")
+if r.fullmatch(s):
+    print("FIND")
+
+d = {"name": "qcg", "birthday": "1999-09-09"}
+print(type(rb"\n"), len(rb"\n"))

@@ -1,0 +1,25 @@
+INTEGER :: n=0
+INTEGER, ALLOCATABLE :: CC(:)
+DO WHILE(n<=0)
+	PRINT*, "ÊäÈëNÖµ"
+	READ*, n
+END DO
+ALLOCATE(CC(n+1))
+CALL COEF(CC,n)
+PRINT *, CC
+END
+
+RECURSIVE SUBROUTINE COEF(C,N)
+	INTEGER :: C(1:N+1),N,I
+	IF(N==1) THEN
+		C(1)=1
+		C(2)=1
+	ELSE
+		CALL COEF(C,N-1)
+		C(N+1)=1
+		DO I=N,2,-1
+			C(I)=C(I)+C(I-1)
+		END DO
+		C(1)=1
+	END IF
+END

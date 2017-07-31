@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-18
 
 @author: Administrator
-'''
+"""
 import os
 import sys
 import itertools

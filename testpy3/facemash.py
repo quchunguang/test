@@ -3,7 +3,7 @@ import math
 
 
 def EloRating(ra, rb, sa, k=16):
-    '''
+    """
     Elo Rating System
     ra - player A's current rank score.
     rb - player B's current rank score.
@@ -13,7 +13,7 @@ def EloRating(ra, rb, sa, k=16):
 
     Reference
     https://en.wikipedia.org/wiki/Elo_rating_system
-    '''
+    """
 
     ea = 1/(1+math.pow(10, (rb-ra)/400))
     # ea = 1/(1+10**((rb-ra)/400))

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<svg width="720" height="120">
+</svg>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+var svg = d3.select("svg");
+var circle = svg.selectAll("circle")
+    .data([32, 57, 112])
+
+circle.enter().append("circle")
+    .attr("cx", function() { return Math.random() * 720; })
+    .attr("cy", 60)
+    .attr("r", function(d, i) { return Math.sqrt(d); })
+    .attr("style", "fill:steelblue;");
+
+circle.attr("r", 0)
+  .transition()
+    .attr("r", 50);
+// circles.attr("r", 100);
+</script>
+</body>
+</html>

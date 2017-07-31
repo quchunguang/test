@@ -1,8 +1,8 @@
-'''
+"""
 Created on 2012-12-12
 
 @author: qcg
-'''
+"""
 try:
     from lxml import etree
 except ImportError:
