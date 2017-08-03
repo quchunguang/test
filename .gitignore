@@ -8,3 +8,4 @@ testjs/data.json
 sftp-config.json
 testpy/testmnist/MNIST_data/
 .idea/
+*/.vscode

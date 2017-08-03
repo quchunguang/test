@@ -1,0 +1,12 @@
+2017-08-03 12:03:03,237 [DEBUG] This message should go to the log file
+2017-08-03 12:03:03,238 [INFO] So should this
+2017-08-03 12:03:03,238 [WARNING] And this, too
+2017-08-03 12:05:20,789 [DEBUG] This message should go to the log file
+2017-08-03 12:05:20,790 [INFO] So should this
+2017-08-03 12:05:20,791 [WARNING] And this, too
+2017-08-03 12:05:46,059 [DEBUG] This message should go to the log file
+2017-08-03 12:05:46,060 [INFO] So should this
+2017-08-03 12:05:46,061 [WARNING] And this, too
+2017-08-03 12:06:01,295 [DEBUG] This message should go to the log file
+2017-08-03 12:06:01,296 [INFO] So should this
+2017-08-03 12:06:01,297 [WARNING] And this, too

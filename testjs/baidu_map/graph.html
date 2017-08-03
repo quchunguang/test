@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>客整场巡检系统</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="static/image/favicon.ico">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="static/css/table.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/bootstrap-table.min.js"></script>
+    <script src="static/js/bootstrap-table-zh-CN.js"></script>
+    <script src="static/js/ga.js"></script>
+    <script src="http://api.map.baidu.com/api?v=1.2"></script>
+</head>
+
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">济南名泉分布</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="separator" class="divider"></li>
+                    <li class="active"><a href="/graph">路线图</a></li>
+                </ul>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li class="active"><a href="#">{{ username }}</a></li> -->
+                    <!-- <li role="separator" class="divider"></li> -->
+                    <!-- <li><a href="/signout">退出</a></li> -->
+                    <!-- <li><a href="#">帮助</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--     <div class="container">
+    <br>
+    <img src="/static/image/graph.gif" alt="图片" />
+    </div> -->
+    <div style="width:800px;height:600px;border:1px solid gray" id="map"></div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var style = "width:" + $(document).width() + "px;height:" + $(document).height() + "px;border:1px solid gray"
+        $("#map").attr("style", style)
+    });
+
+    var map = new BMap.Map("map", {
+        mapType: BMAP_SATELLITE_MAP
+    });
+    var center = new BMap.Point(119.305724, 26.092186);
+    map.centerAndZoom(center, 18);
+    map.enableScrollWheelZoom();
+    map.enableKeyboard();
+    var opts = {
+        anchor: BMAP_ANCHOR_TOP_LEFT,
+        offset: new BMap.Size(50, 100)
+    }
+    map.addControl(new BMap.NavigationControl(opts));
+    map.addControl(new BMap.MapTypeControl());
+
+    // create marks
+    data = [
+        [119.305724, 26.092186, "1股北 西1", "800000000001"],
+        [119.306724, 26.092186, "1股北 西2", "800000000002"],
+        [119.307724, 26.092186, "1股北 西3", "800000000003"],
+        [119.308724, 26.092186, "1股北 西4", "800000000004"],
+        [119.309724, 26.092186, "1股北 西5", "800000000005"],
+        [119.310724, 26.092186, "1股北 西6", "800000000006"],
+        [119.311724, 26.092186, "1股北 西7", "800000000007"],
+        [119.312724, 26.092186, "1股北 西8", "800000000008"],
+        [119.313724, 26.092186, "1股北 西9", "800000000009"]
+    ];
+    $(data).each(function(i, val) {
+        var point = new BMap.Point(val[0], val[1]);
+
+        var lbl = new BMap.Label(val[2], {
+            offset: new BMap.Size(10, -70),
+            position: point
+        });
+        lbl.setStyle({
+            background: "",
+            color: "white",
+            fontSize: "18px",
+            border: "0",
+            height: "120px",
+            width: "125px",
+            textAlign: "center",
+            lineHeight: "120px",
+            cursor: "pointer"
+        });
+        var marker = new BMap.Marker(point);
+        marker.setTitle(val[3]);
+        marker.setLabel(lbl);
+        map.addOverlay(marker);
+    });
+    </script>
+</body>
+
+</html>

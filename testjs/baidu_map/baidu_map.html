@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>泉水之旅</title>
+    <!-- <script src="static/js/jquery.min.js"></script> -->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=GOsSV5bMcUb4Hcdu6WyA4tTTPUIp8Zot"></script>
+    <script src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+    <style type="text/css">
+        html,body{
+            width:100%;
+            height:100%;
+            margin:0;
+            overflow:hidden;
+            font-family:"微软雅黑";
+        }
+    </style>
+</head>
+<body>
+    <div style="width:100%;height:100%;border:1px solid gray" id="map"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // GPS数据: 经度, 纬度, 标注, 提示
+    data = [
+        [119.305724, 26.092186, "趵突泉", "119.305724E, 26.092186N"],
+        [119.306724, 26.092186, "趵突泉", "119.306724E, 26.092186N"],
+        [119.307724, 26.092186, "趵突泉", "119.307724E, 26.092186N"],
+        [119.308724, 26.092186, "趵突泉", "119.308724E, 26.092186N"],
+        [119.309724, 26.092186, "趵突泉", "119.309724E, 26.092186N"],
+        [119.310724, 26.092186, "趵突泉", "119.310724E, 26.092186N"],
+        [119.311724, 26.092186, "趵突泉", "119.311724E, 26.092186N"],
+        [119.312724, 26.092186, "趵突泉", "119.312724E, 26.092186N"],
+        [119.313724, 26.092186, "趵突泉", "119.313724E, 26.092186N"]
+    ];
+
+    var map = new BMap.Map("map");
+    // var map = new BMap.Map("map", {mapType: BMAP_SATELLITE_MAP });
+
+    // 设定中心点及缩放级别
+    map.centerAndZoom(new BMap.Point(119.310724, 26.092186), 18);
+    map.enableScrollWheelZoom();
+    map.enableKeyboard();
+    var opts = {
+        anchor: BMAP_ANCHOR_TOP_LEFT,
+        offset: new BMap.Size(50, 100)
+    }
+    map.addControl(new BMap.NavigationControl(opts));
+    map.addControl(new BMap.MapTypeControl());
+
+    // 添加标注
+    var points = [];
+    data.forEach(function(val) {
+        var point = new BMap.Point(val[0], val[1]);
+        points.push(point);
+
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        var label = new BMap.Label(val[2],{offset:new BMap.Size(20, -10)});
+        marker.setLabel(label);
+        marker.setTitle(val[3]);
+    });
+
+    //创建弧线对象
+    var curve = new BMapLib.CurveLine(points, {strokeColor:"blue", strokeWeight:3, strokeOpacity:0.5});
+    // var curve = new BMap.PolyLine(points, {strokeColor:"blue", strokeWeight:3, strokeOpacity:0.5});
+    map.addOverlay(curve);
+    curve.enableEditing();
+</script>
